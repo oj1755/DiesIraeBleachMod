@@ -23,32 +23,32 @@ import java.util.Map;
 import java.util.List;
 import java.util.Comparator;
 
-public class MahoujinProcedure {
+public class BakuhaProcedure {
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
-				DiesiraebleachMod.LOGGER.warn("Failed to load dependency world for procedure Mahoujin!");
+				DiesiraebleachMod.LOGGER.warn("Failed to load dependency world for procedure Bakuha!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
-				DiesiraebleachMod.LOGGER.warn("Failed to load dependency x for procedure Mahoujin!");
+				DiesiraebleachMod.LOGGER.warn("Failed to load dependency x for procedure Bakuha!");
 			return;
 		}
 		if (dependencies.get("y") == null) {
 			if (!dependencies.containsKey("y"))
-				DiesiraebleachMod.LOGGER.warn("Failed to load dependency y for procedure Mahoujin!");
+				DiesiraebleachMod.LOGGER.warn("Failed to load dependency y for procedure Bakuha!");
 			return;
 		}
 		if (dependencies.get("z") == null) {
 			if (!dependencies.containsKey("z"))
-				DiesiraebleachMod.LOGGER.warn("Failed to load dependency z for procedure Mahoujin!");
+				DiesiraebleachMod.LOGGER.warn("Failed to load dependency z for procedure Bakuha!");
 			return;
 		}
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
-				DiesiraebleachMod.LOGGER.warn("Failed to load dependency entity for procedure Mahoujin!");
+				DiesiraebleachMod.LOGGER.warn("Failed to load dependency entity for procedure Bakuha!");
 			return;
 		}
 		IWorld world = (IWorld) dependencies.get("world");
