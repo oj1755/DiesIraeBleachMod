@@ -44,7 +44,7 @@ public class MahoujinredParticle {
 			this.spriteSet = spriteSet;
 			this.setSize((float) 0.2, (float) 0.2);
 			this.particleScale *= (float) 16;
-			this.maxAge = (int) Math.max(1, 3 + (this.rand.nextInt(2) - 1));
+			this.maxAge = (int) Math.max(1, 5 + (this.rand.nextInt(2) - 1));
 			this.particleGravity = (float) 100;
 			this.canCollide = true;
 			this.motionX = vx * 1;
