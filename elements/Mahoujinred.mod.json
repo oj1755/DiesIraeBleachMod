@@ -1,0 +1,21 @@
+{
+  "_fv": 33,
+  "_type": "particle",
+  "definition": {
+    "texture": "mahoujinred.png",
+    "animate": true,
+    "frameDuration": 100,
+    "width": 0.2,
+    "height": 0.2,
+    "scale": 16.0,
+    "speedFactor": 1.0,
+    "gravity": 100.0,
+    "maxAge": 1000,
+    "maxAgeDiff": 1,
+    "angularVelocity": 0.1,
+    "angularAcceleration": 0.0,
+    "canCollide": true,
+    "alwaysShow": true,
+    "renderType": "OPAQUE"
+  }
+}

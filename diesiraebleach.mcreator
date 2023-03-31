@@ -103,6 +103,14 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "dora_cannon"
+    },
+    {
+      "name": "Mahoujinred",
+      "type": "particle",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mahoujinred"
     }
   ],
   "variable_elements": [],
