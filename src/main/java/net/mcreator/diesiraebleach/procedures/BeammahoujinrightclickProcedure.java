@@ -1,15 +1,6 @@
 package net.mcreator.diesiraebleach.procedures;
 
-import net.minecraft.world.IWorld;
-import net.minecraft.util.Hand;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.item.ItemStack;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Entity;
-
-import net.mcreator.diesiraebleach.DiesiraebleachMod;
-
-import java.util.Map;
+import net.minecraftforge.eventbus.api.Event;
 
 public class BeammahoujinrightclickProcedure {
 
@@ -44,12 +35,14 @@ public class BeammahoujinrightclickProcedure {
 				DiesiraebleachMod.LOGGER.warn("Failed to load dependency itemstack for procedure Beammahoujinrightclick!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
 		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
+
 		double a = 0;
 		double b = 0;
 		double c = 0;
@@ -124,4 +117,5 @@ public class BeammahoujinrightclickProcedure {
 			}
 		}
 	}
+
 }

@@ -1,14 +1,6 @@
 package net.mcreator.diesiraebleach.procedures;
 
-import net.minecraft.world.World;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.Explosion;
-import net.minecraft.util.math.RayTraceContext;
-import net.minecraft.entity.Entity;
-
-import net.mcreator.diesiraebleach.DiesiraebleachMod;
-
-import java.util.Map;
+import net.minecraftforge.eventbus.api.Event;
 
 public class KibakuswitchProcedure {
 
@@ -23,8 +15,10 @@ public class KibakuswitchProcedure {
 				DiesiraebleachMod.LOGGER.warn("Failed to load dependency entity for procedure Kibakuswitch!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		if (entity.isSneaking()) {
 			if (entity.getPersistentData().getDouble("tyakkakyori") < 50) {
 				entity.getPersistentData().putDouble("tyakkakyori", (entity.getPersistentData().getDouble("tyakkakyori") + 5));
@@ -53,4 +47,5 @@ public class KibakuswitchProcedure {
 			}
 		}
 	}
+
 }

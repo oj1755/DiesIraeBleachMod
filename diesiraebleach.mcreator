@@ -1,12 +1,40 @@
 {
   "mod_elements": [
     {
-      "name": "Kibakuswitch",
+      "name": "Meteoruptick",
       "type": "procedure",
-      "sortid": 1,
+      "sortid": 6,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "kibakuswitch",
+      "registry_name": "meteoruptick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Mahoujin",
+      "type": "procedure",
+      "sortid": 8,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mahoujin",
       "metadata": {
         "dependencies": [
           {
@@ -14,10 +42,33 @@
             "type": "entity"
           },
           {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
             "name": "world",
             "type": "world"
           }
         ]
+      }
+    },
+    {
+      "name": "Meteorrightclick",
+      "type": "procedure",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "meteorrightclick",
+      "metadata": {
+        "dependencies": []
       }
     },
     {
@@ -61,6 +112,26 @@
       "registry_name": "barrier",
       "metadata": {
         "dependencies": []
+      }
+    },
+    {
+      "name": "Kibakuswitch",
+      "type": "procedure",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kibakuswitch",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       }
     },
     {
@@ -111,51 +182,12 @@
       }
     },
     {
-      "name": "Meteoruptick",
+      "name": "Tamesi",
       "type": "procedure",
-      "sortid": 6,
+      "sortid": 1,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "meteoruptick",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "Meteorrightclick",
-      "type": "procedure",
-      "sortid": 7,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "meteorrightclick",
-      "metadata": {
-        "dependencies": []
-      }
-    },
-    {
-      "name": "Mahoujin",
-      "type": "procedure",
-      "sortid": 8,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "mahoujin",
+      "registry_name": "tamesi",
       "metadata": {
         "dependencies": [
           {
@@ -205,7 +237,6 @@
     "dependants": [],
     "mcreatorDependencies": [],
     "currentGenerator": "forge-1.16.5",
-    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.diesiraebleach",
     "lockBaseModFiles": false
   },

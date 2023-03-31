@@ -1,27 +1,6 @@
 package net.mcreator.diesiraebleach.procedures;
 
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.common.MinecraftForge;
-
-import net.minecraft.world.IWorld;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.Hand;
-import net.minecraft.util.DamageSource;
-import net.minecraft.potion.Effects;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Entity;
-
-import net.mcreator.diesiraebleach.DiesiraebleachMod;
-
-import java.util.stream.Collectors;
-import java.util.function.Function;
-import java.util.Map;
-import java.util.List;
-import java.util.Comparator;
+import net.minecraftforge.eventbus.api.Event;
 
 public class MahoujinProcedure {
 
@@ -51,11 +30,13 @@ public class MahoujinProcedure {
 				DiesiraebleachMod.LOGGER.warn("Failed to load dependency entity for procedure Mahoujin!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		double xx = 0;
 		double zz = 0;
 		double i = 0;
@@ -124,6 +105,7 @@ public class MahoujinProcedure {
 					t = 10;
 					for (int index3 = 0; index3 < (int) (5); index3++) {
 						new Object() {
+
 							private int ticks = 0;
 							private float waitTicks;
 							private IWorld world;
@@ -145,8 +127,10 @@ public class MahoujinProcedure {
 
 							private void run() {
 								entityiterator.attackEntityFrom(DamageSource.GENERIC, (float) 1);
+
 								MinecraftForge.EVENT_BUS.unregister(this);
 							}
+
 						}.start(world, (int) t);
 						t = (t + 10);
 					}
@@ -154,4 +138,5 @@ public class MahoujinProcedure {
 			}
 		}
 	}
+
 }
