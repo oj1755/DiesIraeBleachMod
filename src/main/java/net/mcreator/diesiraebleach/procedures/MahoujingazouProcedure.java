@@ -92,7 +92,7 @@ public class MahoujingazouProcedure {
 					if (entityiterator instanceof LivingEntity)
 						((LivingEntity) entityiterator).addPotionEffect(new EffectInstance(Effects.SLOWNESS, (int) 50, (int) 10, (false), (false)));
 					world.addParticle(MahoujinredParticle.particle, (entityiterator.getPosX()), (entityiterator.getPosY()),
-							(entityiterator.getPosZ()), 0, 0, 0);
+							(entityiterator.getPosZ()), (entity.getMotion().getX()), (entity.getMotion().getY()), (entity.getMotion().getZ()));
 				}
 			}
 		}
