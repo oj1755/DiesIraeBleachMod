@@ -1,6 +1,22 @@
 package net.mcreator.diesiraebleach.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.Hand;
+import net.minecraft.potion.Effects;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Entity;
+
+import net.mcreator.diesiraebleach.particle.MahoujinredParticle;
+import net.mcreator.diesiraebleach.DiesiraebleachMod;
+
+import java.util.stream.Collectors;
+import java.util.function.Function;
+import java.util.Map;
+import java.util.List;
+import java.util.Comparator;
 
 public class MahoujingazouProcedure {
 
@@ -30,13 +46,11 @@ public class MahoujingazouProcedure {
 				DiesiraebleachMod.LOGGER.warn("Failed to load dependency entity for procedure Mahoujingazou!");
 			return;
 		}
-
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
-
 		double xx = 0;
 		double zz = 0;
 		double i = 0;
@@ -77,66 +91,10 @@ public class MahoujingazouProcedure {
 						.orElse(null)) != null) {
 					if (entityiterator instanceof LivingEntity)
 						((LivingEntity) entityiterator).addPotionEffect(new EffectInstance(Effects.SLOWNESS, (int) 50, (int) 10, (false), (false)));
-					r = 1;
-					angle = 0;
-					k = 50;
-					for (int index0 = 0; index0 < (int) (k); index0++) {
-						world.addParticle(ParticleTypes.END_ROD, (entityiterator.getPosX() + r * Math.cos(Math.toRadians(angle))),
-								(entityiterator.getPosY()), (entityiterator.getPosZ() + r * Math.sin(Math.toRadians(angle))), 0, 0.2, 0);
-						angle = (angle + 360 / k);
-					}
-					i = 0;
-					for (int index1 = 0; index1 < (int) (5); index1++) {
-						x1 = (entityiterator.getPosX() + r * Math.cos(Math.toRadians(i)));
-						z1 = (entityiterator.getPosZ() + r * Math.sin(Math.toRadians(i)));
-						x2 = (entityiterator.getPosX() + r * Math.cos(Math.toRadians(i + 144)));
-						z2 = (entityiterator.getPosZ() + r * Math.sin(Math.toRadians(i + 144)));
-						dx = ((x2 - x1) / k);
-						dz = ((z2 - z1) / k);
-						xx = x1;
-						zz = z1;
-						for (int index2 = 0; index2 < (int) (k); index2++) {
-							world.addParticle(ParticleTypes.END_ROD, xx, (entityiterator.getPosY()), zz, 0, 0.2, 0);
-							xx = (xx + dx);
-							zz = (zz + dz);
-						}
-						i = (i + 72);
-					}
-					t = 10;
-					for (int index3 = 0; index3 < (int) (5); index3++) {
-						new Object() {
-
-							private int ticks = 0;
-							private float waitTicks;
-							private IWorld world;
-
-							public void start(IWorld world, int waitTicks) {
-								this.waitTicks = waitTicks;
-								MinecraftForge.EVENT_BUS.register(this);
-								this.world = world;
-							}
-
-							@SubscribeEvent
-							public void tick(TickEvent.ServerTickEvent event) {
-								if (event.phase == TickEvent.Phase.END) {
-									this.ticks += 1;
-									if (this.ticks >= this.waitTicks)
-										run();
-								}
-							}
-
-							private void run() {
-								entityiterator.attackEntityFrom(DamageSource.GENERIC, (float) 1);
-
-								MinecraftForge.EVENT_BUS.unregister(this);
-							}
-
-						}.start(world, (int) t);
-						t = (t + 10);
-					}
+					world.addParticle(MahoujinredParticle.particle, (entityiterator.getPosX()), (entityiterator.getPosY()),
+							(entityiterator.getPosZ()), 0, 0, 0);
 				}
 			}
 		}
 	}
-
 }
