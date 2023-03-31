@@ -3,8 +3,6 @@ package net.mcreator.diesiraebleach.procedures;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.Hand;
-import net.minecraft.potion.Effects;
-import net.minecraft.potion.EffectInstance;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
@@ -64,9 +62,11 @@ public class MahoujingazouProcedure {
 		double angle = 0;
 		double x1 = 0;
 		double x2 = 0;
+		k = 1;
 		if (entity instanceof LivingEntity) {
 			((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 		}
+		k = (k * (-1));
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,
@@ -89,11 +89,11 @@ public class MahoujingazouProcedure {
 							}
 						}.compareDistOf((entityiterator.getPosX()), (entityiterator.getPosY()), (entityiterator.getPosZ()))).findFirst()
 						.orElse(null)) != null) {
-					if (entityiterator instanceof LivingEntity)
-						((LivingEntity) entityiterator).addPotionEffect(new EffectInstance(Effects.SLOWNESS, (int) 50, (int) 10, (false), (false)));
-					world.addParticle(MahoujinredParticle.particle, (entityiterator.getPosX()), (entityiterator.getPosY()),
-							(entityiterator.getPosZ()), (entityiterator.getMotion().getX()), (entityiterator.getMotion().getY()),
-							(entityiterator.getMotion().getZ()));
+					while (k == -1) {
+						world.addParticle(MahoujinredParticle.particle, (entityiterator.getPosX()), (entityiterator.getPosY()),
+								(entityiterator.getPosZ()), (entityiterator.getMotion().getX()), (entityiterator.getMotion().getY()),
+								(entityiterator.getMotion().getZ()));
+					}
 				}
 			}
 		}
