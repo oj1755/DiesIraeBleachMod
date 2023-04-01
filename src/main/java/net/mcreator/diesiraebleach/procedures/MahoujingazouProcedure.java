@@ -1,9 +1,5 @@
 package net.mcreator.diesiraebleach.procedures;
 
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.common.MinecraftForge;
-
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.Hand;
@@ -93,35 +89,9 @@ public class MahoujingazouProcedure {
 							}
 						}.compareDistOf((entityiterator.getPosX()), (entityiterator.getPosY()), (entityiterator.getPosZ()))).findFirst()
 						.orElse(null)) != null) {
-					while (k == -1) {
-						new Object() {
-							private int ticks = 0;
-							private float waitTicks;
-							private IWorld world;
-
-							public void start(IWorld world, int waitTicks) {
-								this.waitTicks = waitTicks;
-								MinecraftForge.EVENT_BUS.register(this);
-								this.world = world;
-							}
-
-							@SubscribeEvent
-							public void tick(TickEvent.ServerTickEvent event) {
-								if (event.phase == TickEvent.Phase.END) {
-									this.ticks += 1;
-									if (this.ticks >= this.waitTicks)
-										run();
-								}
-							}
-
-							private void run() {
-								world.addParticle(MahoujinredParticle.particle, (entityiterator.getPosX()), (entityiterator.getPosY()),
-										(entityiterator.getPosZ()), (entityiterator.getMotion().getX()), (entityiterator.getMotion().getY()),
-										(entityiterator.getMotion().getZ()));
-								MinecraftForge.EVENT_BUS.unregister(this);
-							}
-						}.start(world, (int) 5);
-					}
+					world.addParticle(MahoujinredParticle.particle, (entityiterator.getPosX()), (entityiterator.getPosY()),
+							(entityiterator.getPosZ()), (entityiterator.getMotion().getX()), (entityiterator.getMotion().getY()),
+							(entityiterator.getMotion().getZ()));
 				}
 			}
 		}
