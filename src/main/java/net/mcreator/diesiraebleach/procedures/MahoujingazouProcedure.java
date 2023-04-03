@@ -70,7 +70,8 @@ public class MahoujingazouProcedure {
 		if (entity instanceof LivingEntity) {
 			((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 		}
-		k = (k * (-1));
+		r = (k * (-1));
+		k = r;
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,
