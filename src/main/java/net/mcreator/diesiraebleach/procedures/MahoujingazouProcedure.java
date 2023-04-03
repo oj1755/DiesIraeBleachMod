@@ -1,9 +1,5 @@
 package net.mcreator.diesiraebleach.procedures;
 
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.common.MinecraftForge;
-
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.Hand;
@@ -81,52 +77,22 @@ public class MahoujingazouProcedure {
 						}
 					}.compareDistOf(x, y, z)).collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
-				while (k == -1) {
-					new Object() {
-						private int ticks = 0;
-						private float waitTicks;
-						private IWorld world;
-
-						public void start(IWorld world, int waitTicks) {
-							this.waitTicks = waitTicks;
-							MinecraftForge.EVENT_BUS.register(this);
-							this.world = world;
-						}
-
-						@SubscribeEvent
-						public void tick(TickEvent.ServerTickEvent event) {
-							if (event.phase == TickEvent.Phase.END) {
-								this.ticks += 1;
-								if (this.ticks >= this.waitTicks)
-									run();
+				if (((Entity) world
+						.getEntitiesWithinAABB(MonsterEntity.class,
+								new AxisAlignedBB((entityiterator.getPosX()) - (0.1 / 2d), (entityiterator.getPosY()) - (0.1 / 2d),
+										(entityiterator.getPosZ()) - (0.1 / 2d), (entityiterator.getPosX()) + (0.1 / 2d),
+										(entityiterator.getPosY()) + (0.1 / 2d), (entityiterator.getPosZ()) + (0.1 / 2d)),
+								null)
+						.stream().sorted(new Object() {
+							Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+								return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 							}
-						}
-
-						private void run() {
-							if (((Entity) world
-									.getEntitiesWithinAABB(MonsterEntity.class,
-											new AxisAlignedBB((entityiterator.getPosX()) - (0.1 / 2d), (entityiterator.getPosY()) - (0.1 / 2d),
-													(entityiterator.getPosZ()) - (0.1 / 2d), (entityiterator.getPosX()) + (0.1 / 2d),
-													(entityiterator.getPosY()) + (0.1 / 2d), (entityiterator.getPosZ()) + (0.1 / 2d)),
-											null)
-									.stream().sorted(new Object() {
-										Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-											return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-										}
-									}.compareDistOf((entityiterator.getPosX()), (entityiterator.getPosY()), (entityiterator.getPosZ()))).findFirst()
-									.orElse(null)) != null) {
-								world.addParticle(MahoujinredParticle.particle, (entityiterator.getPosX()), (entityiterator.getPosY()),
-										(entityiterator.getPosZ()), (entityiterator.getMotion().getX()), (entityiterator.getMotion().getY()),
-										(entityiterator.getMotion().getZ()));
-							}
-							MinecraftForge.EVENT_BUS.unregister(this);
-						}
-					}.start(world, (int) 40);
+						}.compareDistOf((entityiterator.getPosX()), (entityiterator.getPosY()), (entityiterator.getPosZ()))).findFirst()
+						.orElse(null)) != null) {
+					world.addParticle(MahoujinredParticle.particle, (entityiterator.getPosX()), (entityiterator.getPosY()),
+							(entityiterator.getPosZ()), (entityiterator.getMotion().getX()), (entityiterator.getMotion().getY()),
+							(entityiterator.getMotion().getZ()));
 				}
-				if (entity instanceof LivingEntity) {
-					((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
-				}
-				break;
 			}
 		}
 	}
