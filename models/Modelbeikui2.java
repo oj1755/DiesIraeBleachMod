@@ -2,16 +2,16 @@
 // Exported for Minecraft version 1.15 - 1.16 with Mojang mappings
 // Paste this class into your mod and generate all required imports
 
-public static class ModelMahoujinred extends EntityModel<Entity> {
+public static class Modelbeikui2 extends EntityModel<Entity> {
 	private final ModelRenderer bb_main;
 
-	public ModelMahoujinred() {
+	public Modelbeikui2() {
 		texWidth = 32;
 		texHeight = 32;
 
 		bb_main = new ModelRenderer(this);
 		bb_main.setPos(0.0F, 24.0F, 0.0F);
-		bb_main.texOffs(-32, 0).addBox(-16.0F, 0.0F, -17.0F, 32.0F, 0.0F, 32.0F, 0.0F, false);
+		bb_main.texOffs(0, 0).addBox(0.0F, -1.0F, -1.0F, 1.0F, 1.0F, 9.0F, 0.0F, false);
 	}
 
 	@Override
@@ -28,6 +28,5 @@ public static class ModelMahoujinred extends EntityModel<Entity> {
 
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw,
 			float headPitch) {
-		this.bb_main.xRot = ageInTicks;
 	}
 }

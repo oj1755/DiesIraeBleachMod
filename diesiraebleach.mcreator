@@ -111,13 +111,110 @@
           }
         ]
       }
+    },
+    {
+      "name": "SeiibutsuposiyonnoXiaoGuogaKaiShiShiYongsaretatoki",
+      "type": "procedure",
+      "sortid": 12,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "seiibutsuposiyonno_xiao_guoga_kai_shi_shi_yongsaretatoki",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Seiibutsu",
+      "type": "potioneffect",
+      "sortid": 12,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "seiibutsu"
+    },
+    {
+      "name": "QliphothBacikal",
+      "type": "potion",
+      "sortid": 13,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "qliphoth_bacikal"
+    },
+    {
+      "name": "SoulCount",
+      "type": "procedure",
+      "sortid": 14,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soul_count",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Soulcounter",
+      "type": "overlay",
+      "sortid": 15,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soulcounter"
+    },
+    {
+      "name": "Beikatsudou",
+      "type": "procedure",
+      "sortid": 16,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beikatsudou",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "QliphothBacikal2",
+      "type": "item",
+      "sortid": 17,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "qliphoth_bacikal_2"
     }
   ],
-  "variable_elements": [],
+  "variable_elements": [
+    {
+      "name": "Killsoul",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0.0"
+    }
+  ],
   "sound_elements": [],
   "language_map": {
     "en_us": {
-      "item.diesiraebleach.dora_cannon": "Dora Cannon"
+      "item.diesiraebleach.dora_cannon": "Dora Cannon",
+      "item.minecraft.splash_potion.effect.qliphoth_bacikal": "Splash Potion of Qliphoth Bacikal",
+      "item.diesiraebleach.qliphoth_bacikal_2": "Qliphoth Bacikal 2",
+      "item.minecraft.potion.effect.qliphoth_bacikal": "Qliphoth Bacikal",
+      "item.minecraft.lingering_potion.effect.qliphoth_bacikal": "Lingering Potion of Qliphoth Bacikal",
+      "item.minecraft.tipped_arrow.effect.qliphoth_bacikal": "Arrow of Qliphoth Bacikal",
+      "effect.seiibutsu": "聖遺物"
     }
   },
   "foldersRoot": {

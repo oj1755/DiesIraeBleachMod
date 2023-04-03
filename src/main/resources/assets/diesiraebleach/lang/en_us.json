@@ -1,3 +1,9 @@
 {
-  "item.diesiraebleach.dora_cannon": "Dora Cannon"
+  "item.diesiraebleach.dora_cannon": "Dora Cannon",
+  "item.minecraft.splash_potion.effect.qliphoth_bacikal": "Splash Potion of Qliphoth Bacikal",
+  "item.diesiraebleach.qliphoth_bacikal_2": "Qliphoth Bacikal 2",
+  "item.minecraft.potion.effect.qliphoth_bacikal": "Qliphoth Bacikal",
+  "item.minecraft.lingering_potion.effect.qliphoth_bacikal": "Lingering Potion of Qliphoth Bacikal",
+  "item.minecraft.tipped_arrow.effect.qliphoth_bacikal": "Arrow of Qliphoth Bacikal",
+  "effect.seiibutsu": "聖遺物"
 }
