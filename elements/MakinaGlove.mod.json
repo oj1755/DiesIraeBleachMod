@@ -2,9 +2,9 @@
   "_fv": 33,
   "_type": "tool",
   "definition": {
-    "renderType": 0,
+    "renderType": 1,
     "texture": "kobusi",
-    "customModelName": "Normal",
+    "customModelName": "machinaglovel:default",
     "name": "Makina Glove",
     "specialInfo": [],
     "creativeTab": {

@@ -1,6 +1,7 @@
 {
-  "parent": "item/handheld",
+  "parent": "diesiraebleach:custom/machinaglovel",
   "textures": {
-    "layer0": "diesiraebleach:items/kobusi"
+    "0": "diesiraebleach:blocks/makinapunch",
+    "particle": "diesiraebleach:items/kobusi"
   }
 }
