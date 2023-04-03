@@ -255,6 +255,14 @@
           }
         ]
       }
+    },
+    {
+      "name": "Getsugabunshi",
+      "type": "particle",
+      "sortid": 23,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "getsugabunshi"
     }
   ],
   "variable_elements": [
