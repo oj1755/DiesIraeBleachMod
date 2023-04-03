@@ -211,6 +211,26 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "hihiirokane"
+    },
+    {
+      "name": "HihiirokaneenteiteigaaitemuwoZhentutaShi",
+      "type": "procedure",
+      "sortid": 20,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hihiirokaneenteiteigaaitemuwo_zhentuta_shi",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [
