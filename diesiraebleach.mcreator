@@ -233,14 +233,6 @@
       }
     },
     {
-      "name": "Zangetsu",
-      "type": "item",
-      "sortid": 21,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "zangetsu"
-    },
-    {
       "name": "Getsuga",
       "type": "procedure",
       "sortid": 22,
@@ -263,6 +255,14 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "getsugabunshi"
+    },
+    {
+      "name": "Zangetsu",
+      "type": "tool",
+      "sortid": 24,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "zangetsu"
     }
   ],
   "variable_elements": [
