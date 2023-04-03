@@ -15,12 +15,12 @@
       "value": ""
     },
     "shootConstantly": false,
-    "usageCount": 100,
+    "usageCount": 0,
     "actionSound": {
       "value": "item.crossbow.shoot"
     },
     "hasGlow": false,
-    "animation": "bow",
+    "animation": "spear",
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "bulletPower": 1.0,

@@ -62,11 +62,9 @@ public class MahoujingazouProcedure {
 		double angle = 0;
 		double x1 = 0;
 		double x2 = 0;
-		k = 1;
 		if (entity instanceof LivingEntity) {
 			((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 		}
-		k = (k * (-1));
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,

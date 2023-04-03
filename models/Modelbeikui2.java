@@ -11,7 +11,7 @@ public static class Modelbeikui2 extends EntityModel<Entity> {
 
 		bb_main = new ModelRenderer(this);
 		bb_main.setPos(0.0F, 24.0F, 0.0F);
-		bb_main.texOffs(0, 0).addBox(0.0F, -1.0F, -1.0F, 1.0F, 1.0F, 9.0F, 0.0F, false);
+		bb_main.texOffs(0, 0).addBox(0.0F, -1.0F, -5.0F, 1.0F, 1.0F, 9.0F, 0.0F, false);
 	}
 
 	@Override
