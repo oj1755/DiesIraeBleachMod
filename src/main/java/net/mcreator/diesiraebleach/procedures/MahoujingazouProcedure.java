@@ -44,11 +44,17 @@ public class MahoujingazouProcedure {
 				DiesiraebleachMod.LOGGER.warn("Failed to load dependency entity for procedure Mahoujingazou!");
 			return;
 		}
+		if (dependencies.get("immediatesourceentity") == null) {
+			if (!dependencies.containsKey("immediatesourceentity"))
+				DiesiraebleachMod.LOGGER.warn("Failed to load dependency immediatesourceentity for procedure Mahoujingazou!");
+			return;
+		}
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
+		Entity immediatesourceentity = (Entity) dependencies.get("immediatesourceentity");
 		double xx = 0;
 		double zz = 0;
 		double i = 0;
@@ -62,11 +68,9 @@ public class MahoujingazouProcedure {
 		double angle = 0;
 		double x1 = 0;
 		double x2 = 0;
-		k = 1;
 		if (entity instanceof LivingEntity) {
 			((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 		}
-		k = (k * (-1));
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,
@@ -90,8 +94,8 @@ public class MahoujingazouProcedure {
 						}.compareDistOf((entityiterator.getPosX()), (entityiterator.getPosY()), (entityiterator.getPosZ()))).findFirst()
 						.orElse(null)) != null) {
 					world.addParticle(MahoujinredParticle.particle, (entityiterator.getPosX()), (entityiterator.getPosY()),
-							(entityiterator.getPosZ()), (entityiterator.getMotion().getX()), (entityiterator.getMotion().getY()),
-							(entityiterator.getMotion().getZ()));
+							(entityiterator.getPosZ()), (immediatesourceentity.getMotion().getX()), (immediatesourceentity.getMotion().getY()),
+							(immediatesourceentity.getMotion().getZ()));
 				}
 			}
 		}
