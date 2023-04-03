@@ -231,6 +231,30 @@
           }
         ]
       }
+    },
+    {
+      "name": "Zangetsu",
+      "type": "item",
+      "sortid": 21,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "zangetsu"
+    },
+    {
+      "name": "Getsuga",
+      "type": "procedure",
+      "sortid": 22,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "getsuga",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -252,6 +276,7 @@
       "item.diesiraebleach.hihiirokane": "Hihiirokane",
       "item.minecraft.tipped_arrow.effect.qliphoth_bacikal": "Arrow of Qliphoth Bacikal",
       "item.diesiraebleach.kui": "Kui",
+      "item.diesiraebleach.zangetsu": "Zangetsu",
       "effect.seiibutsu": "聖遺物"
     }
   },
