@@ -56,7 +56,7 @@ public class KuiItem extends DiesiraebleachModElements.ModElement {
 
 	public static class ItemRanged extends Item {
 		public ItemRanged() {
-			super(new Item.Properties().group(ItemGroup.COMBAT).maxDamage(100));
+			super(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1));
 			setRegistryName("kui");
 		}
 
@@ -68,7 +68,7 @@ public class KuiItem extends DiesiraebleachModElements.ModElement {
 
 		@Override
 		public UseAction getUseAction(ItemStack itemstack) {
-			return UseAction.BOW;
+			return UseAction.SPEAR;
 		}
 
 		@Override
