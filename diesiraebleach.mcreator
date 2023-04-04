@@ -233,14 +233,6 @@
       }
     },
     {
-      "name": "Zangetsu",
-      "type": "item",
-      "sortid": 21,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "zangetsu"
-    },
-    {
       "name": "Getsuga",
       "type": "procedure",
       "sortid": 22,
@@ -252,6 +244,10 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       }
@@ -295,6 +291,14 @@
           }
         ]
       }
+    },
+    {
+      "name": "ZangetsuHiraken",
+      "type": "tool",
+      "sortid": 25,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "zangetsu_hiraken"
     }
   ],
   "variable_elements": [
@@ -303,22 +307,28 @@
       "type": "number",
       "scope": "player_persistent",
       "value": "0.0"
+    },
+    {
+      "name": "k",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
     }
   ],
   "sound_elements": [],
   "language_map": {
     "en_us": {
-      "item.diesiraebleach.dora_cannon": "Dora Cannon",
-      "item.minecraft.splash_potion.effect.qliphoth_bacikal": "Splash Potion of Qliphoth Bacikal",
       "item.diesiraebleach.qliphoth_bacikal_2": "Qliphoth Bacikal 2",
+      "item.minecraft.splash_potion.effect.qliphoth_bacikal": "Splash Potion of Qliphoth Bacikal",
+      "item.diesiraebleach.dora_cannon": "Dora Cannon",
       "item.minecraft.potion.effect.qliphoth_bacikal": "Qliphoth Bacikal",
       "item.minecraft.lingering_potion.effect.qliphoth_bacikal": "Lingering Potion of Qliphoth Bacikal",
       "item.diesiraebleach.hihiirokane": "Hihiirokane",
       "item.minecraft.tipped_arrow.effect.qliphoth_bacikal": "Arrow of Qliphoth Bacikal",
       "item.diesiraebleach.makina_glove": "Makina Glove",
       "item.diesiraebleach.kui": "Kui",
-      "item.diesiraebleach.zangetsu": "Zangetsu",
-      "effect.seiibutsu": "聖遺物"
+      "effect.seiibutsu": "聖遺物",
+      "item.diesiraebleach.zangetsu_hiraken": "Zangetsu Hiraken"
     }
   },
   "foldersRoot": {
