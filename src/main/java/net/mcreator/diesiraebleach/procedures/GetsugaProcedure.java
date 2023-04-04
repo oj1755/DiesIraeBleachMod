@@ -35,9 +35,11 @@ public class GetsugaProcedure {
 		DiesiraebleachModVariables.MapVariables.get(world).k = 0;
 		DiesiraebleachModVariables.MapVariables.get(world).syncData(world);
 		for (int index0 = 0; index0 < (int) (20); index0++) {
-			world.addParticle(ParticleTypes.SPIT, (entity.getPosX() + Math.sin(Math.toRadians(entity.rotationYaw))),
-					(entity.getPosY() + DiesiraebleachModVariables.MapVariables.get(world).k),
-					(entity.getPosZ() + Math.cos(Math.toRadians(entity.rotationYaw))), 0, 0, 0);
+			world.addParticle(ParticleTypes.NOTE,
+					(entity.getPosX() + (-1) * Math.sin(Math.toRadians(entity.rotationYaw)) * Math.cos(Math.toRadians((-1) * entity.rotationPitch))),
+					(entity.getPosY() + DiesiraebleachModVariables.MapVariables.get(world).k + Math.sin(Math.toRadians((-1) * entity.rotationPitch))),
+					(entity.getPosZ() + Math.cos(Math.toRadians(entity.rotationYaw)) * Math.cos(Math.toRadians((-1) * entity.rotationPitch))), 0, 0,
+					0);
 			DiesiraebleachModVariables.MapVariables.get(world).k = (DiesiraebleachModVariables.MapVariables.get(world).k + 0.1);
 			DiesiraebleachModVariables.MapVariables.get(world).syncData(world);
 		}
