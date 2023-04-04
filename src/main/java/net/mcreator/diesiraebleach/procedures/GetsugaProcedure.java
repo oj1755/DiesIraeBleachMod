@@ -2,6 +2,7 @@ package net.mcreator.diesiraebleach.procedures;
 
 import net.minecraft.world.IWorld;
 import net.minecraft.util.Hand;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.block.Blocks;
@@ -34,7 +35,7 @@ public class GetsugaProcedure {
 		DiesiraebleachModVariables.MapVariables.get(world).k = 0;
 		DiesiraebleachModVariables.MapVariables.get(world).syncData(world);
 		for (int index0 = 0; index0 < (int) (20); index0++) {
-			world.addParticle(GetsugabunshiParticle.particle, (entity.getPosX() + Math.sin(Math.toRadians(entity.rotationYaw))),
+			world.addParticle(ParticleTypes.SPIT, (entity.getPosX() + Math.sin(Math.toRadians(entity.rotationYaw))),
 					(entity.getPosY() + DiesiraebleachModVariables.MapVariables.get(world).k),
 					(entity.getPosZ() + Math.cos(Math.toRadians(entity.rotationYaw))), 0, 0, 0);
 			DiesiraebleachModVariables.MapVariables.get(world).k = (DiesiraebleachModVariables.MapVariables.get(world).k + 0.1);
