@@ -311,14 +311,6 @@
           }
         ]
       }
-    },
-    {
-      "name": "BeiKui",
-      "type": "rangeditem",
-      "sortid": 26,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "bei_kui"
     }
   ],
   "variable_elements": [
