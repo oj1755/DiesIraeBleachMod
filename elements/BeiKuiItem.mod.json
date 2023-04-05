@@ -3,12 +3,12 @@
   "_type": "item",
   "definition": {
     "renderType": 1,
-    "texture": "kui",
-    "customModelName": "machinaglovel:default",
-    "name": "Beikui",
+    "texture": "hihiirokane",
+    "customModelName": "beikuiitem:default",
+    "name": "Bei Kui Item",
     "rarity": "COMMON",
     "creativeTab": {
-      "value": "COMBAT"
+      "value": "MISC"
     },
     "stackSize": 64,
     "enchantability": 0,
@@ -22,10 +22,10 @@
     "immuneToFire": false,
     "stayInGridWhenCrafting": false,
     "damageOnCrafting": false,
-    "enableMeleeDamage": true,
+    "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "specialInfo": [],
-    "hasGlow": false,
+    "hasGlow": true,
     "guiBoundTo": "<NONE>",
     "inventorySize": 9,
     "inventoryStackSize": 64,

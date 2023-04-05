@@ -1,0 +1,7 @@
+{
+  "parent": "diesiraebleach:custom/beikuiitem",
+  "textures": {
+    "1": "diesiraebleach:blocks/beikuiitem",
+    "particle": "diesiraebleach:items/hihiirokane"
+  }
+}

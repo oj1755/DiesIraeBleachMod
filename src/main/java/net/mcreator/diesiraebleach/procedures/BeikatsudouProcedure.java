@@ -3,11 +3,12 @@ package net.mcreator.diesiraebleach.procedures;
 import net.minecraft.world.World;
 import net.minecraft.util.Hand;
 import net.minecraft.entity.projectile.ProjectileEntity;
+import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.Entity;
 
-import net.mcreator.diesiraebleach.item.KuiItem;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
 import java.util.Map;
@@ -30,11 +31,10 @@ public class BeikatsudouProcedure {
 			if (!projectileLevel.isRemote()) {
 				ProjectileEntity _entityToSpawn = new Object() {
 					public ProjectileEntity getArrow(World world, float damage, int knockback) {
-						AbstractArrowEntity entityToSpawn = new KuiItem.ArrowCustomEntity(KuiItem.arrow, world);
+						AbstractArrowEntity entityToSpawn = new ArrowEntity(EntityType.ARROW, world);
 
 						entityToSpawn.setDamage(damage);
 						entityToSpawn.setKnockbackStrength(knockback);
-						entityToSpawn.setSilent(true);
 
 						return entityToSpawn;
 					}

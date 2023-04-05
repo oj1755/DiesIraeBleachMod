@@ -31,22 +31,22 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
 
-import net.mcreator.diesiraebleach.entity.renderer.KuiRenderer;
+import net.mcreator.diesiraebleach.entity.renderer.BeiKuiRenderer;
 import net.mcreator.diesiraebleach.DiesiraebleachModElements;
 
 import java.util.Random;
 
 @DiesiraebleachModElements.ModElement.Tag
-public class KuiItem extends DiesiraebleachModElements.ModElement {
-	@ObjectHolder("diesiraebleach:kui")
+public class BeiKuiItem extends DiesiraebleachModElements.ModElement {
+	@ObjectHolder("diesiraebleach:bei_kui")
 	public static final Item block = null;
 	public static final EntityType arrow = (EntityType.Builder.<ArrowCustomEntity>create(ArrowCustomEntity::new, EntityClassification.MISC)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).setCustomClientFactory(ArrowCustomEntity::new)
-			.size(0.5f, 0.5f)).build("projectile_kui").setRegistryName("projectile_kui");
+			.size(0.5f, 0.5f)).build("projectile_bei_kui").setRegistryName("projectile_bei_kui");
 
-	public KuiItem(DiesiraebleachModElements instance) {
-		super(instance, 18);
-		FMLJavaModLoadingContext.get().getModEventBus().register(new KuiRenderer.ModelRegisterHandler());
+	public BeiKuiItem(DiesiraebleachModElements instance) {
+		super(instance, 26);
+		FMLJavaModLoadingContext.get().getModEventBus().register(new BeiKuiRenderer.ModelRegisterHandler());
 	}
 
 	@Override
@@ -57,8 +57,8 @@ public class KuiItem extends DiesiraebleachModElements.ModElement {
 
 	public static class ItemRanged extends Item {
 		public ItemRanged() {
-			super(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1));
-			setRegistryName("kui");
+			super(new Item.Properties().group(ItemGroup.COMBAT).maxDamage(100));
+			setRegistryName("bei_kui");
 		}
 
 		@Override
@@ -69,7 +69,7 @@ public class KuiItem extends DiesiraebleachModElements.ModElement {
 
 		@Override
 		public UseAction getUseAction(ItemStack itemstack) {
-			return UseAction.SPEAR;
+			return UseAction.BOW;
 		}
 
 		@Override
@@ -85,11 +85,11 @@ public class KuiItem extends DiesiraebleachModElements.ModElement {
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
 				if (true) {
-					ItemStack stack = ShootableItem.getHeldAmmo(entity, e -> e.getItem() == BeikuiItem.block);
+					ItemStack stack = ShootableItem.getHeldAmmo(entity, e -> e.getItem() == BeiKuiItemItem.block);
 					if (stack == ItemStack.EMPTY) {
 						for (int i = 0; i < entity.inventory.mainInventory.size(); i++) {
 							ItemStack teststack = entity.inventory.mainInventory.get(i);
-							if (teststack != null && teststack.getItem() == BeikuiItem.block) {
+							if (teststack != null && teststack.getItem() == BeiKuiItemItem.block) {
 								stack = teststack;
 								break;
 							}
@@ -101,7 +101,7 @@ public class KuiItem extends DiesiraebleachModElements.ModElement {
 						if (entity.abilities.isCreativeMode) {
 							entityarrow.pickupStatus = AbstractArrowEntity.PickupStatus.CREATIVE_ONLY;
 						} else {
-							if (new ItemStack(BeikuiItem.block).isDamageable()) {
+							if (new ItemStack(BeiKuiItemItem.block).isDamageable()) {
 								if (stack.attemptDamageItem(1, random, entity)) {
 									stack.shrink(1);
 									stack.setDamage(0);
@@ -146,12 +146,12 @@ public class KuiItem extends DiesiraebleachModElements.ModElement {
 		@Override
 		@OnlyIn(Dist.CLIENT)
 		public ItemStack getItem() {
-			return new ItemStack(KuiItem.block);
+			return new ItemStack(BeiKuiItemItem.block);
 		}
 
 		@Override
 		protected ItemStack getArrowStack() {
-			return new ItemStack(BeikuiItem.block);
+			return new ItemStack(BeiKuiItemItem.block);
 		}
 
 		@Override
@@ -186,7 +186,7 @@ public class KuiItem extends DiesiraebleachModElements.ModElement {
 		double y = entity.getPosY();
 		double z = entity.getPosZ();
 		world.playSound((PlayerEntity) null, (double) x, (double) y, (double) z,
-				(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.crossbow.shoot")),
+				(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.arrow.shoot")),
 				SoundCategory.PLAYERS, 1, 1f / (random.nextFloat() * 0.5f + 1) + (power / 2));
 		return entityarrow;
 	}
@@ -206,7 +206,7 @@ public class KuiItem extends DiesiraebleachModElements.ModElement {
 		double y = entity.getPosY();
 		double z = entity.getPosZ();
 		entity.world.playSound((PlayerEntity) null, (double) x, (double) y, (double) z,
-				(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.crossbow.shoot")),
+				(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.arrow.shoot")),
 				SoundCategory.PLAYERS, 1, 1f / (new Random().nextFloat() * 0.5f + 1));
 		return entityarrow;
 	}

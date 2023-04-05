@@ -2,16 +2,17 @@
 // Exported for Minecraft version 1.15 - 1.16 with MCP mappings
 // Paste this class into your mod and generate all required imports
 
-public static class Modelkui extends EntityModel<Entity> {
+public static class Modelarrow extends EntityModel<Entity> {
 	private final ModelRenderer bb_main;
 
-	public Modelkui() {
+	public Modelarrow() {
 		textureWidth = 32;
 		textureHeight = 32;
 
 		bb_main = new ModelRenderer(this);
 		bb_main.setRotationPoint(0.0F, 24.0F, 0.0F);
-
+		bb_main.setTextureOffset(7, 7).addBox(-0.5F, -10.0F, -0.5F, 1.0F, 10.0F, 1.0F, 0.0F, false);
+		bb_main.setTextureOffset(0, 0).addBox(-1.0F, -8.0F, -1.0F, 2.0F, 6.0F, 2.0F, 0.0F, false);
 	}
 
 	@Override

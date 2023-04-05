@@ -1,7 +1,0 @@
-{
-  "parent": "diesiraebleach:custom/hihiirokane",
-  "textures": {
-    "0": "diesiraebleach:blocks/hihiirokane",
-    "particle": "diesiraebleach:items/kui"
-  }
-}

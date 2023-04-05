@@ -18,44 +18,44 @@ import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 
-import net.mcreator.diesiraebleach.item.KuiItem;
+import net.mcreator.diesiraebleach.item.BeiKuiItem;
 
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.mojang.blaze3d.matrix.MatrixStack;
 
 @OnlyIn(Dist.CLIENT)
-public class KuiRenderer {
+public class BeiKuiRenderer {
 	public static class ModelRegisterHandler {
 		@SubscribeEvent
 		@OnlyIn(Dist.CLIENT)
 		public void registerModels(ModelRegistryEvent event) {
-			RenderingRegistry.registerEntityRenderingHandler(KuiItem.arrow, renderManager -> new CustomRender(renderManager));
+			RenderingRegistry.registerEntityRenderingHandler(BeiKuiItem.arrow, renderManager -> new CustomRender(renderManager));
 		}
 	}
 
 	@OnlyIn(Dist.CLIENT)
-	public static class CustomRender extends EntityRenderer<KuiItem.ArrowCustomEntity> {
-		private static final ResourceLocation texture = new ResourceLocation("diesiraebleach:textures/entities/kui.png");
+	public static class CustomRender extends EntityRenderer<BeiKuiItem.ArrowCustomEntity> {
+		private static final ResourceLocation texture = new ResourceLocation("diesiraebleach:textures/entities/beikui.png");
 
 		public CustomRender(EntityRendererManager renderManager) {
 			super(renderManager);
 		}
 
 		@Override
-		public void render(KuiItem.ArrowCustomEntity entityIn, float entityYaw, float partialTicks, MatrixStack matrixStackIn,
+		public void render(BeiKuiItem.ArrowCustomEntity entityIn, float entityYaw, float partialTicks, MatrixStack matrixStackIn,
 				IRenderTypeBuffer bufferIn, int packedLightIn) {
 			IVertexBuilder vb = bufferIn.getBuffer(RenderType.getEntityCutout(this.getEntityTexture(entityIn)));
 			matrixStackIn.push();
 			matrixStackIn.rotate(Vector3f.YP.rotationDegrees(MathHelper.lerp(partialTicks, entityIn.prevRotationYaw, entityIn.rotationYaw) - 90));
 			matrixStackIn.rotate(Vector3f.ZP.rotationDegrees(90 + MathHelper.lerp(partialTicks, entityIn.prevRotationPitch, entityIn.rotationPitch)));
-			EntityModel model = new Modelkui();
+			EntityModel model = new Modelarrow();
 			model.render(matrixStackIn, vb, packedLightIn, OverlayTexture.NO_OVERLAY, 1, 1, 1, 0.0625f);
 			matrixStackIn.pop();
 			super.render(entityIn, entityYaw, partialTicks, matrixStackIn, bufferIn, packedLightIn);
 		}
 
 		@Override
-		public ResourceLocation getEntityTexture(KuiItem.ArrowCustomEntity entity) {
+		public ResourceLocation getEntityTexture(BeiKuiItem.ArrowCustomEntity entity) {
 			return texture;
 		}
 	}
@@ -63,14 +63,16 @@ public class KuiRenderer {
 	// Made with Blockbench 4.6.5
 	// Exported for Minecraft version 1.15 - 1.16 with MCP mappings
 	// Paste this class into your mod and generate all required imports
-	public static class Modelkui extends EntityModel<Entity> {
+	public static class Modelarrow extends EntityModel<Entity> {
 		private final ModelRenderer bb_main;
 
-		public Modelkui() {
+		public Modelarrow() {
 			textureWidth = 32;
 			textureHeight = 32;
 			bb_main = new ModelRenderer(this);
 			bb_main.setRotationPoint(0.0F, 24.0F, 0.0F);
+			bb_main.setTextureOffset(7, 7).addBox(-0.5F, -10.0F, -0.5F, 1.0F, 10.0F, 1.0F, 0.0F, false);
+			bb_main.setTextureOffset(0, 0).addBox(-1.0F, -8.0F, -1.0F, 2.0F, 6.0F, 2.0F, 0.0F, false);
 		}
 
 		@Override
