@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "diesiraebleach:items/kui"
+    "layer0": "diesiraebleach:items/yaminotamamono"
   },
   "display": {
     "thirdperson_righthand": {

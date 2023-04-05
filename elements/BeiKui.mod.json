@@ -3,24 +3,24 @@
   "_type": "rangeditem",
   "definition": {
     "renderType": 0,
-    "texture": "kui",
+    "texture": "yaminotamamono",
     "customModelName": "Normal",
-    "name": "Kui",
+    "name": "Bei Kui",
     "specialInfo": [],
     "creativeTab": {
       "value": "COMBAT"
     },
     "stackSize": 1,
     "ammoItem": {
-      "value": ""
+      "value": "CUSTOM:BeiKuiItem"
     },
     "shootConstantly": false,
-    "usageCount": 0,
+    "usageCount": 100,
     "actionSound": {
-      "value": "item.crossbow.shoot"
+      "value": "entity.arrow.shoot"
     },
     "hasGlow": false,
-    "animation": "spear",
+    "animation": "bow",
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "bulletPower": 1.0,
@@ -29,9 +29,9 @@
     "bulletParticles": false,
     "bulletIgnitesFire": false,
     "bulletItemTexture": {
-      "value": "CUSTOM:Kui"
+      "value": "CUSTOM:BeiKuiItem"
     },
-    "bulletModel": "Default",
-    "customBulletModelTexture": ""
+    "bulletModel": "Modelarrow",
+    "customBulletModelTexture": "beikui.png"
   }
 }

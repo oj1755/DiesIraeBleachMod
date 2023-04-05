@@ -2,7 +2,13 @@
   "mappings": {
     "default": {
       "map": {
-        "0": "makinapunch"
+        "0": "machinaglove1",
+        "1": "machinaglove2",
+        "2": "machinaglove3",
+        "3": "machinaglove4",
+        "4": "machinaglove5",
+        "5": "machinaglove6",
+        "6": "machinaglove7"
       },
       "name": "default"
     }
