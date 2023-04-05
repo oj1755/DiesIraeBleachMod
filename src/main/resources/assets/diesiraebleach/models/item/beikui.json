@@ -1,0 +1,13 @@
+{
+  "parent": "diesiraebleach:custom/machinaglovel",
+  "textures": {
+    "0": "diesiraebleach:blocks/machinaglove1",
+    "1": "diesiraebleach:blocks/machinaglove2",
+    "2": "diesiraebleach:blocks/machinaglove3",
+    "3": "diesiraebleach:blocks/machinaglove4",
+    "4": "diesiraebleach:blocks/machinaglove5",
+    "5": "diesiraebleach:blocks/machinaglove6",
+    "6": "diesiraebleach:blocks/machinaglove7",
+    "particle": "diesiraebleach:items/kui"
+  }
+}

@@ -2,9 +2,9 @@
   "_fv": 33,
   "_type": "rangeditem",
   "definition": {
-    "renderType": 0,
+    "renderType": 1,
     "texture": "kui",
-    "customModelName": "Normal",
+    "customModelName": "hihiirokane:default",
     "name": "Kui",
     "specialInfo": [],
     "creativeTab": {
@@ -12,7 +12,7 @@
     },
     "stackSize": 1,
     "ammoItem": {
-      "value": ""
+      "value": "CUSTOM:Beikui"
     },
     "shootConstantly": false,
     "usageCount": 0,
@@ -31,7 +31,7 @@
     "bulletItemTexture": {
       "value": "CUSTOM:Kui"
     },
-    "bulletModel": "Default",
-    "customBulletModelTexture": ""
+    "bulletModel": "Modelkui",
+    "customBulletModelTexture": "kui.png"
   }
 }
