@@ -313,14 +313,6 @@
       }
     },
     {
-      "name": "Kunai",
-      "type": "rangeditem",
-      "sortid": 26,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "kunai"
-    },
-    {
       "name": "BeiKuiFeibiDaoJugaburotukuniDangtatutatoki",
       "type": "procedure",
       "sortid": 28,
