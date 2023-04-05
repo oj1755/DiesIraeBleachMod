@@ -14,7 +14,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.IItemTier;
 import net.minecraft.entity.player.PlayerEntity;
 
-import net.mcreator.diesiraebleach.procedures.GetsugaProcedure;
+import net.mcreator.diesiraebleach.procedures.Getsugatameshi2Procedure;
 import net.mcreator.diesiraebleach.DiesiraebleachModElements;
 
 import java.util.stream.Stream;
@@ -66,7 +66,7 @@ public class ZangetsuHirakenItem extends DiesiraebleachModElements.ModElement {
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
 
-				GetsugaProcedure
+				Getsugatameshi2Procedure
 						.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
 								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				return retval;
