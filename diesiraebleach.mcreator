@@ -313,25 +313,6 @@
       }
     },
     {
-      "name": "BeiKuiFeibiDaoJugaburotukuniDangtatutatoki",
-      "type": "procedure",
-      "sortid": 28,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "bei_kui_feibi_dao_jugaburotukuni_dangtatutatoki",
-      "metadata": {
-        "dependencies": []
-      }
-    },
-    {
-      "name": "BeiKuiItem",
-      "type": "item",
-      "sortid": 27,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "bei_kui_item"
-    },
-    {
       "name": "BeiKui",
       "type": "rangeditem",
       "sortid": 26,
