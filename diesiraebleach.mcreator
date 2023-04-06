@@ -283,58 +283,6 @@
           }
         ]
       }
-    },
-    {
-      "name": "ZangetsuHiraken",
-      "type": "tool",
-      "sortid": 25,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "zangetsu_hiraken"
-    },
-    {
-      "name": "Schreiber",
-      "type": "item",
-      "sortid": 27,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "schreiber"
-    },
-    {
-      "name": "SchreiberBootsbutunoMeiteitukunoibento",
-      "type": "procedure",
-      "sortid": 26,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "schreiber_bootsbutuno_meiteitukunoibento",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      }
-    },
-    {
-      "name": "Getsugatameshi2",
-      "type": "procedure",
-      "sortid": 28,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "getsugatameshi_2",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
     }
   ],
   "variable_elements": [
@@ -363,8 +311,7 @@
       "item.minecraft.tipped_arrow.effect.qliphoth_bacikal": "Arrow of Qliphoth Bacikal",
       "item.diesiraebleach.makina_glove": "Makina Glove",
       "item.diesiraebleach.kui": "Kui",
-      "effect.seiibutsu": "聖遺物",
-      "item.diesiraebleach.zangetsu_hiraken": "Zangetsu Hiraken"
+      "effect.seiibutsu": "聖遺物"
     }
   },
   "foldersRoot": {
