@@ -339,6 +339,42 @@
           }
         ]
       }
+    },
+    {
+      "name": "PanzerFaustItemFeibiDaoJugaburotukuniDangtatutatoki",
+      "type": "procedure",
+      "sortid": 30,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "panzer_faust_item_feibi_dao_jugaburotukuni_dangtatutatoki",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PanzerFaustItem",
+      "type": "rangeditem",
+      "sortid": 30,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "panzer_faust_item"
     }
   ],
   "variable_elements": [
@@ -367,6 +403,7 @@
       "item.minecraft.tipped_arrow.effect.qliphoth_bacikal": "Arrow of Qliphoth Bacikal",
       "item.diesiraebleach.makina_glove": "Makina Glove",
       "item.diesiraebleach.kui": "Kui",
+      "item.diesiraebleach.panzer_faust_item": "Panzer Faust Item",
       "effect.seiibutsu": "聖遺物"
     }
   },

@@ -1,0 +1,7 @@
+{
+  "parent": "diesiraebleach:custom/panzerfaustitem",
+  "textures": {
+    "0": "diesiraebleach:blocks/panzerfaustitem",
+    "particle": "diesiraebleach:items/panzer"
+  }
+}
