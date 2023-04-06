@@ -1,0 +1,21 @@
+{
+  "_fv": 33,
+  "_type": "particle",
+  "definition": {
+    "texture": "getsugaptcle.png",
+    "animate": true,
+    "frameDuration": 300,
+    "width": 0.1,
+    "height": 0.1,
+    "scale": 1.0,
+    "speedFactor": 1.0,
+    "gravity": 0.0,
+    "maxAge": 150,
+    "maxAgeDiff": 0,
+    "angularVelocity": 5.0,
+    "angularAcceleration": 0.0,
+    "canCollide": true,
+    "alwaysShow": false,
+    "renderType": "OPAQUE"
+  }
+}
