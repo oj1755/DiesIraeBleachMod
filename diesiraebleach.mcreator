@@ -285,14 +285,6 @@
       }
     },
     {
-      "name": "ZangetsuHiraken",
-      "type": "tool",
-      "sortid": 25,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "zangetsu_hiraken"
-    },
-    {
       "name": "Getsugatameshi2",
       "type": "procedure",
       "sortid": 28,
@@ -311,6 +303,14 @@
           }
         ]
       }
+    },
+    {
+      "name": "Getsuganomoto",
+      "type": "particle",
+      "sortid": 29,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "getsuganomoto"
     },
     {
       "name": "Getsuganomotodamage",
@@ -339,14 +339,6 @@
           }
         ]
       }
-    },
-    {
-      "name": "Getsuganomoto",
-      "type": "particle",
-      "sortid": 29,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "getsuganomoto"
     }
   ],
   "variable_elements": [
@@ -375,8 +367,7 @@
       "item.minecraft.tipped_arrow.effect.qliphoth_bacikal": "Arrow of Qliphoth Bacikal",
       "item.diesiraebleach.makina_glove": "Makina Glove",
       "item.diesiraebleach.kui": "Kui",
-      "effect.seiibutsu": "聖遺物",
-      "item.diesiraebleach.zangetsu_hiraken": "Zangetsu Hiraken"
+      "effect.seiibutsu": "聖遺物"
     }
   },
   "foldersRoot": {
