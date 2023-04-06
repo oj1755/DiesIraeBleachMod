@@ -197,14 +197,6 @@
       "registry_name": "qliphoth_bacikal_2"
     },
     {
-      "name": "Kui",
-      "type": "rangeditem",
-      "sortid": 18,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "kui"
-    },
-    {
       "name": "Hihiirokane",
       "type": "tool",
       "sortid": 19,
@@ -301,6 +293,14 @@
       "registry_name": "zangetsu_hiraken"
     },
     {
+      "name": "Schreiber",
+      "type": "item",
+      "sortid": 27,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "schreiber"
+    },
+    {
       "name": "SchreiberBootsbutunoMeiteitukunoibento",
       "type": "procedure",
       "sortid": 26,
@@ -317,12 +317,24 @@
       }
     },
     {
-      "name": "Schreiber",
-      "type": "item",
-      "sortid": 27,
+      "name": "Getsugatameshi2",
+      "type": "procedure",
+      "sortid": 28,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "schreiber"
+      "registry_name": "getsugatameshi_2",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -343,17 +355,16 @@
   "language_map": {
     "en_us": {
       "item.diesiraebleach.qliphoth_bacikal_2": "Qliphoth Bacikal 2",
-      "item.diesiraebleach.makina_glove": "Makina Glove",
-      "item.diesiraebleach.kui": "Kui",
-      "item.diesiraebleach.schreiber": "Schreiber",
-      "effect.seiibutsu": "聖遺物",
-      "item.diesiraebleach.zangetsu_hiraken": "Zangetsu Hiraken",
       "item.minecraft.splash_potion.effect.qliphoth_bacikal": "Splash Potion of Qliphoth Bacikal",
       "item.diesiraebleach.dora_cannon": "Dora Cannon",
       "item.minecraft.potion.effect.qliphoth_bacikal": "Qliphoth Bacikal",
       "item.minecraft.lingering_potion.effect.qliphoth_bacikal": "Lingering Potion of Qliphoth Bacikal",
       "item.diesiraebleach.hihiirokane": "Hihiirokane",
-      "item.minecraft.tipped_arrow.effect.qliphoth_bacikal": "Arrow of Qliphoth Bacikal"
+      "item.minecraft.tipped_arrow.effect.qliphoth_bacikal": "Arrow of Qliphoth Bacikal",
+      "item.diesiraebleach.makina_glove": "Makina Glove",
+      "item.diesiraebleach.kui": "Kui",
+      "effect.seiibutsu": "聖遺物",
+      "item.diesiraebleach.zangetsu_hiraken": "Zangetsu Hiraken"
     }
   },
   "foldersRoot": {

@@ -1,13 +1,6 @@
 package net.mcreator.diesiraebleach.procedures;
 
-import net.minecraft.potion.Effects;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Entity;
-
-import net.mcreator.diesiraebleach.DiesiraebleachMod;
-
-import java.util.Map;
+import net.minecraftforge.eventbus.api.Event;
 
 public class SchreiberBootsbutunoMeiteitukunoibentoProcedure {
 
@@ -17,7 +10,9 @@ public class SchreiberBootsbutunoMeiteitukunoibentoProcedure {
 				DiesiraebleachMod.LOGGER.warn("Failed to load dependency entity for procedure SchreiberBootsbutunoMeiteitukunoibento!");
 			return;
 		}
+
 		Entity entity = (Entity) dependencies.get("entity");
+
 		if (entity instanceof LivingEntity)
 			((LivingEntity) entity).setHealth((float) 6);
 		if (entity instanceof LivingEntity)
@@ -32,4 +27,5 @@ public class SchreiberBootsbutunoMeiteitukunoibentoProcedure {
 				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.WITHER, (int) 30, (int) 2));
 		}
 	}
+
 }
