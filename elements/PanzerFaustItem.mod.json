@@ -1,0 +1,43 @@
+{
+  "_fv": 33,
+  "_type": "rangeditem",
+  "definition": {
+    "renderType": 0,
+    "texture": "panzer",
+    "customModelName": "Normal",
+    "name": "Panzer Faust Item",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "COMBAT"
+    },
+    "stackSize": 1,
+    "ammoItem": {
+      "value": ""
+    },
+    "shootConstantly": false,
+    "usageCount": 100,
+    "actionSound": {
+      "value": "CUSTOM:panzer"
+    },
+    "hasGlow": false,
+    "animation": "crossbow",
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "bulletPower": 5.0,
+    "bulletDamage": 5.0,
+    "bulletKnockback": 5,
+    "bulletParticles": true,
+    "bulletIgnitesFire": false,
+    "bulletItemTexture": {
+      "value": ""
+    },
+    "bulletModel": "ModelPanzerFaustAmmo",
+    "customBulletModelTexture": "panzerfaustammo.png",
+    "onBulletHitsBlock": {
+      "name": "PanzerFaustItemFeibiDaoJugaburotukuniDangtatutatoki"
+    },
+    "onBulletHitsPlayer": {
+      "name": "PanzerFaustItemFeibiDaoJugaburotukuniDangtatutatoki"
+    }
+  }
+}

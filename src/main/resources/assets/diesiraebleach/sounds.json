@@ -1,0 +1,20 @@
+{
+  "panzer": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:launcher1",
+        "stream": false
+      }
+    ]
+  },
+  "panzersummon": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:magic4",
+        "stream": false
+      }
+    ]
+  }
+}

@@ -47,6 +47,10 @@ public class DiesiraebleachModElements {
 	public static Map<ResourceLocation, net.minecraft.util.SoundEvent> sounds = new HashMap<>();
 
 	public DiesiraebleachModElements() {
+		sounds.put(new ResourceLocation("diesiraebleach", "panzer"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "panzer")));
+		sounds.put(new ResourceLocation("diesiraebleach", "panzersummon"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "panzersummon")));
 		try {
 			ModFileScanData modFileInfo = ModList.get().getModFileById("diesiraebleach").getFile().getScanResult();
 			Set<ModFileScanData.AnnotationData> annotations = modFileInfo.getAnnotations();
