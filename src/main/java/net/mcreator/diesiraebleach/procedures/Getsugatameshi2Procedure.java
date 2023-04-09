@@ -1,6 +1,17 @@
 package net.mcreator.diesiraebleach.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.Hand;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Entity;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.BlockState;
+
+import net.mcreator.diesiraebleach.particle.GetsuganomotoParticle;
+import net.mcreator.diesiraebleach.DiesiraebleachModVariables;
+import net.mcreator.diesiraebleach.DiesiraebleachMod;
+
+import java.util.Map;
 
 public class Getsugatameshi2Procedure {
 
@@ -15,10 +26,8 @@ public class Getsugatameshi2Procedure {
 				DiesiraebleachMod.LOGGER.warn("Failed to load dependency entity for procedure Getsugatameshi2!");
 			return;
 		}
-
 		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
-
 		BlockState k = Blocks.AIR.getDefaultState();
 		if (entity instanceof LivingEntity) {
 			((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
@@ -44,5 +53,4 @@ public class Getsugatameshi2Procedure {
 			DiesiraebleachModVariables.MapVariables.get(world).syncData(world);
 		}
 	}
-
 }
