@@ -65,14 +65,6 @@ public class PanzerSummonProcedure {
 		}
 		if (world instanceof ServerWorld) {
 			Entity entityToSpawn = new PanzerMahoujinEntity.CustomEntity(PanzerMahoujinEntity.entity, (World) world);
-			entityToSpawn.setLocationAndAngles(x, (y + 5), z, world.getRandom().nextFloat() * 360F, 0);
-			if (entityToSpawn instanceof MobEntity)
-				((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
-						SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
-			world.addEntity(entityToSpawn);
-		}
-		if (world instanceof ServerWorld) {
-			Entity entityToSpawn = new PanzerMahoujinEntity.CustomEntity(PanzerMahoujinEntity.entity, (World) world);
 			entityToSpawn.setLocationAndAngles((x + 1), (y + 6), z, world.getRandom().nextFloat() * 360F, 0);
 			if (entityToSpawn instanceof MobEntity)
 				((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
@@ -90,22 +82,6 @@ public class PanzerSummonProcedure {
 		if (world instanceof ServerWorld) {
 			Entity entityToSpawn = new PanzerMahoujinEntity.CustomEntity(PanzerMahoujinEntity.entity, (World) world);
 			entityToSpawn.setLocationAndAngles(x, (y + 4), (z + 1), world.getRandom().nextFloat() * 360F, 0);
-			if (entityToSpawn instanceof MobEntity)
-				((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
-						SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
-			world.addEntity(entityToSpawn);
-		}
-		if (world instanceof ServerWorld) {
-			Entity entityToSpawn = new PanzerMahoujinEntity.CustomEntity(PanzerMahoujinEntity.entity, (World) world);
-			entityToSpawn.setLocationAndAngles(x, (y + 4), (z + 2), world.getRandom().nextFloat() * 360F, 0);
-			if (entityToSpawn instanceof MobEntity)
-				((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
-						SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
-			world.addEntity(entityToSpawn);
-		}
-		if (world instanceof ServerWorld) {
-			Entity entityToSpawn = new PanzerMahoujinEntity.CustomEntity(PanzerMahoujinEntity.entity, (World) world);
-			entityToSpawn.setLocationAndAngles((x + 3), (y + 4), z, world.getRandom().nextFloat() * 360F, 0);
 			if (entityToSpawn instanceof MobEntity)
 				((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
 						SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);

@@ -23,13 +23,13 @@
     "animation": "crossbow",
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
-    "bulletPower": 5.0,
+    "bulletPower": 10.0,
     "bulletDamage": 5.0,
     "bulletKnockback": 5,
     "bulletParticles": true,
     "bulletIgnitesFire": false,
     "bulletItemTexture": {
-      "value": ""
+      "value": "CUSTOM:PanzerFaustItem"
     },
     "bulletModel": "ModelPanzerFaustAmmo",
     "customBulletModelTexture": "panzerfaustammo.png",

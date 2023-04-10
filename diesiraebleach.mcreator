@@ -427,6 +427,82 @@
           }
         ]
       }
+    },
+    {
+      "name": "KatsudoukigaYasaretatoki",
+      "type": "procedure",
+      "sortid": 33,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "katsudoukiga_yasaretatoki",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Katsudou",
+      "type": "keybind",
+      "sortid": 33,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "katsudou"
+    },
+    {
+      "name": "DoraCannonYoukuritukusitatoki",
+      "type": "procedure",
+      "sortid": 34,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dora_cannon_youkuritukusitatoki",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PanzerMahoujinenteiteigasuponsitaShi",
+      "type": "procedure",
+      "sortid": 35,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "panzer_mahoujinenteiteigasuponsita_shi",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -440,6 +516,12 @@
       "name": "k",
       "type": "number",
       "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "waza",
+      "type": "number",
+      "scope": "player_persistent",
       "value": "0"
     }
   ],
@@ -463,8 +545,9 @@
   ],
   "language_map": {
     "en_us": {
-      "subtitles.panzer": "",
       "item.diesiraebleach.qliphoth_bacikal_2": "Qliphoth Bacikal 2",
+      "subtitles.panzer": "",
+      "key.diesiraebleach.katsudou": "Katsudou",
       "item.diesiraebleach.panzer_mahoujin_spawn_egg": "Panzer Mahoujin Spawn Egg",
       "item.diesiraebleach.makina_glove": "Makina Glove",
       "item.diesiraebleach.kui": "Kui",

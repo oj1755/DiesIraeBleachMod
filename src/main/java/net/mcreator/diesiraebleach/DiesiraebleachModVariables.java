@@ -216,6 +216,7 @@ public class DiesiraebleachModVariables {
 		public INBT writeNBT(Capability<PlayerVariables> capability, PlayerVariables instance, Direction side) {
 			CompoundNBT nbt = new CompoundNBT();
 			nbt.putDouble("Killsoul", instance.Killsoul);
+			nbt.putDouble("waza", instance.waza);
 			return nbt;
 		}
 
@@ -223,11 +224,13 @@ public class DiesiraebleachModVariables {
 		public void readNBT(Capability<PlayerVariables> capability, PlayerVariables instance, Direction side, INBT inbt) {
 			CompoundNBT nbt = (CompoundNBT) inbt;
 			instance.Killsoul = nbt.getDouble("Killsoul");
+			instance.waza = nbt.getDouble("waza");
 		}
 	}
 
 	public static class PlayerVariables {
 		public double Killsoul = 0.0;
+		public double waza = 0;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
@@ -263,6 +266,7 @@ public class DiesiraebleachModVariables {
 				.orElse(new PlayerVariables()));
 		PlayerVariables clone = ((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
 		clone.Killsoul = original.Killsoul;
+		clone.waza = original.waza;
 		if (!event.isWasDeath()) {
 		}
 	}
@@ -290,6 +294,7 @@ public class DiesiraebleachModVariables {
 					PlayerVariables variables = ((PlayerVariables) Minecraft.getInstance().player.getCapability(PLAYER_VARIABLES_CAPABILITY, null)
 							.orElse(new PlayerVariables()));
 					variables.Killsoul = message.data.Killsoul;
+					variables.waza = message.data.waza;
 				}
 			});
 			context.setPacketHandled(true);
