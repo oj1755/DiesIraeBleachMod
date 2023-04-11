@@ -2,7 +2,8 @@
   "mappings": {
     "default": {
       "map": {
-        "0": "panzerfaustitem"
+        "1": "panzerfaustitem",
+        "missing": "panzerfaustitem"
       },
       "name": "default"
     }

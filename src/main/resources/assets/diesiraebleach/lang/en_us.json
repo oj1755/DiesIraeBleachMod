@@ -1,7 +1,7 @@
 {
-  "subtitles.gunfire": "",
-  "item.diesiraebleach.qliphoth_bacikal_2": "Qliphoth Bacikal 2",
   "subtitles.panzer": "",
+  "item.diesiraebleach.qliphoth_bacikal_2": "Qliphoth Bacikal 2",
+  "subtitles.gunfire": "",
   "key.diesiraebleach.katsudou": "Katsudou",
   "item.diesiraebleach.panzer_mahoujin_spawn_egg": "Panzer Mahoujin Spawn Egg",
   "item.diesiraebleach.makina_glove": "Makina Glove",
@@ -10,6 +10,7 @@
   "item.diesiraebleach.schmeizer_item": "Schmeizer Item",
   "item.diesiraebleach.dora_cannon": "Dora Cannon",
   "item.minecraft.splash_potion.effect.qliphoth_bacikal": "Splash Potion of Qliphoth Bacikal",
+  "item.diesiraebleach.schmeizer_mahoujin_spawn_egg": "Schmeizer Mahoujin Spawn Egg",
   "item.minecraft.potion.effect.qliphoth_bacikal": "Qliphoth Bacikal",
   "item.minecraft.lingering_potion.effect.qliphoth_bacikal": "Lingering Potion of Qliphoth Bacikal",
   "item.diesiraebleach.hihiirokane": "Hihiirokane",
@@ -17,5 +18,6 @@
   "item.minecraft.tipped_arrow.effect.qliphoth_bacikal": "Arrow of Qliphoth Bacikal",
   "subtitles.guncharge": "",
   "item.diesiraebleach.panzer_faust_item": "Panzer Faust Item",
+  "entity.diesiraebleach.schmeizer_mahoujin": "Schmeizer Mahoujin",
   "subtitles.panzersummon": ""
 }

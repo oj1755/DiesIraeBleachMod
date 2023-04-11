@@ -1,6 +1,5 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "SchmeizerItem",
 	"textures": {
 		"0": "block/SchmeizerItem",
 		"particle": "block/SchmeizerItem"

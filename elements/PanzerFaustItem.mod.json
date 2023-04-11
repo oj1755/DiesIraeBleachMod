@@ -2,9 +2,9 @@
   "_fv": 33,
   "_type": "rangeditem",
   "definition": {
-    "renderType": 0,
+    "renderType": 1,
     "texture": "panzer",
-    "customModelName": "Normal",
+    "customModelName": "panzerfaustitem:default",
     "name": "Panzer Faust Item",
     "specialInfo": [],
     "creativeTab": {
@@ -20,13 +20,13 @@
       "value": "CUSTOM:panzer"
     },
     "hasGlow": false,
-    "animation": "crossbow",
+    "animation": "none",
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "bulletPower": 10.0,
     "bulletDamage": 5.0,
     "bulletKnockback": 5,
-    "bulletParticles": true,
+    "bulletParticles": false,
     "bulletIgnitesFire": false,
     "bulletItemTexture": {
       "value": "CUSTOM:PanzerFaustItem"

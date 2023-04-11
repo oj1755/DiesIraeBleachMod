@@ -12,6 +12,7 @@ import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraft.world.World;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
@@ -21,8 +22,8 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
-import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.ai.goal.RangedAttackGoal;
+import net.minecraft.entity.ai.goal.RandomWalkingGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.controller.FlyingMovementController;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -40,26 +41,27 @@ import net.minecraft.entity.CreatureAttribute;
 import net.minecraft.block.BlockState;
 
 import net.mcreator.diesiraebleach.procedures.PanzerMahoujinenteiteigasuponsitaShiProcedure;
-import net.mcreator.diesiraebleach.item.PanzerFaustItemItem;
-import net.mcreator.diesiraebleach.entity.renderer.PanzerMahoujinRenderer;
+import net.mcreator.diesiraebleach.item.SchmeizerItemItem;
+import net.mcreator.diesiraebleach.entity.renderer.SchmeizerMahoujinRenderer;
 import net.mcreator.diesiraebleach.DiesiraebleachModElements;
 
 import javax.annotation.Nullable;
 
 import java.util.stream.Stream;
+import java.util.Random;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.AbstractMap;
 
 @DiesiraebleachModElements.ModElement.Tag
-public class PanzerMahoujinEntity extends DiesiraebleachModElements.ModElement {
+public class SchmeizerMahoujinEntity extends DiesiraebleachModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).immuneToFire()
-			.size(0.6f, 1.95f)).build("panzer_mahoujin").setRegistryName("panzer_mahoujin");
+			.size(0.1f, 0.1f)).build("schmeizer_mahoujin").setRegistryName("schmeizer_mahoujin");
 
-	public PanzerMahoujinEntity(DiesiraebleachModElements instance) {
-		super(instance, 31);
-		FMLJavaModLoadingContext.get().getModEventBus().register(new PanzerMahoujinRenderer.ModelRegisterHandler());
+	public SchmeizerMahoujinEntity(DiesiraebleachModElements instance) {
+		super(instance, 38);
+		FMLJavaModLoadingContext.get().getModEventBus().register(new SchmeizerMahoujinRenderer.ModelRegisterHandler());
 		FMLJavaModLoadingContext.get().getModEventBus().register(new EntityAttributesRegisterHandler());
 	}
 
@@ -67,7 +69,7 @@ public class PanzerMahoujinEntity extends DiesiraebleachModElements.ModElement {
 	public void initElements() {
 		elements.entities.add(() -> entity);
 		elements.items.add(
-				() -> new SpawnEggItem(entity, -1, -1, new Item.Properties().group(ItemGroup.MISC)).setRegistryName("panzer_mahoujin_spawn_egg"));
+				() -> new SpawnEggItem(entity, -1, -1, new Item.Properties().group(ItemGroup.MISC)).setRegistryName("schmeizer_mahoujin_spawn_egg"));
 	}
 
 	@Override
@@ -78,12 +80,12 @@ public class PanzerMahoujinEntity extends DiesiraebleachModElements.ModElement {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
 			AttributeModifierMap.MutableAttribute ammma = MobEntity.func_233666_p_();
-			ammma = ammma.createMutableAttribute(Attributes.MOVEMENT_SPEED, 0);
+			ammma = ammma.createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.1);
 			ammma = ammma.createMutableAttribute(Attributes.MAX_HEALTH, 10);
 			ammma = ammma.createMutableAttribute(Attributes.ARMOR, 0);
 			ammma = ammma.createMutableAttribute(Attributes.ATTACK_DAMAGE, 3);
 			ammma = ammma.createMutableAttribute(Attributes.FOLLOW_RANGE, 16);
-			ammma = ammma.createMutableAttribute(Attributes.FLYING_SPEED, 0);
+			ammma = ammma.createMutableAttribute(Attributes.FLYING_SPEED, 0.1);
 			event.put(entity, ammma.create());
 		}
 	}
@@ -111,6 +113,16 @@ public class PanzerMahoujinEntity extends DiesiraebleachModElements.ModElement {
 		protected void registerGoals() {
 			super.registerGoals();
 			this.targetSelector.addGoal(1, new NearestAttackableTargetGoal(this, LivingEntity.class, true, true));
+			this.goalSelector.addGoal(2, new RandomWalkingGoal(this, 1, 20) {
+				@Override
+				protected Vector3d getPosition() {
+					Random random = CustomEntity.this.getRNG();
+					double dir_x = CustomEntity.this.getPosX() + ((random.nextFloat() * 2 - 1) * 16);
+					double dir_y = CustomEntity.this.getPosY() + ((random.nextFloat() * 2 - 1) * 16);
+					double dir_z = CustomEntity.this.getPosZ() + ((random.nextFloat() * 2 - 1) * 16);
+					return new Vector3d(dir_x, dir_y, dir_z);
+				}
+			});
 			this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25, 20, 10) {
 				@Override
 				public boolean shouldContinueExecuting() {
@@ -151,8 +163,6 @@ public class PanzerMahoujinEntity extends DiesiraebleachModElements.ModElement {
 
 		@Override
 		public boolean attackEntityFrom(DamageSource source, float amount) {
-			if (source.getImmediateSource() instanceof AbstractArrowEntity)
-				return false;
 			if (source.isExplosion())
 				return false;
 			return super.attackEntityFrom(source, amount);
@@ -174,7 +184,7 @@ public class PanzerMahoujinEntity extends DiesiraebleachModElements.ModElement {
 		}
 
 		public void attackEntityWithRangedAttack(LivingEntity target, float flval) {
-			PanzerFaustItemItem.shoot(this, target);
+			SchmeizerItemItem.shoot(this, target);
 		}
 
 		@Override

@@ -1,6 +1,5 @@
 {
   "credit": "Made with Blockbench",
-  "parent": "PanzerFaustItem",
   "elements": [
     {
       "from": [
@@ -30,7 +29,7 @@
             3,
             3
           ],
-          "texture": "#0"
+          "texture": "#missing"
         },
         "east": {
           "uv": [
@@ -39,7 +38,7 @@
             10,
             1
           ],
-          "texture": "#0"
+          "texture": "#missing"
         },
         "south": {
           "uv": [
@@ -48,7 +47,7 @@
             3,
             4
           ],
-          "texture": "#0"
+          "texture": "#missing"
         },
         "west": {
           "uv": [
@@ -57,7 +56,7 @@
             10,
             2
           ],
-          "texture": "#0"
+          "texture": "#1"
         },
         "up": {
           "uv": [
@@ -66,7 +65,7 @@
             0,
             2
           ],
-          "texture": "#0"
+          "texture": "#1"
         },
         "down": {
           "uv": [
@@ -75,7 +74,7 @@
             1,
             12
           ],
-          "texture": "#0"
+          "texture": "#missing"
         }
       }
     },
@@ -98,7 +97,7 @@
             4,
             3
           ],
-          "texture": "#0"
+          "texture": "#missing"
         },
         "east": {
           "uv": [
@@ -107,7 +106,7 @@
             4,
             4
           ],
-          "texture": "#0"
+          "texture": "#missing"
         },
         "south": {
           "uv": [
@@ -116,7 +115,7 @@
             3,
             5
           ],
-          "texture": "#0"
+          "texture": "#missing"
         },
         "west": {
           "uv": [
@@ -125,7 +124,7 @@
             5,
             3
           ],
-          "texture": "#0"
+          "texture": "#1"
         },
         "up": {
           "uv": [
@@ -134,7 +133,7 @@
             3,
             4
           ],
-          "texture": "#0"
+          "texture": "#missing"
         },
         "down": {
           "uv": [
@@ -143,7 +142,7 @@
             4,
             4
           ],
-          "texture": "#0"
+          "texture": "#missing"
         }
       }
     },
@@ -175,7 +174,7 @@
             5,
             5
           ],
-          "texture": "#0"
+          "texture": "#missing"
         },
         "east": {
           "uv": [
@@ -184,7 +183,7 @@
             3,
             6
           ],
-          "texture": "#0"
+          "texture": "#missing"
         },
         "south": {
           "uv": [
@@ -193,7 +192,7 @@
             6,
             3
           ],
-          "texture": "#0"
+          "texture": "#missing"
         },
         "west": {
           "uv": [
@@ -202,7 +201,7 @@
             4,
             6
           ],
-          "texture": "#0"
+          "texture": "#1"
         },
         "up": {
           "uv": [
@@ -211,7 +210,7 @@
             5,
             3
           ],
-          "texture": "#0"
+          "texture": "#missing"
         },
         "down": {
           "uv": [
@@ -220,7 +219,7 @@
             4,
             6
           ],
-          "texture": "#0"
+          "texture": "#missing"
         }
       }
     },
@@ -252,7 +251,7 @@
             6,
             5
           ],
-          "texture": "#0"
+          "texture": "#missing"
         },
         "east": {
           "uv": [
@@ -261,7 +260,7 @@
             6,
             6
           ],
-          "texture": "#0"
+          "texture": "#missing"
         },
         "south": {
           "uv": [
@@ -270,7 +269,7 @@
             3,
             7
           ],
-          "texture": "#0"
+          "texture": "#missing"
         },
         "west": {
           "uv": [
@@ -279,7 +278,7 @@
             7,
             3
           ],
-          "texture": "#0"
+          "texture": "#1"
         },
         "up": {
           "uv": [
@@ -288,7 +287,7 @@
             3,
             6
           ],
-          "texture": "#0"
+          "texture": "#missing"
         },
         "down": {
           "uv": [
@@ -297,7 +296,7 @@
             6,
             4
           ],
-          "texture": "#0"
+          "texture": "#missing"
         }
       }
     }
