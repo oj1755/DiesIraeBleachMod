@@ -1,0 +1,7 @@
+{
+  "parent": "diesiraebleach:custom/schmeizeritem",
+  "textures": {
+    "0": "diesiraebleach:blocks/schmeizeritem",
+    "particle": "diesiraebleach:items/schmeizertexture"
+  }
+}

@@ -16,5 +16,23 @@
         "stream": false
       }
     ]
+  },
+  "gunfire": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:gunfire",
+        "stream": false
+      }
+    ]
+  },
+  "guncharge": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:guncharge",
+        "stream": false
+      }
+    ]
   }
 }

@@ -1,4 +1,5 @@
 {
+  "subtitles.gunfire": "",
   "item.diesiraebleach.qliphoth_bacikal_2": "Qliphoth Bacikal 2",
   "subtitles.panzer": "",
   "key.diesiraebleach.katsudou": "Katsudou",
@@ -6,6 +7,7 @@
   "item.diesiraebleach.makina_glove": "Makina Glove",
   "item.diesiraebleach.kui": "Kui",
   "effect.seiibutsu": "聖遺物",
+  "item.diesiraebleach.schmeizer_item": "Schmeizer Item",
   "item.diesiraebleach.dora_cannon": "Dora Cannon",
   "item.minecraft.splash_potion.effect.qliphoth_bacikal": "Splash Potion of Qliphoth Bacikal",
   "item.minecraft.potion.effect.qliphoth_bacikal": "Qliphoth Bacikal",
@@ -13,6 +15,7 @@
   "item.diesiraebleach.hihiirokane": "Hihiirokane",
   "entity.diesiraebleach.panzer_mahoujin": "Panzer Mahoujin",
   "item.minecraft.tipped_arrow.effect.qliphoth_bacikal": "Arrow of Qliphoth Bacikal",
+  "subtitles.guncharge": "",
   "item.diesiraebleach.panzer_faust_item": "Panzer Faust Item",
   "subtitles.panzersummon": ""
 }

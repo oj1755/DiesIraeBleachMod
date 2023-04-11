@@ -503,6 +503,46 @@
           }
         ]
       }
+    },
+    {
+      "name": "Bakuen",
+      "type": "procedure",
+      "sortid": 36,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bakuen",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SchmeizerItem",
+      "type": "rangeditem",
+      "sortid": 37,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "schmeizer_item"
     }
   ],
   "variable_elements": [
@@ -541,10 +581,27 @@
       ],
       "category": "neutral",
       "subtitle": ""
+    },
+    {
+      "name": "gunfire",
+      "files": [
+        "gunfire"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "guncharge",
+      "files": [
+        "guncharge"
+      ],
+      "category": "neutral",
+      "subtitle": ""
     }
   ],
   "language_map": {
     "en_us": {
+      "subtitles.gunfire": "",
       "item.diesiraebleach.qliphoth_bacikal_2": "Qliphoth Bacikal 2",
       "subtitles.panzer": "",
       "key.diesiraebleach.katsudou": "Katsudou",
@@ -552,6 +609,7 @@
       "item.diesiraebleach.makina_glove": "Makina Glove",
       "item.diesiraebleach.kui": "Kui",
       "effect.seiibutsu": "聖遺物",
+      "item.diesiraebleach.schmeizer_item": "Schmeizer Item",
       "item.diesiraebleach.dora_cannon": "Dora Cannon",
       "item.minecraft.splash_potion.effect.qliphoth_bacikal": "Splash Potion of Qliphoth Bacikal",
       "item.minecraft.potion.effect.qliphoth_bacikal": "Qliphoth Bacikal",
@@ -559,6 +617,7 @@
       "item.diesiraebleach.hihiirokane": "Hihiirokane",
       "entity.diesiraebleach.panzer_mahoujin": "Panzer Mahoujin",
       "item.minecraft.tipped_arrow.effect.qliphoth_bacikal": "Arrow of Qliphoth Bacikal",
+      "subtitles.guncharge": "",
       "item.diesiraebleach.panzer_faust_item": "Panzer Faust Item",
       "subtitles.panzersummon": ""
     }
@@ -581,6 +640,7 @@
     "dependants": [],
     "mcreatorDependencies": [],
     "currentGenerator": "forge-1.16.5",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.diesiraebleach",
     "lockBaseModFiles": false
   },

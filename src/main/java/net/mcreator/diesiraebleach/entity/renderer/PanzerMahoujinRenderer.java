@@ -25,7 +25,7 @@ public class PanzerMahoujinRenderer {
 		@OnlyIn(Dist.CLIENT)
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(PanzerMahoujinEntity.entity, renderManager -> {
-				return new MobRenderer(renderManager, new ModelPanzermahoujin(), 0.5f) {
+				return new MobRenderer(renderManager, new ModelPanzermahoujin(), 0.1f) {
 
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {

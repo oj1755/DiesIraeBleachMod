@@ -1,0 +1,37 @@
+{
+  "_fv": 33,
+  "_type": "rangeditem",
+  "definition": {
+    "renderType": 1,
+    "texture": "schmeizertexture",
+    "customModelName": "schmeizeritem:default",
+    "name": "Schmeizer Item",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "COMBAT"
+    },
+    "stackSize": 1,
+    "ammoItem": {
+      "value": ""
+    },
+    "shootConstantly": true,
+    "usageCount": 100,
+    "actionSound": {
+      "value": "CUSTOM:gunfire"
+    },
+    "hasGlow": false,
+    "animation": "bow",
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "bulletPower": 1.0,
+    "bulletDamage": 5.0,
+    "bulletKnockback": 1,
+    "bulletParticles": false,
+    "bulletIgnitesFire": false,
+    "bulletItemTexture": {
+      "value": "CUSTOM:SchmeizerItem"
+    },
+    "bulletModel": "ModelSchmeizerAmmo",
+    "customBulletModelTexture": "schmeizerammo.png"
+  }
+}

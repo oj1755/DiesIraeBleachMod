@@ -67,7 +67,7 @@ import java.util.AbstractMap;
 public class PanzerMahoujinEntity extends DiesiraebleachModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).immuneToFire()
-			.size(0.6f, 1.8f)).build("panzer_mahoujin").setRegistryName("panzer_mahoujin");
+			.size(0.1f, 0.1f)).build("panzer_mahoujin").setRegistryName("panzer_mahoujin");
 
 	public PanzerMahoujinEntity(DiesiraebleachModElements instance) {
 		super(instance, 31);
@@ -191,6 +191,11 @@ public class PanzerMahoujinEntity extends DiesiraebleachModElements.ModElement {
 		@Override
 		public CreatureAttribute getCreatureAttribute() {
 			return CreatureAttribute.UNDEFINED;
+		}
+
+		@Override
+		public double getMountedYOffset() {
+			return super.getMountedYOffset() + 0.1;
 		}
 
 		@Override
