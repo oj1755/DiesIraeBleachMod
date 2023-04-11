@@ -637,9 +637,9 @@
   ],
   "language_map": {
     "en_us": {
-      "subtitles.panzer": "",
-      "item.diesiraebleach.qliphoth_bacikal_2": "Qliphoth Bacikal 2",
       "subtitles.gunfire": "",
+      "item.diesiraebleach.qliphoth_bacikal_2": "Qliphoth Bacikal 2",
+      "subtitles.panzer": "",
       "key.diesiraebleach.katsudou": "Katsudou",
       "item.diesiraebleach.panzer_mahoujin_spawn_egg": "Panzer Mahoujin Spawn Egg",
       "item.diesiraebleach.makina_glove": "Makina Glove",

@@ -112,7 +112,7 @@ public class SchmeizerMahoujinEntity extends DiesiraebleachModElements.ModElemen
 		@Override
 		protected void registerGoals() {
 			super.registerGoals();
-			this.targetSelector.addGoal(1, new NearestAttackableTargetGoal(this, LivingEntity.class, true, true));
+			this.targetSelector.addGoal(1, new NearestAttackableTargetGoal(this, LivingEntity.class, false, false));
 			this.goalSelector.addGoal(2, new RandomWalkingGoal(this, 1, 20) {
 				@Override
 				protected Vector3d getPosition() {

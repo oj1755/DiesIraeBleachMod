@@ -106,6 +106,22 @@ public class PanzerSummonProcedure {
 								SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
 					world.addEntity(entityToSpawn);
 				}
+				if (world instanceof ServerWorld) {
+					Entity entityToSpawn = new PanzerMahoujinEntity.CustomEntity(PanzerMahoujinEntity.entity, (World) world);
+					entityToSpawn.setLocationAndAngles((x - 2), (y + 5), z, world.getRandom().nextFloat() * 360F, 0);
+					if (entityToSpawn instanceof MobEntity)
+						((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
+								SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
+					world.addEntity(entityToSpawn);
+				}
+				if (world instanceof ServerWorld) {
+					Entity entityToSpawn = new PanzerMahoujinEntity.CustomEntity(PanzerMahoujinEntity.entity, (World) world);
+					entityToSpawn.setLocationAndAngles((x + 2), (y + 5), z, world.getRandom().nextFloat() * 360F, 0);
+					if (entityToSpawn instanceof MobEntity)
+						((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
+								SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
+					world.addEntity(entityToSpawn);
+				}
 				MinecraftForge.EVENT_BUS.unregister(this);
 			}
 		}.start(world, (int) 30);
