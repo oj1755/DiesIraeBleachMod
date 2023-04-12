@@ -2,7 +2,8 @@
   "mappings": {
     "default": {
       "map": {
-        "0": "hihiirokane"
+        "0": "hihiirokane1",
+        "1": "hihiirokane2"
       },
       "name": "default"
     }
