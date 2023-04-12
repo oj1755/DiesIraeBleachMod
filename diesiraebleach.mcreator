@@ -33,38 +33,6 @@
       }
     },
     {
-      "name": "Tamesi",
-      "type": "procedure",
-      "sortid": 1,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "tamesi",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
       "name": "DoraCannon",
       "type": "item",
       "sortid": 10,
@@ -79,38 +47,6 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "mahoujinred"
-    },
-    {
-      "name": "Mahoujingazou",
-      "type": "procedure",
-      "sortid": 9,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "mahoujingazou",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
     },
     {
       "name": "SeiibutsuposiyonnoXiaoGuogaKaiShiShiYongsaretatoki",
@@ -216,6 +152,18 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
           },
           {
             "name": "world",
@@ -375,22 +323,6 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "panzer_faust_item"
-    },
-    {
-      "name": "PanzerMahoujinkonoenteiteigaBienoenteiteiwoDaositaShi",
-      "type": "procedure",
-      "sortid": 31,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "panzer_mahoujinkonoenteiteiga_bienoenteiteiwo_daosita_shi",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      }
     },
     {
       "name": "PanzerMahoujin",
@@ -579,6 +511,46 @@
           }
         ]
       }
+    },
+    {
+      "name": "Hihiirokanekatsudou",
+      "type": "keybind",
+      "sortid": 40,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hihiirokanekatsudou"
+    },
+    {
+      "name": "Hihiirokanekatsudouki",
+      "type": "procedure",
+      "sortid": 41,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hihiirokanekatsudouki",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "HihiirokanemobugaturudeGongJisaretatoki",
+      "type": "procedure",
+      "sortid": 42,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hihiirokanemobugaturude_gong_jisaretatoki",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -589,15 +561,15 @@
       "value": "0.0"
     },
     {
-      "name": "k",
-      "type": "number",
-      "scope": "map",
-      "value": "0"
-    },
-    {
       "name": "waza",
       "type": "number",
       "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "k",
+      "type": "number",
+      "scope": "map",
       "value": "0"
     }
   ],
@@ -637,9 +609,9 @@
   ],
   "language_map": {
     "en_us": {
-      "subtitles.gunfire": "",
-      "item.diesiraebleach.qliphoth_bacikal_2": "Qliphoth Bacikal 2",
       "subtitles.panzer": "",
+      "item.diesiraebleach.qliphoth_bacikal_2": "Qliphoth Bacikal 2",
+      "subtitles.gunfire": "",
       "key.diesiraebleach.katsudou": "Katsudou",
       "item.diesiraebleach.panzer_mahoujin_spawn_egg": "Panzer Mahoujin Spawn Egg",
       "item.diesiraebleach.makina_glove": "Makina Glove",
@@ -649,9 +621,10 @@
       "item.diesiraebleach.dora_cannon": "Dora Cannon",
       "item.minecraft.splash_potion.effect.qliphoth_bacikal": "Splash Potion of Qliphoth Bacikal",
       "item.diesiraebleach.schmeizer_mahoujin_spawn_egg": "Schmeizer Mahoujin Spawn Egg",
+      "key.diesiraebleach.hihiirokanekatsudou": "Katsudou",
       "item.minecraft.potion.effect.qliphoth_bacikal": "Qliphoth Bacikal",
       "item.minecraft.lingering_potion.effect.qliphoth_bacikal": "Lingering Potion of Qliphoth Bacikal",
-      "item.diesiraebleach.hihiirokane": "Hihiirokane",
+      "item.diesiraebleach.hihiirokane": "緋々色金",
       "entity.diesiraebleach.panzer_mahoujin": "Panzer Mahoujin",
       "item.minecraft.tipped_arrow.effect.qliphoth_bacikal": "Arrow of Qliphoth Bacikal",
       "subtitles.guncharge": "",
@@ -662,12 +635,7 @@
   },
   "foldersRoot": {
     "name": "~",
-    "children": [
-      {
-        "name": "Hihiirokane",
-        "children": []
-      }
-    ]
+    "children": []
   },
   "workspaceSettings": {
     "modid": "diesiraebleach",

@@ -26,7 +26,7 @@
     "bulletPower": 10.0,
     "bulletDamage": 2.0,
     "bulletKnockback": 1,
-    "bulletParticles": true,
+    "bulletParticles": false,
     "bulletIgnitesFire": false,
     "bulletItemTexture": {
       "value": "CUSTOM:SchmeizerItem"

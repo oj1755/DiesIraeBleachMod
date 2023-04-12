@@ -6,16 +6,6 @@
     "splashName": "Splash Potion of Qliphoth Bacikal",
     "lingeringName": "Lingering Potion of Qliphoth Bacikal",
     "arrowName": "Arrow of Qliphoth Bacikal",
-    "effects": [
-      {
-        "effect": {
-          "value": "CUSTOM:Seiibutsu"
-        },
-        "duration": 3600,
-        "amplifier": 10,
-        "ambient": false,
-        "showParticles": false
-      }
-    ]
+    "effects": []
   }
 }

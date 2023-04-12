@@ -26,7 +26,7 @@
     "bulletPower": 10.0,
     "bulletDamage": 5.0,
     "bulletKnockback": 5,
-    "bulletParticles": false,
+    "bulletParticles": true,
     "bulletIgnitesFire": false,
     "bulletItemTexture": {
       "value": "CUSTOM:PanzerFaustItem"
@@ -37,6 +37,9 @@
       "name": "PanzerFaustItemFeibiDaoJugaburotukuniDangtatutatoki"
     },
     "onBulletHitsPlayer": {
+      "name": "PanzerFaustItemFeibiDaoJugaburotukuniDangtatutatoki"
+    },
+    "onBulletHitsEntity": {
       "name": "PanzerFaustItemFeibiDaoJugaburotukuniDangtatutatoki"
     }
   }

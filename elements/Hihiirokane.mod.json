@@ -5,7 +5,7 @@
     "renderType": 1,
     "texture": "hihiirokane",
     "customModelName": "hihiirokane:default",
-    "name": "Hihiirokane",
+    "name": "緋々色金",
     "specialInfo": [],
     "creativeTab": {
       "value": "COMBAT"
@@ -13,17 +13,17 @@
     "toolType": "Sword",
     "harvestLevel": 1,
     "efficiency": 6.0,
-    "attackSpeed": 2.0,
+    "attackSpeed": 10.0,
     "enchantability": 2,
     "damageVsEntity": 15.0,
-    "usageCount": 100,
+    "usageCount": 1000,
     "blocksAffected": [],
     "hasGlow": true,
     "repairItems": [],
     "immuneToFire": true,
     "stayInGridWhenCrafting": false,
     "damageOnCrafting": false,
-    "onEntitySwing": {
+    "onRightClickedInAir": {
       "name": "HihiirokaneenteiteigaaitemuwoZhentutaShi"
     }
   }

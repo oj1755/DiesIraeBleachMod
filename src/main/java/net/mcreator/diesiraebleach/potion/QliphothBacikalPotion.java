@@ -7,7 +7,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.RegistryEvent;
 
 import net.minecraft.potion.Potion;
-import net.minecraft.potion.EffectInstance;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class QliphothBacikalPotion {
@@ -21,7 +20,7 @@ public class QliphothBacikalPotion {
 
 	public static class PotionCustom extends Potion {
 		public PotionCustom() {
-			super(new EffectInstance(SeiibutsuPotionEffect.potion, 3600, 10, false, false));
+			super();
 			setRegistryName("qliphoth_bacikal");
 		}
 	}

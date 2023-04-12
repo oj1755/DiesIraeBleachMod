@@ -12,7 +12,6 @@ import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraft.world.World;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
@@ -22,8 +21,8 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
+import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.ai.goal.RangedAttackGoal;
-import net.minecraft.entity.ai.goal.RandomWalkingGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.controller.FlyingMovementController;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -48,7 +47,6 @@ import net.mcreator.diesiraebleach.DiesiraebleachModElements;
 import javax.annotation.Nullable;
 
 import java.util.stream.Stream;
-import java.util.Random;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.AbstractMap;
@@ -112,17 +110,7 @@ public class SchmeizerMahoujinEntity extends DiesiraebleachModElements.ModElemen
 		@Override
 		protected void registerGoals() {
 			super.registerGoals();
-			this.targetSelector.addGoal(1, new NearestAttackableTargetGoal(this, LivingEntity.class, false, false));
-			this.goalSelector.addGoal(2, new RandomWalkingGoal(this, 1, 20) {
-				@Override
-				protected Vector3d getPosition() {
-					Random random = CustomEntity.this.getRNG();
-					double dir_x = CustomEntity.this.getPosX() + ((random.nextFloat() * 2 - 1) * 16);
-					double dir_y = CustomEntity.this.getPosY() + ((random.nextFloat() * 2 - 1) * 16);
-					double dir_z = CustomEntity.this.getPosZ() + ((random.nextFloat() * 2 - 1) * 16);
-					return new Vector3d(dir_x, dir_y, dir_z);
-				}
-			});
+			this.targetSelector.addGoal(1, new NearestAttackableTargetGoal(this, MonsterEntity.class, false, false));
 			this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25, 20, 10) {
 				@Override
 				public boolean shouldContinueExecuting() {
