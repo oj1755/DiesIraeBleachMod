@@ -120,6 +120,22 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       }
@@ -559,6 +575,46 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "getsugaenkyori"
+    },
+    {
+      "name": "Beienkyoriitem",
+      "type": "rangeditem",
+      "sortid": 44,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beienkyoriitem"
+    },
+    {
+      "name": "Kyusei",
+      "type": "procedure",
+      "sortid": 45,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kyusei",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -613,32 +669,42 @@
       ],
       "category": "neutral",
       "subtitle": ""
+    },
+    {
+      "name": "beikuihassha",
+      "files": [
+        "beikui"
+      ],
+      "category": "neutral",
+      "subtitle": ""
     }
   ],
   "language_map": {
     "en_us": {
-      "subtitles.panzer": "",
-      "item.diesiraebleach.qliphoth_bacikal_2": "Qliphoth Bacikal 2",
       "subtitles.gunfire": "",
       "key.diesiraebleach.katsudou": "Katsudou",
       "item.diesiraebleach.getsugaenkyori": "Getsugaenkyori",
       "item.diesiraebleach.panzer_mahoujin_spawn_egg": "Panzer Mahoujin Spawn Egg",
-      "item.diesiraebleach.makina_glove": "Makina Glove",
-      "item.diesiraebleach.kui": "Kui",
+      "item.diesiraebleach.beienkyoriitem": "Beienkyoriitem",
       "effect.seiibutsu": "聖遺物",
       "item.diesiraebleach.schmeizer_item": "Schmeizer Item",
-      "item.diesiraebleach.dora_cannon": "Dora Cannon",
       "item.minecraft.splash_potion.effect.qliphoth_bacikal": "Splash Potion of Qliphoth Bacikal",
-      "item.diesiraebleach.schmeizer_mahoujin_spawn_egg": "Schmeizer Mahoujin Spawn Egg",
+      "item.diesiraebleach.dora_cannon": "Dora Cannon",
       "key.diesiraebleach.hihiirokanekatsudou": "Katsudou",
       "item.minecraft.potion.effect.qliphoth_bacikal": "Qliphoth Bacikal",
+      "item.diesiraebleach.panzer_faust_item": "Panzer Faust Item",
+      "entity.diesiraebleach.schmeizer_mahoujin": "Schmeizer Mahoujin",
+      "item.diesiraebleach.qliphoth_bacikal_2": "Qliphoth Bacikal 2",
+      "subtitles.panzer": "",
+      "item.diesiraebleach.makina_glove": "Makina Glove",
+      "item.diesiraebleach.kui": "Kui",
+      "item.diesiraebleach.schmeizer_mahoujin_spawn_egg": "Schmeizer Mahoujin Spawn Egg",
       "item.minecraft.lingering_potion.effect.qliphoth_bacikal": "Lingering Potion of Qliphoth Bacikal",
       "item.diesiraebleach.hihiirokane": "緋々色金",
       "entity.diesiraebleach.panzer_mahoujin": "Panzer Mahoujin",
+      "subtitles.beikuihassha": "",
       "item.minecraft.tipped_arrow.effect.qliphoth_bacikal": "Arrow of Qliphoth Bacikal",
       "subtitles.guncharge": "",
-      "item.diesiraebleach.panzer_faust_item": "Panzer Faust Item",
-      "entity.diesiraebleach.schmeizer_mahoujin": "Schmeizer Mahoujin",
       "subtitles.panzersummon": ""
     }
   },

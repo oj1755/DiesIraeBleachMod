@@ -34,5 +34,14 @@
         "stream": false
       }
     ]
+  },
+  "beikuihassha": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:beikui",
+        "stream": false
+      }
+    ]
   }
 }
