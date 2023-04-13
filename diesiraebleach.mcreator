@@ -551,6 +551,14 @@
           }
         ]
       }
+    },
+    {
+      "name": "Getsugaenkyori",
+      "type": "rangeditem",
+      "sortid": 43,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "getsugaenkyori"
     }
   ],
   "variable_elements": [
@@ -613,6 +621,7 @@
       "item.diesiraebleach.qliphoth_bacikal_2": "Qliphoth Bacikal 2",
       "subtitles.gunfire": "",
       "key.diesiraebleach.katsudou": "Katsudou",
+      "item.diesiraebleach.getsugaenkyori": "Getsugaenkyori",
       "item.diesiraebleach.panzer_mahoujin_spawn_egg": "Panzer Mahoujin Spawn Egg",
       "item.diesiraebleach.makina_glove": "Makina Glove",
       "item.diesiraebleach.kui": "Kui",
