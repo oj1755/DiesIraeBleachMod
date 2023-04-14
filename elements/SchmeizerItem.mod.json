@@ -20,7 +20,7 @@
       "value": "CUSTOM:gunfire"
     },
     "hasGlow": false,
-    "animation": "none",
+    "animation": "crossbow",
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "bulletPower": 10.0,

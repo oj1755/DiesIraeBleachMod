@@ -598,20 +598,52 @@
             "type": "entity"
           },
           {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
+            "name": "sourceentity",
+            "type": "entity"
           },
           {
             "name": "world",
             "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Kyuseip",
+      "type": "particle",
+      "sortid": 46,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kyuseip"
+    },
+    {
+      "name": "Tosshin",
+      "type": "procedure",
+      "sortid": 47,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tosshin",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Yaminotamamono",
+      "type": "procedure",
+      "sortid": 48,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "yaminotamamono",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
           }
         ]
       }
@@ -632,6 +664,24 @@
     },
     {
       "name": "k",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "qliphotox",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "qliphotoy",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "qliphotoz",
       "type": "number",
       "scope": "map",
       "value": "0"

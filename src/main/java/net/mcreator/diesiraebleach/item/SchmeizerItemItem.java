@@ -68,7 +68,7 @@ public class SchmeizerItemItem extends DiesiraebleachModElements.ModElement {
 
 		@Override
 		public UseAction getUseAction(ItemStack itemstack) {
-			return UseAction.NONE;
+			return UseAction.CROSSBOW;
 		}
 
 		@Override

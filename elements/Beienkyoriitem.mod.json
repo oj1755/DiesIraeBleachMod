@@ -15,7 +15,7 @@
       "value": ""
     },
     "shootConstantly": true,
-    "usageCount": 100,
+    "usageCount": 0,
     "actionSound": {
       "value": "CUSTOM:beikuihassha"
     },
@@ -24,18 +24,15 @@
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "bulletPower": 1.0,
-    "bulletDamage": 5.0,
-    "bulletKnockback": 5,
+    "bulletDamage": 0.0,
+    "bulletKnockback": 0,
     "bulletParticles": false,
     "bulletIgnitesFire": false,
     "bulletItemTexture": {
-      "value": ""
+      "value": "CUSTOM:Beienkyoriitem"
     },
     "bulletModel": "ModelBeikui",
     "customBulletModelTexture": "beikui.png",
-    "onBulletHitsPlayer": {
-      "name": "Kyusei"
-    },
     "onBulletHitsEntity": {
       "name": "Kyusei"
     }

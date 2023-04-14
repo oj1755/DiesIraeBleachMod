@@ -62,7 +62,7 @@ public class BeienkyoriitemItem extends DiesiraebleachModElements.ModElement {
 
 	public static class ItemRanged extends Item {
 		public ItemRanged() {
-			super(new Item.Properties().group(ItemGroup.COMBAT).maxDamage(100));
+			super(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1));
 			setRegistryName("beienkyoriitem");
 		}
 
@@ -91,7 +91,7 @@ public class BeienkyoriitemItem extends DiesiraebleachModElements.ModElement {
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
 				if (true) {
-					ArrowCustomEntity entityarrow = shoot(world, entity, random, 1f, 5, 5);
+					ArrowCustomEntity entityarrow = shoot(world, entity, random, 1f, 0, 0);
 					itemstack.damageItem(1, entity, e -> e.sendBreakAnimation(entity.getActiveHand()));
 					entityarrow.pickupStatus = AbstractArrowEntity.PickupStatus.DISALLOWED;
 					entity.stopActiveHand();
@@ -126,7 +126,7 @@ public class BeienkyoriitemItem extends DiesiraebleachModElements.ModElement {
 		@Override
 		@OnlyIn(Dist.CLIENT)
 		public ItemStack getItem() {
-			return ItemStack.EMPTY;
+			return new ItemStack(BeienkyoriitemItem.block);
 		}
 
 		@Override
@@ -141,22 +141,6 @@ public class BeienkyoriitemItem extends DiesiraebleachModElements.ModElement {
 		}
 
 		@Override
-		public void onCollideWithPlayer(PlayerEntity entity) {
-			super.onCollideWithPlayer(entity);
-			Entity sourceentity = this.func_234616_v_();
-			Entity immediatesourceentity = this;
-			double x = this.getPosX();
-			double y = this.getPosY();
-			double z = this.getPosZ();
-			World world = this.world;
-
-			KyuseiProcedure.executeProcedure(Stream
-					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
-							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
-					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
-		}
-
-		@Override
 		public void onEntityHit(EntityRayTraceResult entityRayTraceResult) {
 			super.onEntityHit(entityRayTraceResult);
 			Entity entity = entityRayTraceResult.getEntity();
@@ -168,8 +152,8 @@ public class BeienkyoriitemItem extends DiesiraebleachModElements.ModElement {
 			World world = this.world;
 
 			KyuseiProcedure.executeProcedure(Stream
-					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
-							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity),
+							new AbstractMap.SimpleEntry<>("sourceentity", sourceentity))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
@@ -211,8 +195,8 @@ public class BeienkyoriitemItem extends DiesiraebleachModElements.ModElement {
 		double d3 = target.getPosZ() - entity.getPosZ();
 		entityarrow.shoot(d1, d0 - entityarrow.getPosY() + (double) MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F, d3, 1f * 2, 12.0F);
 		entityarrow.setSilent(true);
-		entityarrow.setDamage(5);
-		entityarrow.setKnockbackStrength(5);
+		entityarrow.setDamage(0);
+		entityarrow.setKnockbackStrength(0);
 		entityarrow.setIsCritical(false);
 		entity.world.addEntity(entityarrow);
 		double x = entity.getPosX();

@@ -109,6 +109,9 @@ public class DiesiraebleachModVariables {
 	public static class MapVariables extends WorldSavedData {
 		public static final String DATA_NAME = "diesiraebleach_mapvars";
 		public double k = 0;
+		public double qliphotox = 0;
+		public double qliphotoy = 0;
+		public double qliphotoz = 0;
 
 		public MapVariables() {
 			super(DATA_NAME);
@@ -121,11 +124,17 @@ public class DiesiraebleachModVariables {
 		@Override
 		public void read(CompoundNBT nbt) {
 			k = nbt.getDouble("k");
+			qliphotox = nbt.getDouble("qliphotox");
+			qliphotoy = nbt.getDouble("qliphotoy");
+			qliphotoz = nbt.getDouble("qliphotoz");
 		}
 
 		@Override
 		public CompoundNBT write(CompoundNBT nbt) {
 			nbt.putDouble("k", k);
+			nbt.putDouble("qliphotox", qliphotox);
+			nbt.putDouble("qliphotoy", qliphotoy);
+			nbt.putDouble("qliphotoz", qliphotoz);
 			return nbt;
 		}
 

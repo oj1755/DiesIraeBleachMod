@@ -54,7 +54,7 @@ public class BeikatsudouProcedure {
 		if (entity instanceof LivingEntity) {
 			((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 		}
-		for (int index0 = 0; index0 < (int) (10); index0++) {
+		for (int index0 = 0; index0 < (int) (100); index0++) {
 			if (world instanceof World && !world.isRemote()) {
 				((World) world).playSound(null, new BlockPos(x, y, z),
 						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:beikuihassha")),
@@ -80,7 +80,7 @@ public class BeikatsudouProcedure {
 						}
 					}.getArrow(projectileLevel, 5, 1);
 					_entityToSpawn.setPosition(_shootFrom.getPosX(), _shootFrom.getPosYEye() - 0.1, _shootFrom.getPosZ());
-					_entityToSpawn.shoot(_shootFrom.getLookVec().x, _shootFrom.getLookVec().y, _shootFrom.getLookVec().z, 3, 20);
+					_entityToSpawn.shoot(_shootFrom.getLookVec().x, _shootFrom.getLookVec().y, _shootFrom.getLookVec().z, 3, 100);
 					projectileLevel.addEntity(_entityToSpawn);
 				}
 			}

@@ -32,6 +32,9 @@
     "onRightClickedInAir": {
       "name": "Beikatsudou"
     },
+    "onEntityHitWith": {
+      "name": "Kyusei"
+    },
     "isFood": false,
     "nutritionalValue": 4,
     "saturation": 0.3,
