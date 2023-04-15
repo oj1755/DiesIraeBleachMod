@@ -8,12 +8,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Hand;
+import net.minecraft.item.ItemStack;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
 import net.mcreator.diesiraebleach.item.BeienkyoriitemItem;
+import net.mcreator.diesiraebleach.item.BeiKeiseihanaItem;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
 import java.util.Map;
@@ -54,34 +57,77 @@ public class BeikatsudouProcedure {
 		if (entity instanceof LivingEntity) {
 			((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 		}
-		for (int index0 = 0; index0 < (int) (100); index0++) {
-			if (world instanceof World && !world.isRemote()) {
-				((World) world).playSound(null, new BlockPos(x, y, z),
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:beikuihassha")),
-						SoundCategory.NEUTRAL, (float) 0.5, (float) 1);
-			} else {
-				((World) world).playSound(x, y, z,
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:beikuihassha")),
-						SoundCategory.NEUTRAL, (float) 0.5, (float) 1, false);
+		if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.HEAD) : ItemStack.EMPTY)
+				.getItem() == BeiKeiseihanaItem.block) {
+			for (int index0 = 0; index0 < (int) (10); index0++) {
+				if (world instanceof World && !world.isRemote()) {
+					((World) world)
+							.playSound(null, new BlockPos(x, y, z),
+									(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+											.getValue(new ResourceLocation("diesiraebleach:beikuihassha")),
+									SoundCategory.NEUTRAL, (float) 0.5, (float) 1);
+				} else {
+					((World) world).playSound(x, y, z,
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+									.getValue(new ResourceLocation("diesiraebleach:beikuihassha")),
+							SoundCategory.NEUTRAL, (float) 0.5, (float) 1, false);
+				}
+				{
+					Entity _shootFrom = entity;
+					World projectileLevel = _shootFrom.world;
+					if (!projectileLevel.isRemote()) {
+						ProjectileEntity _entityToSpawn = new Object() {
+							public ProjectileEntity getArrow(World world, float damage, int knockback, byte piercing) {
+								AbstractArrowEntity entityToSpawn = new BeienkyoriitemItem.ArrowCustomEntity(BeienkyoriitemItem.arrow, world);
+
+								entityToSpawn.setDamage(damage);
+								entityToSpawn.setKnockbackStrength(knockback);
+								entityToSpawn.setSilent(true);
+								entityToSpawn.setPierceLevel(piercing);
+
+								return entityToSpawn;
+							}
+						}.getArrow(projectileLevel, 5, 0, (byte) 1);
+						_entityToSpawn.setPosition(_shootFrom.getPosX(), _shootFrom.getPosYEye() - 0.1, _shootFrom.getPosZ());
+						_entityToSpawn.shoot(_shootFrom.getLookVec().x, _shootFrom.getLookVec().y, _shootFrom.getLookVec().z, 4, 10);
+						projectileLevel.addEntity(_entityToSpawn);
+					}
+				}
 			}
-			{
-				Entity _shootFrom = entity;
-				World projectileLevel = _shootFrom.world;
-				if (!projectileLevel.isRemote()) {
-					ProjectileEntity _entityToSpawn = new Object() {
-						public ProjectileEntity getArrow(World world, float damage, int knockback) {
-							AbstractArrowEntity entityToSpawn = new BeienkyoriitemItem.ArrowCustomEntity(BeienkyoriitemItem.arrow, world);
+		} else {
+			for (int index1 = 0; index1 < (int) (3); index1++) {
+				if (world instanceof World && !world.isRemote()) {
+					((World) world)
+							.playSound(null, new BlockPos(x, y, z),
+									(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+											.getValue(new ResourceLocation("diesiraebleach:beikuihassha")),
+									SoundCategory.NEUTRAL, (float) 0.5, (float) 1);
+				} else {
+					((World) world).playSound(x, y, z,
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+									.getValue(new ResourceLocation("diesiraebleach:beikuihassha")),
+							SoundCategory.NEUTRAL, (float) 0.5, (float) 1, false);
+				}
+				{
+					Entity _shootFrom = entity;
+					World projectileLevel = _shootFrom.world;
+					if (!projectileLevel.isRemote()) {
+						ProjectileEntity _entityToSpawn = new Object() {
+							public ProjectileEntity getArrow(World world, float damage, int knockback, byte piercing) {
+								AbstractArrowEntity entityToSpawn = new BeienkyoriitemItem.ArrowCustomEntity(BeienkyoriitemItem.arrow, world);
 
-							entityToSpawn.setDamage(damage);
-							entityToSpawn.setKnockbackStrength(knockback);
-							entityToSpawn.setSilent(true);
+								entityToSpawn.setDamage(damage);
+								entityToSpawn.setKnockbackStrength(knockback);
+								entityToSpawn.setSilent(true);
+								entityToSpawn.setPierceLevel(piercing);
 
-							return entityToSpawn;
-						}
-					}.getArrow(projectileLevel, 5, 1);
-					_entityToSpawn.setPosition(_shootFrom.getPosX(), _shootFrom.getPosYEye() - 0.1, _shootFrom.getPosZ());
-					_entityToSpawn.shoot(_shootFrom.getLookVec().x, _shootFrom.getLookVec().y, _shootFrom.getLookVec().z, 3, 100);
-					projectileLevel.addEntity(_entityToSpawn);
+								return entityToSpawn;
+							}
+						}.getArrow(projectileLevel, 3, 0, (byte) 1);
+						_entityToSpawn.setPosition(_shootFrom.getPosX(), _shootFrom.getPosYEye() - 0.1, _shootFrom.getPosZ());
+						_entityToSpawn.shoot(_shootFrom.getLookVec().x, _shootFrom.getLookVec().y, _shootFrom.getLookVec().z, 3, 10);
+						projectileLevel.addEntity(_entityToSpawn);
+					}
 				}
 			}
 		}

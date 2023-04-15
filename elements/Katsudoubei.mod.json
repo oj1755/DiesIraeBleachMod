@@ -1,0 +1,12 @@
+{
+  "_fv": 33,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "R",
+    "keyBindingName": "Katsudou",
+    "keyBindingCategoryKey": "misc",
+    "onKeyPressed": {
+      "name": "Yaminotamamono"
+    }
+  }
+}

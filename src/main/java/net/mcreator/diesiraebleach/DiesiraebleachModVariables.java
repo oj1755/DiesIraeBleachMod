@@ -226,6 +226,7 @@ public class DiesiraebleachModVariables {
 			CompoundNBT nbt = new CompoundNBT();
 			nbt.putDouble("Killsoul", instance.Killsoul);
 			nbt.putDouble("waza", instance.waza);
+			nbt.putDouble("Beiwaza", instance.Beiwaza);
 			return nbt;
 		}
 
@@ -234,12 +235,14 @@ public class DiesiraebleachModVariables {
 			CompoundNBT nbt = (CompoundNBT) inbt;
 			instance.Killsoul = nbt.getDouble("Killsoul");
 			instance.waza = nbt.getDouble("waza");
+			instance.Beiwaza = nbt.getDouble("Beiwaza");
 		}
 	}
 
 	public static class PlayerVariables {
 		public double Killsoul = 0.0;
 		public double waza = 0;
+		public double Beiwaza = 0;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
@@ -276,6 +279,7 @@ public class DiesiraebleachModVariables {
 		PlayerVariables clone = ((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
 		clone.Killsoul = original.Killsoul;
 		clone.waza = original.waza;
+		clone.Beiwaza = original.Beiwaza;
 		if (!event.isWasDeath()) {
 		}
 	}
@@ -304,6 +308,7 @@ public class DiesiraebleachModVariables {
 							.orElse(new PlayerVariables()));
 					variables.Killsoul = message.data.Killsoul;
 					variables.waza = message.data.waza;
+					variables.Beiwaza = message.data.Beiwaza;
 				}
 			});
 			context.setPacketHandled(true);

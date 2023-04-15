@@ -43,5 +43,23 @@
         "stream": false
       }
     ]
+  },
+  "kaze": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:kaze",
+        "stream": false
+      }
+    ]
+  },
+  "beikeisei": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:beikeisei",
+        "stream": false
+      }
+    ]
   }
 }

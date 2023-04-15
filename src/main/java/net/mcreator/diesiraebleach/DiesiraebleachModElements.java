@@ -57,6 +57,9 @@ public class DiesiraebleachModElements {
 				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "guncharge")));
 		sounds.put(new ResourceLocation("diesiraebleach", "beikuihassha"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "beikuihassha")));
+		sounds.put(new ResourceLocation("diesiraebleach", "kaze"), new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "kaze")));
+		sounds.put(new ResourceLocation("diesiraebleach", "beikeisei"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "beikeisei")));
 		try {
 			ModFileScanData modFileInfo = ModList.get().getModFileById("diesiraebleach").getFile().getScanResult();
 			Set<ModFileScanData.AnnotationData> annotations = modFileInfo.getAnnotations();

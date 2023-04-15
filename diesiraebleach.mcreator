@@ -628,6 +628,22 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       }
@@ -644,6 +660,158 @@
           {
             "name": "entity",
             "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Yaminotamamono2",
+      "type": "procedure",
+      "sortid": 49,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "yaminotamamono_2",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BeiKeiseihana",
+      "type": "item",
+      "sortid": 50,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bei_keiseihana"
+    },
+    {
+      "name": "Beikeisei",
+      "type": "procedure",
+      "sortid": 50,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beikeisei",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Katsudoubei",
+      "type": "keybind",
+      "sortid": 51,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "katsudoubei"
+    },
+    {
+      "name": "Bloodmoon",
+      "type": "particle",
+      "sortid": 52,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bloodmoon"
+    },
+    {
+      "name": "Beisouzou",
+      "type": "procedure",
+      "sortid": 52,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beisouzou",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Kuiranda",
+      "type": "procedure",
+      "sortid": 53,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kuiranda",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       }
@@ -684,6 +852,12 @@
       "name": "qliphotoz",
       "type": "number",
       "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "Beiwaza",
+      "type": "number",
+      "scope": "player_persistent",
       "value": "0"
     }
   ],
@@ -727,32 +901,52 @@
       ],
       "category": "neutral",
       "subtitle": ""
+    },
+    {
+      "name": "kaze",
+      "files": [
+        "kaze"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "beikeisei",
+      "files": [
+        "beikeisei"
+      ],
+      "category": "neutral",
+      "subtitle": ""
     }
   ],
   "language_map": {
     "en_us": {
       "subtitles.gunfire": "",
       "key.diesiraebleach.katsudou": "Katsudou",
+      "key.diesiraebleach.katsudoubei": "Katsudou",
       "item.diesiraebleach.getsugaenkyori": "Getsugaenkyori",
       "item.diesiraebleach.panzer_mahoujin_spawn_egg": "Panzer Mahoujin Spawn Egg",
       "item.diesiraebleach.beienkyoriitem": "Beienkyoriitem",
       "effect.seiibutsu": "聖遺物",
       "item.diesiraebleach.schmeizer_item": "Schmeizer Item",
-      "item.minecraft.splash_potion.effect.qliphoth_bacikal": "Splash Potion of Qliphoth Bacikal",
       "item.diesiraebleach.dora_cannon": "Dora Cannon",
+      "item.minecraft.splash_potion.effect.qliphoth_bacikal": "Splash Potion of Qliphoth Bacikal",
       "key.diesiraebleach.hihiirokanekatsudou": "Katsudou",
       "item.minecraft.potion.effect.qliphoth_bacikal": "Qliphoth Bacikal",
       "item.diesiraebleach.panzer_faust_item": "Panzer Faust Item",
       "entity.diesiraebleach.schmeizer_mahoujin": "Schmeizer Mahoujin",
       "item.diesiraebleach.qliphoth_bacikal_2": "Qliphoth Bacikal 2",
       "subtitles.panzer": "",
+      "subtitles.kaze": "",
       "item.diesiraebleach.makina_glove": "Makina Glove",
       "item.diesiraebleach.kui": "Kui",
       "item.diesiraebleach.schmeizer_mahoujin_spawn_egg": "Schmeizer Mahoujin Spawn Egg",
+      "item.diesiraebleach.bei_keiseihana": "Bei Keiseihana",
       "item.minecraft.lingering_potion.effect.qliphoth_bacikal": "Lingering Potion of Qliphoth Bacikal",
       "item.diesiraebleach.hihiirokane": "緋々色金",
       "entity.diesiraebleach.panzer_mahoujin": "Panzer Mahoujin",
       "subtitles.beikuihassha": "",
+      "subtitles.beikeisei": "",
       "item.minecraft.tipped_arrow.effect.qliphoth_bacikal": "Arrow of Qliphoth Bacikal",
       "subtitles.guncharge": "",
       "subtitles.panzersummon": ""

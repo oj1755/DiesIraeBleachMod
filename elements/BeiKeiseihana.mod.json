@@ -2,10 +2,10 @@
   "_fv": 33,
   "_type": "item",
   "definition": {
-    "renderType": 0,
-    "texture": "yaminotamamono",
-    "customModelName": "Normal",
-    "name": "Qliphoth Bacikal 2",
+    "renderType": 1,
+    "texture": "bei",
+    "customModelName": "beikeisei:default",
+    "name": "Bei Keiseihana",
     "rarity": "COMMON",
     "creativeTab": {
       "value": "MISC"
@@ -30,10 +30,7 @@
     "inventorySize": 9,
     "inventoryStackSize": 64,
     "onRightClickedInAir": {
-      "name": "Yaminotamamono2"
-    },
-    "onEntityHitWith": {
-      "name": "Kyusei"
+      "name": "Beikeisei"
     },
     "isFood": false,
     "nutritionalValue": 4,

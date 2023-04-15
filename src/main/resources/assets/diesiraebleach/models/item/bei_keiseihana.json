@@ -1,0 +1,7 @@
+{
+  "parent": "diesiraebleach:custom/beikeisei",
+  "textures": {
+    "0": "diesiraebleach:blocks/beikeisei",
+    "particle": "diesiraebleach:items/bei"
+  }
+}
