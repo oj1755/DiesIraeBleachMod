@@ -8,6 +8,8 @@ import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.potion.Effects;
+import net.minecraft.potion.EffectInstance;
 import net.minecraft.item.ItemStack;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.entity.projectile.ProjectileEntity;
@@ -106,6 +108,8 @@ public class TosshinProcedure {
 									.getValue(new ResourceLocation("diesiraebleach:beikuihassha")),
 							SoundCategory.NEUTRAL, (float) 0.5, (float) 1, false);
 				}
+				if (entity instanceof LivingEntity)
+					((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.RESISTANCE, (int) 5, (int) 100, (false), (false)));
 				{
 					Entity _shootFrom = entity;
 					World projectileLevel = _shootFrom.world;
