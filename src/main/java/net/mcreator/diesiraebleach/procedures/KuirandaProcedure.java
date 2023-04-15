@@ -77,18 +77,17 @@ public class KuirandaProcedure {
 					World projectileLevel = _shootFrom.world;
 					if (!projectileLevel.isRemote()) {
 						ProjectileEntity _entityToSpawn = new Object() {
-							public ProjectileEntity getArrow(World world, float damage, int knockback, byte piercing) {
+							public ProjectileEntity getArrow(World world, Entity shooter, float damage, int knockback, byte piercing) {
 								AbstractArrowEntity entityToSpawn = new BeienkyoriitemItem.ArrowCustomEntity(BeienkyoriitemItem.arrow, world);
-
+								entityToSpawn.setShooter(shooter);
 								entityToSpawn.setDamage(damage);
 								entityToSpawn.setKnockbackStrength(knockback);
 								entityToSpawn.setSilent(true);
 								entityToSpawn.setPierceLevel(piercing);
 
-								entityToSpawn.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
 								return entityToSpawn;
 							}
-						}.getArrow(projectileLevel, 5, 0, (byte) 1);
+						}.getArrow(projectileLevel, entity, 5, 0, (byte) 1);
 						_entityToSpawn.setPosition(_shootFrom.getPosX(), _shootFrom.getPosYEye() - 0.1, _shootFrom.getPosZ());
 						_entityToSpawn.shoot(_shootFrom.getLookVec().x, _shootFrom.getLookVec().y, _shootFrom.getLookVec().z, 4, 100);
 						projectileLevel.addEntity(_entityToSpawn);
@@ -114,18 +113,17 @@ public class KuirandaProcedure {
 					World projectileLevel = _shootFrom.world;
 					if (!projectileLevel.isRemote()) {
 						ProjectileEntity _entityToSpawn = new Object() {
-							public ProjectileEntity getArrow(World world, float damage, int knockback, byte piercing) {
+							public ProjectileEntity getArrow(World world, Entity shooter, float damage, int knockback, byte piercing) {
 								AbstractArrowEntity entityToSpawn = new BeienkyoriitemItem.ArrowCustomEntity(BeienkyoriitemItem.arrow, world);
-
+								entityToSpawn.setShooter(shooter);
 								entityToSpawn.setDamage(damage);
 								entityToSpawn.setKnockbackStrength(knockback);
 								entityToSpawn.setSilent(true);
 								entityToSpawn.setPierceLevel(piercing);
 
-								entityToSpawn.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
 								return entityToSpawn;
 							}
-						}.getArrow(projectileLevel, 3, 0, (byte) 1);
+						}.getArrow(projectileLevel, entity, 3, 0, (byte) 1);
 						_entityToSpawn.setPosition(_shootFrom.getPosX(), _shootFrom.getPosYEye() - 0.1, _shootFrom.getPosZ());
 						_entityToSpawn.shoot(_shootFrom.getLookVec().x, _shootFrom.getLookVec().y, _shootFrom.getLookVec().z, 3, 100);
 						projectileLevel.addEntity(_entityToSpawn);

@@ -32,10 +32,10 @@ public class KyuseiProcedure {
 		Entity entity = (Entity) dependencies.get("entity");
 		Entity sourceentity = (Entity) dependencies.get("sourceentity");
 		boolean a = false;
-		entity.attackEntityFrom(DamageSource.GENERIC, (float) 5);
+		entity.attackEntityFrom(DamageSource.GENERIC, (float) 1);
 		if (sourceentity instanceof LivingEntity)
 			((LivingEntity) sourceentity)
-					.setHealth((float) (((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHealth() : -1) + 5));
+					.setHealth((float) (((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHealth() : -1) + 1));
 		for (int index0 = 0; index0 < (int) (50); index0++) {
 			world.addParticle(KyuseipParticle.particle, (entity.getPosX()), (entity.getPosY()), (entity.getPosZ()), (0.1 * sourceentity.getPosX()),
 					(sourceentity.getPosY()), (0.1 * sourceentity.getPosZ()));

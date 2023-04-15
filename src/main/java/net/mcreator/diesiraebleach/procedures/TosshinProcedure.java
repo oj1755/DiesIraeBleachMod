@@ -115,9 +115,9 @@ public class TosshinProcedure {
 					World projectileLevel = _shootFrom.world;
 					if (!projectileLevel.isRemote()) {
 						ProjectileEntity _entityToSpawn = new Object() {
-							public ProjectileEntity getArrow(World world, float damage, int knockback, byte piercing) {
+							public ProjectileEntity getArrow(World world, Entity shooter, float damage, int knockback, byte piercing) {
 								AbstractArrowEntity entityToSpawn = new BeienkyoriitemItem.ArrowCustomEntity(BeienkyoriitemItem.arrow, world);
-
+								entityToSpawn.setShooter(shooter);
 								entityToSpawn.setDamage(damage);
 								entityToSpawn.setKnockbackStrength(knockback);
 								entityToSpawn.setSilent(true);
@@ -125,7 +125,7 @@ public class TosshinProcedure {
 
 								return entityToSpawn;
 							}
-						}.getArrow(projectileLevel, 5, 1, (byte) 2);
+						}.getArrow(projectileLevel, entity, 5, 1, (byte) 2);
 						_entityToSpawn.setPosition(_shootFrom.getPosX(), _shootFrom.getPosYEye() - 0.1, _shootFrom.getPosZ());
 						_entityToSpawn.shoot(_shootFrom.getLookVec().x, _shootFrom.getLookVec().y, _shootFrom.getLookVec().z, 3, 100);
 						projectileLevel.addEntity(_entityToSpawn);
