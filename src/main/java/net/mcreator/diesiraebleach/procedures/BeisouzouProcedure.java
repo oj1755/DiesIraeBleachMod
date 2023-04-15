@@ -58,46 +58,47 @@ public class BeisouzouProcedure {
 		if (world instanceof ServerWorld)
 			((ServerWorld) world).setDayTime((int) 14000);
 		world.addParticle(BloodmoonParticle.particle, x, (y + 150), z, 0, 0, 0);
-		for (int index0 = 0; index0 < (int) (100); index0++) {
-			{
-				List<Entity> _entfound = world.getEntitiesWithinAABB(Entity.class,
-						new AxisAlignedBB(x - (100 / 2d), y - (100 / 2d), z - (100 / 2d), x + (100 / 2d), y + (100 / 2d), z + (100 / 2d)), null)
-						.stream().sorted(new Object() {
-							Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-								return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-							}
-						}.compareDistOf(x, y, z)).collect(Collectors.toList());
-				for (Entity entityiterator : _entfound) {
-					if (!(entityiterator == entity)) {
-						new Object() {
-							private int ticks = 0;
-							private float waitTicks;
-							private IWorld world;
+		{
+			List<Entity> _entfound = world
+					.getEntitiesWithinAABB(Entity.class,
+							new AxisAlignedBB(x - (100 / 2d), y - (100 / 2d), z - (100 / 2d), x + (100 / 2d), y + (100 / 2d), z + (100 / 2d)), null)
+					.stream().sorted(new Object() {
+						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+						}
+					}.compareDistOf(x, y, z)).collect(Collectors.toList());
+			for (Entity entityiterator : _entfound) {
+				for (int index0 = 0; index0 < (int) (100); index0++) {
+					new Object() {
+						private int ticks = 0;
+						private float waitTicks;
+						private IWorld world;
 
-							public void start(IWorld world, int waitTicks) {
-								this.waitTicks = waitTicks;
-								MinecraftForge.EVENT_BUS.register(this);
-								this.world = world;
-							}
+						public void start(IWorld world, int waitTicks) {
+							this.waitTicks = waitTicks;
+							MinecraftForge.EVENT_BUS.register(this);
+							this.world = world;
+						}
 
-							@SubscribeEvent
-							public void tick(TickEvent.ServerTickEvent event) {
-								if (event.phase == TickEvent.Phase.END) {
-									this.ticks += 1;
-									if (this.ticks >= this.waitTicks)
-										run();
-								}
+						@SubscribeEvent
+						public void tick(TickEvent.ServerTickEvent event) {
+							if (event.phase == TickEvent.Phase.END) {
+								this.ticks += 1;
+								if (this.ticks >= this.waitTicks)
+									run();
 							}
+						}
 
-							private void run() {
+						private void run() {
+							if (!(entityiterator == entity)) {
 								entityiterator.attackEntityFrom(DamageSource.GENERIC, (float) 1);
 								if (entity instanceof LivingEntity)
 									((LivingEntity) entity)
 											.setHealth((float) (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHealth() : -1) + 1));
-								MinecraftForge.EVENT_BUS.unregister(this);
 							}
-						}.start(world, (int) 20);
-					}
+							MinecraftForge.EVENT_BUS.unregister(this);
+						}
+					}.start(world, (int) 20);
 				}
 			}
 		}
