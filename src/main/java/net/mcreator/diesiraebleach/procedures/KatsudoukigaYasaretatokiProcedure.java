@@ -33,24 +33,30 @@ public class KatsudoukigaYasaretatokiProcedure {
 			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 2) {
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u30D1\u30F3\u30C4\u30A1\u30FC\u6383\u5C04"), (false));
+					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u30D1\u30F3\u30C4\u30A1\u30FC\u6383\u5C04"), (true));
 				}
 			}
 			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 3) {
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u30B7\u30E5\u30DE\u30A4\u30B6\u30FC\u6383\u5C04"),
-							(false));
+							(true));
 				}
 			}
 			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 4) {
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u7206\u708E"), (false));
+					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u7206\u708E"), (true));
 				}
 			}
 			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza > 4) {
+					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 5) {
+				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u30D1\u30F3\u30C4\u30A1\u30FC"), (true));
+				}
+			}
+			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza > 5) {
 				{
 					double _setval = 2;
 					entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
@@ -59,7 +65,7 @@ public class KatsudoukigaYasaretatokiProcedure {
 					});
 				}
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u30D1\u30F3\u30C4\u30A1\u30FC\u6383\u5C04"), (false));
+					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u30D1\u30F3\u30C4\u30A1\u30FC\u6383\u5C04"), (true));
 				}
 			}
 		}

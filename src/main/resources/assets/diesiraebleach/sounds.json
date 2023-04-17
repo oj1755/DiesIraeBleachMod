@@ -61,5 +61,14 @@
         "stream": false
       }
     ]
+  },
+  "finger": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:finger",
+        "stream": false
+      }
+    ]
   }
 }

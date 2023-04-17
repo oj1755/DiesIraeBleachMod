@@ -76,5 +76,15 @@ public class DoraCannonYoukuritukusitatokiProcedure {
 				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u7206\u708E"), (true));
 			}
 		}
+		if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 5) {
+			PanzerProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u30D1\u30F3\u30C4\u30A1\u30FC"), (true));
+			}
+		}
 	}
 }

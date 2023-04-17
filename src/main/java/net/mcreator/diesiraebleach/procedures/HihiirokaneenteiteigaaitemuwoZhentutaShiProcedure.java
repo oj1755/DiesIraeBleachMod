@@ -54,7 +54,7 @@ public class HihiirokaneenteiteigaaitemuwoZhentutaShiProcedure {
 		if (entity instanceof LivingEntity) {
 			((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 		}
-		deg = (entity.rotationYaw - 90);
+		deg = 0;
 		r = 2;
 		for (int index0 = 0; index0 < (int) (2); index0++) {
 			for (int index1 = 0; index1 < (int) (11); index1++) {

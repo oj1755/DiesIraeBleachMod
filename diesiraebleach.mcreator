@@ -529,30 +529,6 @@
       }
     },
     {
-      "name": "Hihiirokanekatsudou",
-      "type": "keybind",
-      "sortid": 40,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "hihiirokanekatsudou"
-    },
-    {
-      "name": "Hihiirokanekatsudouki",
-      "type": "procedure",
-      "sortid": 41,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "hihiirokanekatsudouki",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      }
-    },
-    {
       "name": "HihiirokanemobugaturudeGongJisaretatoki",
       "type": "procedure",
       "sortid": 42,
@@ -815,6 +791,86 @@
           }
         ]
       }
+    },
+    {
+      "name": "Panzer",
+      "type": "procedure",
+      "sortid": 54,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "panzer",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Jakukougeki",
+      "type": "procedure",
+      "sortid": 55,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "jakukougeki",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Kougeki",
+      "type": "keybind",
+      "sortid": 55,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kougeki"
+    },
+    {
+      "name": "Bloodsweep",
+      "type": "particle",
+      "sortid": 56,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bloodsweep"
     }
   ],
   "variable_elements": [
@@ -917,21 +973,30 @@
       ],
       "category": "neutral",
       "subtitle": ""
+    },
+    {
+      "name": "finger",
+      "files": [
+        "finger"
+      ],
+      "category": "neutral",
+      "subtitle": ""
     }
   ],
   "language_map": {
     "en_us": {
       "subtitles.gunfire": "",
       "key.diesiraebleach.katsudou": "Katsudou",
-      "key.diesiraebleach.katsudoubei": "Katsudou",
+      "subtitles.finger": "",
+      "key.diesiraebleach.katsudoubei": "Katsudoubei",
       "item.diesiraebleach.getsugaenkyori": "Getsugaenkyori",
       "item.diesiraebleach.panzer_mahoujin_spawn_egg": "Panzer Mahoujin Spawn Egg",
       "item.diesiraebleach.beienkyoriitem": "Beienkyoriitem",
+      "key.diesiraebleach.kougeki": "Kougeki",
       "effect.seiibutsu": "聖遺物",
       "item.diesiraebleach.schmeizer_item": "Schmeizer Item",
-      "item.minecraft.splash_potion.effect.qliphoth_bacikal": "Splash Potion of Qliphoth Bacikal",
       "item.diesiraebleach.dora_cannon": "Dora Cannon",
-      "key.diesiraebleach.hihiirokanekatsudou": "Katsudou",
+      "item.minecraft.splash_potion.effect.qliphoth_bacikal": "Splash Potion of Qliphoth Bacikal",
       "item.minecraft.potion.effect.qliphoth_bacikal": "Qliphoth Bacikal",
       "item.diesiraebleach.panzer_faust_item": "Panzer Faust Item",
       "entity.diesiraebleach.schmeizer_mahoujin": "Schmeizer Mahoujin",

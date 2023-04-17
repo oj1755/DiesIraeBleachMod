@@ -18,7 +18,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.client.Minecraft;
 
-import net.mcreator.diesiraebleach.procedures.KatsudoukigaYasaretatokiProcedure;
+import net.mcreator.diesiraebleach.procedures.JakukougekiProcedure;
 import net.mcreator.diesiraebleach.DiesiraebleachModElements;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
@@ -29,12 +29,12 @@ import java.util.HashMap;
 import java.util.AbstractMap;
 
 @DiesiraebleachModElements.ModElement.Tag
-public class HihiirokanekatsudouKeyBinding extends DiesiraebleachModElements.ModElement {
+public class KougekiKeyBinding extends DiesiraebleachModElements.ModElement {
 	@OnlyIn(Dist.CLIENT)
 	private KeyBinding keys;
 
-	public HihiirokanekatsudouKeyBinding(DiesiraebleachModElements instance) {
-		super(instance, 40);
+	public KougekiKeyBinding(DiesiraebleachModElements instance) {
+		super(instance, 55);
 		elements.addNetworkMessage(KeyBindingPressedMessage.class, KeyBindingPressedMessage::buffer, KeyBindingPressedMessage::new,
 				KeyBindingPressedMessage::handler);
 	}
@@ -42,7 +42,7 @@ public class HihiirokanekatsudouKeyBinding extends DiesiraebleachModElements.Mod
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void initElements() {
-		keys = new KeyBinding("key.diesiraebleach.hihiirokanekatsudou", GLFW.GLFW_KEY_R, "key.categories.misc");
+		keys = new KeyBinding("key.diesiraebleach.kougeki", GLFW.GLFW_KEY_Q, "key.categories.movement");
 		ClientRegistry.registerKeyBinding(keys);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
@@ -97,8 +97,10 @@ public class HihiirokanekatsudouKeyBinding extends DiesiraebleachModElements.Mod
 			return;
 		if (type == 0) {
 
-			KatsudoukigaYasaretatokiProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
-					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			JakukougekiProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}
 }
