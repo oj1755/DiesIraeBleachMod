@@ -871,6 +871,22 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "bloodsweep"
+    },
+    {
+      "name": "Bloodsweepleft",
+      "type": "particle",
+      "sortid": 57,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bloodsweepleft"
+    },
+    {
+      "name": "Bloodsweepright",
+      "type": "particle",
+      "sortid": 58,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bloodsweepright"
     }
   ],
   "variable_elements": [

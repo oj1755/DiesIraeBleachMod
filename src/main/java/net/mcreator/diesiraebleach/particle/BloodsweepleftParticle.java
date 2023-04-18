@@ -19,12 +19,12 @@ import net.minecraft.client.particle.IAnimatedSprite;
 import net.minecraft.client.Minecraft;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class BloodsweepParticle {
+public class BloodsweepleftParticle {
 	public static final BasicParticleType particle = new BasicParticleType(false);
 
 	@SubscribeEvent
 	public static void registerParticleType(RegistryEvent.Register<ParticleType<?>> event) {
-		event.getRegistry().register(particle.setRegistryName("bloodsweep"));
+		event.getRegistry().register(particle.setRegistryName("bloodsweepleft"));
 	}
 
 	@OnlyIn(Dist.CLIENT)
@@ -41,7 +41,7 @@ public class BloodsweepParticle {
 			super(world, x, y, z);
 			this.spriteSet = spriteSet;
 			this.setSize((float) 0.2, (float) 0.2);
-			this.particleScale *= (float) 3.9999999999999996;
+			this.particleScale *= (float) 4;
 			this.maxAge = (int) Math.max(1, 2 + (this.rand.nextInt(10) - 5));
 			this.particleGravity = (float) 0;
 			this.canCollide = true;

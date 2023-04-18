@@ -19,12 +19,12 @@ import net.minecraft.client.particle.IAnimatedSprite;
 import net.minecraft.client.Minecraft;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class BloodsweepParticle {
+public class BloodsweeprightParticle {
 	public static final BasicParticleType particle = new BasicParticleType(false);
 
 	@SubscribeEvent
 	public static void registerParticleType(RegistryEvent.Register<ParticleType<?>> event) {
-		event.getRegistry().register(particle.setRegistryName("bloodsweep"));
+		event.getRegistry().register(particle.setRegistryName("bloodsweepright"));
 	}
 
 	@OnlyIn(Dist.CLIENT)

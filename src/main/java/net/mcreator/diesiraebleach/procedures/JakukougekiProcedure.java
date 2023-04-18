@@ -15,6 +15,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
+import net.mcreator.diesiraebleach.particle.BloodsweeprightParticle;
+import net.mcreator.diesiraebleach.particle.BloodsweepleftParticle;
 import net.mcreator.diesiraebleach.particle.BloodsweepParticle;
 import net.mcreator.diesiraebleach.DiesiraebleachModVariables;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
@@ -73,11 +75,17 @@ public class JakukougekiProcedure {
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:kaze")),
 					SoundCategory.NEUTRAL, (float) 0.5, (float) 2, false);
 		}
-		for (int index0 = 0; index0 < (int) (3); index0++) {
-			if (world instanceof ServerWorld) {
-				((ServerWorld) world).spawnParticle(BloodsweepParticle.particle, (x + MathHelper.nextDouble(new Random(), -1, 1)),
-						(y + MathHelper.nextDouble(new Random(), 0, 2)), (z + MathHelper.nextDouble(new Random(), -1, 1)), (int) 3, 0.1, 0.1, 0.1, 0);
-			}
+		if (world instanceof ServerWorld) {
+			((ServerWorld) world).spawnParticle(BloodsweepParticle.particle, (x + MathHelper.nextDouble(new Random(), -1, 1)),
+					(y + MathHelper.nextDouble(new Random(), 0, 2)), (z + MathHelper.nextDouble(new Random(), -1, 1)), (int) 3, 0.1, 0.1, 0.1, 0);
+		}
+		if (world instanceof ServerWorld) {
+			((ServerWorld) world).spawnParticle(BloodsweepleftParticle.particle, (x + MathHelper.nextDouble(new Random(), -1, 1)),
+					(y + MathHelper.nextDouble(new Random(), 0, 2)), (z + MathHelper.nextDouble(new Random(), -1, 1)), (int) 3, 0.1, 0.1, 0.1, 0);
+		}
+		if (world instanceof ServerWorld) {
+			((ServerWorld) world).spawnParticle(BloodsweeprightParticle.particle, (x + MathHelper.nextDouble(new Random(), -1, 1)),
+					(y + MathHelper.nextDouble(new Random(), 0, 2)), (z + MathHelper.nextDouble(new Random(), -1, 1)), (int) 3, 0.1, 0.1, 0.1, 0);
 		}
 		{
 			List<Entity> _entfound = world
