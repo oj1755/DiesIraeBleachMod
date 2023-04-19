@@ -42,7 +42,7 @@ public class OowazaKeyBinding extends DiesiraebleachModElements.ModElement {
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void initElements() {
-		keys = new KeyBinding("key.diesiraebleach.oowaza", GLFW.GLFW_KEY_Z, "key.categories.misc");
+		keys = new KeyBinding("key.diesiraebleach.oowaza", GLFW.GLFW_KEY_Z, "key.categories.movement");
 		ClientRegistry.registerKeyBinding(keys);
 		MinecraftForge.EVENT_BUS.register(this);
 	}

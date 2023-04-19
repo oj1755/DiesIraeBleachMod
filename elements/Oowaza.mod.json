@@ -4,7 +4,7 @@
   "definition": {
     "triggerKey": "Z",
     "keyBindingName": "Oowaza",
-    "keyBindingCategoryKey": "misc",
+    "keyBindingCategoryKey": "movement",
     "onKeyPressed": {
       "name": "OowazakigaYasaretatoki"
     }
