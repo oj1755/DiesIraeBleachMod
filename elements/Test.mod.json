@@ -3,9 +3,9 @@
   "_type": "item",
   "definition": {
     "renderType": 0,
-    "texture": "yaminotamamono",
+    "texture": "bei",
     "customModelName": "Normal",
-    "name": "Qliphoth Bacikal 2",
+    "name": "Test",
     "rarity": "COMMON",
     "creativeTab": {
       "value": "MISC"
@@ -30,10 +30,7 @@
     "inventorySize": 9,
     "inventoryStackSize": 64,
     "onRightClickedInAir": {
-      "name": "QliphothBacikal2Youkuritukusitatoki"
-    },
-    "onEntityHitWith": {
-      "name": "Kyusei"
+      "name": "Beisouzou"
     },
     "isFood": false,
     "nutritionalValue": 4,

@@ -1,0 +1,25 @@
+{
+  "_fv": 33,
+  "_type": "achievement",
+  "definition": {
+    "achievementName": "活動位階",
+    "achievementDescription": "聖遺物と契約を結び、聖遺物が活動を始めた。",
+    "achievementIcon": {
+      "value": "CUSTOM:Hihiirokane"
+    },
+    "background": "Default",
+    "disableDisplay": false,
+    "showPopup": true,
+    "announceToChat": true,
+    "hideIfNotCompleted": false,
+    "rewardLoot": [],
+    "rewardRecipes": [],
+    "rewardFunction": "No function",
+    "rewardXP": 0,
+    "achievementType": "task",
+    "parent": {
+      "value": "No parent: root"
+    },
+    "triggerxml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"custom_trigger\" x=\"28\" y=\"17\"><next><block type=\"advancement_trigger\" deletable=\"false\"></block></next></block><block type=\"item_consumed\" x=\"338\" y=\"75\"><value name=\"item\"><block type=\"mcitem_all\"><field name=\"value\">CUSTOM:QliphothBacikal2</field></block></value></block></xml>"
+  }
+}

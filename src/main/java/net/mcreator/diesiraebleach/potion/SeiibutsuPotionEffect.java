@@ -13,7 +13,7 @@ import net.minecraft.potion.Effect;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
-import net.mcreator.diesiraebleach.procedures.SeiibutsuposiyonnoXiaoGuogaKaiShiShiYongsaretatokiProcedure;
+import net.mcreator.diesiraebleach.procedures.QliphothBacikal2YoukuritukusitatokiProcedure;
 
 import java.util.stream.Stream;
 import java.util.Map;
@@ -73,7 +73,7 @@ public class SeiibutsuPotionEffect {
 			double y = entity.getPosY();
 			double z = entity.getPosZ();
 
-			SeiibutsuposiyonnoXiaoGuogaKaiShiShiYongsaretatokiProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+			QliphothBacikal2YoukuritukusitatokiProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 

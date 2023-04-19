@@ -14,6 +14,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
 import net.mcreator.diesiraebleach.particle.BloodmoonParticle;
+import net.mcreator.diesiraebleach.DiesiraebleachModVariables;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
 import java.util.stream.Collectors;
@@ -59,53 +60,95 @@ public class BeisouzouProcedure {
 		Entity r = null;
 		if (world instanceof ServerWorld)
 			((ServerWorld) world).setDayTime((int) 14000);
-		world.addParticle(BloodmoonParticle.particle, x, (y + 150), z, 0, 0, 0);
-		new Object() {
-			private int ticks = 0;
-			private float waitTicks;
-			private IWorld world;
+		{
+			boolean _setval = (true);
+			entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				capability.Souzou = _setval;
+				capability.syncPlayerVariables(entity);
+			});
+		}
+		if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHealth() : -1) > 0) {
+			{
+				List<Entity> _entfound = world.getEntitiesWithinAABB(Entity.class,
+						new AxisAlignedBB(x - (100 / 2d), y - (100 / 2d), z - (100 / 2d), x + (100 / 2d), y + (100 / 2d), z + (100 / 2d)), null)
+						.stream().sorted(new Object() {
+							Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+								return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+							}
+						}.compareDistOf(x, y, z)).collect(Collectors.toList());
+				for (Entity entityiterator : _entfound) {
+					if (!(entityiterator == entity)) {
+						{
+							double _setval = (entity.getPosX());
+							entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.qliphotox = _setval;
+								capability.syncPlayerVariables(entity);
+							});
+						}
+						{
+							double _setval = (entity.getPosY());
+							entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.qliphotoy = _setval;
+								capability.syncPlayerVariables(entity);
+							});
+						}
+						{
+							double _setval = (entity.getPosZ());
+							entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.qliphotoz = _setval;
+								capability.syncPlayerVariables(entity);
+							});
+						}
+						world.addParticle(BloodmoonParticle.particle,
+								((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+										.orElse(new DiesiraebleachModVariables.PlayerVariables())).qliphotox),
+								((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+										.orElse(new DiesiraebleachModVariables.PlayerVariables())).qliphotoy + 100),
+								((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+										.orElse(new DiesiraebleachModVariables.PlayerVariables())).qliphotoz),
+								0, 0, 0);
+						entityiterator.attackEntityFrom(DamageSource.GENERIC, (float) 1);
+						if (entityiterator instanceof LivingEntity)
+							((LivingEntity) entityiterator).addPotionEffect(new EffectInstance(Effects.WITHER, (int) 2000, (int) 2));
+						if (entity instanceof LivingEntity)
+							((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.REGENERATION, (int) 2000, (int) 2));
+						if (entity instanceof LivingEntity)
+							((LivingEntity) entity)
+									.setHealth((float) (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHealth() : -1) + 1));
+					}
+					new Object() {
+						private int ticks = 0;
+						private float waitTicks;
+						private IWorld world;
 
-			public void start(IWorld world, int waitTicks) {
-				this.waitTicks = waitTicks;
-				MinecraftForge.EVENT_BUS.register(this);
-				this.world = world;
-			}
+						public void start(IWorld world, int waitTicks) {
+							this.waitTicks = waitTicks;
+							MinecraftForge.EVENT_BUS.register(this);
+							this.world = world;
+						}
 
-			@SubscribeEvent
-			public void tick(TickEvent.ServerTickEvent event) {
-				if (event.phase == TickEvent.Phase.END) {
-					this.ticks += 1;
-					if (this.ticks >= this.waitTicks)
-						run();
-				}
-			}
-
-			private void run() {
-				if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHealth() : -1) > 0) {
-					{
-						List<Entity> _entfound = world.getEntitiesWithinAABB(Entity.class,
-								new AxisAlignedBB(x - (100 / 2d), y - (100 / 2d), z - (100 / 2d), x + (100 / 2d), y + (100 / 2d), z + (100 / 2d)),
-								null).stream().sorted(new Object() {
-									Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-										return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-									}
-								}.compareDistOf(x, y, z)).collect(Collectors.toList());
-						for (Entity entityiterator : _entfound) {
-							if (!(entityiterator == entity)) {
-								entityiterator.attackEntityFrom(DamageSource.GENERIC, (float) 1);
-								if (entityiterator instanceof LivingEntity)
-									((LivingEntity) entityiterator).addPotionEffect(new EffectInstance(Effects.WITHER, (int) 2000, (int) 2));
-								if (entity instanceof LivingEntity)
-									((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.REGENERATION, (int) 2000, (int) 2));
-								if (entity instanceof LivingEntity)
-									((LivingEntity) entity)
-											.setHealth((float) (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHealth() : -1) + 1));
+						@SubscribeEvent
+						public void tick(TickEvent.ServerTickEvent event) {
+							if (event.phase == TickEvent.Phase.END) {
+								this.ticks += 1;
+								if (this.ticks >= this.waitTicks)
+									run();
 							}
 						}
-					}
+
+						private void run() {
+							{
+								boolean _setval = (false);
+								entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+									capability.Souzou = _setval;
+									capability.syncPlayerVariables(entity);
+								});
+							}
+							MinecraftForge.EVENT_BUS.unregister(this);
+						}
+					}.start(world, (int) 200);
 				}
-				MinecraftForge.EVENT_BUS.unregister(this);
 			}
-		}.start(world, (int) 20);
+		}
 	}
 }

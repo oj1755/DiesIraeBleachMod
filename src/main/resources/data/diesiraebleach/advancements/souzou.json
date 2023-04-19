@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "diesiraebleach:hihiirokane"
+    },
+    "title": {
+      "translate": "advancements.souzou.title"
+    },
+    "description": {
+      "translate": "advancements.souzou.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "souzou": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "diesiraebleach:k_xing_cheng"
+}

@@ -1,0 +1,23 @@
+{
+  "display": {
+    "background": "minecraft:textures/block/stone.png",
+    "icon": {
+      "item": "diesiraebleach:hihiirokane"
+    },
+    "title": {
+      "translate": "advancements.katsudouj.title"
+    },
+    "description": {
+      "translate": "advancements.katsudouj.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "katsudouj": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

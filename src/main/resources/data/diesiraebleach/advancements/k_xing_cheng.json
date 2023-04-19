@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "diesiraebleach:hihiirokane"
+    },
+    "title": {
+      "translate": "advancements.k_xing_cheng.title"
+    },
+    "description": {
+      "translate": "advancements.k_xing_cheng.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "k_xing_cheng": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "diesiraebleach:katsudouj"
+}

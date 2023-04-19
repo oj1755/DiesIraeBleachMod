@@ -109,9 +109,6 @@ public class DiesiraebleachModVariables {
 	public static class MapVariables extends WorldSavedData {
 		public static final String DATA_NAME = "diesiraebleach_mapvars";
 		public double k = 0;
-		public double qliphotox = 0;
-		public double qliphotoy = 0;
-		public double qliphotoz = 0;
 
 		public MapVariables() {
 			super(DATA_NAME);
@@ -124,17 +121,11 @@ public class DiesiraebleachModVariables {
 		@Override
 		public void read(CompoundNBT nbt) {
 			k = nbt.getDouble("k");
-			qliphotox = nbt.getDouble("qliphotox");
-			qliphotoy = nbt.getDouble("qliphotoy");
-			qliphotoz = nbt.getDouble("qliphotoz");
 		}
 
 		@Override
 		public CompoundNBT write(CompoundNBT nbt) {
 			nbt.putDouble("k", k);
-			nbt.putDouble("qliphotox", qliphotox);
-			nbt.putDouble("qliphotoy", qliphotoy);
-			nbt.putDouble("qliphotoz", qliphotoz);
 			return nbt;
 		}
 
@@ -226,7 +217,11 @@ public class DiesiraebleachModVariables {
 			CompoundNBT nbt = new CompoundNBT();
 			nbt.putDouble("Killsoul", instance.Killsoul);
 			nbt.putDouble("waza", instance.waza);
-			nbt.putDouble("Beiwaza", instance.Beiwaza);
+			nbt.putDouble("qliphotox", instance.qliphotox);
+			nbt.putDouble("qliphotoy", instance.qliphotoy);
+			nbt.putDouble("qliphotoz", instance.qliphotoz);
+			nbt.putBoolean("Souzou", instance.Souzou);
+			nbt.putBoolean("Keisei", instance.Keisei);
 			return nbt;
 		}
 
@@ -235,14 +230,22 @@ public class DiesiraebleachModVariables {
 			CompoundNBT nbt = (CompoundNBT) inbt;
 			instance.Killsoul = nbt.getDouble("Killsoul");
 			instance.waza = nbt.getDouble("waza");
-			instance.Beiwaza = nbt.getDouble("Beiwaza");
+			instance.qliphotox = nbt.getDouble("qliphotox");
+			instance.qliphotoy = nbt.getDouble("qliphotoy");
+			instance.qliphotoz = nbt.getDouble("qliphotoz");
+			instance.Souzou = nbt.getBoolean("Souzou");
+			instance.Keisei = nbt.getBoolean("Keisei");
 		}
 	}
 
 	public static class PlayerVariables {
 		public double Killsoul = 0.0;
 		public double waza = 0;
-		public double Beiwaza = 0;
+		public double qliphotox = 0;
+		public double qliphotoy = 0;
+		public double qliphotoz = 0;
+		public boolean Souzou = false;
+		public boolean Keisei = false;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
@@ -279,7 +282,11 @@ public class DiesiraebleachModVariables {
 		PlayerVariables clone = ((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
 		clone.Killsoul = original.Killsoul;
 		clone.waza = original.waza;
-		clone.Beiwaza = original.Beiwaza;
+		clone.qliphotox = original.qliphotox;
+		clone.qliphotoy = original.qliphotoy;
+		clone.qliphotoz = original.qliphotoz;
+		clone.Souzou = original.Souzou;
+		clone.Keisei = original.Keisei;
 		if (!event.isWasDeath()) {
 		}
 	}
@@ -308,7 +315,11 @@ public class DiesiraebleachModVariables {
 							.orElse(new PlayerVariables()));
 					variables.Killsoul = message.data.Killsoul;
 					variables.waza = message.data.waza;
-					variables.Beiwaza = message.data.Beiwaza;
+					variables.qliphotox = message.data.qliphotox;
+					variables.qliphotoy = message.data.qliphotoy;
+					variables.qliphotoz = message.data.qliphotoz;
+					variables.Souzou = message.data.Souzou;
+					variables.Keisei = message.data.Keisei;
 				}
 			});
 			context.setPacketHandled(true);

@@ -11,11 +11,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.block.BlockState;
 
-import net.mcreator.diesiraebleach.procedures.QliphothBacikal2YoukuritukusitatokiProcedure;
-import net.mcreator.diesiraebleach.procedures.KyuseiProcedure;
+import net.mcreator.diesiraebleach.procedures.BeisouzouProcedure;
 import net.mcreator.diesiraebleach.DiesiraebleachModElements;
 
 import java.util.stream.Stream;
@@ -24,12 +22,12 @@ import java.util.HashMap;
 import java.util.AbstractMap;
 
 @DiesiraebleachModElements.ModElement.Tag
-public class QliphothBacikal2Item extends DiesiraebleachModElements.ModElement {
-	@ObjectHolder("diesiraebleach:qliphoth_bacikal_2")
+public class TestItem extends DiesiraebleachModElements.ModElement {
+	@ObjectHolder("diesiraebleach:test")
 	public static final Item block = null;
 
-	public QliphothBacikal2Item(DiesiraebleachModElements instance) {
-		super(instance, 17);
+	public TestItem(DiesiraebleachModElements instance) {
+		super(instance, 65);
 	}
 
 	@Override
@@ -40,7 +38,7 @@ public class QliphothBacikal2Item extends DiesiraebleachModElements.ModElement {
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(64).rarity(Rarity.COMMON));
-			setRegistryName("qliphoth_bacikal_2");
+			setRegistryName("test");
 		}
 
 		@Override
@@ -61,24 +59,11 @@ public class QliphothBacikal2Item extends DiesiraebleachModElements.ModElement {
 			double y = entity.getPosY();
 			double z = entity.getPosZ();
 
-			QliphothBacikal2YoukuritukusitatokiProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+			BeisouzouProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return ar;
-		}
-
-		@Override
-		public boolean hitEntity(ItemStack itemstack, LivingEntity entity, LivingEntity sourceentity) {
-			boolean retval = super.hitEntity(itemstack, entity, sourceentity);
-			double x = entity.getPosX();
-			double y = entity.getPosY();
-			double z = entity.getPosZ();
-			World world = entity.world;
-
-			KyuseiProcedure.executeProcedure(Stream
-					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity),
-							new AbstractMap.SimpleEntry<>("sourceentity", sourceentity))
-					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
-			return retval;
 		}
 	}
 }

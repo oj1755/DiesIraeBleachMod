@@ -6,7 +6,7 @@
     "keyBindingName": "Kougeki",
     "keyBindingCategoryKey": "movement",
     "onKeyPressed": {
-      "name": "Jakukougeki"
+      "name": "Yaminotamamono2"
     }
   }
 }

@@ -1,0 +1,12 @@
+{
+  "_fv": 33,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "Z",
+    "keyBindingName": "Oowaza",
+    "keyBindingCategoryKey": "misc",
+    "onKeyPressed": {
+      "name": "OowazakigaYasaretatoki"
+    }
+  }
+}
