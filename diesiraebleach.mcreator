@@ -1011,6 +1011,74 @@
           }
         ]
       }
+    },
+    {
+      "name": "Zarathustra",
+      "type": "procedure",
+      "sortid": 67,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "zarathustra",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ZarathustraPotionEffect",
+      "type": "potioneffect",
+      "sortid": 68,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "zarathustra_potion_effect"
+    },
+    {
+      "name": "Schreiber",
+      "type": "procedure",
+      "sortid": 70,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "schreiber",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Test4",
+      "type": "item",
+      "sortid": 71,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "test_4"
     }
   ],
   "variable_elements": [
@@ -1131,14 +1199,14 @@
   ],
   "language_map": {
     "en_us": {
-      "subtitles.gunfire": "",
       "advancements.k_xing_cheng.title": "形成位階",
-      "subtitles.finger": "",
+      "subtitles.gunfire": "",
       "key.diesiraebleach.katsudou": "Katsudou",
+      "subtitles.finger": "",
       "key.diesiraebleach.katsudoubei": "Katsudoubei",
       "item.diesiraebleach.getsugaenkyori": "Getsugaenkyori",
-      "item.diesiraebleach.panzer_mahoujin_spawn_egg": "Panzer Mahoujin Spawn Egg",
       "item.diesiraebleach.beienkyoriitem": "Beienkyoriitem",
+      "item.diesiraebleach.panzer_mahoujin_spawn_egg": "Panzer Mahoujin Spawn Egg",
       "key.diesiraebleach.kougeki": "Kougeki",
       "effect.seiibutsu": "聖遺物",
       "item.diesiraebleach.schmeizer_item": "Schmeizer Item",
@@ -1146,6 +1214,7 @@
       "item.minecraft.splash_potion.effect.qliphoth_bacikal": "Splash Potion of Qliphoth Bacikal",
       "item.diesiraebleach.dora_cannon": "Dora Cannon",
       "item.minecraft.potion.effect.qliphoth_bacikal": "Qliphoth Bacikal",
+      "effect.zarathustra_potion_effect": "Eine Faust Ouvertüre",
       "item.diesiraebleach.panzer_faust_item": "Panzer Faust Item",
       "entity.diesiraebleach.schmeizer_mahoujin": "Schmeizer Mahoujin",
       "item.diesiraebleach.qliphoth_bacikal_2": "Qliphoth Bacikal 2",
@@ -1159,6 +1228,7 @@
       "item.diesiraebleach.kui": "Kui",
       "item.diesiraebleach.schmeizer_mahoujin_spawn_egg": "Schmeizer Mahoujin Spawn Egg",
       "item.diesiraebleach.bei_keiseihana": "Bei Keiseihana",
+      "item.diesiraebleach.test_4": "Test 4",
       "item.minecraft.lingering_potion.effect.qliphoth_bacikal": "Lingering Potion of Qliphoth Bacikal",
       "item.diesiraebleach.hihiirokane": "緋々色金",
       "entity.diesiraebleach.panzer_mahoujin": "Panzer Mahoujin",
