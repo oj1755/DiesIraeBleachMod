@@ -1,21 +1,6 @@
 package net.mcreator.diesiraebleach.procedures;
 
-import net.minecraft.world.IWorld;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.potion.Effects;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.passive.TameableEntity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Entity;
-
-import net.mcreator.diesiraebleach.DiesiraebleachMod;
-
-import java.util.stream.Collectors;
-import java.util.function.Function;
-import java.util.Map;
-import java.util.List;
-import java.util.Comparator;
+import net.minecraftforge.eventbus.api.Event;
 
 public class ZarathustraProcedure {
 
@@ -30,8 +15,10 @@ public class ZarathustraProcedure {
 				DiesiraebleachMod.LOGGER.warn("Failed to load dependency entity for procedure Zarathustra!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,
@@ -63,4 +50,5 @@ public class ZarathustraProcedure {
 			}
 		}
 	}
+
 }

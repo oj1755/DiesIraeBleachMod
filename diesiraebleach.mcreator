@@ -1013,34 +1013,6 @@
       }
     },
     {
-      "name": "Zarathustra",
-      "type": "procedure",
-      "sortid": 67,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "zarathustra",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "ZarathustraPotionEffect",
-      "type": "potioneffect",
-      "sortid": 68,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "zarathustra_potion_effect"
-    },
-    {
       "name": "Schreiber",
       "type": "procedure",
       "sortid": 70,
@@ -1073,12 +1045,48 @@
       }
     },
     {
+      "name": "Zarathustra",
+      "type": "procedure",
+      "sortid": 67,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "zarathustra",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ZarathustraPotionEffect",
+      "type": "potioneffect",
+      "sortid": 68,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "zarathustra_potion_effect"
+    },
+    {
       "name": "Test4",
       "type": "item",
       "sortid": 71,
       "compiles": true,
       "locked_code": false,
       "registry_name": "test_4"
+    },
+    {
+      "name": "MarglittoJudis",
+      "type": "item",
+      "sortid": 67,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marglitto_judis"
     }
   ],
   "variable_elements": [
@@ -1214,7 +1222,6 @@
       "item.minecraft.splash_potion.effect.qliphoth_bacikal": "Splash Potion of Qliphoth Bacikal",
       "item.diesiraebleach.dora_cannon": "Dora Cannon",
       "item.minecraft.potion.effect.qliphoth_bacikal": "Qliphoth Bacikal",
-      "effect.zarathustra_potion_effect": "Eine Faust Ouvertüre",
       "item.diesiraebleach.panzer_faust_item": "Panzer Faust Item",
       "entity.diesiraebleach.schmeizer_mahoujin": "Schmeizer Mahoujin",
       "item.diesiraebleach.qliphoth_bacikal_2": "Qliphoth Bacikal 2",
@@ -1228,7 +1235,6 @@
       "item.diesiraebleach.kui": "Kui",
       "item.diesiraebleach.schmeizer_mahoujin_spawn_egg": "Schmeizer Mahoujin Spawn Egg",
       "item.diesiraebleach.bei_keiseihana": "Bei Keiseihana",
-      "item.diesiraebleach.test_4": "Test 4",
       "item.minecraft.lingering_potion.effect.qliphoth_bacikal": "Lingering Potion of Qliphoth Bacikal",
       "item.diesiraebleach.hihiirokane": "緋々色金",
       "entity.diesiraebleach.panzer_mahoujin": "Panzer Mahoujin",

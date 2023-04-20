@@ -118,7 +118,7 @@ public class BeisouzouProcedure {
 						}
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
-				}.start(world, (int) 200);
+				}.start(world, (int) 5);
 			}
 		}
 	}

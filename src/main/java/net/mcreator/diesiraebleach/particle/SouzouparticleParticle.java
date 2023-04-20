@@ -41,7 +41,7 @@ public class SouzouparticleParticle {
 			super(world, x, y, z);
 			this.spriteSet = spriteSet;
 			this.setSize((float) 0.2, (float) 0.2);
-			this.particleScale *= (float) 1000;
+			this.particleScale *= (float) 4090;
 			this.maxAge = 8000;
 			this.particleGravity = (float) 0;
 			this.canCollide = false;
