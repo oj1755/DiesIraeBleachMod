@@ -1013,6 +1013,74 @@
       }
     },
     {
+      "name": "Schreiber",
+      "type": "procedure",
+      "sortid": 70,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "schreiber",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Zarathustra",
+      "type": "procedure",
+      "sortid": 67,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "zarathustra",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ZarathustraPotionEffect",
+      "type": "potioneffect",
+      "sortid": 68,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "zarathustra_potion_effect"
+    },
+    {
+      "name": "Test4",
+      "type": "item",
+      "sortid": 71,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "test_4"
+    },
+    {
       "name": "MarglittoJudis",
       "type": "item",
       "sortid": 67,
@@ -1175,7 +1243,6 @@
       "item.minecraft.tipped_arrow.effect.qliphoth_bacikal": "Arrow of Qliphoth Bacikal",
       "subtitles.guncharge": "",
       "advancements.souzou.title": "創造位階",
-      "item.diesiraebleach.marglitto_judis": "Marglitto Judis",
       "subtitles.panzersummon": "",
       "advancements.k_xing_cheng.descr": "使い手と同調した聖遺物は形を成し、武器として使えるようになった。"
     }
