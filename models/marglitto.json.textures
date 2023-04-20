@@ -1,0 +1,14 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "hihiirokane1",
+        "1": "marglitto3",
+        "2": "marglitto4",
+        "3": "marglitto5",
+        "4": "hihiirokane2"
+      },
+      "name": "default"
+    }
+  }
+}
