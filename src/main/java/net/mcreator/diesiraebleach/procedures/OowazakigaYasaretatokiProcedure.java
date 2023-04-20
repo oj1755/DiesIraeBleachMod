@@ -1,13 +1,8 @@
 package net.mcreator.diesiraebleach.procedures;
 
-import net.minecraftforge.registries.ForgeRegistries;
-
 import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.potion.EffectInstance;
@@ -20,7 +15,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.block.Blocks;
 
 import net.mcreator.diesiraebleach.potion.SeiibutsuPotionEffect;
-import net.mcreator.diesiraebleach.item.BeiKeiseihanaItem;
 import net.mcreator.diesiraebleach.DiesiraebleachModVariables;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
@@ -74,57 +68,34 @@ public class OowazakigaYasaretatokiProcedure {
 				}
 				return false;
 			}
-		}.check(entity)) {
-			if (((entity instanceof ServerPlayerEntity) && (entity.world instanceof ServerWorld))
-					? ((ServerPlayerEntity) entity).getAdvancements()
-							.getProgress(((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
-									.getAdvancement(new ResourceLocation("diesiraebleach:k_xing_cheng")))
-							.isDone()
-					: false) {
-				if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.HEAD) : ItemStack.EMPTY)
-						.getItem() == Blocks.CAVE_AIR.asItem()) {
-					if (world instanceof World && !world.isRemote()) {
-						((World) world)
-								.playSound(null, new BlockPos(x, y, z),
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("diesiraebleach:beikeisei")),
-										SoundCategory.NEUTRAL, (float) 0.3, (float) 0.5);
-					} else {
-						((World) world).playSound(x, y, z,
-								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-										.getValue(new ResourceLocation("diesiraebleach:beikeisei")),
-								SoundCategory.NEUTRAL, (float) 0.3, (float) 0.5, false);
-					}
-					if (entity instanceof LivingEntity) {
-						if (entity instanceof PlayerEntity)
-							((PlayerEntity) entity).inventory.armorInventory.set((int) 3, new ItemStack(BeiKeiseihanaItem.block));
-						else
-							((LivingEntity) entity).setItemStackToSlot(EquipmentSlotType.HEAD, new ItemStack(BeiKeiseihanaItem.block));
-						if (entity instanceof ServerPlayerEntity)
-							((ServerPlayerEntity) entity).inventory.markDirty();
-					}
-					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u5F62\u6210 \u2015 \u95C7\u306E\u8CDC\u7269"),
-								(true));
-					}
-				} else if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Souzou == false) {
-					if (((entity instanceof ServerPlayerEntity) && (entity.world instanceof ServerWorld))
+		}.check(entity) && (((entity instanceof ServerPlayerEntity) && (entity.world instanceof ServerWorld))
+				? ((ServerPlayerEntity) entity).getAdvancements()
+						.getProgress(((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
+								.getAdvancement(new ResourceLocation("diesiraebleach:k_xing_cheng")))
+						.isDone()
+				: false)) {
+			if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.HEAD) : ItemStack.EMPTY)
+					.getItem() == Blocks.CAVE_AIR.asItem()) {
+				BeikeiseiProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u5F62\u6210 \u2015 \u95C7\u306E\u8CDC\u7269"), (true));
+				}
+			} else if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+					.orElse(new DiesiraebleachModVariables.PlayerVariables())).Souzou == false
+					&& (((entity instanceof ServerPlayerEntity) && (entity.world instanceof ServerWorld))
 							? ((ServerPlayerEntity) entity).getAdvancements()
 									.getProgress(((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
 											.getAdvancement(new ResourceLocation("diesiraebleach:souzou")))
 									.isDone()
-							: false) {
-						BeisouzouProcedure.executeProcedure(Stream
-								.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
-										new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
-										new AbstractMap.SimpleEntry<>("entity", entity))
-								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
-						if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-							((PlayerEntity) entity).sendStatusMessage(
-									new StringTextComponent("\u00A74\u5275\u9020 \u2015 \u6B7B\u68EE\u306E\u8594\u8587\u9A0E\u58EB"), (true));
-						}
-					}
+							: false)) {
+				BeisouzouProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+					((PlayerEntity) entity).sendStatusMessage(
+							new StringTextComponent("\u00A74\u5275\u9020 \u2015 \u6B7B\u68EE\u306E\u8594\u8587\u9A0E\u58EB"), (true));
 				}
 			}
 		}

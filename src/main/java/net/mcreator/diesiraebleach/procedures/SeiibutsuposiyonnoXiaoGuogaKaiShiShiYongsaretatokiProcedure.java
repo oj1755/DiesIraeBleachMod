@@ -2,7 +2,7 @@ package net.mcreator.diesiraebleach.procedures;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.entity.player.AdvancementEvent;
+import net.minecraftforge.event.TickEvent;
 
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
@@ -11,10 +11,8 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.potion.Effects;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
-import net.minecraft.advancements.Advancement;
 
 import net.mcreator.diesiraebleach.DiesiraebleachModVariables;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
@@ -26,22 +24,22 @@ public class SeiibutsuposiyonnoXiaoGuogaKaiShiShiYongsaretatokiProcedure {
 	@Mod.EventBusSubscriber
 	private static class GlobalTrigger {
 		@SubscribeEvent
-		public static void onAdvancement(AdvancementEvent event) {
-			PlayerEntity entity = event.getPlayer();
-			double i = entity.getPosX();
-			double j = entity.getPosY();
-			double k = entity.getPosZ();
-			Advancement advancement = event.getAdvancement();
-			World world = entity.world;
-			Map<String, Object> dependencies = new HashMap<>();
-			dependencies.put("x", i);
-			dependencies.put("y", j);
-			dependencies.put("z", k);
-			dependencies.put("world", world);
-			dependencies.put("entity", entity);
-			dependencies.put("advancement", advancement);
-			dependencies.put("event", event);
-			executeProcedure(dependencies);
+		public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
+			if (event.phase == TickEvent.Phase.END) {
+				Entity entity = event.player;
+				World world = entity.world;
+				double i = entity.getPosX();
+				double j = entity.getPosY();
+				double k = entity.getPosZ();
+				Map<String, Object> dependencies = new HashMap<>();
+				dependencies.put("x", i);
+				dependencies.put("y", j);
+				dependencies.put("z", k);
+				dependencies.put("world", world);
+				dependencies.put("entity", entity);
+				dependencies.put("event", event);
+				executeProcedure(dependencies);
+			}
 		}
 	}
 
@@ -72,6 +70,10 @@ public class SeiibutsuposiyonnoXiaoGuogaKaiShiShiYongsaretatokiProcedure {
 								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 50)));
 			if (entity instanceof LivingEntity)
 				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.JUMP_BOOST, (int) 1e+50,
+						(int) ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 100)));
+			if (entity instanceof LivingEntity)
+				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.RESISTANCE, (int) 1e+50,
 						(int) ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 100)));
 		}
