@@ -70,5 +70,14 @@
         "stream": false
       }
     ]
+  },
+  "dageki": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:qing_ipanti1_1",
+        "stream": false
+      }
+    ]
   }
 }

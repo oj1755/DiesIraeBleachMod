@@ -15,6 +15,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.block.Blocks;
 
 import net.mcreator.diesiraebleach.potion.SeiibutsuPotionEffect;
+import net.mcreator.diesiraebleach.particle.BloodmoonParticle;
 import net.mcreator.diesiraebleach.DiesiraebleachModVariables;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
@@ -57,6 +58,7 @@ public class OowazakigaYasaretatokiProcedure {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
+		world.addParticle(BloodmoonParticle.particle, x, (y + 100), z, 0, 0, 0);
 		if (new Object() {
 			boolean check(Entity _entity) {
 				if (_entity instanceof LivingEntity) {

@@ -2,12 +2,16 @@ package net.mcreator.diesiraebleach.procedures;
 
 import net.minecraftforge.registries.ForgeRegistries;
 
+import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Hand;
+import net.minecraft.util.DamageSource;
 import net.minecraft.potion.Effects;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.item.ItemStack;
@@ -17,11 +21,18 @@ import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
+import net.mcreator.diesiraebleach.particle.Flame2Particle;
+import net.mcreator.diesiraebleach.item.HihiirokaneItem;
 import net.mcreator.diesiraebleach.item.BeienkyoriitemItem;
 import net.mcreator.diesiraebleach.item.BeiKeiseihanaItem;
+import net.mcreator.diesiraebleach.DiesiraebleachModVariables;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
+import java.util.stream.Collectors;
+import java.util.function.Function;
 import java.util.Map;
+import java.util.List;
+import java.util.Comparator;
 
 public class TosshinProcedure {
 
@@ -129,6 +140,43 @@ public class TosshinProcedure {
 						_entityToSpawn.setPosition(_shootFrom.getPosX(), _shootFrom.getPosYEye() - 0.1, _shootFrom.getPosZ());
 						_entityToSpawn.shoot(_shootFrom.getLookVec().x, _shootFrom.getLookVec().y, _shootFrom.getLookVec().z, 3, 100);
 						projectileLevel.addEntity(_entityToSpawn);
+					}
+				}
+			}
+		}
+		if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem() == HihiirokaneItem.block) {
+			if (entity instanceof LivingEntity) {
+				((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
+			}
+			if (entity instanceof LivingEntity)
+				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.RESISTANCE, (int) 5, (int) 100, (false), (false)));
+			if (world instanceof World && !world.isRemote()) {
+				((World) world).playSound(null, new BlockPos(x, y, z),
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.blaze.shoot")),
+						SoundCategory.NEUTRAL, (float) 0.5, (float) 1);
+			} else {
+				((World) world).playSound(x, y, z,
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.blaze.shoot")),
+						SoundCategory.NEUTRAL, (float) 0.5, (float) 1, false);
+			}
+			if (world instanceof ServerWorld) {
+				((ServerWorld) world).spawnParticle(Flame2Particle.particle, x, y, z, (int) 100, X, Y, Z, 0.2);
+			}
+			{
+				List<Entity> _entfound = world
+						.getEntitiesWithinAABB(Entity.class,
+								new AxisAlignedBB(x - (4 / 2d), y - (4 / 2d), z - (4 / 2d), x + (4 / 2d), y + (4 / 2d), z + (4 / 2d)), null)
+						.stream().sorted(new Object() {
+							Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+								return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+							}
+						}.compareDistOf(x, y, z)).collect(Collectors.toList());
+				for (Entity entityiterator : _entfound) {
+					if (!(entity == entityiterator)) {
+						entityiterator.attackEntityFrom(DamageSource.ON_FIRE,
+								(float) (2 + (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+										.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 100));
+						entityiterator.setFire((int) 10);
 					}
 				}
 			}

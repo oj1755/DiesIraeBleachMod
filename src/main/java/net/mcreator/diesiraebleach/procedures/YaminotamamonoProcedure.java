@@ -67,7 +67,13 @@ public class YaminotamamonoProcedure {
 				}
 			}
 			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza > 5) {
+					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 6) {
+				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u6253\u6483"), (true));
+				}
+			}
+			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza > 6) {
 				{
 					double _setval = 2;
 					entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {

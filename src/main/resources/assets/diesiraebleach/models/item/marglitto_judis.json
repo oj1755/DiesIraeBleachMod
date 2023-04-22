@@ -1,11 +1,11 @@
 {
   "parent": "diesiraebleach:custom/marglitto",
   "textures": {
-    "0": "diesiraebleach:blocks/hihiirokane1",
-    "1": "diesiraebleach:blocks/marglitto3",
-    "2": "diesiraebleach:blocks/marglitto4",
-    "3": "diesiraebleach:blocks/marglitto5",
-    "4": "diesiraebleach:blocks/hihiirokane2",
-    "particle": "diesiraebleach:items/zangetsu"
+    "0": "diesiraebleach:blocks/marglitto1",
+    "1": "diesiraebleach:blocks/marglitto2",
+    "2": "diesiraebleach:blocks/marglitto3",
+    "3": "diesiraebleach:blocks/marglitto4",
+    "4": "diesiraebleach:blocks/marglitto5",
+    "particle": "diesiraebleach:items/marglitto"
   }
 }

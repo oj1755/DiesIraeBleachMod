@@ -13,10 +13,10 @@
     "toolType": "Sword",
     "harvestLevel": 1,
     "efficiency": 6.0,
-    "attackSpeed": 10.0,
+    "attackSpeed": 5.0,
     "enchantability": 2,
     "damageVsEntity": 15.0,
-    "usageCount": 1000,
+    "usageCount": 0,
     "blocksAffected": [],
     "hasGlow": true,
     "repairItems": [],
@@ -24,6 +24,9 @@
     "stayInGridWhenCrafting": false,
     "damageOnCrafting": false,
     "onRightClickedInAir": {
+      "name": "Tosshin"
+    },
+    "onEntitySwing": {
       "name": "HihiirokaneenteiteigaaitemuwoZhentutaShi"
     }
   }

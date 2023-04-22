@@ -1,17 +1,33 @@
 
 package net.mcreator.diesiraebleach.item;
 
-import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraftforge.registries.ObjectHolder;
+
+import net.minecraft.world.World;
+import net.minecraft.util.Hand;
+import net.minecraft.util.ActionResult;
+import net.minecraft.item.Rarity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.Item;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.block.BlockState;
+
+import net.mcreator.diesiraebleach.procedures.SchreiberProcedure;
+import net.mcreator.diesiraebleach.DiesiraebleachModElements;
+
+import java.util.stream.Stream;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.AbstractMap;
 
 @DiesiraebleachModElements.ModElement.Tag
 public class Test4Item extends DiesiraebleachModElements.ModElement {
-
 	@ObjectHolder("diesiraebleach:test_4")
 	public static final Item block = null;
 
 	public Test4Item(DiesiraebleachModElements instance) {
 		super(instance, 71);
-
 	}
 
 	@Override
@@ -20,7 +36,6 @@ public class Test4Item extends DiesiraebleachModElements.ModElement {
 	}
 
 	public static class ItemCustom extends Item {
-
 		public ItemCustom() {
 			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(64).rarity(Rarity.COMMON));
 			setRegistryName("test_4");
@@ -50,7 +65,5 @@ public class Test4Item extends DiesiraebleachModElements.ModElement {
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return ar;
 		}
-
 	}
-
 }

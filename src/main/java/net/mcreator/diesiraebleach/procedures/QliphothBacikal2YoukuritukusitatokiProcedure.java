@@ -9,7 +9,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.advancements.Advancement;
 
-import net.mcreator.diesiraebleach.potion.SeiibutsuPotionEffect;
+import net.mcreator.diesiraebleach.potion.SeiibutsuHihiirokanePotionEffect;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
 import java.util.Map;
@@ -25,7 +25,7 @@ public class QliphothBacikal2YoukuritukusitatokiProcedure {
 		}
 		Entity entity = (Entity) dependencies.get("entity");
 		if (entity instanceof LivingEntity)
-			((LivingEntity) entity).addPotionEffect(new EffectInstance(SeiibutsuPotionEffect.potion, (int) 1e+23, (int) 3));
+			((LivingEntity) entity).addPotionEffect(new EffectInstance(SeiibutsuHihiirokanePotionEffect.potion, (int) 1e+23, (int) 3));
 		if (entity instanceof ServerPlayerEntity) {
 			Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
 					.getAdvancement(new ResourceLocation("diesiraebleach:katsudouj"));

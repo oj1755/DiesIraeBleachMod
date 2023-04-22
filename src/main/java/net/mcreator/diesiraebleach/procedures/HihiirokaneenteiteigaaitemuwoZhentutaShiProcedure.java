@@ -1,8 +1,14 @@
 package net.mcreator.diesiraebleach.procedures;
 
+import net.minecraftforge.registries.ForgeRegistries;
+
+import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.DamageSource;
 import net.minecraft.potion.Effects;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.particles.ParticleTypes;
@@ -10,10 +16,13 @@ import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
+import net.mcreator.diesiraebleach.DiesiraebleachModVariables;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
+import java.util.stream.Collectors;
 import java.util.function.Function;
 import java.util.Map;
+import java.util.List;
 import java.util.Comparator;
 
 public class HihiirokaneenteiteigaaitemuwoZhentutaShiProcedure {
@@ -51,11 +60,35 @@ public class HihiirokaneenteiteigaaitemuwoZhentutaShiProcedure {
 		Entity entity = (Entity) dependencies.get("entity");
 		double deg = 0;
 		double r = 0;
-		if (entity instanceof LivingEntity) {
-			((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
+		{
+			List<Entity> _entfound = world
+					.getEntitiesWithinAABB(Entity.class,
+							new AxisAlignedBB(x - (4 / 2d), y - (4 / 2d), z - (4 / 2d), x + (4 / 2d), y + (4 / 2d), z + (4 / 2d)), null)
+					.stream().sorted(new Object() {
+						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+						}
+					}.compareDistOf(x, y, z)).collect(Collectors.toList());
+			for (Entity entityiterator : _entfound) {
+				if (!(entity == entityiterator)) {
+					entityiterator.attackEntityFrom(DamageSource.IN_FIRE,
+							(float) (2 + (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+									.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 100));
+					entityiterator.setFire((int) 10);
+				}
+			}
 		}
 		deg = (entity.rotationYaw - 90);
 		r = 2;
+		if (world instanceof World && !world.isRemote()) {
+			((World) world).playSound(null, new BlockPos(x, y, z),
+					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.blaze.shoot")),
+					SoundCategory.NEUTRAL, (float) 1, (float) 1);
+		} else {
+			((World) world).playSound(x, y, z,
+					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.blaze.shoot")),
+					SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+		}
 		for (int index0 = 0; index0 < (int) (2); index0++) {
 			for (int index1 = 0; index1 < (int) (11); index1++) {
 				world.addParticle(ParticleTypes.FLAME, (x - r * Math.sin(Math.toRadians(deg))), (y + 1), (z + r * Math.cos(Math.toRadians(deg))),

@@ -22,7 +22,7 @@ import java.util.AbstractMap;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class SeiibutsuPotionEffect {
-	@ObjectHolder("diesiraebleach:seiibutsu")
+	@ObjectHolder("diesiraebleach:seiibutsubei")
 	public static final Effect potion = null;
 
 	@SubscribeEvent
@@ -33,12 +33,12 @@ public class SeiibutsuPotionEffect {
 	public static class EffectCustom extends Effect {
 		public EffectCustom() {
 			super(EffectType.BENEFICIAL, -1);
-			setRegistryName("seiibutsu");
+			setRegistryName("seiibutsubei");
 		}
 
 		@Override
 		public String getName() {
-			return "effect.seiibutsu";
+			return "effect.seiibutsubei";
 		}
 
 		@Override
