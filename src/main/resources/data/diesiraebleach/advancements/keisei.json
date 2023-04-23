@@ -4,10 +4,10 @@
       "item": "diesiraebleach:hihiirokane"
     },
     "title": {
-      "translate": "advancements.k_xing_cheng.title"
+      "translate": "advancements.keisei.title"
     },
     "description": {
-      "translate": "advancements.k_xing_cheng.descr"
+      "translate": "advancements.keisei.descr"
     },
     "frame": "task",
     "show_toast": true,
@@ -15,7 +15,7 @@
     "hidden": false
   },
   "criteria": {
-    "k_xing_cheng": {
+    "keisei": {
       "trigger": "minecraft:impossible"
     }
   },

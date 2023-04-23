@@ -20,7 +20,7 @@ import net.minecraft.client.Minecraft;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class SouzouparticleParticle {
-	public static final BasicParticleType particle = new BasicParticleType(false);
+	public static final BasicParticleType particle = new BasicParticleType(true);
 
 	@SubscribeEvent
 	public static void registerParticleType(RegistryEvent.Register<ParticleType<?>> event) {
@@ -41,8 +41,8 @@ public class SouzouparticleParticle {
 			super(world, x, y, z);
 			this.spriteSet = spriteSet;
 			this.setSize((float) 0.2, (float) 0.2);
-			this.particleScale *= (float) 4090;
-			this.maxAge = 8000;
+			this.particleScale *= (float) 3;
+			this.maxAge = 7;
 			this.particleGravity = (float) 0;
 			this.canCollide = false;
 			this.motionX = vx * 1;
@@ -52,13 +52,8 @@ public class SouzouparticleParticle {
 		}
 
 		@Override
-		public int getBrightnessForRender(float partialTick) {
-			return 15728880;
-		}
-
-		@Override
 		public IParticleRenderType getRenderType() {
-			return IParticleRenderType.PARTICLE_SHEET_LIT;
+			return IParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
 		}
 
 		@Override

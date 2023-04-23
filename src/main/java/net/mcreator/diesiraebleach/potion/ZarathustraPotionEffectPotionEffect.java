@@ -10,8 +10,8 @@ import net.minecraft.world.World;
 import net.minecraft.potion.EffectType;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effect;
-import net.minecraft.entity.ai.attributes.AttributeModifierManager;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Entity;
 
 import net.mcreator.diesiraebleach.procedures.ZarathustraProcedure;
 
@@ -48,7 +48,7 @@ public class ZarathustraPotionEffectPotionEffect {
 
 		@Override
 		public boolean isInstant() {
-			return false;
+			return true;
 		}
 
 		@Override
@@ -67,7 +67,7 @@ public class ZarathustraPotionEffectPotionEffect {
 		}
 
 		@Override
-		public void applyAttributesModifiersToEntity(LivingEntity entity, AttributeModifierManager attributeMapIn, int amplifier) {
+		public void affectEntity(Entity source, Entity indirectSource, LivingEntity entity, int amplifier, double health) {
 			World world = entity.world;
 			double x = entity.getPosX();
 			double y = entity.getPosY();

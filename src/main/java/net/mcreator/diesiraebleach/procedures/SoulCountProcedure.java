@@ -112,7 +112,7 @@ public class SoulCountProcedure {
 					.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul > 100) {
 				if (sourceentity instanceof ServerPlayerEntity) {
 					Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) sourceentity).server).getAdvancementManager()
-							.getAdvancement(new ResourceLocation("diesiraebleach:k_xing_cheng"));
+							.getAdvancement(new ResourceLocation("diesiraebleach:keisei"));
 					AdvancementProgress _ap = ((ServerPlayerEntity) sourceentity).getAdvancements().getProgress(_adv);
 					if (!_ap.isDone()) {
 						Iterator _iterator = _ap.getRemaningCriteria().iterator();

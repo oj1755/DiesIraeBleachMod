@@ -222,6 +222,7 @@ public class DiesiraebleachModVariables {
 			nbt.putDouble("qliphotoz", instance.qliphotoz);
 			nbt.putBoolean("Souzou", instance.Souzou);
 			nbt.putBoolean("Keisei", instance.Keisei);
+			nbt.putBoolean("Seiibutsu", instance.Seiibutsu);
 			return nbt;
 		}
 
@@ -235,6 +236,7 @@ public class DiesiraebleachModVariables {
 			instance.qliphotoz = nbt.getDouble("qliphotoz");
 			instance.Souzou = nbt.getBoolean("Souzou");
 			instance.Keisei = nbt.getBoolean("Keisei");
+			instance.Seiibutsu = nbt.getBoolean("Seiibutsu");
 		}
 	}
 
@@ -246,6 +248,7 @@ public class DiesiraebleachModVariables {
 		public double qliphotoz = 0;
 		public boolean Souzou = false;
 		public boolean Keisei = false;
+		public boolean Seiibutsu = false;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
@@ -287,6 +290,7 @@ public class DiesiraebleachModVariables {
 		clone.qliphotoz = original.qliphotoz;
 		clone.Souzou = original.Souzou;
 		clone.Keisei = original.Keisei;
+		clone.Seiibutsu = original.Seiibutsu;
 		if (!event.isWasDeath()) {
 		}
 	}
@@ -320,6 +324,7 @@ public class DiesiraebleachModVariables {
 					variables.qliphotoz = message.data.qliphotoz;
 					variables.Souzou = message.data.Souzou;
 					variables.Keisei = message.data.Keisei;
+					variables.Seiibutsu = message.data.Seiibutsu;
 				}
 			});
 			context.setPacketHandled(true);

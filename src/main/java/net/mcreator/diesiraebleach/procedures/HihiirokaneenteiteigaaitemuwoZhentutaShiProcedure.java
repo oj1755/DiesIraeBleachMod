@@ -89,6 +89,15 @@ public class HihiirokaneenteiteigaaitemuwoZhentutaShiProcedure {
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.blaze.shoot")),
 					SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 		}
+		if (world instanceof World && !world.isRemote()) {
+			((World) world).playSound(null, new BlockPos(x, y, z),
+					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:kensuburi")),
+					SoundCategory.NEUTRAL, (float) 1, (float) 1);
+		} else {
+			((World) world).playSound(x, y, z,
+					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:kensuburi")),
+					SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+		}
 		for (int index0 = 0; index0 < (int) (2); index0++) {
 			for (int index1 = 0; index1 < (int) (11); index1++) {
 				world.addParticle(ParticleTypes.FLAME, (x - r * Math.sin(Math.toRadians(deg))), (y + 1), (z + r * Math.cos(Math.toRadians(deg))),

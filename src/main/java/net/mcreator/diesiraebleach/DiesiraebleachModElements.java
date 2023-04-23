@@ -64,6 +64,27 @@ public class DiesiraebleachModElements {
 				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "finger")));
 		sounds.put(new ResourceLocation("diesiraebleach", "dageki"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "dageki")));
+		sounds.put(new ResourceLocation("diesiraebleach", "bakuhatsu"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "bakuhatsu")));
+		sounds.put(new ResourceLocation("diesiraebleach", "fire"), new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "fire")));
+		sounds.put(new ResourceLocation("diesiraebleach", "kenzangeki"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "kenzangeki")));
+		sounds.put(new ResourceLocation("diesiraebleach", "kensuburi"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "kensuburi")));
+		sounds.put(new ResourceLocation("diesiraebleach", "ewigkeite"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "ewigkeite")));
+		sounds.put(new ResourceLocation("diesiraebleach", "punchsuburi"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "punchsuburi")));
+		sounds.put(new ResourceLocation("diesiraebleach", "speed1"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "speed1")));
+		sounds.put(new ResourceLocation("diesiraebleach", "speed2"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "speed2")));
+		sounds.put(new ResourceLocation("diesiraebleach", "speed3"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "speed3")));
+		sounds.put(new ResourceLocation("diesiraebleach", "speed4"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "speed4")));
+		sounds.put(new ResourceLocation("diesiraebleach", "timestop"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "timestop")));
 		try {
 			ModFileScanData modFileInfo = ModList.get().getModFileById("diesiraebleach").getFile().getScanResult();
 			Set<ModFileScanData.AnnotationData> annotations = modFileInfo.getAnnotations();

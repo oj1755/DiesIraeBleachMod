@@ -3,10 +3,10 @@
   "_type": "keybind",
   "definition": {
     "triggerKey": "R",
-    "keyBindingName": "Katsudoubei",
+    "keyBindingName": "Rwazasentaku",
     "keyBindingCategoryKey": "misc",
     "onKeyPressed": {
-      "name": "Yaminotamamono"
+      "name": "Wazasentaku"
     }
   }
 }

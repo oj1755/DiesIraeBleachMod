@@ -18,7 +18,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.client.Minecraft;
 
-import net.mcreator.diesiraebleach.procedures.Yaminotamamono2Procedure;
+import net.mcreator.diesiraebleach.procedures.WazahatsudouProcedure;
 import net.mcreator.diesiraebleach.DiesiraebleachModElements;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
@@ -97,7 +97,7 @@ public class KougekiKeyBinding extends DiesiraebleachModElements.ModElement {
 			return;
 		if (type == 0) {
 
-			Yaminotamamono2Procedure.executeProcedure(Stream
+			WazahatsudouProcedure.executeProcedure(Stream
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
 							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));

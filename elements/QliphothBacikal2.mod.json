@@ -5,8 +5,8 @@
     "renderType": 0,
     "texture": "yaminotamamono",
     "customModelName": "Normal",
-    "name": "Qliphoth Bacikal 2",
-    "rarity": "COMMON",
+    "name": "聖遺物【闇の賜物】",
+    "rarity": "EPIC",
     "creativeTab": {
       "value": "MISC"
     },
@@ -24,20 +24,19 @@
     "damageOnCrafting": false,
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
-    "specialInfo": [],
-    "hasGlow": false,
+    "specialInfo": [
+      "ブラド・ツェペト公の血液を結晶化した聖遺物。取り込んだ者は吸血鬼として新生する。"
+    ],
+    "hasGlow": true,
     "guiBoundTo": "<NONE>",
     "inventorySize": 9,
     "inventoryStackSize": 64,
     "onRightClickedInAir": {
       "name": "QliphothBacikal2Youkuritukusitatoki"
     },
-    "onEntityHitWith": {
-      "name": "Kyusei"
-    },
-    "isFood": false,
-    "nutritionalValue": 4,
-    "saturation": 0.3,
+    "isFood": true,
+    "nutritionalValue": 10,
+    "saturation": 2.0,
     "eatResultItem": {
       "value": ""
     },

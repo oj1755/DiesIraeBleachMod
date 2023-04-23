@@ -13,8 +13,10 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.item.IItemTier;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.LivingEntity;
 
-import net.mcreator.diesiraebleach.procedures.TosshinProcedure;
+import net.mcreator.diesiraebleach.procedures.ZarathustraProcedure;
+import net.mcreator.diesiraebleach.procedures.MarglittoslashProcedure;
 import net.mcreator.diesiraebleach.DiesiraebleachModElements;
 
 import java.util.stream.Stream;
@@ -66,8 +68,24 @@ public class MarglittoJudisItem extends DiesiraebleachModElements.ModElement {
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
 
-				TosshinProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+				ZarathustraProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+				return retval;
+			}
+
+			@Override
+			public boolean onEntitySwing(ItemStack itemstack, LivingEntity entity) {
+				boolean retval = super.onEntitySwing(itemstack, entity);
+				double x = entity.getPosX();
+				double y = entity.getPosY();
+				double z = entity.getPosZ();
+				World world = entity.world;
+
+				MarglittoslashProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
+								new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				return retval;
 			}

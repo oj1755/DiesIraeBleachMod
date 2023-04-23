@@ -24,7 +24,10 @@
     "stayInGridWhenCrafting": false,
     "damageOnCrafting": false,
     "onRightClickedInAir": {
-      "name": "Tosshin"
+      "name": "Zarathustra"
+    },
+    "onEntitySwing": {
+      "name": "Marglittoslash"
     }
   }
 }

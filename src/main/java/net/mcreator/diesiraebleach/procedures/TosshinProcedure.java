@@ -21,7 +21,9 @@ import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
+import net.mcreator.diesiraebleach.particle.SlashsweepParticle;
 import net.mcreator.diesiraebleach.particle.Flame2Particle;
+import net.mcreator.diesiraebleach.item.MarglittoJudisItem;
 import net.mcreator.diesiraebleach.item.HihiirokaneItem;
 import net.mcreator.diesiraebleach.item.BeienkyoriitemItem;
 import net.mcreator.diesiraebleach.item.BeiKeiseihanaItem;
@@ -161,6 +163,44 @@ public class TosshinProcedure {
 			}
 			if (world instanceof ServerWorld) {
 				((ServerWorld) world).spawnParticle(Flame2Particle.particle, x, y, z, (int) 100, X, Y, Z, 0.2);
+			}
+			{
+				List<Entity> _entfound = world
+						.getEntitiesWithinAABB(Entity.class,
+								new AxisAlignedBB(x - (4 / 2d), y - (4 / 2d), z - (4 / 2d), x + (4 / 2d), y + (4 / 2d), z + (4 / 2d)), null)
+						.stream().sorted(new Object() {
+							Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+								return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+							}
+						}.compareDistOf(x, y, z)).collect(Collectors.toList());
+				for (Entity entityiterator : _entfound) {
+					if (!(entity == entityiterator)) {
+						entityiterator.attackEntityFrom(DamageSource.ON_FIRE,
+								(float) (2 + (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+										.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 100));
+						entityiterator.setFire((int) 10);
+					}
+				}
+			}
+		}
+		if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+				.getItem() == MarglittoJudisItem.block) {
+			if (entity instanceof LivingEntity) {
+				((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
+			}
+			if (entity instanceof LivingEntity)
+				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.RESISTANCE, (int) 5, (int) 100, (false), (false)));
+			if (world instanceof World && !world.isRemote()) {
+				((World) world).playSound(null, new BlockPos(x, y, z),
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:kensuburi")),
+						SoundCategory.NEUTRAL, (float) 0.5, (float) 1);
+			} else {
+				((World) world).playSound(x, y, z,
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:kensuburi")),
+						SoundCategory.NEUTRAL, (float) 0.5, (float) 1, false);
+			}
+			if (world instanceof ServerWorld) {
+				((ServerWorld) world).spawnParticle(SlashsweepParticle.particle, x, y, z, (int) 100, X, Y, Z, 0.2);
 			}
 			{
 				List<Entity> _entfound = world

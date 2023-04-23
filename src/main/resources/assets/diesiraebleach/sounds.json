@@ -79,5 +79,104 @@
         "stream": false
       }
     ]
+  },
+  "bakuhatsu": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:bakuhatsu",
+        "stream": false
+      }
+    ]
+  },
+  "fire": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:fire",
+        "stream": false
+      }
+    ]
+  },
+  "kenzangeki": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:kendageki",
+        "stream": false
+      }
+    ]
+  },
+  "kensuburi": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:kensuburi",
+        "stream": false
+      }
+    ]
+  },
+  "ewigkeite": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:mahou",
+        "stream": false
+      }
+    ]
+  },
+  "punchsuburi": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:punchsuburi",
+        "stream": false
+      }
+    ]
+  },
+  "speed1": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:speed_1",
+        "stream": false
+      }
+    ]
+  },
+  "speed2": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:speed_2",
+        "stream": false
+      }
+    ]
+  },
+  "speed3": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:speed_3",
+        "stream": false
+      }
+    ]
+  },
+  "speed4": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:speed_4",
+        "stream": false
+      }
+    ]
+  },
+  "timestop": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:timestop",
+        "stream": false
+      }
+    ]
   }
 }

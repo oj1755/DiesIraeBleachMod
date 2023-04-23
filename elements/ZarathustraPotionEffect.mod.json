@@ -3,12 +3,12 @@
   "_type": "potioneffect",
   "definition": {
     "effectName": "Eine Faust Ouvertüre",
-    "icon": "mahoujinred.png",
+    "icon": "zarathustra.png",
     "color": {
       "value": -16776961,
       "falpha": 0.0
     },
-    "isInstant": false,
+    "isInstant": true,
     "isBad": false,
     "isBenefitical": false,
     "renderStatusInInventory": true,

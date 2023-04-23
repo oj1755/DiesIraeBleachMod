@@ -3,7 +3,7 @@
   "_type": "potioneffect",
   "definition": {
     "effectName": "聖遺物・緋々色金",
-    "icon": "mahoujinposyo.png",
+    "icon": "hihiirokane.png",
     "color": {
       "value": -1,
       "falpha": 0.0
@@ -12,9 +12,6 @@
     "isBad": false,
     "isBenefitical": true,
     "renderStatusInInventory": true,
-    "renderStatusInHUD": false,
-    "onStarted": {
-      "name": "QliphothBacikal2Youkuritukusitatoki"
-    }
+    "renderStatusInHUD": false
   }
 }

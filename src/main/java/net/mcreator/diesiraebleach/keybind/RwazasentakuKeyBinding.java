@@ -18,7 +18,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.client.Minecraft;
 
-import net.mcreator.diesiraebleach.procedures.YaminotamamonoProcedure;
+import net.mcreator.diesiraebleach.procedures.WazasentakuProcedure;
 import net.mcreator.diesiraebleach.DiesiraebleachModElements;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
@@ -29,12 +29,12 @@ import java.util.HashMap;
 import java.util.AbstractMap;
 
 @DiesiraebleachModElements.ModElement.Tag
-public class KatsudoubeiKeyBinding extends DiesiraebleachModElements.ModElement {
+public class RwazasentakuKeyBinding extends DiesiraebleachModElements.ModElement {
 	@OnlyIn(Dist.CLIENT)
 	private KeyBinding keys;
 
-	public KatsudoubeiKeyBinding(DiesiraebleachModElements instance) {
-		super(instance, 51);
+	public RwazasentakuKeyBinding(DiesiraebleachModElements instance) {
+		super(instance, 82);
 		elements.addNetworkMessage(KeyBindingPressedMessage.class, KeyBindingPressedMessage::buffer, KeyBindingPressedMessage::new,
 				KeyBindingPressedMessage::handler);
 	}
@@ -42,7 +42,7 @@ public class KatsudoubeiKeyBinding extends DiesiraebleachModElements.ModElement 
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void initElements() {
-		keys = new KeyBinding("key.diesiraebleach.katsudoubei", GLFW.GLFW_KEY_R, "key.categories.misc");
+		keys = new KeyBinding("key.diesiraebleach.rwazasentaku", GLFW.GLFW_KEY_R, "key.categories.misc");
 		ClientRegistry.registerKeyBinding(keys);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
@@ -97,7 +97,7 @@ public class KatsudoubeiKeyBinding extends DiesiraebleachModElements.ModElement 
 			return;
 		if (type == 0) {
 
-			YaminotamamonoProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+			WazasentakuProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}
