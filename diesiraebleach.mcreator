@@ -1315,6 +1315,30 @@
           }
         ]
       }
+    },
+    {
+      "name": "ResetYoukuritukusitatoki",
+      "type": "procedure",
+      "sortid": 91,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "reset_youkuritukusitatoki",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Reset",
+      "type": "item",
+      "sortid": 91,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "reset"
     }
   ],
   "variable_elements": [
@@ -1556,10 +1580,10 @@
       "key.diesiraebleach.oowaza": "Oowaza",
       "subtitles.kaze": "",
       "effect.seiibutsubei": "聖遺物・闇の賜物",
-      "item.diesiraebleach.bei_keiseihana": "Bei Keiseihana",
       "item.diesiraebleach.test_4": "Test 4",
-      "subtitles.beikuihassha": "",
+      "item.diesiraebleach.bei_keiseihana": "Bei Keiseihana",
       "subtitles.beikeisei": "",
+      "subtitles.beikuihassha": "",
       "advancements.souzou.title": "創造位階",
       "item.diesiraebleach.fireball": "Fireball",
       "subtitles.kenzangeki": "",
@@ -1572,6 +1596,7 @@
       "item.diesiraebleach.seiibutsuhihiirokane_item": "聖遺物【緋々色金】",
       "subtitles.ewigkeite": "",
       "effect.zarathustra_potion_effect": "Eine Faust Ouvertüre",
+      "item.diesiraebleach.reset": "Reset",
       "effect.seiibutsu_hihiirokane": "聖遺物・緋々色金",
       "subtitles.punchsuburi": "",
       "item.diesiraebleach.panzer_faust_item": "Panzer Faust Item",

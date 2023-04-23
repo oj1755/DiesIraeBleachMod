@@ -6,6 +6,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
+import net.mcreator.diesiraebleach.potion.ZarathustraPotionEffectPotionEffect;
 import net.mcreator.diesiraebleach.potion.SeiibutsuPotionEffect;
 import net.mcreator.diesiraebleach.potion.SeiibutsuHihiirokanePotionEffect;
 import net.mcreator.diesiraebleach.DiesiraebleachModVariables;
@@ -36,13 +37,13 @@ public class WazasentakuProcedure {
 			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 1) {
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u653B\u6483"), (true));
+					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u653B\u6483"), (true));
 				}
 			}
 			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 2) {
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u6253\u6483"), (true));
+					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u6253\u6483"), (true));
 				}
 			}
 			if (new Object() {
@@ -118,6 +119,38 @@ public class WazasentakuProcedure {
 					}
 					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u653B\u6483"), (true));
+					}
+				}
+			}
+			if (new Object() {
+				boolean check(Entity _entity) {
+					if (_entity instanceof LivingEntity) {
+						Collection<EffectInstance> effects = ((LivingEntity) _entity).getActivePotionEffects();
+						for (EffectInstance effect : effects) {
+							if (effect.getPotion() == ZarathustraPotionEffectPotionEffect.potion)
+								return true;
+						}
+					}
+					return false;
+				}
+			}.check(entity)) {
+				if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 3) {
+					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u7A81\u9032"), (true));
+					}
+				}
+				if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza > 3) {
+					{
+						double _setval = 1;
+						entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+							capability.waza = _setval;
+							capability.syncPlayerVariables(entity);
+						});
+					}
+					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u653B\u6483"), (true));
 					}
 				}
 			}

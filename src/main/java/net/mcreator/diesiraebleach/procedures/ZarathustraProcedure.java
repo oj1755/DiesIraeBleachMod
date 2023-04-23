@@ -1,6 +1,9 @@
 package net.mcreator.diesiraebleach.procedures;
 
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
@@ -133,12 +136,37 @@ public class ZarathustraProcedure {
 								((LivingEntity) entityiterator).addPotionEffect(new EffectInstance(Effects.MINING_FATIGUE, (int) 200, (int) 100));
 							if (entityiterator instanceof LivingEntity)
 								((LivingEntity) entityiterator).addPotionEffect(new EffectInstance(Effects.JUMP_BOOST, (int) 200, (int) (-10)));
-							entityiterator.setNoGravity((false));
+							entityiterator.setNoGravity((true));
 							entityiterator.setSprinting((false));
 							if ((entityiterator instanceof TameableEntity) && (entity instanceof PlayerEntity)) {
 								((TameableEntity) entityiterator).setTamed(true);
 								((TameableEntity) entityiterator).setTamedBy((PlayerEntity) entity);
 							}
+							new Object() {
+								private int ticks = 0;
+								private float waitTicks;
+								private IWorld world;
+
+								public void start(IWorld world, int waitTicks) {
+									this.waitTicks = waitTicks;
+									MinecraftForge.EVENT_BUS.register(this);
+									this.world = world;
+								}
+
+								@SubscribeEvent
+								public void tick(TickEvent.ServerTickEvent event) {
+									if (event.phase == TickEvent.Phase.END) {
+										this.ticks += 1;
+										if (this.ticks >= this.waitTicks)
+											run();
+									}
+								}
+
+								private void run() {
+									entityiterator.setNoGravity((false));
+									MinecraftForge.EVENT_BUS.unregister(this);
+								}
+							}.start(world, (int) 200);
 						}
 					}
 				}

@@ -166,25 +166,24 @@ public class OowazakigaYasaretatokiProcedure {
 				((PlayerEntity) entity)
 						.sendStatusMessage(new StringTextComponent("\u00A73\u5F62\u6210 \u2015 \u7F6A\u59EB\u30FB\u6B63\u7FA9\u306E\u67F1"), (true));
 			}
-			if ((((entity instanceof ServerPlayerEntity) && (entity.world instanceof ServerWorld))
-					? ((ServerPlayerEntity) entity).getAdvancements()
-							.getProgress(((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
-									.getAdvancement(new ResourceLocation("diesiraebleach:souzou")))
-							.isDone()
-					: false)
-					&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Keisei == true) {
-				{
-					boolean _setval = (true);
-					entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-						capability.Souzou = _setval;
-						capability.syncPlayerVariables(entity);
-					});
-				}
-				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-					((PlayerEntity) entity).sendStatusMessage(
-							new StringTextComponent("\u00A73\u5275\u9020 \u2015 \u7F8E\u9E97\u5239\u90A3\u30FB\u5E8F\u66F2"), (true));
-				}
+		} else if ((((entity instanceof ServerPlayerEntity) && (entity.world instanceof ServerWorld))
+				? ((ServerPlayerEntity) entity).getAdvancements()
+						.getProgress(((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
+								.getAdvancement(new ResourceLocation("diesiraebleach:souzou")))
+						.isDone()
+				: false)
+				&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Keisei == true) {
+			{
+				boolean _setval = (true);
+				entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.Souzou = _setval;
+					capability.syncPlayerVariables(entity);
+				});
+			}
+			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+				((PlayerEntity) entity)
+						.sendStatusMessage(new StringTextComponent("\u00A73\u5275\u9020 \u2015 \u7F8E\u9E97\u5239\u90A3\u30FB\u5E8F\u66F2"), (true));
 			}
 		}
 		if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)

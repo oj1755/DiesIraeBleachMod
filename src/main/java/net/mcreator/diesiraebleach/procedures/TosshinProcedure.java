@@ -216,7 +216,6 @@ public class TosshinProcedure {
 						entityiterator.attackEntityFrom(DamageSource.ON_FIRE,
 								(float) (2 + (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 										.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 100));
-						entityiterator.setFire((int) 10);
 					}
 				}
 			}
