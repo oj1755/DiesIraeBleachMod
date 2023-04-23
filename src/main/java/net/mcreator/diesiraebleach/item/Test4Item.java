@@ -13,7 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.block.BlockState;
 
-import net.mcreator.diesiraebleach.procedures.SchreiberProcedure;
+import net.mcreator.diesiraebleach.procedures.LeonhardIaiProcedure;
 import net.mcreator.diesiraebleach.DiesiraebleachModElements;
 
 import java.util.stream.Stream;
@@ -59,7 +59,7 @@ public class Test4Item extends DiesiraebleachModElements.ModElement {
 			double y = entity.getPosY();
 			double z = entity.getPosZ();
 
-			SchreiberProcedure.executeProcedure(Stream
+			LeonhardIaiProcedure.executeProcedure(Stream
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
 							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
