@@ -81,11 +81,11 @@ public class SchreiberProcedure {
 		entity.setMotion(X, Y, Z);
 		if (world instanceof World && !world.isRemote()) {
 			((World) world).playSound(null, new BlockPos(x, y, z),
-					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:kaze")),
+					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:speed3")),
 					SoundCategory.NEUTRAL, (float) 0.5, (float) 1);
 		} else {
 			((World) world).playSound(x, y, z,
-					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:kaze")),
+					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:speed3")),
 					SoundCategory.NEUTRAL, (float) 0.5, (float) 1, false);
 		}
 		if (entity instanceof LivingEntity)

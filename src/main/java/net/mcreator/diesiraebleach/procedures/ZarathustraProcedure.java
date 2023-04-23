@@ -117,7 +117,7 @@ public class ZarathustraProcedure {
 			}
 			{
 				List<Entity> _entfound = world.getEntitiesWithinAABB(Entity.class,
-						new AxisAlignedBB(x - (4 / 2d), (y + 1) - (4 / 2d), z - (4 / 2d), x + (4 / 2d), (y + 1) + (4 / 2d), z + (4 / 2d)), null)
+						new AxisAlignedBB(x - (10 / 2d), (y + 1) - (10 / 2d), z - (10 / 2d), x + (10 / 2d), (y + 1) + (10 / 2d), z + (10 / 2d)), null)
 						.stream().sorted(new Object() {
 							Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 								return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
