@@ -4,7 +4,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
-import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
@@ -62,79 +61,72 @@ public class SoulCountProcedure {
 		}
 		Entity entity = (Entity) dependencies.get("entity");
 		Entity sourceentity = (Entity) dependencies.get("sourceentity");
-		if (((sourceentity instanceof ServerPlayerEntity) && (sourceentity.world instanceof ServerWorld))
-				? ((ServerPlayerEntity) sourceentity).getAdvancements()
-						.getProgress(((MinecraftServer) ((ServerPlayerEntity) sourceentity).server).getAdvancementManager()
-								.getAdvancement(new ResourceLocation("diesiraebleach:katsudouj")))
-						.isDone()
-				: false) {
-			if (entity instanceof AnimalEntity) {
-				{
-					double _setval = ((sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul + 0.5);
-					sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-						capability.Killsoul = _setval;
-						capability.syncPlayerVariables(sourceentity);
-					});
-				}
+		if (entity instanceof AnimalEntity) {
+			{
+				double _setval = ((sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul + 0.5);
+				sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.Killsoul = _setval;
+					capability.syncPlayerVariables(sourceentity);
+				});
 			}
-			if (entity instanceof MonsterEntity) {
-				{
-					double _setval = ((sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul + 1);
-					sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-						capability.Killsoul = _setval;
-						capability.syncPlayerVariables(sourceentity);
-					});
-				}
+		}
+		if (entity instanceof MonsterEntity) {
+			{
+				double _setval = ((sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul + 1);
+				sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.Killsoul = _setval;
+					capability.syncPlayerVariables(sourceentity);
+				});
 			}
-			if (entity instanceof VillagerEntity) {
-				{
-					double _setval = ((sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul + 1);
-					sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-						capability.Killsoul = _setval;
-						capability.syncPlayerVariables(sourceentity);
-					});
-				}
+		}
+		if (entity instanceof VillagerEntity) {
+			{
+				double _setval = ((sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul + 1);
+				sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.Killsoul = _setval;
+					capability.syncPlayerVariables(sourceentity);
+				});
 			}
-			if (entity instanceof SlimeEntity) {
-				{
-					double _setval = ((sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul + 5);
-					sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-						capability.Killsoul = _setval;
-						capability.syncPlayerVariables(sourceentity);
-					});
-				}
+		}
+		if (entity instanceof SlimeEntity) {
+			{
+				double _setval = ((sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul + 5);
+				sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.Killsoul = _setval;
+					capability.syncPlayerVariables(sourceentity);
+				});
 			}
-			if ((sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-					.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul > 100) {
-				if (sourceentity instanceof ServerPlayerEntity) {
-					Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) sourceentity).server).getAdvancementManager()
-							.getAdvancement(new ResourceLocation("diesiraebleach:keisei"));
-					AdvancementProgress _ap = ((ServerPlayerEntity) sourceentity).getAdvancements().getProgress(_adv);
-					if (!_ap.isDone()) {
-						Iterator _iterator = _ap.getRemaningCriteria().iterator();
-						while (_iterator.hasNext()) {
-							String _criterion = (String) _iterator.next();
-							((ServerPlayerEntity) sourceentity).getAdvancements().grantCriterion(_adv, _criterion);
-						}
+		}
+		if ((sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul > 100) {
+			if (sourceentity instanceof ServerPlayerEntity) {
+				Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) sourceentity).server).getAdvancementManager()
+						.getAdvancement(new ResourceLocation("diesiraebleach:keisei"));
+				AdvancementProgress _ap = ((ServerPlayerEntity) sourceentity).getAdvancements().getProgress(_adv);
+				if (!_ap.isDone()) {
+					Iterator _iterator = _ap.getRemaningCriteria().iterator();
+					while (_iterator.hasNext()) {
+						String _criterion = (String) _iterator.next();
+						((ServerPlayerEntity) sourceentity).getAdvancements().grantCriterion(_adv, _criterion);
 					}
 				}
 			}
-			if ((sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-					.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul > 500) {
-				if (sourceentity instanceof ServerPlayerEntity) {
-					Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) sourceentity).server).getAdvancementManager()
-							.getAdvancement(new ResourceLocation("diesiraebleach:souzou"));
-					AdvancementProgress _ap = ((ServerPlayerEntity) sourceentity).getAdvancements().getProgress(_adv);
-					if (!_ap.isDone()) {
-						Iterator _iterator = _ap.getRemaningCriteria().iterator();
-						while (_iterator.hasNext()) {
-							String _criterion = (String) _iterator.next();
-							((ServerPlayerEntity) sourceentity).getAdvancements().grantCriterion(_adv, _criterion);
-						}
+		}
+		if ((sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul > 500) {
+			if (sourceentity instanceof ServerPlayerEntity) {
+				Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) sourceentity).server).getAdvancementManager()
+						.getAdvancement(new ResourceLocation("diesiraebleach:souzou"));
+				AdvancementProgress _ap = ((ServerPlayerEntity) sourceentity).getAdvancements().getProgress(_adv);
+				if (!_ap.isDone()) {
+					Iterator _iterator = _ap.getRemaningCriteria().iterator();
+					while (_iterator.hasNext()) {
+						String _criterion = (String) _iterator.next();
+						((ServerPlayerEntity) sourceentity).getAdvancements().grantCriterion(_adv, _criterion);
 					}
 				}
 			}
