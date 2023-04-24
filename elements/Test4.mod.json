@@ -30,7 +30,7 @@
     "inventorySize": 9,
     "inventoryStackSize": 64,
     "onRightClickedInAir": {
-      "name": "Schreiber"
+      "name": "LeonhardIai"
     },
     "isFood": false,
     "nutritionalValue": 4,
