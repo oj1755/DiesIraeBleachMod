@@ -2,20 +2,20 @@
   "_fv": 33,
   "_type": "particle",
   "definition": {
-    "texture": "nachatzehrerp.png",
+    "texture": "souzouparticle.png",
     "animate": true,
     "frameDuration": 1,
-    "width": 0.2,
-    "height": 0.2,
-    "scale": 1.0,
+    "width": 1.0,
+    "height": 1000.0,
+    "scale": 1000.0,
     "speedFactor": 1.0,
     "gravity": 0.0,
-    "maxAge": 15,
+    "maxAge": 8000,
     "maxAgeDiff": 0,
     "angularVelocity": 0.0,
     "angularAcceleration": 0.0,
     "canCollide": false,
     "alwaysShow": true,
-    "renderType": "OPAQUE"
+    "renderType": "LIT"
   }
 }

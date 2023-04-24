@@ -19,6 +19,7 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
+import net.mcreator.diesiraebleach.particle.SamielExplosionParticle;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
 import java.util.stream.Collectors;
@@ -106,7 +107,7 @@ public class BakuenProcedure {
 						angle = 0;
 						k = 50;
 						for (int index0 = 0; index0 < (int) (k); index0++) {
-							world.addParticle(ParticleTypes.FLAME, (entityiterator.getPosX() + r * Math.cos(Math.toRadians(angle))),
+							world.addParticle(SamielExplosionParticle.particle, (entityiterator.getPosX() + r * Math.cos(Math.toRadians(angle))),
 									(entityiterator.getPosY()), (entityiterator.getPosZ() + r * Math.sin(Math.toRadians(angle))), 0, 0.2, 0);
 							angle = (angle + 360 / k);
 						}

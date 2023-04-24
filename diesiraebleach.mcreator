@@ -566,8 +566,16 @@
             "type": "entity"
           },
           {
-            "name": "sourceentity",
-            "type": "entity"
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
           },
           {
             "name": "world",
@@ -575,14 +583,6 @@
           }
         ]
       }
-    },
-    {
-      "name": "Kyuseip",
-      "type": "particle",
-      "sortid": 46,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "kyuseip"
     },
     {
       "name": "Tosshin",
@@ -1371,6 +1371,62 @@
           }
         ]
       }
+    },
+    {
+      "name": "Bakuha",
+      "type": "procedure",
+      "sortid": 94,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bakuha",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SamielExplosion",
+      "type": "particle",
+      "sortid": 95,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "samiel_explosion"
+    },
+    {
+      "name": "KyuseiP",
+      "type": "potioneffect",
+      "sortid": 96,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kyusei_p"
+    },
+    {
+      "name": "Beisouzousora",
+      "type": "particle",
+      "sortid": 97,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beisouzousora"
     }
   ],
   "variable_elements": [
@@ -1596,6 +1652,7 @@
       "subtitles.gunfire": "",
       "key.diesiraebleach.katsudou": "Katsudou",
       "item.diesiraebleach.beienkyoriitem": "Beienkyoriitem",
+      "effect.kyusei_p": "吸精",
       "key.diesiraebleach.kougeki": "Kougeki",
       "item.diesiraebleach.schmeizer_item": "Schmeizer Item",
       "item.diesiraebleach.dora_cannon": "Dora Cannon",

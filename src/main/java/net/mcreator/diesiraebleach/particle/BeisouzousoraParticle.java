@@ -19,12 +19,12 @@ import net.minecraft.client.particle.IAnimatedSprite;
 import net.minecraft.client.Minecraft;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class KyuseipParticle {
+public class BeisouzousoraParticle {
 	public static final BasicParticleType particle = new BasicParticleType(true);
 
 	@SubscribeEvent
 	public static void registerParticleType(RegistryEvent.Register<ParticleType<?>> event) {
-		event.getRegistry().register(particle.setRegistryName("kyuseip"));
+		event.getRegistry().register(particle.setRegistryName("beisouzousora"));
 	}
 
 	@OnlyIn(Dist.CLIENT)
@@ -40,9 +40,9 @@ public class KyuseipParticle {
 		protected CustomParticle(ClientWorld world, double x, double y, double z, double vx, double vy, double vz, IAnimatedSprite spriteSet) {
 			super(world, x, y, z);
 			this.spriteSet = spriteSet;
-			this.setSize((float) 0.2, (float) 0.2);
-			this.particleScale *= (float) 1;
-			this.maxAge = 15;
+			this.setSize((float) 1, (float) 1000);
+			this.particleScale *= (float) 1000;
+			this.maxAge = 8000;
 			this.particleGravity = (float) 0;
 			this.canCollide = false;
 			this.motionX = vx * 1;
@@ -52,15 +52,20 @@ public class KyuseipParticle {
 		}
 
 		@Override
+		public int getBrightnessForRender(float partialTick) {
+			return 15728880;
+		}
+
+		@Override
 		public IParticleRenderType getRenderType() {
-			return IParticleRenderType.PARTICLE_SHEET_OPAQUE;
+			return IParticleRenderType.PARTICLE_SHEET_LIT;
 		}
 
 		@Override
 		public void tick() {
 			super.tick();
 			if (!this.isExpired) {
-				this.setSprite(this.spriteSet.get((this.age / 1) % 1 + 1, 1));
+				this.setSprite(this.spriteSet.get((this.age / 1) % 5 + 1, 5));
 			}
 		}
 	}

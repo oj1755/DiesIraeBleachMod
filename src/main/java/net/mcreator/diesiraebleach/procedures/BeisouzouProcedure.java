@@ -7,12 +7,12 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.DamageSource;
 import net.minecraft.potion.Effects;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
+import net.mcreator.diesiraebleach.potion.KyuseiPPotionEffect;
 import net.mcreator.diesiraebleach.DiesiraebleachModVariables;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
@@ -65,13 +65,19 @@ public class BeisouzouProcedure {
 			});
 		}
 		if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHealth() : -1) > 0) {
+			{
+				Entity _ent = entity;
+				if (!_ent.world.isRemote && _ent.world.getServer() != null) {
+					_ent.world.getServer().getCommandManager().handleCommand(_ent.getCommandSource().withFeedbackDisabled().withPermissionLevel(4),
+							"/particle diesiraebleach:bloodmoon ~ ~150 ~ 1 1 1 0 1 force @a");
+				}
+			}
 			if (world instanceof ServerWorld)
 				((ServerWorld) world).setDayTime((int) 14000);
 		}
 		{
-			List<Entity> _entfound = world
-					.getEntitiesWithinAABB(Entity.class,
-							new AxisAlignedBB(x - (100 / 2d), y - (100 / 2d), z - (100 / 2d), x + (100 / 2d), y + (100 / 2d), z + (100 / 2d)), null)
+			List<Entity> _entfound = world.getEntitiesWithinAABB(Entity.class,
+					new AxisAlignedBB(x - (1000 / 2d), y - (1000 / 2d), z - (1000 / 2d), x + (1000 / 2d), y + (1000 / 2d), z + (1000 / 2d)), null)
 					.stream().sorted(new Object() {
 						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
@@ -79,14 +85,10 @@ public class BeisouzouProcedure {
 					}.compareDistOf(x, y, z)).collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
 				if (!(entityiterator == entity)) {
-					entityiterator.attackEntityFrom(DamageSource.GENERIC, (float) 1);
 					if (entityiterator instanceof LivingEntity)
-						((LivingEntity) entityiterator).addPotionEffect(new EffectInstance(Effects.WITHER, (int) 2000, (int) 2));
+						((LivingEntity) entityiterator).addPotionEffect(new EffectInstance(KyuseiPPotionEffect.potion, (int) 2000, (int) 2));
 					if (entity instanceof LivingEntity)
 						((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.REGENERATION, (int) 2000, (int) 2));
-					if (entity instanceof LivingEntity)
-						((LivingEntity) entity)
-								.setHealth((float) (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHealth() : -1) + 1));
 				}
 				new Object() {
 					private int ticks = 0;

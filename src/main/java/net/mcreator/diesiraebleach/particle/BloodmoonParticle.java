@@ -40,7 +40,7 @@ public class BloodmoonParticle {
 		protected CustomParticle(ClientWorld world, double x, double y, double z, double vx, double vy, double vz, IAnimatedSprite spriteSet) {
 			super(world, x, y, z);
 			this.spriteSet = spriteSet;
-			this.setSize((float) 0.2, (float) 0.2);
+			this.setSize((float) 400, (float) 400);
 			this.particleScale *= (float) 400;
 			this.maxAge = 8005;
 			this.particleGravity = (float) 0;

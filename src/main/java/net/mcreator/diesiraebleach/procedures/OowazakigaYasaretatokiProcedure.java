@@ -23,7 +23,6 @@ import net.minecraft.block.Blocks;
 import net.mcreator.diesiraebleach.potion.ZarathustraPotionEffectPotionEffect;
 import net.mcreator.diesiraebleach.potion.SeiibutsuPotionEffect;
 import net.mcreator.diesiraebleach.potion.SeiibutsuHihiirokanePotionEffect;
-import net.mcreator.diesiraebleach.particle.BloodmoonParticle;
 import net.mcreator.diesiraebleach.item.MarglittoJudisItem;
 import net.mcreator.diesiraebleach.item.HihiirokaneItem;
 import net.mcreator.diesiraebleach.DiesiraebleachModVariables;
@@ -101,7 +100,6 @@ public class OowazakigaYasaretatokiProcedure {
 											.getAdvancement(new ResourceLocation("diesiraebleach:souzou")))
 									.isDone()
 							: false)) {
-				world.addParticle(BloodmoonParticle.particle, x, (y + 100), z, 0, 0, 0);
 				BeisouzouProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));

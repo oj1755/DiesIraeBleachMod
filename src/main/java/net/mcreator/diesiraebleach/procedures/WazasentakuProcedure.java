@@ -86,7 +86,7 @@ public class WazasentakuProcedure {
 						});
 					}
 					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u653B\u6483"), (true));
+						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u653B\u6483"), (true));
 					}
 				}
 			}
@@ -105,7 +105,7 @@ public class WazasentakuProcedure {
 				if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 						.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 3) {
 					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u7206\u708E"), (true));
+						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A7c\u7206\u708E"), (true));
 					}
 				}
 				if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
@@ -118,7 +118,7 @@ public class WazasentakuProcedure {
 						});
 					}
 					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u653B\u6483"), (true));
+						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A7\u653B\u6483"), (true));
 					}
 				}
 			}
@@ -137,7 +137,7 @@ public class WazasentakuProcedure {
 				if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 						.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 3) {
 					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u7A81\u9032"), (true));
+						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A73\u7A81\u9032"), (true));
 					}
 				}
 				if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)

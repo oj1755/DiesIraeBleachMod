@@ -1,11 +1,11 @@
 package net.mcreator.diesiraebleach.procedures;
 
+import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.DamageSource;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
-import net.mcreator.diesiraebleach.particle.KyuseipParticle;
+import net.mcreator.diesiraebleach.particle.SouzouparticleParticle;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
 import java.util.Map;
@@ -18,27 +18,38 @@ public class KyuseiProcedure {
 				DiesiraebleachMod.LOGGER.warn("Failed to load dependency world for procedure Kyusei!");
 			return;
 		}
+		if (dependencies.get("x") == null) {
+			if (!dependencies.containsKey("x"))
+				DiesiraebleachMod.LOGGER.warn("Failed to load dependency x for procedure Kyusei!");
+			return;
+		}
+		if (dependencies.get("y") == null) {
+			if (!dependencies.containsKey("y"))
+				DiesiraebleachMod.LOGGER.warn("Failed to load dependency y for procedure Kyusei!");
+			return;
+		}
+		if (dependencies.get("z") == null) {
+			if (!dependencies.containsKey("z"))
+				DiesiraebleachMod.LOGGER.warn("Failed to load dependency z for procedure Kyusei!");
+			return;
+		}
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
 				DiesiraebleachMod.LOGGER.warn("Failed to load dependency entity for procedure Kyusei!");
 			return;
 		}
-		if (dependencies.get("sourceentity") == null) {
-			if (!dependencies.containsKey("sourceentity"))
-				DiesiraebleachMod.LOGGER.warn("Failed to load dependency sourceentity for procedure Kyusei!");
-			return;
-		}
 		IWorld world = (IWorld) dependencies.get("world");
+		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
+		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
+		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
-		Entity sourceentity = (Entity) dependencies.get("sourceentity");
 		boolean a = false;
-		entity.attackEntityFrom(DamageSource.GENERIC, (float) 1);
-		if (sourceentity instanceof LivingEntity)
-			((LivingEntity) sourceentity)
-					.setHealth((float) (((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHealth() : -1) + 1));
-		for (int index0 = 0; index0 < (int) (50); index0++) {
-			world.addParticle(KyuseipParticle.particle, (entity.getPosX()), (entity.getPosY()), (entity.getPosZ()), (0.1 * sourceentity.getPosX()),
-					(sourceentity.getPosY()), (0.1 * sourceentity.getPosZ()));
+		double r = 0;
+		double alpha = 0;
+		double beta = 0;
+		if (world instanceof ServerWorld) {
+			((ServerWorld) world).spawnParticle(SouzouparticleParticle.particle, x, (y + 1), z, (int) 3, 0, 2, 0, 0.1);
 		}
+		entity.attackEntityFrom(DamageSource.GENERIC, (float) 0.5);
 	}
 }

@@ -32,6 +32,15 @@
       "value": "Blocks.LAVA"
     },
     "bulletModel": "Modelballjava",
-    "customBulletModelTexture": "fireball.png"
+    "customBulletModelTexture": "fireball.png",
+    "onBulletHitsBlock": {
+      "name": "Bakuha"
+    },
+    "onBulletHitsPlayer": {
+      "name": "Bakuha"
+    },
+    "onBulletFlyingTick": {
+      "name": "Bakuha"
+    }
   }
 }
