@@ -84,12 +84,12 @@ public class BakuhaProcedure {
 								.playSound(null, new BlockPos(x, y, z),
 										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
 												.getValue(new ResourceLocation("diesiraebleach:bakuhatsu")),
-										SoundCategory.NEUTRAL, (float) 0.3, (float) 1.5);
+										SoundCategory.NEUTRAL, (float) 0.3, (float) 0.5);
 					} else {
 						((World) world).playSound(x, y, z,
 								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
 										.getValue(new ResourceLocation("diesiraebleach:bakuhatsu")),
-								SoundCategory.NEUTRAL, (float) 0.3, (float) 1.5, false);
+								SoundCategory.NEUTRAL, (float) 0.3, (float) 0.5, false);
 					}
 					if (world instanceof ServerWorld) {
 						((ServerWorld) world).spawnParticle(SamielExplosionParticle.particle, x, y, z, (int) 3, 3, 3, 3, 0);

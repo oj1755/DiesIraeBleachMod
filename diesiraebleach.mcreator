@@ -1421,12 +1421,108 @@
       "registry_name": "kyusei_p"
     },
     {
-      "name": "Beisouzousora",
+      "name": "SamielMahoujin1",
       "type": "particle",
       "sortid": 97,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "beisouzousora"
+      "registry_name": "samiel_mahoujin_1"
+    },
+    {
+      "name": "FireballFeibiDaoJugaFeindeiruJian",
+      "type": "procedure",
+      "sortid": 98,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fireball_feibi_dao_juga_feindeiru_jian",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Kibaku",
+      "type": "procedure",
+      "sortid": 99,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kibaku",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Firekibaku",
+      "type": "livingentity",
+      "sortid": 100,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "firekibaku"
+    },
+    {
+      "name": "Bakuhasmall",
+      "type": "procedure",
+      "sortid": 101,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bakuhasmall",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -1668,9 +1764,10 @@
       "advancements.katsudouj.descr": "聖遺物と契約を結び、聖遺物が活動を始めた。",
       "key.diesiraebleach.oowaza": "Oowaza",
       "subtitles.kaze": "",
+      "item.diesiraebleach.firekibaku_spawn_egg": "Firekibaku Spawn Egg",
       "effect.seiibutsubei": "聖遺物・闇の賜物",
-      "item.diesiraebleach.bei_keiseihana": "Bei Keiseihana",
       "item.diesiraebleach.test_4": "Test 4",
+      "item.diesiraebleach.bei_keiseihana": "Bei Keiseihana",
       "subtitles.beikeisei": "",
       "subtitles.beikuihassha": "",
       "advancements.souzou.title": "創造位階",
@@ -1703,6 +1800,7 @@
       "subtitles.guncharge": "",
       "subtitles.kensuburi": "",
       "subtitles.fire": "",
+      "entity.diesiraebleach.firekibaku": "Firekibaku",
       "subtitles.panzersummon": ""
     }
   },

@@ -5,7 +5,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
-import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
@@ -13,6 +12,7 @@ import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.Entity;
 
+import net.mcreator.diesiraebleach.particle.SamielMahoujin1Particle;
 import net.mcreator.diesiraebleach.item.PanzerFaustItemItem;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
@@ -53,7 +53,8 @@ public class PanzerProcedure {
 		Entity entity = (Entity) dependencies.get("entity");
 		double deg = 0;
 		double r = 0;
-		deg = (entity.rotationYaw - 90);
+		double alpha = 0;
+		double beta = 0;
 		if (world instanceof World && !world.isRemote()) {
 			((World) world).playSound(null, new BlockPos(x, y, z),
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:finger")),
@@ -63,36 +64,48 @@ public class PanzerProcedure {
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:finger")),
 					SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 		}
-		if (world instanceof ServerWorld) {
-			World projectileLevel = (World) world;
-			ProjectileEntity _entityToSpawn = new Object() {
-				public ProjectileEntity getArrow(World world, Entity shooter, float damage, int knockback) {
-					AbstractArrowEntity entityToSpawn = new PanzerFaustItemItem.ArrowCustomEntity(PanzerFaustItemItem.arrow, world);
-					entityToSpawn.setShooter(shooter);
-					entityToSpawn.setDamage(damage);
-					entityToSpawn.setKnockbackStrength(knockback);
-					entityToSpawn.setSilent(true);
+		deg = (entity.rotationYaw);
+		r = 1;
+		for (int index0 = 0; index0 < (int) (5); index0++) {
+			if (world instanceof World && !world.isRemote()) {
+				((World) world).playSound(null, new BlockPos(x, y, z),
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:panzersummon")),
+						SoundCategory.NEUTRAL, (float) 0.2, (float) 2);
+			} else {
+				((World) world).playSound(x, y, z,
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:panzersummon")),
+						SoundCategory.NEUTRAL, (float) 0.2, (float) 2, false);
+			}
+			if (world instanceof ServerWorld) {
+				((ServerWorld) world).spawnParticle(SamielMahoujin1Particle.particle, x, (y + 3), z, (int) 1, 0.1, 0.1, 0.1, 0);
+			}
+			if (world instanceof World && !world.isRemote()) {
+				((World) world).playSound(null, new BlockPos(x, y, z),
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:panzer")),
+						SoundCategory.NEUTRAL, (float) 0.2, (float) 0.5);
+			} else {
+				((World) world).playSound(x, y, z,
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:panzer")),
+						SoundCategory.NEUTRAL, (float) 0.2, (float) 0.5, false);
+			}
+			if (world instanceof ServerWorld) {
+				World projectileLevel = (World) world;
+				ProjectileEntity _entityToSpawn = new Object() {
+					public ProjectileEntity getArrow(World world, Entity shooter, float damage, int knockback) {
+						AbstractArrowEntity entityToSpawn = new PanzerFaustItemItem.ArrowCustomEntity(PanzerFaustItemItem.arrow, world);
+						entityToSpawn.setShooter(shooter);
+						entityToSpawn.setDamage(damage);
+						entityToSpawn.setKnockbackStrength(knockback);
+						entityToSpawn.setSilent(true);
 
-					return entityToSpawn;
-				}
-			}.getArrow(projectileLevel, entity, 5, 1);
-			_entityToSpawn.setPosition((entity.getPosX()), (entity.getPosY() + 3), (entity.getPosZ()));
-			_entityToSpawn.shoot(
-					(entity.world
-							.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-									entity.getEyePosition(1f).add(entity.getLook(1f).x * 5, entity.getLook(1f).y * 5, entity.getLook(1f).z * 5),
-									RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, entity))
-							.getPos().getX() * Math.sin(Math.toRadians(deg))),
-					(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-							entity.getEyePosition(1f).add(entity.getLook(1f).x * 5, entity.getLook(1f).y * 5, entity.getLook(1f).z * 5),
-							RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, entity)).getPos().getY()),
-					(entity.world
-							.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-									entity.getEyePosition(1f).add(entity.getLook(1f).x * 5, entity.getLook(1f).y * 5, entity.getLook(1f).z * 5),
-									RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, entity))
-							.getPos().getZ() * Math.cos(Math.toRadians(deg))),
-					1, 0);
-			world.addEntity(_entityToSpawn);
+						return entityToSpawn;
+					}
+				}.getArrow(projectileLevel, entity, 5, 1);
+				_entityToSpawn.setPosition(x, (y + 3), z);
+				_entityToSpawn.shoot(0.1, 0.1, 0.1, 1, 0);
+				world.addEntity(_entityToSpawn);
+			}
+			deg = (deg + 2);
 		}
 	}
 }

@@ -18,9 +18,10 @@
   "advancements.katsudouj.descr": "聖遺物と契約を結び、聖遺物が活動を始めた。",
   "key.diesiraebleach.oowaza": "Oowaza",
   "subtitles.kaze": "",
+  "item.diesiraebleach.firekibaku_spawn_egg": "Firekibaku Spawn Egg",
   "effect.seiibutsubei": "聖遺物・闇の賜物",
-  "item.diesiraebleach.bei_keiseihana": "Bei Keiseihana",
   "item.diesiraebleach.test_4": "Test 4",
+  "item.diesiraebleach.bei_keiseihana": "Bei Keiseihana",
   "subtitles.beikeisei": "",
   "subtitles.beikuihassha": "",
   "advancements.souzou.title": "創造位階",
@@ -53,5 +54,6 @@
   "subtitles.guncharge": "",
   "subtitles.kensuburi": "",
   "subtitles.fire": "",
+  "entity.diesiraebleach.firekibaku": "Firekibaku",
   "subtitles.panzersummon": ""
 }

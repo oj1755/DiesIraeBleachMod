@@ -19,12 +19,12 @@ import net.minecraft.client.particle.IAnimatedSprite;
 import net.minecraft.client.Minecraft;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class BeisouzousoraParticle {
-	public static final BasicParticleType particle = new BasicParticleType(true);
+public class SamielMahoujin1Particle {
+	public static final BasicParticleType particle = new BasicParticleType(false);
 
 	@SubscribeEvent
 	public static void registerParticleType(RegistryEvent.Register<ParticleType<?>> event) {
-		event.getRegistry().register(particle.setRegistryName("beisouzousora"));
+		event.getRegistry().register(particle.setRegistryName("samiel_mahoujin_1"));
 	}
 
 	@OnlyIn(Dist.CLIENT)
@@ -40,15 +40,15 @@ public class BeisouzousoraParticle {
 		protected CustomParticle(ClientWorld world, double x, double y, double z, double vx, double vy, double vz, IAnimatedSprite spriteSet) {
 			super(world, x, y, z);
 			this.spriteSet = spriteSet;
-			this.setSize((float) 1, (float) 1000);
-			this.particleScale *= (float) 1000;
-			this.maxAge = 8000;
+			this.setSize((float) 0.2, (float) 0.2);
+			this.particleScale *= (float) 10;
+			this.maxAge = 7;
 			this.particleGravity = (float) 0;
-			this.canCollide = false;
+			this.canCollide = true;
 			this.motionX = vx * 1;
 			this.motionY = vy * 1;
 			this.motionZ = vz * 1;
-			this.selectSpriteWithAge(spriteSet);
+			this.selectSpriteRandomly(spriteSet);
 		}
 
 		@Override
@@ -64,9 +64,6 @@ public class BeisouzousoraParticle {
 		@Override
 		public void tick() {
 			super.tick();
-			if (!this.isExpired) {
-				this.setSprite(this.spriteSet.get((this.age / 1) % 5 + 1, 5));
-			}
 		}
 	}
 
