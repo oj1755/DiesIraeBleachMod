@@ -60,8 +60,8 @@ public class KibakuProcedure {
 		for (int index0 = 0; index0 < (int) (3); index0++) {
 			if (world instanceof ServerWorld) {
 				Entity entityToSpawn = new FirekibakuEntity.CustomEntity(FirekibakuEntity.entity, (World) world);
-				entityToSpawn.setLocationAndAngles((x + MathHelper.nextDouble(new Random(), 4, 10)), (y + 3),
-						(z + MathHelper.nextDouble(new Random(), 4, 10)), world.getRandom().nextFloat() * 360F, 0);
+				entityToSpawn.setLocationAndAngles((x + MathHelper.nextDouble(new Random(), -5, 5)), (y + 3),
+						(z + MathHelper.nextDouble(new Random(), -5, 5)), world.getRandom().nextFloat() * 360F, 0);
 				if (entityToSpawn instanceof MobEntity)
 					((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
 							SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);

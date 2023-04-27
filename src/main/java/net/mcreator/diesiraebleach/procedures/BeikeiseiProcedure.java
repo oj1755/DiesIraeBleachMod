@@ -54,11 +54,11 @@ public class BeikeiseiProcedure {
 		Entity entity = (Entity) dependencies.get("entity");
 		if (world instanceof World && !world.isRemote()) {
 			((World) world).playSound(null, new BlockPos(x, y, z),
-					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:beikeisei")),
+					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:beikeisei2")),
 					SoundCategory.NEUTRAL, (float) 0.3, (float) 0.5);
 		} else {
 			((World) world).playSound(x, y, z,
-					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:beikeisei")),
+					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:beikeisei2")),
 					SoundCategory.NEUTRAL, (float) 0.3, (float) 0.5, false);
 		}
 		if (entity instanceof LivingEntity) {

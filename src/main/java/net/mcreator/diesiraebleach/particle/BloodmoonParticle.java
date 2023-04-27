@@ -42,13 +42,13 @@ public class BloodmoonParticle {
 			this.spriteSet = spriteSet;
 			this.setSize((float) 400, (float) 400);
 			this.particleScale *= (float) 400;
-			this.maxAge = 8005;
+			this.maxAge = 8000;
 			this.particleGravity = (float) 0;
 			this.canCollide = false;
 			this.motionX = vx * 1;
 			this.motionY = vy * 1;
 			this.motionZ = vz * 1;
-			this.selectSpriteRandomly(spriteSet);
+			this.selectSpriteWithAge(spriteSet);
 		}
 
 		@Override
@@ -64,6 +64,9 @@ public class BloodmoonParticle {
 		@Override
 		public void tick() {
 			super.tick();
+			if (!this.isExpired) {
+				this.setSprite(this.spriteSet.get((this.age / 1) % 7 + 1, 7));
+			}
 		}
 	}
 

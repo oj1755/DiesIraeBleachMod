@@ -178,5 +178,68 @@
         "stream": false
       }
     ]
+  },
+  "beikeisei2": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:ren_gamonsutanibian_hua_",
+        "stream": false
+      }
+    ]
+  },
+  "bakuhatsu2": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:bao_fa_3",
+        "stream": false
+      }
+    ]
+  },
+  "kaensmall": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:huo_yan_mo_fa_1-_2_",
+        "stream": false
+      }
+    ]
+  },
+  "kaen": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:huo_yan_mo_fa_2-_1_",
+        "stream": false
+      }
+    ]
+  },
+  "hellfire": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:huo_yan_mo_fa_3",
+        "stream": false
+      }
+    ]
+  },
+  "terror": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:ren_biji_rukong_bu_",
+        "stream": false
+      }
+    ]
+  },
+  "kyusei": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:tu_feng_gachui_ku",
+        "stream": false
+      }
+    ]
   }
 }

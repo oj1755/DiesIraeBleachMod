@@ -32,6 +32,18 @@
       "value": "Blocks.LAVA"
     },
     "bulletModel": "ModelFireballsmall",
-    "customBulletModelTexture": "fireballsmall.png"
+    "customBulletModelTexture": "fireballsmall.png",
+    "onBulletHitsBlock": {
+      "name": "Bakuha"
+    },
+    "onBulletHitsPlayer": {
+      "name": "Bakuha"
+    },
+    "onBulletHitsEntity": {
+      "name": "Bakuha"
+    },
+    "onBulletFlyingTick": {
+      "name": "Fireballpart"
+    }
   }
 }

@@ -22,19 +22,22 @@ import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.effect.LightningBoltEntity;
 import net.minecraft.entity.ai.goal.RandomWalkingGoal;
+import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.controller.FlyingMovementController;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.CreatureAttribute;
 import net.minecraft.block.BlockState;
 
+import net.mcreator.diesiraebleach.procedures.FirekibakupureiyagakonoenteiteitoChongTusitatokiProcedure;
 import net.mcreator.diesiraebleach.procedures.BakuhasmallProcedure;
 import net.mcreator.diesiraebleach.entity.renderer.FirekibakuRenderer;
 import net.mcreator.diesiraebleach.DiesiraebleachModElements;
@@ -82,7 +85,7 @@ public class FirekibakuEntity extends DiesiraebleachModElements.ModElement {
 		}
 	}
 
-	public static class CustomEntity extends MonsterEntity {
+	public static class CustomEntity extends CreatureEntity {
 		public CustomEntity(FMLPlayMessages.SpawnEntity packet, World world) {
 			this(entity, world);
 		}
@@ -104,7 +107,13 @@ public class FirekibakuEntity extends DiesiraebleachModElements.ModElement {
 		@Override
 		protected void registerGoals() {
 			super.registerGoals();
-			this.goalSelector.addGoal(1, new RandomWalkingGoal(this, 0.2, 20) {
+			this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.2, false) {
+				@Override
+				protected double getAttackReachSqr(LivingEntity entity) {
+					return (double) (4.0 + entity.getWidth() * entity.getWidth());
+				}
+			});
+			this.goalSelector.addGoal(2, new RandomWalkingGoal(this, 0.2, 20) {
 				@Override
 				protected Vector3d getPosition() {
 					Random random = CustomEntity.this.getRNG();
@@ -171,6 +180,21 @@ public class FirekibakuEntity extends DiesiraebleachModElements.ModElement {
 		}
 
 		@Override
+		public void onDeath(DamageSource source) {
+			super.onDeath(source);
+			double x = this.getPosX();
+			double y = this.getPosY();
+			double z = this.getPosZ();
+			Entity sourceentity = source.getTrueSource();
+			Entity entity = this;
+
+			BakuhasmallProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+		}
+
+		@Override
 		public void onCollideWithPlayer(PlayerEntity sourceentity) {
 			super.onCollideWithPlayer(sourceentity);
 			Entity entity = this;
@@ -178,9 +202,7 @@ public class FirekibakuEntity extends DiesiraebleachModElements.ModElement {
 			double y = this.getPosY();
 			double z = this.getPosZ();
 
-			BakuhasmallProcedure.executeProcedure(Stream
-					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
-							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+			FirekibakupureiyagakonoenteiteitoChongTusitatokiProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 

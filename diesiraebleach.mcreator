@@ -1523,6 +1523,254 @@
           }
         ]
       }
+    },
+    {
+      "name": "FirekibakupureiyagakonoenteiteitoChongTusitatoki",
+      "type": "procedure",
+      "sortid": 102,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "firekibakupureiyagakonoenteiteito_chong_tusitatoki",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BeienkyoriitemFeibiDaoJugaenteiteiniDangtatutatoki",
+      "type": "procedure",
+      "sortid": 103,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beienkyoriitem_feibi_dao_jugaenteiteini_dangtatutatoki",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Fireballpart",
+      "type": "procedure",
+      "sortid": 104,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fireballpart",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Hibashira",
+      "type": "procedure",
+      "sortid": 105,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hibashira",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Hibashoraparticle",
+      "type": "particle",
+      "sortid": 106,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hibashoraparticle"
+    },
+    {
+      "name": "Kuibakuha",
+      "type": "procedure",
+      "sortid": 107,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kuibakuha",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "IbarapureiyagakonoenteiteitoChongTusitatoki",
+      "type": "procedure",
+      "sortid": 108,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ibarapureiyagakonoenteiteito_chong_tusitatoki",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Ibara",
+      "type": "livingentity",
+      "sortid": 108,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ibara"
+    },
+    {
+      "name": "Baranoyoru",
+      "type": "procedure",
+      "sortid": 109,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "baranoyoru",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "IbaraenteiteigasuponsitaShi",
+      "type": "procedure",
+      "sortid": 110,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ibaraenteiteigasuponsita_shi",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -1741,14 +1989,72 @@
       ],
       "category": "neutral",
       "subtitle": ""
+    },
+    {
+      "name": "beikeisei2",
+      "files": [
+        "ren_gamonsutanibian_hua_"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "bakuhatsu2",
+      "files": [
+        "bao_fa_3"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "kaensmall",
+      "files": [
+        "huo_yan_mo_fa_1-_2_"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "kaen",
+      "files": [
+        "huo_yan_mo_fa_2-_1_"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "hellfire",
+      "files": [
+        "huo_yan_mo_fa_3"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "terror",
+      "files": [
+        "ren_biji_rukong_bu_"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "kyusei",
+      "files": [
+        "tu_feng_gachui_ku"
+      ],
+      "category": "neutral",
+      "subtitle": ""
     }
   ],
   "language_map": {
     "en_us": {
       "subtitles.gunfire": "",
       "key.diesiraebleach.katsudou": "Katsudou",
+      "subtitles.bakuhatsu2": "",
       "item.diesiraebleach.beienkyoriitem": "Beienkyoriitem",
       "effect.kyusei_p": "吸精",
+      "subtitles.kaensmall": "",
       "key.diesiraebleach.kougeki": "Kougeki",
       "item.diesiraebleach.schmeizer_item": "Schmeizer Item",
       "item.diesiraebleach.dora_cannon": "Dora Cannon",
@@ -1759,6 +2065,7 @@
       "advancements.keisei.descr": "使い手と同調した聖遺物は形を成し、武器として使えるようになった。",
       "entity.diesiraebleach.schmeizer_mahoujin": "Schmeizer Mahoujin",
       "advancements.keisei.title": "形成位階",
+      "subtitles.kaen": "",
       "key.diesiraebleach.rwazasentaku": "Rwazasentaku",
       "item.diesiraebleach.marglitto_guillottin": "聖遺物【罪姫・正義の柱】",
       "advancements.katsudouj.descr": "聖遺物と契約を結び、聖遺物が活動を始めた。",
@@ -1766,6 +2073,7 @@
       "subtitles.kaze": "",
       "item.diesiraebleach.firekibaku_spawn_egg": "Firekibaku Spawn Egg",
       "effect.seiibutsubei": "聖遺物・闇の賜物",
+      "subtitles.kyusei": "",
       "item.diesiraebleach.test_4": "Test 4",
       "item.diesiraebleach.bei_keiseihana": "Bei Keiseihana",
       "subtitles.beikeisei": "",
@@ -1778,8 +2086,10 @@
       "item.diesiraebleach.getsugaenkyori": "Getsugaenkyori",
       "item.diesiraebleach.panzer_mahoujin_spawn_egg": "Panzer Mahoujin Spawn Egg",
       "subtitles.bakuhatsu": "",
+      "subtitles.terror": "",
       "advancements.katsudouj.title": "活動位階",
       "item.diesiraebleach.seiibutsuhihiirokane_item": "聖遺物【緋々色金】",
+      "subtitles.hellfire": "",
       "subtitles.ewigkeite": "",
       "effect.zarathustra_potion_effect": "Eine Faust Ouvertüre",
       "item.diesiraebleach.reset": "Reset",
@@ -1788,7 +2098,9 @@
       "item.diesiraebleach.panzer_faust_item": "Panzer Faust Item",
       "item.diesiraebleach.qliphoth_bacikal_2": "聖遺物【闇の賜物】",
       "subtitles.panzer": "",
+      "entity.diesiraebleach.ibara": "Ibara",
       "item.diesiraebleach.test": "Test",
+      "subtitles.beikeisei2": "",
       "advancements.souzou.descr": "聖遺物と一体となり、己が渇望を具現化した世界を創り出す。",
       "item.diesiraebleach.makina_glove": "Makina Glove",
       "item.diesiraebleach.kui": "Kui",
@@ -1801,7 +2113,8 @@
       "subtitles.kensuburi": "",
       "subtitles.fire": "",
       "entity.diesiraebleach.firekibaku": "Firekibaku",
-      "subtitles.panzersummon": ""
+      "subtitles.panzersummon": "",
+      "item.diesiraebleach.ibara_spawn_egg": "Ibara Spawn Egg"
     }
   },
   "foldersRoot": {

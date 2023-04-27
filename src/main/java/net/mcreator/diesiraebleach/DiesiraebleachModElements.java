@@ -85,6 +85,19 @@ public class DiesiraebleachModElements {
 				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "speed4")));
 		sounds.put(new ResourceLocation("diesiraebleach", "timestop"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "timestop")));
+		sounds.put(new ResourceLocation("diesiraebleach", "beikeisei2"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "beikeisei2")));
+		sounds.put(new ResourceLocation("diesiraebleach", "bakuhatsu2"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "bakuhatsu2")));
+		sounds.put(new ResourceLocation("diesiraebleach", "kaensmall"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "kaensmall")));
+		sounds.put(new ResourceLocation("diesiraebleach", "kaen"), new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "kaen")));
+		sounds.put(new ResourceLocation("diesiraebleach", "hellfire"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "hellfire")));
+		sounds.put(new ResourceLocation("diesiraebleach", "terror"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "terror")));
+		sounds.put(new ResourceLocation("diesiraebleach", "kyusei"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("diesiraebleach", "kyusei")));
 		try {
 			ModFileScanData modFileInfo = ModList.get().getModFileById("diesiraebleach").getFile().getScanResult();
 			Set<ModFileScanData.AnnotationData> annotations = modFileInfo.getAnnotations();

@@ -57,10 +57,6 @@ public class SeiibutsuposiyonnoXiaoGuogaKaiShiShiYongsaretatokiProcedure {
 						.isDone()
 				: false) {
 			if (entity instanceof LivingEntity)
-				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.HEALTH_BOOST, (int) 1e+50,
-						(int) ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 50)));
-			if (entity instanceof LivingEntity)
 				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SPEED, (int) 1e+50,
 						(int) ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 100)));
@@ -76,6 +72,10 @@ public class SeiibutsuposiyonnoXiaoGuogaKaiShiShiYongsaretatokiProcedure {
 				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.RESISTANCE, (int) 1e+50,
 						(int) ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 100)));
+			if (entity instanceof LivingEntity)
+				((LivingEntity) entity).setHealth((float) (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getMaxHealth() : -1)
+						+ (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 100));
 		}
 	}
 }
