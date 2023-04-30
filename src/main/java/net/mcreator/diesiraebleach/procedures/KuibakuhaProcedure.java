@@ -16,6 +16,8 @@ import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.Entity;
 
+import net.mcreator.diesiraebleach.particle.SouzouparticleParticle;
+import net.mcreator.diesiraebleach.particle.DarkParticleParticle;
 import net.mcreator.diesiraebleach.item.BeienkyoriitemItem;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
@@ -88,6 +90,12 @@ public class KuibakuhaProcedure {
 				private void run() {
 					for (int index1 = 0; index1 < (int) (10); index1++) {
 						if (world instanceof ServerWorld) {
+							((ServerWorld) world).spawnParticle(SouzouparticleParticle.particle, x, y, z, (int) 10, 10, 10, 10, 1);
+						}
+						if (world instanceof ServerWorld) {
+							((ServerWorld) world).spawnParticle(DarkParticleParticle.particle, x, y, z, (int) 10, 10, 10, 10, 1);
+						}
+						if (world instanceof ServerWorld) {
 							World projectileLevel = (World) world;
 							ProjectileEntity _entityToSpawn = new Object() {
 								public ProjectileEntity getArrow(World world, Entity shooter, float damage, int knockback, byte piercing) {
@@ -101,9 +109,9 @@ public class KuibakuhaProcedure {
 									return entityToSpawn;
 								}
 							}.getArrow(projectileLevel, entity, 3, 0, (byte) 2);
-							_entityToSpawn.setPosition((x + MathHelper.nextDouble(new Random(), -5, 5)),
-									(y + MathHelper.nextDouble(new Random(), 1, 5)), (z + MathHelper.nextDouble(new Random(), -5, 5)));
-							_entityToSpawn.shoot(1, 1, 1, 3, 100);
+							_entityToSpawn.setPosition((x + MathHelper.nextDouble(new Random(), -10, 10)),
+									(y + MathHelper.nextDouble(new Random(), 0, 0)), (z + MathHelper.nextDouble(new Random(), -10, 10)));
+							_entityToSpawn.shoot(0.1, 1, 0.1, 2, 0);
 							world.addEntity(_entityToSpawn);
 						}
 					}

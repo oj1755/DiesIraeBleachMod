@@ -2,21 +2,15 @@ package net.mcreator.diesiraebleach.procedures;
 
 import net.minecraft.world.IWorld;
 import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.potion.EffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
-import net.mcreator.diesiraebleach.potion.ZarathustraPotionEffectPotionEffect;
-import net.mcreator.diesiraebleach.potion.SeiibutsuPotionEffect;
-import net.mcreator.diesiraebleach.potion.SeiibutsuHihiirokanePotionEffect;
 import net.mcreator.diesiraebleach.DiesiraebleachModVariables;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
 import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
-import java.util.Collection;
 import java.util.AbstractMap;
 
 public class WazahatsudouProcedure {
@@ -72,18 +66,8 @@ public class WazahatsudouProcedure {
 					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u6253\u6483"), (true));
 				}
 			}
-			if (new Object() {
-				boolean check(Entity _entity) {
-					if (_entity instanceof LivingEntity) {
-						Collection<EffectInstance> effects = ((LivingEntity) _entity).getActivePotionEffects();
-						for (EffectInstance effect : effects) {
-							if (effect.getPotion() == SeiibutsuPotionEffect.potion)
-								return true;
-						}
-					}
-					return false;
-				}
-			}.check(entity)) {
+			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+					.orElse(new DiesiraebleachModVariables.PlayerVariables())).Yaminotamamono == true) {
 				if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 						.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 3) {
 					TosshinProcedure.executeProcedure(Stream
@@ -140,21 +124,22 @@ public class WazahatsudouProcedure {
 							((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u8594\u8587\u306E\u591C"), (true));
 						}
 					}
+					if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 8) {
+						YamigakureProcedure.executeProcedure(Stream
+								.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+										new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
+										new AbstractMap.SimpleEntry<>("entity", entity))
+								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+						if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+							((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u95C7\u96A0\u308C"), (true));
+						}
+					}
 				}
 			}
 		}
-		if (new Object() {
-			boolean check(Entity _entity) {
-				if (_entity instanceof LivingEntity) {
-					Collection<EffectInstance> effects = ((LivingEntity) _entity).getActivePotionEffects();
-					for (EffectInstance effect : effects) {
-						if (effect.getPotion() == SeiibutsuHihiirokanePotionEffect.potion)
-							return true;
-					}
-				}
-				return false;
-			}
-		}.check(entity)) {
+		if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Hihiirokane == true) {
 			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 3) {
 				BakuenProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
@@ -165,18 +150,8 @@ public class WazahatsudouProcedure {
 				}
 			}
 		}
-		if (new Object() {
-			boolean check(Entity _entity) {
-				if (_entity instanceof LivingEntity) {
-					Collection<EffectInstance> effects = ((LivingEntity) _entity).getActivePotionEffects();
-					for (EffectInstance effect : effects) {
-						if (effect.getPotion() == ZarathustraPotionEffectPotionEffect.potion)
-							return true;
-					}
-				}
-				return false;
-			}
-		}.check(entity)) {
+		if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new DiesiraebleachModVariables.PlayerVariables())).MarglittoJudis == true) {
 			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 3) {
 				TosshinProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),

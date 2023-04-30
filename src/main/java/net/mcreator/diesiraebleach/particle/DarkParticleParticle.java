@@ -19,12 +19,12 @@ import net.minecraft.client.particle.IAnimatedSprite;
 import net.minecraft.client.Minecraft;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class DagekiparticleParticle {
-	public static final BasicParticleType particle = new BasicParticleType(false);
+public class DarkParticleParticle {
+	public static final BasicParticleType particle = new BasicParticleType(true);
 
 	@SubscribeEvent
 	public static void registerParticleType(RegistryEvent.Register<ParticleType<?>> event) {
-		event.getRegistry().register(particle.setRegistryName("dagekiparticle"));
+		event.getRegistry().register(particle.setRegistryName("dark_particle"));
 	}
 
 	@OnlyIn(Dist.CLIENT)
@@ -41,9 +41,9 @@ public class DagekiparticleParticle {
 			super(world, x, y, z);
 			this.spriteSet = spriteSet;
 			this.setSize((float) 0.2, (float) 0.2);
-			this.particleScale *= (float) 1;
-			this.maxAge = (int) Math.max(1, 2 + (this.rand.nextInt(2) - 1));
-			this.particleGravity = (float) 0;
+			this.particleScale *= (float) 3;
+			this.maxAge = 7;
+			this.particleGravity = (float) 0.5;
 			this.canCollide = true;
 			this.motionX = vx * 1;
 			this.motionY = vy * 1;
@@ -52,20 +52,15 @@ public class DagekiparticleParticle {
 		}
 
 		@Override
-		public int getBrightnessForRender(float partialTick) {
-			return 15728880;
-		}
-
-		@Override
 		public IParticleRenderType getRenderType() {
-			return IParticleRenderType.PARTICLE_SHEET_LIT;
+			return IParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
 		}
 
 		@Override
 		public void tick() {
 			super.tick();
 			if (!this.isExpired) {
-				this.setSprite(this.spriteSet.get((this.age / 1) % 12 + 1, 12));
+				this.setSprite(this.spriteSet.get((this.age / 1) % 11 + 1, 11));
 			}
 		}
 	}

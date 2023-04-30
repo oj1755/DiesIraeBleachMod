@@ -10,7 +10,6 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Hand;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.potion.EffectInstance;
 import net.minecraft.item.ItemStack;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.LivingEntity;
@@ -19,7 +18,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.advancements.Advancement;
 
-import net.mcreator.diesiraebleach.potion.SeiibutsuPotionEffect;
 import net.mcreator.diesiraebleach.particle.SouzouparticleParticle;
 import net.mcreator.diesiraebleach.DiesiraebleachModVariables;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
@@ -69,8 +67,13 @@ public class QliphothBacikal2YoukuritukusitatokiProcedure {
 					capability.syncPlayerVariables(entity);
 				});
 			}
-			if (entity instanceof LivingEntity)
-				((LivingEntity) entity).addPotionEffect(new EffectInstance(SeiibutsuPotionEffect.potion, (int) 1e+308, (int) 1));
+			{
+				boolean _setval = (true);
+				entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.Yaminotamamono = _setval;
+					capability.syncPlayerVariables(entity);
+				});
+			}
 			if (entity instanceof ServerPlayerEntity) {
 				Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
 						.getAdvancement(new ResourceLocation("diesiraebleach:katsudouj"));

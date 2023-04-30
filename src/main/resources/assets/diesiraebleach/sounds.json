@@ -241,5 +241,14 @@
         "stream": false
       }
     ]
+  },
+  "warp1": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:zhong_li_mo_fa_1",
+        "stream": false
+      }
+    ]
   }
 }

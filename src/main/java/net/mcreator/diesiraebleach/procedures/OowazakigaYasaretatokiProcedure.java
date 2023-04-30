@@ -11,7 +11,6 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Hand;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.potion.EffectInstance;
 import net.minecraft.item.ItemStack;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -20,9 +19,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.block.Blocks;
 
-import net.mcreator.diesiraebleach.potion.ZarathustraPotionEffectPotionEffect;
-import net.mcreator.diesiraebleach.potion.SeiibutsuPotionEffect;
-import net.mcreator.diesiraebleach.potion.SeiibutsuHihiirokanePotionEffect;
 import net.mcreator.diesiraebleach.item.MarglittoJudisItem;
 import net.mcreator.diesiraebleach.item.HihiirokaneItem;
 import net.mcreator.diesiraebleach.DiesiraebleachModVariables;
@@ -31,7 +27,6 @@ import net.mcreator.diesiraebleach.DiesiraebleachMod;
 import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
-import java.util.Collection;
 import java.util.AbstractMap;
 
 public class OowazakigaYasaretatokiProcedure {
@@ -67,23 +62,14 @@ public class OowazakigaYasaretatokiProcedure {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
-		if (new Object() {
-			boolean check(Entity _entity) {
-				if (_entity instanceof LivingEntity) {
-					Collection<EffectInstance> effects = ((LivingEntity) _entity).getActivePotionEffects();
-					for (EffectInstance effect : effects) {
-						if (effect.getPotion() == SeiibutsuPotionEffect.potion)
-							return true;
-					}
-				}
-				return false;
-			}
-		}.check(entity) && (((entity instanceof ServerPlayerEntity) && (entity.world instanceof ServerWorld))
-				? ((ServerPlayerEntity) entity).getAdvancements()
-						.getProgress(((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
-								.getAdvancement(new ResourceLocation("diesiraebleach:keisei")))
-						.isDone()
-				: false)) {
+		if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Yaminotamamono == true
+				&& (((entity instanceof ServerPlayerEntity) && (entity.world instanceof ServerWorld))
+						? ((ServerPlayerEntity) entity).getAdvancements()
+								.getProgress(((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
+										.getAdvancement(new ResourceLocation("diesiraebleach:keisei")))
+								.isDone()
+						: false)) {
 			if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.HEAD) : ItemStack.EMPTY)
 					.getItem() == Blocks.CAVE_AIR.asItem()) {
 				BeikeiseiProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
@@ -110,18 +96,9 @@ public class OowazakigaYasaretatokiProcedure {
 			}
 		}
 		if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Keisei == false && new Object() {
-					boolean check(Entity _entity) {
-						if (_entity instanceof LivingEntity) {
-							Collection<EffectInstance> effects = ((LivingEntity) _entity).getActivePotionEffects();
-							for (EffectInstance effect : effects) {
-								if (effect.getPotion() == ZarathustraPotionEffectPotionEffect.potion)
-									return true;
-							}
-						}
-						return false;
-					}
-				}.check(entity)
+				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Keisei == false
+				&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).MarglittoJudis == true
 				&& (((entity instanceof ServerPlayerEntity) && (entity.world instanceof ServerWorld))
 						? ((ServerPlayerEntity) entity).getAdvancements()
 								.getProgress(((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
@@ -185,18 +162,9 @@ public class OowazakigaYasaretatokiProcedure {
 			}
 		}
 		if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Keisei == false && new Object() {
-					boolean check(Entity _entity) {
-						if (_entity instanceof LivingEntity) {
-							Collection<EffectInstance> effects = ((LivingEntity) _entity).getActivePotionEffects();
-							for (EffectInstance effect : effects) {
-								if (effect.getPotion() == SeiibutsuHihiirokanePotionEffect.potion)
-									return true;
-							}
-						}
-						return false;
-					}
-				}.check(entity)
+				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Keisei == false
+				&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Hihiirokane == true
 				&& (((entity instanceof ServerPlayerEntity) && (entity.world instanceof ServerWorld))
 						? ((ServerPlayerEntity) entity).getAdvancements()
 								.getProgress(((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()

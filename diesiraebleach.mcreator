@@ -1787,6 +1787,66 @@
           }
         ]
       }
+    },
+    {
+      "name": "Yamigakure",
+      "type": "procedure",
+      "sortid": 112,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "yamigakure",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DarkParticle",
+      "type": "particle",
+      "sortid": 113,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dark_particle"
+    },
+    {
+      "name": "Yaminotamonokouka",
+      "type": "procedure",
+      "sortid": 114,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "yaminotamonokouka",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -1846,9 +1906,9 @@
     },
     {
       "name": "DerfreischeSamiel",
-      "type": "blockstate",
-      "scope": "map",
-      "value": "Blocks.AIR.getDefaultState()"
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
     }
   ],
   "sound_elements": [
@@ -2067,6 +2127,14 @@
       ],
       "category": "neutral",
       "subtitle": ""
+    },
+    {
+      "name": "warp1",
+      "files": [
+        "zhong_li_mo_fa_1"
+      ],
+      "category": "neutral",
+      "subtitle": ""
     }
   ],
   "language_map": {
@@ -2113,6 +2181,7 @@
       "item.diesiraebleach.seiibutsuhihiirokane_item": "聖遺物【緋々色金】",
       "subtitles.hellfire": "",
       "subtitles.ewigkeite": "",
+      "subtitles.warp1": "",
       "effect.zarathustra_potion_effect": "Eine Faust Ouvertüre",
       "item.diesiraebleach.reset": "Reset",
       "effect.seiibutsu_hihiirokane": "聖遺物・緋々色金",

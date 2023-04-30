@@ -22,15 +22,12 @@ import net.minecraft.world.IServerWorld;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Direction;
 import net.minecraft.network.PacketBuffer;
-import net.minecraft.nbt.NBTUtil;
 import net.minecraft.nbt.INBT;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.client.Minecraft;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.BlockState;
 
 import java.util.function.Supplier;
 
@@ -112,7 +109,6 @@ public class DiesiraebleachModVariables {
 	public static class MapVariables extends WorldSavedData {
 		public static final String DATA_NAME = "diesiraebleach_mapvars";
 		public double k = 0;
-		public BlockState DerfreischeSamiel = Blocks.AIR.getDefaultState();
 
 		public MapVariables() {
 			super(DATA_NAME);
@@ -125,13 +121,11 @@ public class DiesiraebleachModVariables {
 		@Override
 		public void read(CompoundNBT nbt) {
 			k = nbt.getDouble("k");
-			DerfreischeSamiel = NBTUtil.readBlockState(nbt.getCompound("DerfreischeSamiel"));
 		}
 
 		@Override
 		public CompoundNBT write(CompoundNBT nbt) {
 			nbt.putDouble("k", k);
-			nbt.put("DerfreischeSamiel", NBTUtil.writeBlockState(DerfreischeSamiel));
 			return nbt;
 		}
 
@@ -229,6 +223,7 @@ public class DiesiraebleachModVariables {
 			nbt.putBoolean("Yaminotamamono", instance.Yaminotamamono);
 			nbt.putBoolean("MarglittoJudis", instance.MarglittoJudis);
 			nbt.putBoolean("Hihiirokane", instance.Hihiirokane);
+			nbt.putBoolean("DerfreischeSamiel", instance.DerfreischeSamiel);
 			return nbt;
 		}
 
@@ -243,6 +238,7 @@ public class DiesiraebleachModVariables {
 			instance.Yaminotamamono = nbt.getBoolean("Yaminotamamono");
 			instance.MarglittoJudis = nbt.getBoolean("MarglittoJudis");
 			instance.Hihiirokane = nbt.getBoolean("Hihiirokane");
+			instance.DerfreischeSamiel = nbt.getBoolean("DerfreischeSamiel");
 		}
 	}
 
@@ -255,6 +251,7 @@ public class DiesiraebleachModVariables {
 		public boolean Yaminotamamono = false;
 		public boolean MarglittoJudis = false;
 		public boolean Hihiirokane = false;
+		public boolean DerfreischeSamiel = false;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
@@ -297,6 +294,7 @@ public class DiesiraebleachModVariables {
 		clone.Yaminotamamono = original.Yaminotamamono;
 		clone.MarglittoJudis = original.MarglittoJudis;
 		clone.Hihiirokane = original.Hihiirokane;
+		clone.DerfreischeSamiel = original.DerfreischeSamiel;
 		if (!event.isWasDeath()) {
 		}
 	}
@@ -331,6 +329,7 @@ public class DiesiraebleachModVariables {
 					variables.Yaminotamamono = message.data.Yaminotamamono;
 					variables.MarglittoJudis = message.data.MarglittoJudis;
 					variables.Hihiirokane = message.data.Hihiirokane;
+					variables.DerfreischeSamiel = message.data.DerfreischeSamiel;
 				}
 			});
 			context.setPacketHandled(true);
