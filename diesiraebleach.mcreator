@@ -1771,6 +1771,22 @@
           }
         ]
       }
+    },
+    {
+      "name": "Souzouoff",
+      "type": "procedure",
+      "sortid": 111,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "souzouoff",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -1793,24 +1809,6 @@
       "value": "0"
     },
     {
-      "name": "qliphotox",
-      "type": "number",
-      "scope": "player_persistent",
-      "value": "0"
-    },
-    {
-      "name": "qliphotoy",
-      "type": "number",
-      "scope": "player_persistent",
-      "value": "0"
-    },
-    {
-      "name": "qliphotoz",
-      "type": "number",
-      "scope": "player_persistent",
-      "value": "0"
-    },
-    {
       "name": "Souzou",
       "type": "logic",
       "scope": "player_persistent",
@@ -1827,6 +1825,30 @@
       "type": "logic",
       "scope": "player_persistent",
       "value": "false"
+    },
+    {
+      "name": "Yaminotamamono",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "MarglittoJudis",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "Hihiirokane",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "DerfreischeSamiel",
+      "type": "blockstate",
+      "scope": "map",
+      "value": "Blocks.AIR.getDefaultState()"
     }
   ],
   "sound_elements": [

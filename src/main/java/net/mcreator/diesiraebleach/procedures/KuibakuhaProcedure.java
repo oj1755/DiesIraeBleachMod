@@ -55,16 +55,16 @@ public class KuibakuhaProcedure {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
-		if (world instanceof World && !world.isRemote()) {
-			((World) world).playSound(null, new BlockPos(x, y, z),
-					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:beikuihassha")),
-					SoundCategory.NEUTRAL, (float) 1, (float) 1);
-		} else {
-			((World) world).playSound(x, y, z,
-					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:beikuihassha")),
-					SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-		}
-		for (int index0 = 0; index0 < (int) (20); index0++) {
+		for (int index0 = 0; index0 < (int) (10); index0++) {
+			if (world instanceof World && !world.isRemote()) {
+				((World) world).playSound(null, new BlockPos(x, y, z),
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:beikuihassha")),
+						SoundCategory.NEUTRAL, (float) 1, (float) 1);
+			} else {
+				((World) world).playSound(x, y, z,
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:beikuihassha")),
+						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+			}
 			new Object() {
 				private int ticks = 0;
 				private float waitTicks;
@@ -86,24 +86,26 @@ public class KuibakuhaProcedure {
 				}
 
 				private void run() {
-					if (world instanceof ServerWorld) {
-						World projectileLevel = (World) world;
-						ProjectileEntity _entityToSpawn = new Object() {
-							public ProjectileEntity getArrow(World world, Entity shooter, float damage, int knockback, byte piercing) {
-								AbstractArrowEntity entityToSpawn = new BeienkyoriitemItem.ArrowCustomEntity(BeienkyoriitemItem.arrow, world);
-								entityToSpawn.setShooter(shooter);
-								entityToSpawn.setDamage(damage);
-								entityToSpawn.setKnockbackStrength(knockback);
-								entityToSpawn.setSilent(true);
-								entityToSpawn.setPierceLevel(piercing);
+					for (int index1 = 0; index1 < (int) (10); index1++) {
+						if (world instanceof ServerWorld) {
+							World projectileLevel = (World) world;
+							ProjectileEntity _entityToSpawn = new Object() {
+								public ProjectileEntity getArrow(World world, Entity shooter, float damage, int knockback, byte piercing) {
+									AbstractArrowEntity entityToSpawn = new BeienkyoriitemItem.ArrowCustomEntity(BeienkyoriitemItem.arrow, world);
+									entityToSpawn.setShooter(shooter);
+									entityToSpawn.setDamage(damage);
+									entityToSpawn.setKnockbackStrength(knockback);
+									entityToSpawn.setSilent(true);
+									entityToSpawn.setPierceLevel(piercing);
 
-								return entityToSpawn;
-							}
-						}.getArrow(projectileLevel, entity, 3, 0, (byte) 2);
-						_entityToSpawn.setPosition((x + MathHelper.nextDouble(new Random(), -5, 5)), (y + MathHelper.nextDouble(new Random(), 1, 5)),
-								(z + MathHelper.nextDouble(new Random(), -5, 5)));
-						_entityToSpawn.shoot(1, 1, 1, 3, 100);
-						world.addEntity(_entityToSpawn);
+									return entityToSpawn;
+								}
+							}.getArrow(projectileLevel, entity, 3, 0, (byte) 2);
+							_entityToSpawn.setPosition((x + MathHelper.nextDouble(new Random(), -5, 5)),
+									(y + MathHelper.nextDouble(new Random(), 1, 5)), (z + MathHelper.nextDouble(new Random(), -5, 5)));
+							_entityToSpawn.shoot(1, 1, 1, 3, 100);
+							world.addEntity(_entityToSpawn);
+						}
 					}
 					MinecraftForge.EVENT_BUS.unregister(this);
 				}

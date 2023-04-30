@@ -78,7 +78,7 @@ public class IbaraenteiteigasuponsitaShiProcedure {
 					}
 					MinecraftForge.EVENT_BUS.unregister(this);
 				}
-			}.start(world, (int) 10);
+			}.start(world, (int) 5);
 		}
 		new Object() {
 			private int ticks = 0;
@@ -102,17 +102,41 @@ public class IbaraenteiteigasuponsitaShiProcedure {
 
 			private void run() {
 				for (int index1 = 0; index1 < (int) (3); index1++) {
-					{
-						Entity _ent = entity;
-						_ent.setPositionAndUpdate(x, (y - 1), z);
-						if (_ent instanceof ServerPlayerEntity) {
-							((ServerPlayerEntity) _ent).connection.setPlayerLocation(x, (y - 1), z, _ent.rotationYaw, _ent.rotationPitch,
-									Collections.emptySet());
+					new Object() {
+						private int ticks = 0;
+						private float waitTicks;
+						private IWorld world;
+
+						public void start(IWorld world, int waitTicks) {
+							this.waitTicks = waitTicks;
+							MinecraftForge.EVENT_BUS.register(this);
+							this.world = world;
 						}
-					}
-					if (!entity.world.isRemote())
-						entity.remove();
+
+						@SubscribeEvent
+						public void tick(TickEvent.ServerTickEvent event) {
+							if (event.phase == TickEvent.Phase.END) {
+								this.ticks += 1;
+								if (this.ticks >= this.waitTicks)
+									run();
+							}
+						}
+
+						private void run() {
+							{
+								Entity _ent = entity;
+								_ent.setPositionAndUpdate(x, (y - 1), z);
+								if (_ent instanceof ServerPlayerEntity) {
+									((ServerPlayerEntity) _ent).connection.setPlayerLocation(x, (y - 1), z, _ent.rotationYaw, _ent.rotationPitch,
+											Collections.emptySet());
+								}
+							}
+							MinecraftForge.EVENT_BUS.unregister(this);
+						}
+					}.start(world, (int) 5);
 				}
+				if (!entity.world.isRemote())
+					entity.remove();
 				MinecraftForge.EVENT_BUS.unregister(this);
 			}
 		}.start(world, (int) 200);
