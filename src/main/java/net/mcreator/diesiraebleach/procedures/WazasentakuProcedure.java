@@ -118,7 +118,13 @@ public class WazasentakuProcedure {
 					}
 				}
 				if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza > 3) {
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 4) {
+					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A7c\u706B\u7403"), (true));
+					}
+				}
+				if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza > 4) {
 					{
 						double _setval = 1;
 						entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
