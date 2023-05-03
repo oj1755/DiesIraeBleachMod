@@ -5,23 +5,19 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
 import net.minecraft.world.World;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.monster.SlimeEntity;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.merchant.villager.VillagerEntity;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.entity.Entity;
-import net.minecraft.advancements.AdvancementProgress;
-import net.minecraft.advancements.Advancement;
 
 import net.mcreator.diesiraebleach.DiesiraebleachModVariables;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
+import java.util.stream.Collectors;
+import java.util.function.Function;
 import java.util.Map;
-import java.util.Iterator;
+import java.util.List;
 import java.util.HashMap;
+import java.util.Comparator;
 
 public class SoulCountProcedure {
 	@Mod.EventBusSubscriber
@@ -49,85 +45,53 @@ public class SoulCountProcedure {
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				DiesiraebleachMod.LOGGER.warn("Failed to load dependency world for procedure SoulCount!");
+			return;
+		}
+		if (dependencies.get("x") == null) {
+			if (!dependencies.containsKey("x"))
+				DiesiraebleachMod.LOGGER.warn("Failed to load dependency x for procedure SoulCount!");
+			return;
+		}
+		if (dependencies.get("y") == null) {
+			if (!dependencies.containsKey("y"))
+				DiesiraebleachMod.LOGGER.warn("Failed to load dependency y for procedure SoulCount!");
+			return;
+		}
+		if (dependencies.get("z") == null) {
+			if (!dependencies.containsKey("z"))
+				DiesiraebleachMod.LOGGER.warn("Failed to load dependency z for procedure SoulCount!");
+			return;
+		}
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
 				DiesiraebleachMod.LOGGER.warn("Failed to load dependency entity for procedure SoulCount!");
 			return;
 		}
-		if (dependencies.get("sourceentity") == null) {
-			if (!dependencies.containsKey("sourceentity"))
-				DiesiraebleachMod.LOGGER.warn("Failed to load dependency sourceentity for procedure SoulCount!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
+		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
+		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
+		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
-		Entity sourceentity = (Entity) dependencies.get("sourceentity");
-		if (entity instanceof AnimalEntity) {
-			{
-				double _setval = ((sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul + 0.5);
-				sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-					capability.Killsoul = _setval;
-					capability.syncPlayerVariables(sourceentity);
-				});
-			}
-		}
-		if (entity instanceof MonsterEntity) {
-			{
-				double _setval = ((sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul + 1);
-				sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-					capability.Killsoul = _setval;
-					capability.syncPlayerVariables(sourceentity);
-				});
-			}
-		}
-		if (entity instanceof VillagerEntity) {
-			{
-				double _setval = ((sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul + 1);
-				sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-					capability.Killsoul = _setval;
-					capability.syncPlayerVariables(sourceentity);
-				});
-			}
-		}
-		if (entity instanceof SlimeEntity) {
-			{
-				double _setval = ((sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul + 5);
-				sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-					capability.Killsoul = _setval;
-					capability.syncPlayerVariables(sourceentity);
-				});
-			}
-		}
-		if ((sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul > 100) {
-			if (sourceentity instanceof ServerPlayerEntity) {
-				Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) sourceentity).server).getAdvancementManager()
-						.getAdvancement(new ResourceLocation("diesiraebleach:keisei"));
-				AdvancementProgress _ap = ((ServerPlayerEntity) sourceentity).getAdvancements().getProgress(_adv);
-				if (!_ap.isDone()) {
-					Iterator _iterator = _ap.getRemaningCriteria().iterator();
-					while (_iterator.hasNext()) {
-						String _criterion = (String) _iterator.next();
-						((ServerPlayerEntity) sourceentity).getAdvancements().grantCriterion(_adv, _criterion);
-					}
-				}
-			}
-		}
-		if ((sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul > 500) {
-			if (sourceentity instanceof ServerPlayerEntity) {
-				Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) sourceentity).server).getAdvancementManager()
-						.getAdvancement(new ResourceLocation("diesiraebleach:souzou"));
-				AdvancementProgress _ap = ((ServerPlayerEntity) sourceentity).getAdvancements().getProgress(_adv);
-				if (!_ap.isDone()) {
-					Iterator _iterator = _ap.getRemaningCriteria().iterator();
-					while (_iterator.hasNext()) {
-						String _criterion = (String) _iterator.next();
-						((ServerPlayerEntity) sourceentity).getAdvancements().grantCriterion(_adv, _criterion);
-					}
+		{
+			List<Entity> _entfound = world
+					.getEntitiesWithinAABB(Entity.class,
+							new AxisAlignedBB(x - (5 / 2d), y - (5 / 2d), z - (5 / 2d), x + (5 / 2d), y + (5 / 2d), z + (5 / 2d)), null)
+					.stream().sorted(new Object() {
+						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+						}
+					}.compareDistOf(x, y, z)).collect(Collectors.toList());
+			for (Entity entityiterator : _entfound) {
+				{
+					double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul + 1);
+					entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.Killsoul = _setval;
+						capability.syncPlayerVariables(entity);
+					});
 				}
 			}
 		}
