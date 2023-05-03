@@ -1879,6 +1879,22 @@
           }
         ]
       }
+    },
+    {
+      "name": "HihiirokaneKouka",
+      "type": "procedure",
+      "sortid": 116,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hihiirokane_kouka",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [
