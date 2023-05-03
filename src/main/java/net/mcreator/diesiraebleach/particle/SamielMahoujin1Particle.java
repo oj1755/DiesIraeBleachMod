@@ -20,7 +20,7 @@ import net.minecraft.client.Minecraft;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class SamielMahoujin1Particle {
-	public static final BasicParticleType particle = new BasicParticleType(false);
+	public static final BasicParticleType particle = new BasicParticleType(true);
 
 	@SubscribeEvent
 	public static void registerParticleType(RegistryEvent.Register<ParticleType<?>> event) {
@@ -36,18 +36,22 @@ public class SamielMahoujin1Particle {
 	@OnlyIn(Dist.CLIENT)
 	private static class CustomParticle extends SpriteTexturedParticle {
 		private final IAnimatedSprite spriteSet;
+		private float angularVelocity;
+		private float angularAcceleration;
 
 		protected CustomParticle(ClientWorld world, double x, double y, double z, double vx, double vy, double vz, IAnimatedSprite spriteSet) {
 			super(world, x, y, z);
 			this.spriteSet = spriteSet;
 			this.setSize((float) 0.2, (float) 0.2);
 			this.particleScale *= (float) 7;
-			this.maxAge = 7;
+			this.maxAge = 15;
 			this.particleGravity = (float) 0;
 			this.canCollide = true;
 			this.motionX = vx * 1;
 			this.motionY = vy * 1;
 			this.motionZ = vz * 1;
+			this.angularVelocity = (float) 0.1;
+			this.angularAcceleration = (float) 0.01;
 			this.selectSpriteWithAge(spriteSet);
 		}
 
@@ -64,6 +68,9 @@ public class SamielMahoujin1Particle {
 		@Override
 		public void tick() {
 			super.tick();
+			this.prevParticleAngle = this.particleAngle;
+			this.particleAngle += this.angularVelocity;
+			this.angularVelocity += this.angularAcceleration;
 			if (!this.isExpired) {
 				this.setSprite(this.spriteSet.get((this.age / 1) % 8 + 1, 8));
 			}
