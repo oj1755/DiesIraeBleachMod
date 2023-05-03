@@ -17,7 +17,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
 import net.mcreator.diesiraebleach.potion.ZarathustraPotionEffectPotionEffect;
-import net.mcreator.diesiraebleach.potion.SeiibutsuPotionEffect;
 import net.mcreator.diesiraebleach.particle.BloodsweeprightParticle;
 import net.mcreator.diesiraebleach.particle.BloodsweepleftParticle;
 import net.mcreator.diesiraebleach.particle.BloodsweepParticle;
@@ -67,18 +66,8 @@ public class JakukougekiProcedure {
 		Entity entity = (Entity) dependencies.get("entity");
 		double r = 0;
 		r = (entity.rotationYaw);
-		if (new Object() {
-			boolean check(Entity _entity) {
-				if (_entity instanceof LivingEntity) {
-					Collection<EffectInstance> effects = ((LivingEntity) _entity).getActivePotionEffects();
-					for (EffectInstance effect : effects) {
-						if (effect.getPotion() == SeiibutsuPotionEffect.potion)
-							return true;
-					}
-				}
-				return false;
-			}
-		}.check(entity)) {
+		if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Seiibutsu == true) {
 			if (entity instanceof LivingEntity) {
 				((LivingEntity) entity).swing(Hand.OFF_HAND, true);
 			}

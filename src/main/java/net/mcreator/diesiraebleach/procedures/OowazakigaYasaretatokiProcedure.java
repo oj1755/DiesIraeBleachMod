@@ -148,7 +148,9 @@ public class OowazakigaYasaretatokiProcedure {
 						.isDone()
 				: false)
 				&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Keisei == true) {
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Keisei == true
+				&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).MarglittoJudis == true) {
 			{
 				boolean _setval = (true);
 				entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {

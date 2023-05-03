@@ -5,7 +5,7 @@
     "effectName": "吸精",
     "icon": "beikui.png",
     "color": {
-      "value": -1,
+      "value": -65536,
       "falpha": 0.0
     },
     "isInstant": true,
