@@ -59,9 +59,11 @@ public class YaminotamonokoukaProcedure {
 			if (entity instanceof LivingEntity) {
 				((LivingEntity) entity).removePotionEffect(KyuseiPPotionEffect.potion);
 			}
+			if (entity instanceof LivingEntity)
+				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, (int) 1e+34, (int) (-10)));
 			if (!((world instanceof World) ? ((World) world).isDaytime() : false)) {
 				if (entity instanceof LivingEntity)
-					((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.STRENGTH, (int) 1e+34, (int) 5));
+					((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.STRENGTH, (int) 1e+34, (int) 10));
 			}
 		}
 	}
