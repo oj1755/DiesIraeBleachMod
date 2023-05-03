@@ -64,7 +64,7 @@
     "ridable": false,
     "canControlForward": false,
     "canControlStrafe": false,
-    "immuneToFire": true,
+    "immuneToFire": false,
     "immuneToArrows": false,
     "immuneToFallDamage": false,
     "immuneToCactus": false,
@@ -103,9 +103,6 @@
       "name": "Bakuhasmall"
     },
     "whenMobDies": {
-      "name": "Bakuhasmall"
-    },
-    "whenMobIsHurt": {
       "name": "Bakuhasmall"
     },
     "onPlayerCollidesWith": {

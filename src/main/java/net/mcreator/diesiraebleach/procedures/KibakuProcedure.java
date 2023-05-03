@@ -1,6 +1,9 @@
 package net.mcreator.diesiraebleach.procedures;
 
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
@@ -15,6 +18,7 @@ import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.Entity;
 
+import net.mcreator.diesiraebleach.particle.FlameParticle;
 import net.mcreator.diesiraebleach.entity.FirekibakuEntity;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
@@ -57,16 +61,45 @@ public class KibakuProcedure {
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:finger")),
 					SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 		}
-		for (int index0 = 0; index0 < (int) (3); index0++) {
-			if (world instanceof ServerWorld) {
-				Entity entityToSpawn = new FirekibakuEntity.CustomEntity(FirekibakuEntity.entity, (World) world);
-				entityToSpawn.setLocationAndAngles((x + MathHelper.nextDouble(new Random(), -5, 5)), (y + 3),
-						(z + MathHelper.nextDouble(new Random(), -5, 5)), world.getRandom().nextFloat() * 360F, 0);
-				if (entityToSpawn instanceof MobEntity)
-					((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
-							SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
-				world.addEntity(entityToSpawn);
-			}
+		if (world instanceof ServerWorld) {
+			((ServerWorld) world).spawnParticle(FlameParticle.particle, (x + MathHelper.nextDouble(new Random(), -10, 10)), (y + 3),
+					(z + MathHelper.nextDouble(new Random(), -10, 10)), (int) 5, 0.1, 0.1, 0.1, 2);
 		}
+		new Object() {
+			private int ticks = 0;
+			private float waitTicks;
+			private IWorld world;
+
+			public void start(IWorld world, int waitTicks) {
+				this.waitTicks = waitTicks;
+				MinecraftForge.EVENT_BUS.register(this);
+				this.world = world;
+			}
+
+			@SubscribeEvent
+			public void tick(TickEvent.ServerTickEvent event) {
+				if (event.phase == TickEvent.Phase.END) {
+					this.ticks += 1;
+					if (this.ticks >= this.waitTicks)
+						run();
+				}
+			}
+
+			private void run() {
+				for (int index0 = 0; index0 < (int) (10); index0++) {
+					if (world instanceof ServerWorld) {
+						Entity entityToSpawn = new FirekibakuEntity.CustomEntity(FirekibakuEntity.entity, (World) world);
+						entityToSpawn.setLocationAndAngles((x + MathHelper.nextDouble(new Random(), -10, 10)), (y + 3),
+								(z + MathHelper.nextDouble(new Random(), -10, 10)), world.getRandom().nextFloat() * 360F, 0);
+						if (entityToSpawn instanceof MobEntity)
+							((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world,
+									world.getDifficultyForLocation(entityToSpawn.getPosition()), SpawnReason.MOB_SUMMONED, (ILivingEntityData) null,
+									(CompoundNBT) null);
+						world.addEntity(entityToSpawn);
+					}
+				}
+				MinecraftForge.EVENT_BUS.unregister(this);
+			}
+		}.start(world, (int) 20);
 	}
 }

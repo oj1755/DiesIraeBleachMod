@@ -62,11 +62,11 @@ public class PanzerProcedure {
 		if (world instanceof World && !world.isRemote()) {
 			((World) world).playSound(null, new BlockPos(x, y, z),
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:panzersummon")),
-					SoundCategory.NEUTRAL, (float) 1, (float) 1);
+					SoundCategory.NEUTRAL, (float) 0.5, (float) 0.5);
 		} else {
 			((World) world).playSound(x, y, z,
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:panzersummon")),
-					SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+					SoundCategory.NEUTRAL, (float) 0.5, (float) 0.5, false);
 		}
 		if (world instanceof ServerWorld) {
 			((ServerWorld) world).spawnParticle(SamielMahoujin1Particle.particle, x, y, z, (int) 1, 0.1, 0.1, 0.1, 0);
@@ -92,6 +92,15 @@ public class PanzerProcedure {
 			}
 
 			private void run() {
+				if (world instanceof World && !world.isRemote()) {
+					((World) world).playSound(null, new BlockPos(x, y, z),
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:panzer")),
+							SoundCategory.NEUTRAL, (float) 0.5, (float) 2);
+				} else {
+					((World) world).playSound(x, y, z,
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:panzer")),
+							SoundCategory.NEUTRAL, (float) 0.5, (float) 2, false);
+				}
 				if (world instanceof ServerWorld) {
 					World projectileLevel = (World) world;
 					ProjectileEntity _entityToSpawn = new Object() {
@@ -114,7 +123,7 @@ public class PanzerProcedure {
 							(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
 									entity.getEyePosition(1f).add(entity.getLook(1f).x * 10, entity.getLook(1f).y * 10, entity.getLook(1f).z * 10),
 									RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ() - z),
-							1, 0);
+							2, 0);
 					world.addEntity(_entityToSpawn);
 				}
 				MinecraftForge.EVENT_BUS.unregister(this);

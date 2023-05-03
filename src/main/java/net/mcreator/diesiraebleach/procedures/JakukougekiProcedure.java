@@ -64,8 +64,10 @@ public class JakukougekiProcedure {
 		Entity entity = (Entity) dependencies.get("entity");
 		double r = 0;
 		r = (entity.rotationYaw);
-		if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Hihiirokane == true) {
+		if (((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Hihiirokane
+				|| (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).DerfreischeSamiel) == true) {
 			if (entity instanceof LivingEntity) {
 				((LivingEntity) entity).swing(Hand.OFF_HAND, true);
 			}

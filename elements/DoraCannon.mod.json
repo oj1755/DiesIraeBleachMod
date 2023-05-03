@@ -5,12 +5,12 @@
     "renderType": 0,
     "texture": "dora",
     "customModelName": "Normal",
-    "name": "Dora Cannon",
-    "rarity": "COMMON",
+    "name": "聖遺物【極大火砲・狩猟の魔王】",
+    "rarity": "EPIC",
     "creativeTab": {
       "value": "MISC"
     },
-    "stackSize": 64,
+    "stackSize": 1,
     "enchantability": 0,
     "useDuration": 0,
     "toolType": 1.0,
@@ -19,13 +19,15 @@
       "value": ""
     },
     "destroyAnyBlock": false,
-    "immuneToFire": false,
+    "immuneToFire": true,
     "stayInGridWhenCrafting": false,
     "damageOnCrafting": false,
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
-    "specialInfo": [],
-    "hasGlow": false,
+    "specialInfo": [
+      "第二次世界大戦で建造された最大の列車砲。その運用には4000人以上の人員を必要とした。"
+    ],
+    "hasGlow": true,
     "guiBoundTo": "<NONE>",
     "inventorySize": 9,
     "inventoryStackSize": 64,
