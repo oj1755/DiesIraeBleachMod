@@ -41,14 +41,14 @@ public class SamielMahoujin1Particle {
 			super(world, x, y, z);
 			this.spriteSet = spriteSet;
 			this.setSize((float) 0.2, (float) 0.2);
-			this.particleScale *= (float) 10;
+			this.particleScale *= (float) 7;
 			this.maxAge = 7;
 			this.particleGravity = (float) 0;
 			this.canCollide = true;
 			this.motionX = vx * 1;
 			this.motionY = vy * 1;
 			this.motionZ = vz * 1;
-			this.selectSpriteRandomly(spriteSet);
+			this.selectSpriteWithAge(spriteSet);
 		}
 
 		@Override
@@ -64,6 +64,9 @@ public class SamielMahoujin1Particle {
 		@Override
 		public void tick() {
 			super.tick();
+			if (!this.isExpired) {
+				this.setSprite(this.spriteSet.get((this.age / 1) % 8 + 1, 8));
+			}
 		}
 	}
 
