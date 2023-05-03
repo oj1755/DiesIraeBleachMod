@@ -3,7 +3,7 @@ package net.mcreator.diesiraebleach.procedures;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.IWorld;
 
-import net.mcreator.diesiraebleach.particle.Flame2Particle;
+import net.mcreator.diesiraebleach.particle.FlameParticle;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
 import java.util.Map;
@@ -36,7 +36,7 @@ public class FireballpartProcedure {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		if (world instanceof ServerWorld) {
-			((ServerWorld) world).spawnParticle(Flame2Particle.particle, x, y, z, (int) 5, 0.1, 0.1, 0.1, 0.1);
+			((ServerWorld) world).spawnParticle(FlameParticle.particle, x, y, z, (int) 5, 0.1, 0.1, 0.1, 0.1);
 		}
 	}
 }
