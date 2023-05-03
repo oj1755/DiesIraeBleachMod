@@ -53,30 +53,33 @@ public class BeikeiseiProcedure {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
-		if (world instanceof World && !world.isRemote()) {
-			((World) world).playSound(null, new BlockPos(x, y, z),
-					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:beikeisei2")),
-					SoundCategory.NEUTRAL, (float) 0.3, (float) 0.5);
-		} else {
-			((World) world).playSound(x, y, z,
-					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:beikeisei2")),
-					SoundCategory.NEUTRAL, (float) 0.3, (float) 0.5, false);
-		}
-		if (entity instanceof LivingEntity) {
-			if (entity instanceof PlayerEntity)
-				((PlayerEntity) entity).inventory.armorInventory.set((int) 3, new ItemStack(BeiKeiseihanaItem.block));
-			else
-				((LivingEntity) entity).setItemStackToSlot(EquipmentSlotType.HEAD, new ItemStack(BeiKeiseihanaItem.block));
-			if (entity instanceof ServerPlayerEntity)
-				((ServerPlayerEntity) entity).inventory.markDirty();
-		}
-		{
-			double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-					.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 5);
-			entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-				capability.Killsoul = _setval;
-				capability.syncPlayerVariables(entity);
-			});
+		if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul >= 5) {
+			if (world instanceof World && !world.isRemote()) {
+				((World) world).playSound(null, new BlockPos(x, y, z),
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:beikeisei2")),
+						SoundCategory.NEUTRAL, (float) 0.3, (float) 0.5);
+			} else {
+				((World) world).playSound(x, y, z,
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:beikeisei2")),
+						SoundCategory.NEUTRAL, (float) 0.3, (float) 0.5, false);
+			}
+			if (entity instanceof LivingEntity) {
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).inventory.armorInventory.set((int) 3, new ItemStack(BeiKeiseihanaItem.block));
+				else
+					((LivingEntity) entity).setItemStackToSlot(EquipmentSlotType.HEAD, new ItemStack(BeiKeiseihanaItem.block));
+				if (entity instanceof ServerPlayerEntity)
+					((ServerPlayerEntity) entity).inventory.markDirty();
+			}
+			{
+				double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 5);
+				entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.Killsoul = _setval;
+					capability.syncPlayerVariables(entity);
+				});
+			}
 		}
 	}
 }

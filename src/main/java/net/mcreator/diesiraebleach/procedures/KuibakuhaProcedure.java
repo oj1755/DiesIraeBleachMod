@@ -19,6 +19,7 @@ import net.minecraft.entity.Entity;
 import net.mcreator.diesiraebleach.particle.SouzouparticleParticle;
 import net.mcreator.diesiraebleach.particle.DarkParticleParticle;
 import net.mcreator.diesiraebleach.item.BeienkyoriitemItem;
+import net.mcreator.diesiraebleach.DiesiraebleachModVariables;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
 import java.util.Random;
@@ -57,67 +58,81 @@ public class KuibakuhaProcedure {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
-		for (int index0 = 0; index0 < (int) (10); index0++) {
-			if (world instanceof World && !world.isRemote()) {
-				((World) world).playSound(null, new BlockPos(x, y, z),
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:beikuihassha")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1);
-			} else {
-				((World) world).playSound(x, y, z,
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:beikuihassha")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+		if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul >= 1) {
+			{
+				double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 1);
+				entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.Killsoul = _setval;
+					capability.syncPlayerVariables(entity);
+				});
 			}
-			new Object() {
-				private int ticks = 0;
-				private float waitTicks;
-				private IWorld world;
-
-				public void start(IWorld world, int waitTicks) {
-					this.waitTicks = waitTicks;
-					MinecraftForge.EVENT_BUS.register(this);
-					this.world = world;
+			for (int index0 = 0; index0 < (int) (10); index0++) {
+				if (world instanceof World && !world.isRemote()) {
+					((World) world)
+							.playSound(null, new BlockPos(x, y, z),
+									(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+											.getValue(new ResourceLocation("diesiraebleach:beikuihassha")),
+									SoundCategory.NEUTRAL, (float) 1, (float) 1);
+				} else {
+					((World) world).playSound(x, y, z,
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+									.getValue(new ResourceLocation("diesiraebleach:beikuihassha")),
+							SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 				}
+				new Object() {
+					private int ticks = 0;
+					private float waitTicks;
+					private IWorld world;
 
-				@SubscribeEvent
-				public void tick(TickEvent.ServerTickEvent event) {
-					if (event.phase == TickEvent.Phase.END) {
-						this.ticks += 1;
-						if (this.ticks >= this.waitTicks)
-							run();
+					public void start(IWorld world, int waitTicks) {
+						this.waitTicks = waitTicks;
+						MinecraftForge.EVENT_BUS.register(this);
+						this.world = world;
 					}
-				}
 
-				private void run() {
-					for (int index1 = 0; index1 < (int) (10); index1++) {
-						if (world instanceof ServerWorld) {
-							((ServerWorld) world).spawnParticle(SouzouparticleParticle.particle, x, y, z, (int) 10, 10, 10, 10, 1);
-						}
-						if (world instanceof ServerWorld) {
-							((ServerWorld) world).spawnParticle(DarkParticleParticle.particle, x, y, z, (int) 10, 10, 10, 10, 1);
-						}
-						if (world instanceof ServerWorld) {
-							World projectileLevel = (World) world;
-							ProjectileEntity _entityToSpawn = new Object() {
-								public ProjectileEntity getArrow(World world, Entity shooter, float damage, int knockback, byte piercing) {
-									AbstractArrowEntity entityToSpawn = new BeienkyoriitemItem.ArrowCustomEntity(BeienkyoriitemItem.arrow, world);
-									entityToSpawn.setShooter(shooter);
-									entityToSpawn.setDamage(damage);
-									entityToSpawn.setKnockbackStrength(knockback);
-									entityToSpawn.setSilent(true);
-									entityToSpawn.setPierceLevel(piercing);
-
-									return entityToSpawn;
-								}
-							}.getArrow(projectileLevel, entity, 3, 0, (byte) 2);
-							_entityToSpawn.setPosition((x + MathHelper.nextDouble(new Random(), -10, 10)),
-									(y + MathHelper.nextDouble(new Random(), 0, 0)), (z + MathHelper.nextDouble(new Random(), -10, 10)));
-							_entityToSpawn.shoot(0.1, 1, 0.1, 2, 0);
-							world.addEntity(_entityToSpawn);
+					@SubscribeEvent
+					public void tick(TickEvent.ServerTickEvent event) {
+						if (event.phase == TickEvent.Phase.END) {
+							this.ticks += 1;
+							if (this.ticks >= this.waitTicks)
+								run();
 						}
 					}
-					MinecraftForge.EVENT_BUS.unregister(this);
-				}
-			}.start(world, (int) 5);
+
+					private void run() {
+						for (int index1 = 0; index1 < (int) (10); index1++) {
+							if (world instanceof ServerWorld) {
+								((ServerWorld) world).spawnParticle(SouzouparticleParticle.particle, x, y, z, (int) 10, 10, 10, 10, 1);
+							}
+							if (world instanceof ServerWorld) {
+								((ServerWorld) world).spawnParticle(DarkParticleParticle.particle, x, y, z, (int) 10, 10, 10, 10, 1);
+							}
+							if (world instanceof ServerWorld) {
+								World projectileLevel = (World) world;
+								ProjectileEntity _entityToSpawn = new Object() {
+									public ProjectileEntity getArrow(World world, Entity shooter, float damage, int knockback, byte piercing) {
+										AbstractArrowEntity entityToSpawn = new BeienkyoriitemItem.ArrowCustomEntity(BeienkyoriitemItem.arrow, world);
+										entityToSpawn.setShooter(shooter);
+										entityToSpawn.setDamage(damage);
+										entityToSpawn.setKnockbackStrength(knockback);
+										entityToSpawn.setSilent(true);
+										entityToSpawn.setPierceLevel(piercing);
+
+										return entityToSpawn;
+									}
+								}.getArrow(projectileLevel, entity, 3, 0, (byte) 2);
+								_entityToSpawn.setPosition((x + MathHelper.nextDouble(new Random(), -10, 10)),
+										(y + MathHelper.nextDouble(new Random(), 0, 0)), (z + MathHelper.nextDouble(new Random(), -10, 10)));
+								_entityToSpawn.shoot(0.1, 1, 0.1, 2, 0);
+								world.addEntity(_entityToSpawn);
+							}
+						}
+						MinecraftForge.EVENT_BUS.unregister(this);
+					}
+				}.start(world, (int) 5);
+			}
 		}
 	}
 }

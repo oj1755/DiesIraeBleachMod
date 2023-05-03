@@ -62,171 +62,175 @@ public class BeisouzouProcedure {
 		Entity entity = (Entity) dependencies.get("entity");
 		double e = 0;
 		Entity r = null;
-		{
-			boolean _setval = (true);
-			entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-				capability.Souzou = _setval;
-				capability.syncPlayerVariables(entity);
-			});
-		}
-		if (world instanceof World && !world.isRemote()) {
-			((World) world).playSound(null, new BlockPos(x, y, z),
-					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:terror")),
-					SoundCategory.NEUTRAL, (float) 1, (float) 1);
-		} else {
-			((World) world).playSound(x, y, z,
-					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:terror")),
-					SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-		}
-		if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHealth() : -1) > 0) {
+		if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul >= 10) {
 			{
-				Entity _ent = entity;
-				if (!_ent.world.isRemote && _ent.world.getServer() != null) {
-					_ent.world.getServer().getCommandManager().handleCommand(_ent.getCommandSource().withFeedbackDisabled().withPermissionLevel(4),
-							"/particle diesiraebleach:bloodmoon ~ ~150 ~ 1 1 1 0 1 force @a");
-				}
+				double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 10);
+				entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.Killsoul = _setval;
+					capability.syncPlayerVariables(entity);
+				});
 			}
-			new Object() {
-				private int ticks = 0;
-				private float waitTicks;
-				private IWorld world;
-
-				public void start(IWorld world, int waitTicks) {
-					this.waitTicks = waitTicks;
-					MinecraftForge.EVENT_BUS.register(this);
-					this.world = world;
-				}
-
-				@SubscribeEvent
-				public void tick(TickEvent.ServerTickEvent event) {
-					if (event.phase == TickEvent.Phase.END) {
-						this.ticks += 1;
-						if (this.ticks >= this.waitTicks)
-							run();
-					}
-				}
-
-				private void run() {
-					if (world instanceof ServerWorld)
-						((ServerWorld) world).setDayTime((int) 10000);
-					MinecraftForge.EVENT_BUS.unregister(this);
-				}
-			}.start(world, (int) 10);
-			new Object() {
-				private int ticks = 0;
-				private float waitTicks;
-				private IWorld world;
-
-				public void start(IWorld world, int waitTicks) {
-					this.waitTicks = waitTicks;
-					MinecraftForge.EVENT_BUS.register(this);
-					this.world = world;
-				}
-
-				@SubscribeEvent
-				public void tick(TickEvent.ServerTickEvent event) {
-					if (event.phase == TickEvent.Phase.END) {
-						this.ticks += 1;
-						if (this.ticks >= this.waitTicks)
-							run();
-					}
-				}
-
-				private void run() {
-					if (world instanceof ServerWorld)
-						((ServerWorld) world).setDayTime((int) 14000);
-					MinecraftForge.EVENT_BUS.unregister(this);
-				}
-			}.start(world, (int) 10);
-		}
-		new Object() {
-			private int ticks = 0;
-			private float waitTicks;
-			private IWorld world;
-
-			public void start(IWorld world, int waitTicks) {
-				this.waitTicks = waitTicks;
-				MinecraftForge.EVENT_BUS.register(this);
-				this.world = world;
+			{
+				boolean _setval = (true);
+				entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.Souzou = _setval;
+					capability.syncPlayerVariables(entity);
+				});
 			}
-
-			@SubscribeEvent
-			public void tick(TickEvent.ServerTickEvent event) {
-				if (event.phase == TickEvent.Phase.END) {
-					this.ticks += 1;
-					if (this.ticks >= this.waitTicks)
-						run();
-				}
+			if (world instanceof World && !world.isRemote()) {
+				((World) world).playSound(null, new BlockPos(x, y, z),
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:terror")),
+						SoundCategory.NEUTRAL, (float) 1, (float) 1);
+			} else {
+				((World) world).playSound(x, y, z,
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:terror")),
+						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 			}
-
-			private void run() {
-				if (world instanceof World && !world.isRemote()) {
-					((World) world).playSound(null, new BlockPos(x, y, z),
-							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:kyusei")),
-							SoundCategory.NEUTRAL, (float) 1, (float) 1);
-				} else {
-					((World) world).playSound(x, y, z,
-							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:kyusei")),
-							SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-				}
+			if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHealth() : -1) > 0) {
 				{
-					List<Entity> _entfound = world.getEntitiesWithinAABB(Entity.class,
-							new AxisAlignedBB(x - (1000 / 2d), y - (1000 / 2d), z - (1000 / 2d), x + (1000 / 2d), y + (1000 / 2d), z + (1000 / 2d)),
-							null).stream().sorted(new Object() {
-								Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-								}
-							}.compareDistOf(x, y, z)).collect(Collectors.toList());
-					for (Entity entityiterator : _entfound) {
-						if (!(entityiterator == entity)) {
-							if (entityiterator instanceof LivingEntity)
-								((LivingEntity) entityiterator).addPotionEffect(new EffectInstance(KyuseiPPotionEffect.potion, (int) 2000, (int) 2));
-							if (entity instanceof LivingEntity)
-								((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.REGENERATION, (int) 2000, (int) 2));
-						}
-						new Object() {
-							private int ticks = 0;
-							private float waitTicks;
-							private IWorld world;
-
-							public void start(IWorld world, int waitTicks) {
-								this.waitTicks = waitTicks;
-								MinecraftForge.EVENT_BUS.register(this);
-								this.world = world;
-							}
-
-							@SubscribeEvent
-							public void tick(TickEvent.ServerTickEvent event) {
-								if (event.phase == TickEvent.Phase.END) {
-									this.ticks += 1;
-									if (this.ticks >= this.waitTicks)
-										run();
-								}
-							}
-
-							private void run() {
-								{
-									boolean _setval = (false);
-									entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-										capability.Souzou = _setval;
-										capability.syncPlayerVariables(entity);
-									});
-								}
-								MinecraftForge.EVENT_BUS.unregister(this);
-							}
-						}.start(world, (int) 8000);
+					Entity _ent = entity;
+					if (!_ent.world.isRemote && _ent.world.getServer() != null) {
+						_ent.world.getServer().getCommandManager().handleCommand(
+								_ent.getCommandSource().withFeedbackDisabled().withPermissionLevel(4),
+								"/particle diesiraebleach:bloodmoon ~ ~150 ~ 1 1 1 0 1 force @a");
 					}
 				}
-				MinecraftForge.EVENT_BUS.unregister(this);
+				new Object() {
+					private int ticks = 0;
+					private float waitTicks;
+					private IWorld world;
+
+					public void start(IWorld world, int waitTicks) {
+						this.waitTicks = waitTicks;
+						MinecraftForge.EVENT_BUS.register(this);
+						this.world = world;
+					}
+
+					@SubscribeEvent
+					public void tick(TickEvent.ServerTickEvent event) {
+						if (event.phase == TickEvent.Phase.END) {
+							this.ticks += 1;
+							if (this.ticks >= this.waitTicks)
+								run();
+						}
+					}
+
+					private void run() {
+						if (world instanceof ServerWorld)
+							((ServerWorld) world).setDayTime((int) 10000);
+						MinecraftForge.EVENT_BUS.unregister(this);
+					}
+				}.start(world, (int) 10);
+				new Object() {
+					private int ticks = 0;
+					private float waitTicks;
+					private IWorld world;
+
+					public void start(IWorld world, int waitTicks) {
+						this.waitTicks = waitTicks;
+						MinecraftForge.EVENT_BUS.register(this);
+						this.world = world;
+					}
+
+					@SubscribeEvent
+					public void tick(TickEvent.ServerTickEvent event) {
+						if (event.phase == TickEvent.Phase.END) {
+							this.ticks += 1;
+							if (this.ticks >= this.waitTicks)
+								run();
+						}
+					}
+
+					private void run() {
+						if (world instanceof ServerWorld)
+							((ServerWorld) world).setDayTime((int) 14000);
+						MinecraftForge.EVENT_BUS.unregister(this);
+					}
+				}.start(world, (int) 10);
 			}
-		}.start(world, (int) 20);
-		{
-			double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-					.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 10);
-			entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-				capability.Killsoul = _setval;
-				capability.syncPlayerVariables(entity);
-			});
+			new Object() {
+				private int ticks = 0;
+				private float waitTicks;
+				private IWorld world;
+
+				public void start(IWorld world, int waitTicks) {
+					this.waitTicks = waitTicks;
+					MinecraftForge.EVENT_BUS.register(this);
+					this.world = world;
+				}
+
+				@SubscribeEvent
+				public void tick(TickEvent.ServerTickEvent event) {
+					if (event.phase == TickEvent.Phase.END) {
+						this.ticks += 1;
+						if (this.ticks >= this.waitTicks)
+							run();
+					}
+				}
+
+				private void run() {
+					if (world instanceof World && !world.isRemote()) {
+						((World) world).playSound(null, new BlockPos(x, y, z),
+								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:kyusei")),
+								SoundCategory.NEUTRAL, (float) 1, (float) 1);
+					} else {
+						((World) world).playSound(x, y, z,
+								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:kyusei")),
+								SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+					}
+					{
+						List<Entity> _entfound = world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(x - (1000 / 2d), y - (1000 / 2d),
+								z - (1000 / 2d), x + (1000 / 2d), y + (1000 / 2d), z + (1000 / 2d)), null).stream().sorted(new Object() {
+									Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+										return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+									}
+								}.compareDistOf(x, y, z)).collect(Collectors.toList());
+						for (Entity entityiterator : _entfound) {
+							if (!(entityiterator == entity)) {
+								if (entityiterator instanceof LivingEntity)
+									((LivingEntity) entityiterator)
+											.addPotionEffect(new EffectInstance(KyuseiPPotionEffect.potion, (int) 2000, (int) 2));
+								if (entity instanceof LivingEntity)
+									((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.REGENERATION, (int) 2000, (int) 2));
+							}
+							new Object() {
+								private int ticks = 0;
+								private float waitTicks;
+								private IWorld world;
+
+								public void start(IWorld world, int waitTicks) {
+									this.waitTicks = waitTicks;
+									MinecraftForge.EVENT_BUS.register(this);
+									this.world = world;
+								}
+
+								@SubscribeEvent
+								public void tick(TickEvent.ServerTickEvent event) {
+									if (event.phase == TickEvent.Phase.END) {
+										this.ticks += 1;
+										if (this.ticks >= this.waitTicks)
+											run();
+									}
+								}
+
+								private void run() {
+									{
+										boolean _setval = (false);
+										entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+											capability.Souzou = _setval;
+											capability.syncPlayerVariables(entity);
+										});
+									}
+									MinecraftForge.EVENT_BUS.unregister(this);
+								}
+							}.start(world, (int) 8000);
+						}
+					}
+					MinecraftForge.EVENT_BUS.unregister(this);
+				}
+			}.start(world, (int) 20);
 		}
 	}
 }
