@@ -1734,6 +1734,10 @@
       "metadata": {
         "dependencies": [
           {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
             "name": "x",
             "type": "number"
           },
@@ -1907,6 +1911,14 @@
           }
         ]
       }
+    },
+    {
+      "name": "Flame",
+      "type": "particle",
+      "sortid": 117,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flame"
     }
   ],
   "variable_elements": [

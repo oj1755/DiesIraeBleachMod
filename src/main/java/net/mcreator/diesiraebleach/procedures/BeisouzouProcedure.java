@@ -220,5 +220,13 @@ public class BeisouzouProcedure {
 				MinecraftForge.EVENT_BUS.unregister(this);
 			}
 		}.start(world, (int) 20);
+		{
+			double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+					.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 10);
+			entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				capability.Killsoul = _setval;
+				capability.syncPlayerVariables(entity);
+			});
+		}
 	}
 }

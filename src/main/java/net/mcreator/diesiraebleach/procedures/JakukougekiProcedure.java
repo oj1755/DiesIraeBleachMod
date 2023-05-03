@@ -12,11 +12,10 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Hand;
 import net.minecraft.util.DamageSource;
-import net.minecraft.potion.EffectInstance;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
-import net.mcreator.diesiraebleach.potion.ZarathustraPotionEffectPotionEffect;
+import net.mcreator.diesiraebleach.particle.FlameParticle;
 import net.mcreator.diesiraebleach.particle.BloodsweeprightParticle;
 import net.mcreator.diesiraebleach.particle.BloodsweepleftParticle;
 import net.mcreator.diesiraebleach.particle.BloodsweepParticle;
@@ -29,7 +28,6 @@ import java.util.Random;
 import java.util.Map;
 import java.util.List;
 import java.util.Comparator;
-import java.util.Collection;
 
 public class JakukougekiProcedure {
 
@@ -67,7 +65,53 @@ public class JakukougekiProcedure {
 		double r = 0;
 		r = (entity.rotationYaw);
 		if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Seiibutsu == true) {
+				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Hihiirokane == true) {
+			if (entity instanceof LivingEntity) {
+				((LivingEntity) entity).swing(Hand.OFF_HAND, true);
+			}
+			if (world instanceof World && !world.isRemote()) {
+				((World) world).playSound(null, new BlockPos(x, y, z),
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:kaen")),
+						SoundCategory.NEUTRAL, (float) 0.5, (float) 2);
+			} else {
+				((World) world).playSound(x, y, z,
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:kaen")),
+						SoundCategory.NEUTRAL, (float) 0.5, (float) 2, false);
+			}
+			if (world instanceof ServerWorld) {
+				((ServerWorld) world).spawnParticle(FlameParticle.particle, (x + MathHelper.nextDouble(new Random(), -1, 1)),
+						(y + MathHelper.nextDouble(new Random(), 0, 2)), (z + MathHelper.nextDouble(new Random(), -1, 1)), (int) 3, 0.1, 0.1, 0.1, 0);
+			}
+			if (world instanceof ServerWorld) {
+				((ServerWorld) world).spawnParticle(FlameParticle.particle, (x + MathHelper.nextDouble(new Random(), -1, 1)),
+						(y + MathHelper.nextDouble(new Random(), 0, 2)), (z + MathHelper.nextDouble(new Random(), -1, 1)), (int) 3, 0.1, 0.1, 0.1, 0);
+			}
+			if (world instanceof ServerWorld) {
+				((ServerWorld) world).spawnParticle(FlameParticle.particle, (x + MathHelper.nextDouble(new Random(), -1, 1)),
+						(y + MathHelper.nextDouble(new Random(), 0, 2)), (z + MathHelper.nextDouble(new Random(), -1, 1)), (int) 3, 0.1, 0.1, 0.1, 0);
+			}
+			{
+				List<Entity> _entfound = world
+						.getEntitiesWithinAABB(Entity.class,
+								new AxisAlignedBB(x - (3 / 2d), y - (3 / 2d), z - (3 / 2d), x + (3 / 2d), y + (3 / 2d), z + (3 / 2d)), null)
+						.stream().sorted(new Object() {
+							Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+								return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+							}
+						}.compareDistOf(x, y, z)).collect(Collectors.toList());
+				for (Entity entityiterator : _entfound) {
+					if (!(entity == entityiterator)) {
+						if (entityiterator instanceof LivingEntity) {
+							entityiterator.attackEntityFrom(DamageSource.GENERIC,
+									(float) (2 + (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+											.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 100));
+							entityiterator.setFire((int) 15);
+						}
+					}
+				}
+			}
+		} else if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Yaminotamamono == true) {
 			if (entity instanceof LivingEntity) {
 				((LivingEntity) entity).swing(Hand.OFF_HAND, true);
 			}
@@ -111,19 +155,8 @@ public class JakukougekiProcedure {
 					}
 				}
 			}
-		}
-		if (new Object() {
-			boolean check(Entity _entity) {
-				if (_entity instanceof LivingEntity) {
-					Collection<EffectInstance> effects = ((LivingEntity) _entity).getActivePotionEffects();
-					for (EffectInstance effect : effects) {
-						if (effect.getPotion() == ZarathustraPotionEffectPotionEffect.potion)
-							return true;
-					}
-				}
-				return false;
-			}
-		}.check(entity)) {
+		} else if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new DiesiraebleachModVariables.PlayerVariables())).MarglittoJudis == true) {
 			if (entity instanceof LivingEntity) {
 				((LivingEntity) entity).swing(Hand.OFF_HAND, true);
 			}

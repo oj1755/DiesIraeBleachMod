@@ -47,57 +47,64 @@ public class BaranoyoruProcedure {
 				DiesiraebleachMod.LOGGER.warn("Failed to load dependency z for procedure Baranoyoru!");
 			return;
 		}
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				DiesiraebleachMod.LOGGER.warn("Failed to load dependency entity for procedure Baranoyoru!");
+			return;
+		}
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		for (int index0 = 0; index0 < (int) (10); index0++) {
-			new Object() {
-				private int ticks = 0;
-				private float waitTicks;
-				private IWorld world;
+		Entity entity = (Entity) dependencies.get("entity");
+		if (entity.isOnGround()) {
+			for (int index0 = 0; index0 < (int) (10); index0++) {
+				new Object() {
+					private int ticks = 0;
+					private float waitTicks;
+					private IWorld world;
 
-				public void start(IWorld world, int waitTicks) {
-					this.waitTicks = waitTicks;
-					MinecraftForge.EVENT_BUS.register(this);
-					this.world = world;
-				}
+					public void start(IWorld world, int waitTicks) {
+						this.waitTicks = waitTicks;
+						MinecraftForge.EVENT_BUS.register(this);
+						this.world = world;
+					}
 
-				@SubscribeEvent
-				public void tick(TickEvent.ServerTickEvent event) {
-					if (event.phase == TickEvent.Phase.END) {
-						this.ticks += 1;
-						if (this.ticks >= this.waitTicks)
-							run();
+					@SubscribeEvent
+					public void tick(TickEvent.ServerTickEvent event) {
+						if (event.phase == TickEvent.Phase.END) {
+							this.ticks += 1;
+							if (this.ticks >= this.waitTicks)
+								run();
+						}
 					}
-				}
 
-				private void run() {
-					if (world instanceof World && !world.isRemote()) {
-						((World) world)
-								.playSound(null, new BlockPos(x, y, z),
-										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-												.getValue(new ResourceLocation("diesiraebleach:beikeisei2")),
-										SoundCategory.NEUTRAL, (float) 1, (float) 1);
-					} else {
-						((World) world).playSound(x, y, z,
-								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
-										.getValue(new ResourceLocation("diesiraebleach:beikeisei2")),
-								SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+					private void run() {
+						if (world instanceof World && !world.isRemote()) {
+							((World) world).playSound(null, new BlockPos(x, y, z),
+									(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+											.getValue(new ResourceLocation("diesiraebleach:beikeisei2")),
+									SoundCategory.NEUTRAL, (float) 1, (float) 1);
+						} else {
+							((World) world).playSound(x, y, z,
+									(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+											.getValue(new ResourceLocation("diesiraebleach:beikeisei2")),
+									SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+						}
+						if (world instanceof ServerWorld) {
+							Entity entityToSpawn = new IbaraEntity.CustomEntity(IbaraEntity.entity, (World) world);
+							entityToSpawn.setLocationAndAngles((x + MathHelper.nextDouble(new Random(), -10, 10)), (y - 1),
+									(z + MathHelper.nextDouble(new Random(), -10, 10)), world.getRandom().nextFloat() * 360F, 0);
+							if (entityToSpawn instanceof MobEntity)
+								((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world,
+										world.getDifficultyForLocation(entityToSpawn.getPosition()), SpawnReason.MOB_SUMMONED,
+										(ILivingEntityData) null, (CompoundNBT) null);
+							world.addEntity(entityToSpawn);
+						}
+						MinecraftForge.EVENT_BUS.unregister(this);
 					}
-					if (world instanceof ServerWorld) {
-						Entity entityToSpawn = new IbaraEntity.CustomEntity(IbaraEntity.entity, (World) world);
-						entityToSpawn.setLocationAndAngles((x + MathHelper.nextDouble(new Random(), -10, 10)), (y - 1),
-								(z + MathHelper.nextDouble(new Random(), -10, 10)), world.getRandom().nextFloat() * 360F, 0);
-						if (entityToSpawn instanceof MobEntity)
-							((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world,
-									world.getDifficultyForLocation(entityToSpawn.getPosition()), SpawnReason.MOB_SUMMONED, (ILivingEntityData) null,
-									(CompoundNBT) null);
-						world.addEntity(entityToSpawn);
-					}
-					MinecraftForge.EVENT_BUS.unregister(this);
-				}
-			}.start(world, (int) 10);
+				}.start(world, (int) 10);
+			}
 		}
 	}
 }

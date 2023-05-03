@@ -15,6 +15,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
 import net.mcreator.diesiraebleach.item.BeiKeiseihanaItem;
+import net.mcreator.diesiraebleach.DiesiraebleachModVariables;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
 import java.util.Map;
@@ -68,6 +69,14 @@ public class BeikeiseiProcedure {
 				((LivingEntity) entity).setItemStackToSlot(EquipmentSlotType.HEAD, new ItemStack(BeiKeiseihanaItem.block));
 			if (entity instanceof ServerPlayerEntity)
 				((ServerPlayerEntity) entity).inventory.markDirty();
+		}
+		{
+			double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+					.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 5);
+			entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				capability.Killsoul = _setval;
+				capability.syncPlayerVariables(entity);
+			});
 		}
 	}
 }
