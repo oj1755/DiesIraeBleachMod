@@ -14,8 +14,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.block.BlockState;
 
+import net.mcreator.diesiraebleach.procedures.Schmeizer2Procedure;
 import net.mcreator.diesiraebleach.procedures.KibakuProcedure;
-import net.mcreator.diesiraebleach.procedures.HibashiraProcedure;
 import net.mcreator.diesiraebleach.DiesiraebleachModElements;
 
 import java.util.stream.Stream;
@@ -61,7 +61,7 @@ public class Test4Item extends DiesiraebleachModElements.ModElement {
 			double y = entity.getPosY();
 			double z = entity.getPosZ();
 
-			HibashiraProcedure.executeProcedure(Stream
+			Schmeizer2Procedure.executeProcedure(Stream
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
 							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));

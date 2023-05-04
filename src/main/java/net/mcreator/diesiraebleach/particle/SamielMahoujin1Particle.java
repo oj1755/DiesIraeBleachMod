@@ -44,7 +44,7 @@ public class SamielMahoujin1Particle {
 			this.spriteSet = spriteSet;
 			this.setSize((float) 0.2, (float) 0.2);
 			this.particleScale *= (float) 7;
-			this.maxAge = 15;
+			this.maxAge = 20;
 			this.particleGravity = (float) 0;
 			this.canCollide = true;
 			this.motionX = vx * 1;

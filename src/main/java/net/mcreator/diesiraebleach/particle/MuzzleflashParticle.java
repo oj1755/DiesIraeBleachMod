@@ -19,12 +19,12 @@ import net.minecraft.client.particle.IAnimatedSprite;
 import net.minecraft.client.Minecraft;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class DagekiparticleParticle {
+public class MuzzleflashParticle {
 	public static final BasicParticleType particle = new BasicParticleType(true);
 
 	@SubscribeEvent
 	public static void registerParticleType(RegistryEvent.Register<ParticleType<?>> event) {
-		event.getRegistry().register(particle.setRegistryName("dagekiparticle"));
+		event.getRegistry().register(particle.setRegistryName("muzzleflash"));
 	}
 
 	@OnlyIn(Dist.CLIENT)
@@ -36,18 +36,22 @@ public class DagekiparticleParticle {
 	@OnlyIn(Dist.CLIENT)
 	private static class CustomParticle extends SpriteTexturedParticle {
 		private final IAnimatedSprite spriteSet;
+		private float angularVelocity;
+		private float angularAcceleration;
 
 		protected CustomParticle(ClientWorld world, double x, double y, double z, double vx, double vy, double vz, IAnimatedSprite spriteSet) {
 			super(world, x, y, z);
 			this.spriteSet = spriteSet;
 			this.setSize((float) 0.2, (float) 0.2);
-			this.particleScale *= (float) 7;
-			this.maxAge = (int) Math.max(1, 5 + (this.rand.nextInt(2) - 1));
+			this.particleScale *= (float) 3.9999999999999996;
+			this.maxAge = (int) Math.max(1, 1 + (this.rand.nextInt(2) - 1));
 			this.particleGravity = (float) 0;
 			this.canCollide = true;
 			this.motionX = vx * 1;
 			this.motionY = vy * 1;
 			this.motionZ = vz * 1;
+			this.angularVelocity = (float) 0.1;
+			this.angularAcceleration = (float) 0.01;
 			this.selectSpriteWithAge(spriteSet);
 		}
 
@@ -64,8 +68,11 @@ public class DagekiparticleParticle {
 		@Override
 		public void tick() {
 			super.tick();
+			this.prevParticleAngle = this.particleAngle;
+			this.particleAngle += this.angularVelocity;
+			this.angularVelocity += this.angularAcceleration;
 			if (!this.isExpired) {
-				this.setSprite(this.spriteSet.get((this.age / 1) % 12 + 1, 12));
+				this.setSprite(this.spriteSet.get((this.age / 1) % 3 + 1, 3));
 			}
 		}
 	}

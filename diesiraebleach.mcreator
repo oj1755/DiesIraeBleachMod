@@ -1967,6 +1967,154 @@
           }
         ]
       }
+    },
+    {
+      "name": "Schmerizer",
+      "type": "procedure",
+      "sortid": 119,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "schmerizer",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Schmeizer2",
+      "type": "procedure",
+      "sortid": 120,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "schmeizer_2",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DummyschmeizerFeibiDaoJugaFeindeiruJian",
+      "type": "procedure",
+      "sortid": 121,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dummyschmeizer_feibi_dao_juga_feindeiru_jian",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Dummyschmeizer",
+      "type": "rangeditem",
+      "sortid": 121,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dummyschmeizer"
+    },
+    {
+      "name": "Muzzleflash",
+      "type": "particle",
+      "sortid": 122,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "muzzleflash"
+    },
+    {
+      "name": "Levitationfire",
+      "type": "procedure",
+      "sortid": 123,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "levitationfire",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Levitationfirepotion",
+      "type": "potioneffect",
+      "sortid": 124,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "levitationfirepotion"
     }
   ],
   "variable_elements": [
@@ -2255,6 +2403,14 @@
       ],
       "category": "neutral",
       "subtitle": ""
+    },
+    {
+      "name": "machinegunfire",
+      "files": [
+        "machinegunfire"
+      ],
+      "category": "neutral",
+      "subtitle": ""
     }
   ],
   "language_map": {
@@ -2268,6 +2424,7 @@
       "key.diesiraebleach.kougeki": "Kougeki",
       "item.diesiraebleach.schmeizer_item": "Schmeizer Item",
       "item.diesiraebleach.dora_cannon": "聖遺物【極大火砲・狩猟の魔王】",
+      "item.diesiraebleach.dummyschmeizer": "Dummyschmeizer",
       "subtitles.dageki": "",
       "subtitles.speed2": "",
       "subtitles.speed3": "",
@@ -2298,6 +2455,7 @@
       "subtitles.bakuhatsu": "",
       "subtitles.terror": "",
       "advancements.katsudouj.title": "活動位階",
+      "subtitles.machinegunfire": "",
       "item.diesiraebleach.seiibutsuhihiirokane_item": "聖遺物【緋々色金】",
       "subtitles.hellfire": "",
       "subtitles.ewigkeite": "",
@@ -2317,6 +2475,7 @@
       "item.diesiraebleach.kui": "Kui",
       "subtitles.speed4": "",
       "item.diesiraebleach.schmeizer_mahoujin_spawn_egg": "Schmeizer Mahoujin Spawn Egg",
+      "effect.levitationfirepotion": "火炎浮揚",
       "subtitles.timestop": "",
       "entity.diesiraebleach.panzer_mahoujin": "Panzer Mahoujin",
       "item.diesiraebleach.hihiirokane": "緋々色金",
