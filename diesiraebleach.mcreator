@@ -2123,6 +2123,62 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "cool_time"
+    },
+    {
+      "name": "FujiRenSouzou",
+      "type": "procedure",
+      "sortid": 126,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fuji_ren_souzou",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TimeStopposiyonnoXiaoGuogaKaiShiShiYongsaretatoki",
+      "type": "procedure",
+      "sortid": 127,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "time_stopposiyonno_xiao_guoga_kai_shi_shi_yongsaretatoki",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TimeStop",
+      "type": "potioneffect",
+      "sortid": 127,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "time_stop"
     }
   ],
   "variable_elements": [
@@ -2449,6 +2505,7 @@
       "item.diesiraebleach.firekibaku_spawn_egg": "Firekibaku Spawn Egg",
       "effect.seiibutsubei": "聖遺物・闇の賜物",
       "subtitles.kyusei": "",
+      "effect.time_stop": "時間停止",
       "item.diesiraebleach.test_4": "Test 4",
       "item.diesiraebleach.bei_keiseihana": "Bei Keiseihana",
       "subtitles.beikeisei": "",
