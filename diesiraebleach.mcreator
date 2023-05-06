@@ -1718,10 +1718,6 @@
       "metadata": {
         "dependencies": [
           {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
             "name": "x",
             "type": "number"
           },
@@ -1911,38 +1907,6 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "panzerhassha",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "Soultest",
-      "type": "procedure",
-      "sortid": 118,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "soultest",
       "metadata": {
         "dependencies": [
           {
@@ -2179,6 +2143,46 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "time_stop"
+    },
+    {
+      "name": "FujiRenSouzouPotionEffectehuekutogaYouXiaoShinoteituku",
+      "type": "procedure",
+      "sortid": 128,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fuji_ren_souzou_potion_effectehuekutoga_you_xiao_shinoteituku",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "FujiRenSouzouPotionEffect",
+      "type": "potioneffect",
+      "sortid": 128,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fuji_ren_souzou_potion_effect"
     }
   ],
   "variable_elements": [
@@ -2498,6 +2502,7 @@
       "advancements.keisei.title": "形成位階",
       "subtitles.kaen": "",
       "key.diesiraebleach.rwazasentaku": "Rwazasentaku",
+      "effect.fuji_ren_souzou_potion_effect": "藤井連：創造状態",
       "item.diesiraebleach.marglitto_guillottin": "聖遺物【罪姫・正義の柱】",
       "advancements.katsudouj.descr": "聖遺物と契約を結び、聖遺物が活動を始めた。",
       "key.diesiraebleach.oowaza": "Oowaza",

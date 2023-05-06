@@ -2,6 +2,8 @@ package net.mcreator.diesiraebleach.procedures;
 
 import net.minecraft.potion.Effects;
 import net.minecraft.potion.EffectInstance;
+import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
@@ -9,6 +11,7 @@ import net.mcreator.diesiraebleach.potion.CoolTimePotionEffect;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
 import java.util.Map;
+import java.util.Collections;
 
 public class TimeStopposiyonnoXiaoGuogaKaiShiShiYongsaretatokiProcedure {
 
@@ -39,5 +42,15 @@ public class TimeStopposiyonnoXiaoGuogaKaiShiShiYongsaretatokiProcedure {
 			((LivingEntity) entity).prevRotationYawHead = entity.rotationYaw;
 		}
 		entity.rotationPitch = (float) ((entity.rotationPitch));
+		if (entity instanceof ArrowEntity == true) {
+			{
+				Entity _ent = entity;
+				_ent.setPositionAndUpdate((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()));
+				if (_ent instanceof ServerPlayerEntity) {
+					((ServerPlayerEntity) _ent).connection.setPlayerLocation((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()),
+							_ent.rotationYaw, _ent.rotationPitch, Collections.emptySet());
+				}
+			}
+		}
 	}
 }
