@@ -26,5 +26,18 @@ public class TimeStopposiyonnoXiaoGuogaKaiShiShiYongsaretatokiProcedure {
 			((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.WEAKNESS, (int) 60, (int) 1000));
 		if (entity instanceof LivingEntity)
 			((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.MINING_FATIGUE, (int) 60, (int) 1000));
+		if (entity instanceof LivingEntity)
+			((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SLOWNESS, (int) 60, (int) 1000));
+		if (entity instanceof LivingEntity)
+			((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.BLINDNESS, (int) 60, (int) 1000));
+		entity.rotationYaw = (float) ((entity.rotationYaw));
+		entity.setRenderYawOffset(entity.rotationYaw);
+		entity.prevRotationYaw = entity.rotationYaw;
+		if (entity instanceof LivingEntity) {
+			((LivingEntity) entity).prevRenderYawOffset = entity.rotationYaw;
+			((LivingEntity) entity).rotationYawHead = entity.rotationYaw;
+			((LivingEntity) entity).prevRotationYawHead = entity.rotationYaw;
+		}
+		entity.rotationPitch = (float) ((entity.rotationPitch));
 	}
 }

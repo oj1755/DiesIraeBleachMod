@@ -49,36 +49,29 @@ public class FujiRenSouzouProcedure {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
-		while ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul > 0) {
-			{
-				List<Entity> _entfound = world
-						.getEntitiesWithinAABB(Entity.class,
-								new AxisAlignedBB(x - (4 / 2d), y - (4 / 2d), z - (4 / 2d), x + (4 / 2d), y + (4 / 2d), z + (4 / 2d)), null)
-						.stream().sorted(new Object() {
-							Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-								return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-							}
-						}.compareDistOf(x, y, z)).collect(Collectors.toList());
-				for (Entity entityiterator : _entfound) {
-					if (!(entity == entityiterator)) {
-						if (entityiterator instanceof LivingEntity)
-							((LivingEntity) entityiterator).addPotionEffect(new EffectInstance(TimeStopPotionEffect.potion, (int) 20, (int) 0));
-						{
-							double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-									.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 1);
-							entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-								capability.Killsoul = _setval;
-								capability.syncPlayerVariables(entity);
-							});
+		{
+			List<Entity> _entfound = world
+					.getEntitiesWithinAABB(Entity.class,
+							new AxisAlignedBB(x - (15 / 2d), y - (15 / 2d), z - (15 / 2d), x + (15 / 2d), y + (15 / 2d), z + (15 / 2d)), null)
+					.stream().sorted(new Object() {
+						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 						}
-					}
+					}.compareDistOf(x, y, z)).collect(Collectors.toList());
+			for (Entity entityiterator : _entfound) {
+				if (!(entity == entityiterator)) {
+					if (entityiterator instanceof LivingEntity)
+						((LivingEntity) entityiterator).addPotionEffect(new EffectInstance(TimeStopPotionEffect.potion, (int) 600, (int) 0));
 				}
 			}
-			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-					.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul <= 0) {
-				break;
-			}
+		}
+		{
+			double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+					.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 1);
+			entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				capability.Killsoul = _setval;
+				capability.syncPlayerVariables(entity);
+			});
 		}
 	}
 }
