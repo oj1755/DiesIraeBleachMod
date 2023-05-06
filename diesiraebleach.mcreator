@@ -2042,10 +2042,6 @@
       "metadata": {
         "dependencies": [
           {
-            "name": "immediatesourceentity",
-            "type": "entity"
-          },
-          {
             "name": "x",
             "type": "number"
           },
@@ -2121,6 +2117,22 @@
       "registry_name": "levitationfirepotion"
     },
     {
+      "name": "Slashsweepleft",
+      "type": "particle",
+      "sortid": 128,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "slashsweepleft"
+    },
+    {
+      "name": "Straightslash",
+      "type": "particle",
+      "sortid": 132,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "straightslash"
+    },
+    {
       "name": "Beykatsudouparticleleft",
       "type": "particle",
       "sortid": 125,
@@ -2145,12 +2157,12 @@
       "registry_name": "beykatsudoufront"
     },
     {
-      "name": "Slashsweepleft",
+      "name": "Fireparticleright",
       "type": "particle",
-      "sortid": 128,
+      "sortid": 130,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "slashsweepleft"
+      "registry_name": "fireparticleright"
     },
     {
       "name": "Fireparticleleft",
@@ -2161,14 +2173,6 @@
       "registry_name": "fireparticleleft"
     },
     {
-      "name": "Fireparticleright",
-      "type": "particle",
-      "sortid": 130,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "fireparticleright"
-    },
-    {
       "name": "Fireballparticle",
       "type": "particle",
       "sortid": 131,
@@ -2177,12 +2181,68 @@
       "registry_name": "fireballparticle"
     },
     {
-      "name": "Straightslash",
-      "type": "particle",
-      "sortid": 132,
+      "name": "CoolTime",
+      "type": "potioneffect",
+      "sortid": 125,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "straightslash"
+      "registry_name": "cool_time"
+    },
+    {
+      "name": "TimeStopposiyonnoXiaoGuogaKaiShiShiYongsaretatoki",
+      "type": "procedure",
+      "sortid": 127,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "time_stopposiyonno_xiao_guoga_kai_shi_shi_yongsaretatoki",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TimeStop",
+      "type": "potioneffect",
+      "sortid": 127,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "time_stop"
+    },
+    {
+      "name": "FujiRenSouzou",
+      "type": "procedure",
+      "sortid": 126,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fuji_ren_souzou",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -2247,13 +2307,13 @@
       "value": "false"
     },
     {
-      "name": "combo1",
+      "name": "combo2",
       "type": "logic",
       "scope": "player_persistent",
       "value": "false"
     },
     {
-      "name": "combo2",
+      "name": "combo1",
       "type": "logic",
       "scope": "player_persistent",
       "value": "false"
@@ -2264,6 +2324,22 @@
       "name": "panzer",
       "files": [
         "launcher1"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "panzersummon",
+      "files": [
+        "magic4"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "gunfire",
+      "files": [
+        "gunfire"
       ],
       "category": "neutral",
       "subtitle": ""
@@ -2475,22 +2551,6 @@
       ],
       "category": "neutral",
       "subtitle": ""
-    },
-    {
-      "name": "gunfire",
-      "files": [
-        "gunfire"
-      ],
-      "category": "neutral",
-      "subtitle": ""
-    },
-    {
-      "name": "panzersummon",
-      "files": [
-        "magic4"
-      ],
-      "category": "neutral",
-      "subtitle": ""
     }
   ],
   "language_map": {
@@ -2521,6 +2581,7 @@
       "item.diesiraebleach.firekibaku_spawn_egg": "Firekibaku Spawn Egg",
       "effect.seiibutsubei": "聖遺物・闇の賜物",
       "subtitles.kyusei": "",
+      "effect.time_stop": "時間停止",
       "item.diesiraebleach.test_4": "Test 4",
       "item.diesiraebleach.bei_keiseihana": "Bei Keiseihana",
       "subtitles.beikeisei": "",
@@ -2545,6 +2606,7 @@
       "effect.seiibutsu_hihiirokane": "聖遺物・緋々色金",
       "subtitles.punchsuburi": "",
       "item.diesiraebleach.panzer_faust_item": "Panzer Faust Item",
+      "effect.cool_time": "クールタイム",
       "item.diesiraebleach.qliphoth_bacikal_2": "聖遺物【闇の賜物】",
       "subtitles.panzer": "",
       "entity.diesiraebleach.ibara": "Ibara",

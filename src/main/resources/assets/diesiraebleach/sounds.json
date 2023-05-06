@@ -8,6 +8,24 @@
       }
     ]
   },
+  "panzersummon": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:magic4",
+        "stream": false
+      }
+    ]
+  },
+  "gunfire": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "diesiraebleach:gunfire",
+        "stream": false
+      }
+    ]
+  },
   "guncharge": {
     "category": "neutral",
     "sounds": [
@@ -238,24 +256,6 @@
     "sounds": [
       {
         "name": "diesiraebleach:machinegunfire",
-        "stream": false
-      }
-    ]
-  },
-  "gunfire": {
-    "category": "neutral",
-    "sounds": [
-      {
-        "name": "diesiraebleach:gunfire",
-        "stream": false
-      }
-    ]
-  },
-  "panzersummon": {
-    "category": "neutral",
-    "sounds": [
-      {
-        "name": "diesiraebleach:magic4",
         "stream": false
       }
     ]

@@ -224,8 +224,8 @@ public class DiesiraebleachModVariables {
 			nbt.putBoolean("MarglittoJudis", instance.MarglittoJudis);
 			nbt.putBoolean("Hihiirokane", instance.Hihiirokane);
 			nbt.putBoolean("DerfreischeSamiel", instance.DerfreischeSamiel);
-			nbt.putBoolean("combo1", instance.combo1);
 			nbt.putBoolean("combo2", instance.combo2);
+			nbt.putBoolean("combo1", instance.combo1);
 			return nbt;
 		}
 
@@ -241,8 +241,8 @@ public class DiesiraebleachModVariables {
 			instance.MarglittoJudis = nbt.getBoolean("MarglittoJudis");
 			instance.Hihiirokane = nbt.getBoolean("Hihiirokane");
 			instance.DerfreischeSamiel = nbt.getBoolean("DerfreischeSamiel");
-			instance.combo1 = nbt.getBoolean("combo1");
 			instance.combo2 = nbt.getBoolean("combo2");
+			instance.combo1 = nbt.getBoolean("combo1");
 		}
 	}
 
@@ -256,8 +256,8 @@ public class DiesiraebleachModVariables {
 		public boolean MarglittoJudis = false;
 		public boolean Hihiirokane = false;
 		public boolean DerfreischeSamiel = false;
-		public boolean combo1 = false;
 		public boolean combo2 = false;
+		public boolean combo1 = false;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
@@ -301,8 +301,8 @@ public class DiesiraebleachModVariables {
 		clone.MarglittoJudis = original.MarglittoJudis;
 		clone.Hihiirokane = original.Hihiirokane;
 		clone.DerfreischeSamiel = original.DerfreischeSamiel;
-		clone.combo1 = original.combo1;
 		clone.combo2 = original.combo2;
+		clone.combo1 = original.combo1;
 		if (!event.isWasDeath()) {
 		}
 	}
@@ -338,8 +338,8 @@ public class DiesiraebleachModVariables {
 					variables.MarglittoJudis = message.data.MarglittoJudis;
 					variables.Hihiirokane = message.data.Hihiirokane;
 					variables.DerfreischeSamiel = message.data.DerfreischeSamiel;
-					variables.combo1 = message.data.combo1;
 					variables.combo2 = message.data.combo2;
+					variables.combo1 = message.data.combo1;
 				}
 			});
 			context.setPacketHandled(true);
