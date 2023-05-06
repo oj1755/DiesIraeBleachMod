@@ -1,28 +1,6 @@
 package net.mcreator.diesiraebleach.procedures;
 
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.common.MinecraftForge;
-
-import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.World;
-import net.minecraft.world.IWorld;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.entity.projectile.ProjectileEntity;
-import net.minecraft.entity.projectile.AbstractArrowEntity;
-import net.minecraft.entity.Entity;
-
-import net.mcreator.diesiraebleach.particle.SouzouparticleParticle;
-import net.mcreator.diesiraebleach.particle.DarkParticleParticle;
-import net.mcreator.diesiraebleach.item.BeienkyoriitemItem;
-import net.mcreator.diesiraebleach.DiesiraebleachMod;
-
-import java.util.Random;
-import java.util.Map;
+import net.minecraftforge.eventbus.api.Event;
 
 public class KuibakuhaProcedure {
 
@@ -52,11 +30,13 @@ public class KuibakuhaProcedure {
 				DiesiraebleachMod.LOGGER.warn("Failed to load dependency entity for procedure Kuibakuha!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		for (int index0 = 0; index0 < (int) (10); index0++) {
 			if (world instanceof World && !world.isRemote()) {
 				((World) world).playSound(null, new BlockPos(x, y, z),
@@ -68,6 +48,7 @@ public class KuibakuhaProcedure {
 						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 			}
 			new Object() {
+
 				private int ticks = 0;
 				private float waitTicks;
 				private IWorld world;
@@ -117,7 +98,9 @@ public class KuibakuhaProcedure {
 					}
 					MinecraftForge.EVENT_BUS.unregister(this);
 				}
+
 			}.start(world, (int) 5);
 		}
 	}
+
 }

@@ -1,17 +1,9 @@
 
 package net.mcreator.diesiraebleach.potion;
 
-import net.minecraftforge.registries.ObjectHolder;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.RegistryEvent;
-
-import net.minecraft.potion.EffectType;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effect;
-
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CoolTimePotionEffect {
+
 	@ObjectHolder("diesiraebleach:cool_time")
 	public static final Effect potion = null;
 
@@ -21,6 +13,7 @@ public class CoolTimePotionEffect {
 	}
 
 	public static class EffectCustom extends Effect {
+
 		public EffectCustom() {
 			super(EffectType.NEUTRAL, -1);
 			setRegistryName("cool_time");
@@ -60,5 +53,7 @@ public class CoolTimePotionEffect {
 		public boolean isReady(int duration, int amplifier) {
 			return true;
 		}
+
 	}
+
 }

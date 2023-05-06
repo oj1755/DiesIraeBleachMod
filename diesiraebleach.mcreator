@@ -1718,6 +1718,10 @@
       "metadata": {
         "dependencies": [
           {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
             "name": "x",
             "type": "number"
           },
@@ -2145,6 +2149,14 @@
       "registry_name": "time_stop"
     },
     {
+      "name": "FujiRenSouzouPotionEffect",
+      "type": "potioneffect",
+      "sortid": 128,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fuji_ren_souzou_potion_effect"
+    },
+    {
       "name": "FujiRenSouzouPotionEffectehuekutogaYouXiaoShinoteituku",
       "type": "procedure",
       "sortid": 128,
@@ -2177,12 +2189,68 @@
       }
     },
     {
-      "name": "FujiRenSouzouPotionEffect",
-      "type": "potioneffect",
+      "name": "Slashsweepleft",
+      "type": "particle",
       "sortid": 128,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "fuji_ren_souzou_potion_effect"
+      "registry_name": "slashsweepleft"
+    },
+    {
+      "name": "Straightslash",
+      "type": "particle",
+      "sortid": 132,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "straightslash"
+    },
+    {
+      "name": "Beykatsudouparticleleft",
+      "type": "particle",
+      "sortid": 125,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beykatsudouparticleleft"
+    },
+    {
+      "name": "Beykatsudouparticleright",
+      "type": "particle",
+      "sortid": 126,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beykatsudouparticleright"
+    },
+    {
+      "name": "Beykatsudoufront",
+      "type": "particle",
+      "sortid": 127,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beykatsudoufront"
+    },
+    {
+      "name": "Fireparticleright",
+      "type": "particle",
+      "sortid": 130,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fireparticleright"
+    },
+    {
+      "name": "Fireparticleleft",
+      "type": "particle",
+      "sortid": 129,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fireparticleleft"
+    },
+    {
+      "name": "Fireballparticle",
+      "type": "particle",
+      "sortid": 131,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fireballparticle"
     }
   ],
   "variable_elements": [
@@ -2242,6 +2310,18 @@
     },
     {
       "name": "DerfreischeSamiel",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "combo2",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "combo1",
       "type": "logic",
       "scope": "player_persistent",
       "value": "false"

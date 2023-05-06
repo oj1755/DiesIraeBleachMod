@@ -92,8 +92,8 @@ public class Schmeizer2Procedure {
 						return entityToSpawn;
 					}
 				}.getArrow(projectileLevel, entity, 1, 1);
-				_entityToSpawn.setPosition((x + 3 * Math.cos(Math.toRadians(angle))), (y + 0), (z + 3 * Math.sin(Math.toRadians(angle))));
-				_entityToSpawn.shoot(0, 0, 0, 0, 0);
+				_entityToSpawn.setPosition((x + 3 * Math.cos(Math.toRadians(angle))), (y + 0.3), (z + 3 * Math.sin(Math.toRadians(angle))));
+				_entityToSpawn.shoot(0, 0.1, 0, 0, 0);
 				world.addEntity(_entityToSpawn);
 			}
 			angle = (angle + 36);

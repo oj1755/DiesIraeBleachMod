@@ -99,32 +99,67 @@ public class DagekiProcedure {
 								SoundCategory.NEUTRAL, (float) 1, (float) 2, false);
 					}
 					if (world instanceof ServerWorld) {
-						((ServerWorld) world).spawnParticle(DagekiparticleParticle.particle, (x + MathHelper.nextDouble(new Random(), -1, 1)),
-								(y + MathHelper.nextDouble(new Random(), 0, 2)), (z + MathHelper.nextDouble(new Random(), -1, 1)), (int) 1, 0.1, 0.1,
-								0.1, 0);
+						((ServerWorld) world).spawnParticle(DagekiparticleParticle.particle,
+								(x + MathHelper.nextDouble(new Random(), 1, 2)
+										* Math.cos(Math.toRadians(entity.rotationYaw + MathHelper.nextDouble(new Random(), 70, 110)))),
+								(y + MathHelper.nextDouble(new Random(), 0, 2)),
+								(z + MathHelper.nextDouble(new Random(), 1, 2)
+										* Math.sin(Math.toRadians(entity.rotationYaw + MathHelper.nextDouble(new Random(), 70, 110)))),
+								(int) 1, 0.1, 0.1, 0.1, 0);
 					}
 					MinecraftForge.EVENT_BUS.unregister(this);
 				}
 			}.start(world, (int) (MathHelper.nextDouble(new Random(), 5, 10)));
 		}
-		{
-			List<Entity> _entfound = world
-					.getEntitiesWithinAABB(Entity.class,
-							new AxisAlignedBB(x - (3 / 2d), y - (3 / 2d), z - (3 / 2d), x + (3 / 2d), y + (3 / 2d), z + (3 / 2d)), null)
-					.stream().sorted(new Object() {
-						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-						}
-					}.compareDistOf(x, y, z)).collect(Collectors.toList());
-			for (Entity entityiterator : _entfound) {
-				if (!(entity == entityiterator)) {
-					if (entityiterator instanceof LivingEntity) {
-						entityiterator.attackEntityFrom(DamageSource.GENERIC,
-								(float) (2 + (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-										.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 100));
-					}
+		new Object() {
+			private int ticks = 0;
+			private float waitTicks;
+			private IWorld world;
+
+			public void start(IWorld world, int waitTicks) {
+				this.waitTicks = waitTicks;
+				MinecraftForge.EVENT_BUS.register(this);
+				this.world = world;
+			}
+
+			@SubscribeEvent
+			public void tick(TickEvent.ServerTickEvent event) {
+				if (event.phase == TickEvent.Phase.END) {
+					this.ticks += 1;
+					if (this.ticks >= this.waitTicks)
+						run();
 				}
 			}
-		}
+
+			private void run() {
+				{
+					List<Entity> _entfound = world.getEntitiesWithinAABB(Entity.class,
+							new AxisAlignedBB(
+									(x + 1 * Math.cos(Math.toRadians(entity.rotationYaw + MathHelper.nextDouble(new Random(), 70, 110)))) - (3 / 2d),
+									y - (3 / 2d),
+									(z + 1 * Math.sin(Math.toRadians(entity.rotationYaw + MathHelper.nextDouble(new Random(), 70, 110)))) - (3 / 2d),
+									(x + 1 * Math.cos(Math.toRadians(entity.rotationYaw + MathHelper.nextDouble(new Random(), 70, 110)))) + (3 / 2d),
+									y + (3 / 2d),
+									(z + 1 * Math.sin(Math.toRadians(entity.rotationYaw + MathHelper.nextDouble(new Random(), 70, 110)))) + (3 / 2d)),
+							null).stream().sorted(new Object() {
+								Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+								}
+							}.compareDistOf((x + 1 * Math.cos(Math.toRadians(entity.rotationYaw + MathHelper.nextDouble(new Random(), 70, 110)))), y,
+									(z + 1 * Math.sin(Math.toRadians(entity.rotationYaw + MathHelper.nextDouble(new Random(), 70, 110))))))
+							.collect(Collectors.toList());
+					for (Entity entityiterator : _entfound) {
+						if (!(entity == entityiterator)) {
+							if (entityiterator instanceof LivingEntity) {
+								entityiterator.attackEntityFrom(DamageSource.GENERIC,
+										(float) (2 + (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+												.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 100));
+							}
+						}
+					}
+				}
+				MinecraftForge.EVENT_BUS.unregister(this);
+			}
+		}.start(world, (int) (MathHelper.nextDouble(new Random(), 5, 10)));
 	}
 }
