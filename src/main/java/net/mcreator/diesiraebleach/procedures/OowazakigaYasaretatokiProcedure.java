@@ -74,6 +74,14 @@ public class OowazakigaYasaretatokiProcedure {
 						: false)) {
 			if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.HEAD) : ItemStack.EMPTY)
 					.getItem() == Blocks.CAVE_AIR.asItem()) {
+				{
+					double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 20);
+					entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.Killsoul = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
 				BeikeiseiProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -88,6 +96,14 @@ public class OowazakigaYasaretatokiProcedure {
 											.getAdvancement(new ResourceLocation("diesiraebleach:souzou")))
 									.isDone()
 							: false)) {
+				{
+					double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 30);
+					entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.Killsoul = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
 				BeisouzouProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -107,6 +123,14 @@ public class OowazakigaYasaretatokiProcedure {
 										.getAdvancement(new ResourceLocation("diesiraebleach:keisei")))
 								.isDone()
 						: false)) {
+			{
+				double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 20);
+				entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.Killsoul = _setval;
+					capability.syncPlayerVariables(entity);
+				});
+			}
 			{
 				boolean _setval = (true);
 				entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
@@ -154,6 +178,14 @@ public class OowazakigaYasaretatokiProcedure {
 				&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 						.orElse(new DiesiraebleachModVariables.PlayerVariables())).MarglittoJudis == true) {
 			{
+				double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 30);
+				entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.Killsoul = _setval;
+					capability.syncPlayerVariables(entity);
+				});
+			}
+			{
 				boolean _setval = (true);
 				entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.Souzou = _setval;
@@ -161,7 +193,7 @@ public class OowazakigaYasaretatokiProcedure {
 				});
 			}
 			if (entity instanceof LivingEntity)
-				((LivingEntity) entity).addPotionEffect(new EffectInstance(ZarathustraPotionEffectPotionEffect.potion, (int) 1e+25, (int) 1));
+				((LivingEntity) entity).addPotionEffect(new EffectInstance(ZarathustraPotionEffectPotionEffect.potion, (int) 8000, (int) 1));
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 				((PlayerEntity) entity)
 						.sendStatusMessage(new StringTextComponent("\u00A73\u5275\u9020 \u2015 \u7F8E\u9E97\u5239\u90A3\u30FB\u5E8F\u66F2"), (true));
@@ -190,6 +222,14 @@ public class OowazakigaYasaretatokiProcedure {
 										.getAdvancement(new ResourceLocation("diesiraebleach:keisei")))
 								.isDone()
 						: false)) {
+			{
+				double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 20);
+				entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.Killsoul = _setval;
+					capability.syncPlayerVariables(entity);
+				});
+			}
 			{
 				boolean _setval = (true);
 				entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {

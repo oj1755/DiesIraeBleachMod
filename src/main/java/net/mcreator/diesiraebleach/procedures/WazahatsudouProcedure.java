@@ -84,7 +84,9 @@ public class WazahatsudouProcedure {
 					}
 				}
 				if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 4) {
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 4
+						&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul >= 1) {
 					BeikatsudouProcedure.executeProcedure(Stream
 							.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 									new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
@@ -93,9 +95,19 @@ public class WazahatsudouProcedure {
 					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u676D\u5C04\u51FA"), (true));
 					}
+					{
+						double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 1);
+						entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+							capability.Killsoul = _setval;
+							capability.syncPlayerVariables(entity);
+						});
+					}
 				}
 				if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 5) {
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 5
+						&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul >= 3) {
 					KuirandaProcedure.executeProcedure(Stream
 							.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 									new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
@@ -104,11 +116,21 @@ public class WazahatsudouProcedure {
 					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u676D\u4E71\u6253"), (true));
 					}
+					{
+						double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 3);
+						entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+							capability.Killsoul = _setval;
+							capability.syncPlayerVariables(entity);
+						});
+					}
 				}
 				if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Souzou == true) {
 					if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 6) {
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 6
+							&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+									.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul >= 5) {
 						KuibakuhaProcedure.executeProcedure(Stream
 								.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 										new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
@@ -117,9 +139,19 @@ public class WazahatsudouProcedure {
 						if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 							((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u8840\u676D\u306E\u9818\u57DF"), (true));
 						}
+						{
+							double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+									.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 5);
+							entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.Killsoul = _setval;
+								capability.syncPlayerVariables(entity);
+							});
+						}
 					}
 					if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 7) {
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 7
+							&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+									.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul >= 5) {
 						BaranoyoruProcedure.executeProcedure(Stream
 								.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 										new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
@@ -128,9 +160,19 @@ public class WazahatsudouProcedure {
 						if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 							((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u8594\u8587\u306E\u591C"), (true));
 						}
+						{
+							double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+									.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 5);
+							entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.Killsoul = _setval;
+								capability.syncPlayerVariables(entity);
+							});
+						}
 					}
 					if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 8) {
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 8
+							&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+									.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul >= 2) {
 						YamigakureProcedure.executeProcedure(Stream
 								.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 										new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
@@ -139,6 +181,14 @@ public class WazahatsudouProcedure {
 						if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 							((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u95C7\u96A0\u308C"), (true));
 						}
+						{
+							double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+									.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 2);
+							entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.Killsoul = _setval;
+								capability.syncPlayerVariables(entity);
+							});
+						}
 					}
 				}
 			}
@@ -146,16 +196,28 @@ public class WazahatsudouProcedure {
 		if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Hihiirokane == true) {
 			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 3) {
+					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 3
+					&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul >= 3) {
 				BakuenProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u7206\u708E"), (true));
 				}
+				{
+					double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 3);
+					entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.Killsoul = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
 			}
 			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 4) {
+					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 4
+					&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul >= 2) {
 				FireballmagicProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
@@ -163,6 +225,14 @@ public class WazahatsudouProcedure {
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u706B\u7403"), (true));
+				}
+				{
+					double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 2);
+					entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.Killsoul = _setval;
+						capability.syncPlayerVariables(entity);
+					});
 				}
 			}
 		}
@@ -181,7 +251,9 @@ public class WazahatsudouProcedure {
 		if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new DiesiraebleachModVariables.PlayerVariables())).DerfreischeSamiel == true) {
 			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 3) {
+					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 3
+					&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul >= 3) {
 				TosshinProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -197,9 +269,19 @@ public class WazahatsudouProcedure {
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u7206\u7834"), (true));
 				}
+				{
+					double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 3);
+					entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.Killsoul = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
 			}
 			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 5) {
+					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 5
+					&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul >= 2) {
 				FireballmagicProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
@@ -208,9 +290,19 @@ public class WazahatsudouProcedure {
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u706B\u7403"), (true));
 				}
+				{
+					double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 2);
+					entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.Killsoul = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
 			}
 			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 6) {
+					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 6
+					&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul >= 5) {
 				KibakuProcedure.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
@@ -218,18 +310,38 @@ public class WazahatsudouProcedure {
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u706B\u7403\u53EC\u559A"), (true));
 				}
+				{
+					double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 5);
+					entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.Killsoul = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
 			}
 			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 7) {
+					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 7
+					&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul >= 5) {
 				PanzerhasshaProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u30D1\u30F3\u30C4\u30A1\u30FC\u6383\u5C04"), (true));
 				}
+				{
+					double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 5);
+					entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.Killsoul = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
 			}
 			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 8) {
+					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 8
+					&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul >= 3) {
 				Schmeizer2Procedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -237,14 +349,32 @@ public class WazahatsudouProcedure {
 					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u30B7\u30E5\u30DE\u30A4\u30B6\u30FC\u6383\u5C04"),
 							(true));
 				}
+				{
+					double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 3);
+					entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.Killsoul = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
 			}
 			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 9) {
+					.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 9
+					&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul >= 8) {
 				HibashiraProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u706B\u67F1"), (true));
+				}
+				{
+					double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 8);
+					entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.Killsoul = _setval;
+						capability.syncPlayerVariables(entity);
+					});
 				}
 			}
 			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
