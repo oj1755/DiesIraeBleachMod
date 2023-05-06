@@ -2042,6 +2042,10 @@
       "metadata": {
         "dependencies": [
           {
+            "name": "immediatesourceentity",
+            "type": "entity"
+          },
+          {
             "name": "x",
             "type": "number"
           },
@@ -2115,6 +2119,70 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "levitationfirepotion"
+    },
+    {
+      "name": "Beykatsudouparticleleft",
+      "type": "particle",
+      "sortid": 125,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beykatsudouparticleleft"
+    },
+    {
+      "name": "Beykatsudouparticleright",
+      "type": "particle",
+      "sortid": 126,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beykatsudouparticleright"
+    },
+    {
+      "name": "Beykatsudoufront",
+      "type": "particle",
+      "sortid": 127,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beykatsudoufront"
+    },
+    {
+      "name": "Slashsweepleft",
+      "type": "particle",
+      "sortid": 128,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "slashsweepleft"
+    },
+    {
+      "name": "Fireparticleleft",
+      "type": "particle",
+      "sortid": 129,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fireparticleleft"
+    },
+    {
+      "name": "Fireparticleright",
+      "type": "particle",
+      "sortid": 130,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fireparticleright"
+    },
+    {
+      "name": "Fireballparticle",
+      "type": "particle",
+      "sortid": 131,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fireballparticle"
+    },
+    {
+      "name": "Straightslash",
+      "type": "particle",
+      "sortid": 132,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "straightslash"
     }
   ],
   "variable_elements": [
@@ -2177,6 +2245,18 @@
       "type": "logic",
       "scope": "player_persistent",
       "value": "false"
+    },
+    {
+      "name": "combo1",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "combo2",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
     }
   ],
   "sound_elements": [
@@ -2184,22 +2264,6 @@
       "name": "panzer",
       "files": [
         "launcher1"
-      ],
-      "category": "neutral",
-      "subtitle": ""
-    },
-    {
-      "name": "panzersummon",
-      "files": [
-        "magic4"
-      ],
-      "category": "neutral",
-      "subtitle": ""
-    },
-    {
-      "name": "gunfire",
-      "files": [
-        "gunfire"
       ],
       "category": "neutral",
       "subtitle": ""
@@ -2408,6 +2472,22 @@
       "name": "machinegunfire",
       "files": [
         "machinegunfire"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "gunfire",
+      "files": [
+        "gunfire"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "panzersummon",
+      "files": [
+        "magic4"
       ],
       "category": "neutral",
       "subtitle": ""

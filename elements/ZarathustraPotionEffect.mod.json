@@ -13,7 +13,7 @@
     "isBenefitical": false,
     "renderStatusInInventory": true,
     "renderStatusInHUD": true,
-    "onStarted": {
+    "onActiveTick": {
       "name": "Zarathustra"
     }
   }

@@ -2,6 +2,7 @@ package net.mcreator.diesiraebleach.procedures;
 
 import net.minecraftforge.registries.ForgeRegistries;
 
+import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
@@ -9,10 +10,6 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
-import net.minecraft.potion.Effects;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
 import net.mcreator.diesiraebleach.particle.SlashsweepParticle;
@@ -61,14 +58,16 @@ public class MarglittoslashProcedure {
 		double deg = 0;
 		double r = 0;
 		{
-			List<Entity> _entfound = world
-					.getEntitiesWithinAABB(Entity.class,
-							new AxisAlignedBB(x - (4 / 2d), y - (4 / 2d), z - (4 / 2d), x + (4 / 2d), y + (4 / 2d), z + (4 / 2d)), null)
-					.stream().sorted(new Object() {
+			List<Entity> _entfound = world.getEntitiesWithinAABB(Entity.class,
+					new AxisAlignedBB((x + r * Math.sin(Math.toRadians(deg))) - (4 / 2d), y - (4 / 2d),
+							(z + r * Math.cos(Math.toRadians(deg))) - (4 / 2d), (x + r * Math.sin(Math.toRadians(deg))) + (4 / 2d), y + (4 / 2d),
+							(z + r * Math.cos(Math.toRadians(deg))) + (4 / 2d)),
+					null).stream().sorted(new Object() {
 						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 						}
-					}.compareDistOf(x, y, z)).collect(Collectors.toList());
+					}.compareDistOf((x + r * Math.sin(Math.toRadians(deg))), y, (z + r * Math.cos(Math.toRadians(deg)))))
+					.collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
 				if (!(entity == entityiterator)) {
 					entityiterator.attackEntityFrom(DamageSource.GENERIC,
@@ -77,8 +76,8 @@ public class MarglittoslashProcedure {
 				}
 			}
 		}
-		deg = (entity.rotationYaw - 90);
-		r = 2;
+		deg = (entity.rotationYaw + 90);
+		r = 1;
 		if (world instanceof World && !world.isRemote()) {
 			((World) world).playSound(null, new BlockPos(x, y, z),
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:speed1")),
@@ -90,61 +89,16 @@ public class MarglittoslashProcedure {
 		}
 		if (world instanceof World && !world.isRemote()) {
 			((World) world).playSound(null, new BlockPos(x, y, z),
-					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:kensuburi")),
+					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:kenzangeki")),
 					SoundCategory.NEUTRAL, (float) 1, (float) 1);
 		} else {
 			((World) world).playSound(x, y, z,
-					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:kensuburi")),
+					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:kenzangeki")),
 					SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 		}
-		for (int index0 = 0; index0 < (int) (2); index0++) {
-			for (int index1 = 0; index1 < (int) (11); index1++) {
-				world.addParticle(SlashsweepParticle.particle, (x - r * Math.sin(Math.toRadians(deg))), (y + 1),
-						(z + r * Math.cos(Math.toRadians(deg))), ((-0.1) * Math.sin(Math.toRadians(deg))), 0, (0.1 * Math.cos(Math.toRadians(deg))));
-				deg = (deg + 18);
-				if (((Entity) world.getEntitiesWithinAABB(MonsterEntity.class,
-						new AxisAlignedBB((x - r * Math.sin(Math.toRadians(deg))) - (2 / 2d), y - (2 / 2d),
-								(z + r * Math.cos(Math.toRadians(deg))) - (2 / 2d), (x - r * Math.sin(Math.toRadians(deg))) + (2 / 2d), y + (2 / 2d),
-								(z + r * Math.cos(Math.toRadians(deg))) + (2 / 2d)),
-						null).stream().sorted(new Object() {
-							Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-								return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-							}
-						}.compareDistOf((x - r * Math.sin(Math.toRadians(deg))), y, (z + r * Math.cos(Math.toRadians(deg))))).findFirst()
-						.orElse(null)) instanceof LivingEntity)
-					((LivingEntity) ((Entity) world.getEntitiesWithinAABB(MonsterEntity.class,
-							new AxisAlignedBB((x - r * Math.sin(Math.toRadians(deg))) - (2 / 2d), y - (2 / 2d),
-									(z + r * Math.cos(Math.toRadians(deg))) - (2 / 2d), (x - r * Math.sin(Math.toRadians(deg))) + (2 / 2d),
-									y + (2 / 2d), (z + r * Math.cos(Math.toRadians(deg))) + (2 / 2d)),
-							null).stream().sorted(new Object() {
-								Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-								}
-							}.compareDistOf((x - r * Math.sin(Math.toRadians(deg))), y, (z + r * Math.cos(Math.toRadians(deg))))).findFirst()
-							.orElse(null))).addPotionEffect(new EffectInstance(Effects.INSTANT_DAMAGE, (int) 1, (int) 1));
-				if (((Entity) world.getEntitiesWithinAABB(MonsterEntity.class,
-						new AxisAlignedBB((x - r * Math.sin(Math.toRadians(deg))) - (2 / 2d), y - (2 / 2d),
-								(z + r * Math.cos(Math.toRadians(deg))) - (2 / 2d), (x - r * Math.sin(Math.toRadians(deg))) + (2 / 2d), y + (2 / 2d),
-								(z + r * Math.cos(Math.toRadians(deg))) + (2 / 2d)),
-						null).stream().sorted(new Object() {
-							Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-								return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-							}
-						}.compareDistOf((x - r * Math.sin(Math.toRadians(deg))), y, (z + r * Math.cos(Math.toRadians(deg))))).findFirst()
-						.orElse(null)) instanceof LivingEntity)
-					((LivingEntity) ((Entity) world.getEntitiesWithinAABB(MonsterEntity.class,
-							new AxisAlignedBB((x - r * Math.sin(Math.toRadians(deg))) - (2 / 2d), y - (2 / 2d),
-									(z + r * Math.cos(Math.toRadians(deg))) - (2 / 2d), (x - r * Math.sin(Math.toRadians(deg))) + (2 / 2d),
-									y + (2 / 2d), (z + r * Math.cos(Math.toRadians(deg))) + (2 / 2d)),
-							null).stream().sorted(new Object() {
-								Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
-								}
-							}.compareDistOf((x - r * Math.sin(Math.toRadians(deg))), y, (z + r * Math.cos(Math.toRadians(deg))))).findFirst()
-							.orElse(null))).addPotionEffect(new EffectInstance(Effects.INSTANT_HEALTH, (int) 1, (int) 1));
-			}
-			deg = (entity.rotationYaw - 81);
-			r = (r + 1);
+		if (world instanceof ServerWorld) {
+			((ServerWorld) world).spawnParticle(SlashsweepParticle.particle, (x + r * Math.sin(Math.toRadians(deg))), (y + 1),
+					(z + r * Math.cos(Math.toRadians(deg))), (int) 5, 0.1, 0.1, 0.1, 0);
 		}
 	}
 }

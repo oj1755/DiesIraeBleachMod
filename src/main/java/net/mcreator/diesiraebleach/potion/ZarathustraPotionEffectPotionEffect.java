@@ -11,7 +11,6 @@ import net.minecraft.potion.EffectType;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effect;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Entity;
 
 import net.mcreator.diesiraebleach.procedures.ZarathustraProcedure;
 
@@ -67,7 +66,7 @@ public class ZarathustraPotionEffectPotionEffect {
 		}
 
 		@Override
-		public void affectEntity(Entity source, Entity indirectSource, LivingEntity entity, int amplifier, double health) {
+		public void performEffect(LivingEntity entity, int amplifier) {
 			World world = entity.world;
 			double x = entity.getPosX();
 			double y = entity.getPosY();
