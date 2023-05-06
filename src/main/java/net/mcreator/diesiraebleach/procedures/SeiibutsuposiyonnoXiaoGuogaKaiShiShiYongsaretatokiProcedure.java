@@ -57,25 +57,25 @@ public class SeiibutsuposiyonnoXiaoGuogaKaiShiShiYongsaretatokiProcedure {
 						.isDone()
 				: false) {
 			if (entity instanceof LivingEntity)
-				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SPEED, (int) 1e+50,
+				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SPEED, (int) 60,
 						(int) ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 100)));
+								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 1000)));
 			if (entity instanceof LivingEntity)
-				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.STRENGTH, (int) 1e+50,
+				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.STRENGTH, (int) 60,
 						(int) ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 50)));
+								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 500)));
 			if (entity instanceof LivingEntity)
-				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.JUMP_BOOST, (int) 1e+50,
+				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.JUMP_BOOST, (int) 60,
 						(int) ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 100)));
+								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 10000)));
 			if (entity instanceof LivingEntity)
-				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.RESISTANCE, (int) 1e+50,
+				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.RESISTANCE, (int) 60,
 						(int) ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 100)));
+								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 10000)));
 			if (entity instanceof LivingEntity)
-				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.HEALTH_BOOST, (int) 1e+50,
+				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.HEALTH_BOOST, (int) 60,
 						(int) ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 50)));
+								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 5000)));
 		}
 	}
 }

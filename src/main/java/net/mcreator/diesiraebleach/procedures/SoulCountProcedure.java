@@ -72,7 +72,7 @@ public class SoulCountProcedure {
 		Entity entity = (Entity) dependencies.get("entity");
 		Entity sourceentity = (Entity) dependencies.get("sourceentity");
 		if ((sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul < 0) {
+				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul <= 0) {
 			{
 				double _setval = 0;
 				sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
@@ -109,16 +109,6 @@ public class SoulCountProcedure {
 						((ServerPlayerEntity) sourceentity).getAdvancements().grantCriterion(_adv, _criterion);
 					}
 				}
-			}
-		}
-		if (entity instanceof AnimalEntity) {
-			{
-				double _setval = ((sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul + 0.5);
-				sourceentity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-					capability.Killsoul = _setval;
-					capability.syncPlayerVariables(sourceentity);
-				});
 			}
 		}
 		if (entity instanceof AnimalEntity) {
