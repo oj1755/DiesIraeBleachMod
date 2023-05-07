@@ -34,7 +34,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.block.Blocks;
 
 import net.mcreator.diesiraebleach.procedures.FireballpartProcedure;
-import net.mcreator.diesiraebleach.procedures.BakuhaProcedure;
+import net.mcreator.diesiraebleach.procedures.BakuhasmallProcedure;
 import net.mcreator.diesiraebleach.entity.renderer.FireballRenderer;
 import net.mcreator.diesiraebleach.DiesiraebleachModElements;
 
@@ -93,7 +93,7 @@ public class FireballItem extends DiesiraebleachModElements.ModElement {
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
 				if (true) {
-					ArrowCustomEntity entityarrow = shoot(world, entity, random, 1f, 5, 5);
+					ArrowCustomEntity entityarrow = shoot(world, entity, random, 2f, 5, 5);
 					itemstack.damageItem(1, entity, e -> e.sendBreakAnimation(entity.getActiveHand()));
 					entityarrow.pickupStatus = AbstractArrowEntity.PickupStatus.DISALLOWED;
 				}
@@ -151,9 +151,9 @@ public class FireballItem extends DiesiraebleachModElements.ModElement {
 			double z = this.getPosZ();
 			World world = this.world;
 
-			BakuhaProcedure.executeProcedure(Stream
+			BakuhasmallProcedure.executeProcedure(Stream
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
-							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+							new AbstractMap.SimpleEntry<>("z", z))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
@@ -168,9 +168,9 @@ public class FireballItem extends DiesiraebleachModElements.ModElement {
 			double z = this.getPosZ();
 			World world = this.world;
 
-			BakuhaProcedure.executeProcedure(Stream
+			BakuhasmallProcedure.executeProcedure(Stream
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
-							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+							new AbstractMap.SimpleEntry<>("z", z))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
@@ -184,9 +184,9 @@ public class FireballItem extends DiesiraebleachModElements.ModElement {
 			Entity entity = this.func_234616_v_();
 			Entity immediatesourceentity = this;
 
-			BakuhaProcedure.executeProcedure(Stream
+			BakuhasmallProcedure.executeProcedure(Stream
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
-							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+							new AbstractMap.SimpleEntry<>("z", z))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
@@ -232,7 +232,7 @@ public class FireballItem extends DiesiraebleachModElements.ModElement {
 		double d0 = target.getPosY() + (double) target.getEyeHeight() - 1.1;
 		double d1 = target.getPosX() - entity.getPosX();
 		double d3 = target.getPosZ() - entity.getPosZ();
-		entityarrow.shoot(d1, d0 - entityarrow.getPosY() + (double) MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F, d3, 1f * 2, 12.0F);
+		entityarrow.shoot(d1, d0 - entityarrow.getPosY() + (double) MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F, d3, 2f * 2, 12.0F);
 		entityarrow.setSilent(true);
 		entityarrow.setDamage(5);
 		entityarrow.setKnockbackStrength(5);

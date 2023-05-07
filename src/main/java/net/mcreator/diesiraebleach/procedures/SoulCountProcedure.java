@@ -1,5 +1,6 @@
 package net.mcreator.diesiraebleach.procedures;
 
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.TickEvent;
@@ -8,8 +9,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.FoodStats;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.advancements.AdvancementProgress;
@@ -84,7 +87,7 @@ public class SoulCountProcedure {
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,
-							new AxisAlignedBB(x - (10 / 2d), y - (10 / 2d), z - (10 / 2d), x + (10 / 2d), y + (10 / 2d), z + (10 / 2d)), null)
+							new AxisAlignedBB(x - (20 / 2d), y - (20 / 2d), z - (20 / 2d), x + (20 / 2d), y + (20 / 2d), z + (20 / 2d)), null)
 					.stream().sorted(new Object() {
 						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
@@ -96,11 +99,22 @@ public class SoulCountProcedure {
 					{
 						double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul
-								+ ((DeadEntity instanceof LivingEntity) ? ((LivingEntity) DeadEntity).getMaxHealth() : -1) / 150);
+								+ ((DeadEntity instanceof LivingEntity) ? ((LivingEntity) DeadEntity).getMaxHealth() : -1) / 100);
 						entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 							capability.Killsoul = _setval;
 							capability.syncPlayerVariables(entity);
 						});
+					}
+					if (entity.isAlive()) {
+						if (entity instanceof PlayerEntity) {
+							ObfuscationReflectionHelper.setPrivateValue(FoodStats.class, ((PlayerEntity) entity).getFoodStats(),
+									(float) (((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).getFoodStats().getSaturationLevel() : 0)
+											+ ((DeadEntity instanceof LivingEntity) ? ((LivingEntity) DeadEntity).getMaxHealth() : -1) / 200),
+									"field_75125_b");
+						}
+						if (entity instanceof LivingEntity)
+							((LivingEntity) entity).setHealth((float) (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHealth() : -1)
+									+ ((DeadEntity instanceof LivingEntity) ? ((LivingEntity) DeadEntity).getMaxHealth() : -1) / 200));
 					}
 				}
 			}

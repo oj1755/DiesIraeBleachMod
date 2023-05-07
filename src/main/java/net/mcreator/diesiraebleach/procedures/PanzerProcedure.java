@@ -8,7 +8,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
-import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
@@ -115,15 +114,8 @@ public class PanzerProcedure {
 						}
 					}.getArrow(projectileLevel, entity, 5, 1);
 					_entityToSpawn.setPosition(x, y, z);
-					_entityToSpawn.shoot(
-							(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-									entity.getEyePosition(1f).add(entity.getLook(1f).x * 10, entity.getLook(1f).y * 10, entity.getLook(1f).z * 10),
-									RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getX() - x),
-							0.1,
-							(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-									entity.getEyePosition(1f).add(entity.getLook(1f).x * 10, entity.getLook(1f).y * 10, entity.getLook(1f).z * 10),
-									RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ() - z),
-							2, 0);
+					_entityToSpawn.shoot((x - (x + 5 * Math.cos(Math.toRadians(entity.rotationYaw - 90)))), 0.1,
+							(z - (z + 5 * Math.sin(Math.toRadians(entity.rotationYaw - 90)))), 1, 0);
 					world.addEntity(_entityToSpawn);
 				}
 				MinecraftForge.EVENT_BUS.unregister(this);

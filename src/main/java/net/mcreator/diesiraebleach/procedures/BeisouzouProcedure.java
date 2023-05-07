@@ -12,11 +12,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.potion.Effects;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
+import net.mcreator.diesiraebleach.potion.RosenkavalierSchwarzwaldPotionEffect;
 import net.mcreator.diesiraebleach.potion.KyuseiPPotionEffect;
 import net.mcreator.diesiraebleach.DiesiraebleachModVariables;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
@@ -191,9 +191,10 @@ public class BeisouzouProcedure {
 							if (!(entityiterator == entity)) {
 								if (entityiterator instanceof LivingEntity)
 									((LivingEntity) entityiterator)
-											.addPotionEffect(new EffectInstance(KyuseiPPotionEffect.potion, (int) 2000, (int) 2));
+											.addPotionEffect(new EffectInstance(KyuseiPPotionEffect.potion, (int) 8000, (int) 0));
 								if (entity instanceof LivingEntity)
-									((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.REGENERATION, (int) 2000, (int) 2));
+									((LivingEntity) entity)
+											.addPotionEffect(new EffectInstance(RosenkavalierSchwarzwaldPotionEffect.potion, (int) 8000, (int) 0));
 							}
 							new Object() {
 								private int ticks = 0;

@@ -48,8 +48,8 @@ public class KyuseiProcedure {
 		double alpha = 0;
 		double beta = 0;
 		if (world instanceof ServerWorld) {
-			((ServerWorld) world).spawnParticle(SouzouparticleParticle.particle, x, (y + 1), z, (int) 5, 0, 1, 0, 0.2);
+			((ServerWorld) world).spawnParticle(SouzouparticleParticle.particle, x, (y + 0), z, (int) 3, 0, 0.1, 0, 0.2);
 		}
-		entity.attackEntityFrom(DamageSource.GENERIC, (float) 0.1);
+		entity.attackEntityFrom(DamageSource.GENERIC, (float) 0.5);
 	}
 }

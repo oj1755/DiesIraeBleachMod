@@ -2263,6 +2263,54 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "fireballparticle"
+    },
+    {
+      "name": "RosenkavalierSchwarzwaldehuekutogaYouXiaoShinoteituku",
+      "type": "procedure",
+      "sortid": 133,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rosenkavalier_schwarzwaldehuekutoga_you_xiao_shinoteituku",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RosenkavalierSchwarzwald",
+      "type": "potioneffect",
+      "sortid": 133,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rosenkavalier_schwarzwald"
+    },
+    {
+      "name": "Renkeiseiparticle",
+      "type": "particle",
+      "sortid": 134,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "renkeiseiparticle"
     }
   ],
   "variable_elements": [
@@ -2639,6 +2687,7 @@
       "entity.diesiraebleach.ibara": "Ibara",
       "item.diesiraebleach.test": "Test",
       "subtitles.beikeisei2": "",
+      "effect.rosenkavalier_schwarzwald": "創造 ― 死森の薔薇騎士",
       "advancements.souzou.descr": "聖遺物と一体となり、己が渇望を具現化した世界を創り出す。",
       "item.diesiraebleach.makina_glove": "Makina Glove",
       "item.diesiraebleach.kui": "Kui",
