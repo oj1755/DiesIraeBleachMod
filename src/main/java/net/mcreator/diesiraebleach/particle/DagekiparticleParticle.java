@@ -20,7 +20,7 @@ import net.minecraft.client.Minecraft;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DagekiparticleParticle {
-	public static final BasicParticleType particle = new BasicParticleType(false);
+	public static final BasicParticleType particle = new BasicParticleType(true);
 
 	@SubscribeEvent
 	public static void registerParticleType(RegistryEvent.Register<ParticleType<?>> event) {
@@ -41,8 +41,8 @@ public class DagekiparticleParticle {
 			super(world, x, y, z);
 			this.spriteSet = spriteSet;
 			this.setSize((float) 0.2, (float) 0.2);
-			this.particleScale *= (float) 1;
-			this.maxAge = (int) Math.max(1, 2 + (this.rand.nextInt(2) - 1));
+			this.particleScale *= (float) 7;
+			this.maxAge = (int) Math.max(1, 5 + (this.rand.nextInt(2) - 1));
 			this.particleGravity = (float) 0;
 			this.canCollide = true;
 			this.motionX = vx * 1;

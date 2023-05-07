@@ -2,12 +2,12 @@
   "_fv": 33,
   "_type": "particle",
   "definition": {
-    "texture": "slashsweep.png",
+    "texture": "pipo-btleffect001.png",
     "animate": true,
     "frameDuration": 1,
     "width": 0.2,
     "height": 0.2,
-    "scale": 3.0,
+    "scale": 7.0,
     "speedFactor": 1.0,
     "gravity": 0.0,
     "maxAge": 4,
@@ -15,7 +15,7 @@
     "angularVelocity": 0.0,
     "angularAcceleration": 0.0,
     "canCollide": true,
-    "alwaysShow": false,
+    "alwaysShow": true,
     "renderType": "LIT"
   }
 }

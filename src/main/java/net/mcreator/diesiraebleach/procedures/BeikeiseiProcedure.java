@@ -2,6 +2,7 @@ package net.mcreator.diesiraebleach.procedures;
 
 import net.minecraftforge.registries.ForgeRegistries;
 
+import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
@@ -14,6 +15,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
+import net.mcreator.diesiraebleach.particle.SouzouparticleParticle;
 import net.mcreator.diesiraebleach.item.BeiKeiseihanaItem;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
@@ -55,11 +57,14 @@ public class BeikeiseiProcedure {
 		if (world instanceof World && !world.isRemote()) {
 			((World) world).playSound(null, new BlockPos(x, y, z),
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:beikeisei2")),
-					SoundCategory.NEUTRAL, (float) 0.3, (float) 0.5);
+					SoundCategory.NEUTRAL, (float) 0.5, (float) 0.5);
 		} else {
 			((World) world).playSound(x, y, z,
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:beikeisei2")),
-					SoundCategory.NEUTRAL, (float) 0.3, (float) 0.5, false);
+					SoundCategory.NEUTRAL, (float) 0.5, (float) 0.5, false);
+		}
+		if (world instanceof ServerWorld) {
+			((ServerWorld) world).spawnParticle(SouzouparticleParticle.particle, x, y, z, (int) 100, 1, 1, 1, 1);
 		}
 		if (entity instanceof LivingEntity) {
 			if (entity instanceof PlayerEntity)

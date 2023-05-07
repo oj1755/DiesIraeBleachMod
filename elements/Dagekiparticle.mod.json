@@ -2,20 +2,20 @@
   "_fv": 33,
   "_type": "particle",
   "definition": {
-    "texture": "dageki.png",
+    "texture": "dageki2.png",
     "animate": true,
     "frameDuration": 1,
     "width": 0.2,
     "height": 0.2,
-    "scale": 1.0,
+    "scale": 7.0,
     "speedFactor": 1.0,
     "gravity": 0.0,
-    "maxAge": 2,
+    "maxAge": 5,
     "maxAgeDiff": 1,
     "angularVelocity": 0.0,
     "angularAcceleration": 0.0,
     "canCollide": true,
-    "alwaysShow": false,
+    "alwaysShow": true,
     "renderType": "LIT"
   }
 }

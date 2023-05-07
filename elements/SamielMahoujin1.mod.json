@@ -3,19 +3,19 @@
   "_type": "particle",
   "definition": {
     "texture": "samielmahoujin1.png",
-    "animate": false,
+    "animate": true,
     "frameDuration": 1,
     "width": 0.2,
     "height": 0.2,
-    "scale": 10.0,
+    "scale": 7.0,
     "speedFactor": 1.0,
     "gravity": 0.0,
-    "maxAge": 7,
+    "maxAge": 20,
     "maxAgeDiff": 0,
-    "angularVelocity": 0.0,
-    "angularAcceleration": 0.0,
+    "angularVelocity": 0.1,
+    "angularAcceleration": 0.01,
     "canCollide": true,
-    "alwaysShow": false,
+    "alwaysShow": true,
     "renderType": "LIT"
   }
 }

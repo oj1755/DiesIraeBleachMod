@@ -15,7 +15,7 @@ import net.minecraft.item.IItemTier;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.LivingEntity;
 
-import net.mcreator.diesiraebleach.procedures.ZarathustraProcedure;
+import net.mcreator.diesiraebleach.procedures.TosshinProcedure;
 import net.mcreator.diesiraebleach.procedures.MarglittoslashProcedure;
 import net.mcreator.diesiraebleach.DiesiraebleachModElements;
 
@@ -68,7 +68,7 @@ public class MarglittoJudisItem extends DiesiraebleachModElements.ModElement {
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
 
-				ZarathustraProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+				TosshinProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 						new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				return retval;

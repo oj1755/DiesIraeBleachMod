@@ -63,14 +63,6 @@ public class YamigakureProcedure {
 		if (world instanceof ServerWorld) {
 			((ServerWorld) world).spawnParticle(DarkParticleParticle.particle, x, y, z, (int) 50, 1, 1, 1, 0.5);
 		}
-		if (world instanceof ServerWorld) {
-			Entity entityToSpawn = new IbaraEntity.CustomEntity(IbaraEntity.entity, (World) world);
-			entityToSpawn.setLocationAndAngles(x, y, z, world.getRandom().nextFloat() * 360F, 0);
-			if (entityToSpawn instanceof MobEntity)
-				((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
-						SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
-			world.addEntity(entityToSpawn);
-		}
 		if (world instanceof World && !world.isRemote()) {
 			((World) world).playSound(null, new BlockPos(x, y, z),
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:warp1")),
@@ -110,13 +102,15 @@ public class YamigakureProcedure {
 		if (world instanceof ServerWorld) {
 			((ServerWorld) world).spawnParticle(DarkParticleParticle.particle, X, Y, Z, (int) 50, 1, 1, 1, 0.5);
 		}
-		if (world instanceof ServerWorld) {
-			Entity entityToSpawn = new IbaraEntity.CustomEntity(IbaraEntity.entity, (World) world);
-			entityToSpawn.setLocationAndAngles(X, Y, Z, world.getRandom().nextFloat() * 360F, 0);
-			if (entityToSpawn instanceof MobEntity)
-				((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
-						SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
-			world.addEntity(entityToSpawn);
+		if (entity.isOnGround()) {
+			if (world instanceof ServerWorld) {
+				Entity entityToSpawn = new IbaraEntity.CustomEntity(IbaraEntity.entity, (World) world);
+				entityToSpawn.setLocationAndAngles(x, y, z, world.getRandom().nextFloat() * 360F, 0);
+				if (entityToSpawn instanceof MobEntity)
+					((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
+							SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
+				world.addEntity(entityToSpawn);
+			}
 		}
 	}
 }

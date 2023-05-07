@@ -110,7 +110,7 @@ public class KuibakuhaProcedure {
 								}
 							}.getArrow(projectileLevel, entity, 3, 0, (byte) 2);
 							_entityToSpawn.setPosition((x + MathHelper.nextDouble(new Random(), -10, 10)),
-									(y + MathHelper.nextDouble(new Random(), 0, 0)), (z + MathHelper.nextDouble(new Random(), -10, 10)));
+									(y + MathHelper.nextDouble(new Random(), 0.5, 0.5)), (z + MathHelper.nextDouble(new Random(), -10, 10)));
 							_entityToSpawn.shoot(0.1, 1, 0.1, 2, 0);
 							world.addEntity(_entityToSpawn);
 						}

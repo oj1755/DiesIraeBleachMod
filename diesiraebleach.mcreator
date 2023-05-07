@@ -86,8 +86,20 @@
             "type": "entity"
           },
           {
-            "name": "sourceentity",
-            "type": "entity"
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       }
@@ -1502,10 +1514,6 @@
       "metadata": {
         "dependencies": [
           {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
             "name": "x",
             "type": "number"
           },
@@ -1722,6 +1730,10 @@
       "metadata": {
         "dependencies": [
           {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
             "name": "x",
             "type": "number"
           },
@@ -1879,6 +1891,426 @@
           }
         ]
       }
+    },
+    {
+      "name": "HihiirokaneKouka",
+      "type": "procedure",
+      "sortid": 116,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hihiirokane_kouka",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Flame",
+      "type": "particle",
+      "sortid": 117,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flame"
+    },
+    {
+      "name": "Panzerhassha",
+      "type": "procedure",
+      "sortid": 117,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "panzerhassha",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Schmerizer",
+      "type": "procedure",
+      "sortid": 119,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "schmerizer",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Schmeizer2",
+      "type": "procedure",
+      "sortid": 120,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "schmeizer_2",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DummyschmeizerFeibiDaoJugaFeindeiruJian",
+      "type": "procedure",
+      "sortid": 121,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dummyschmeizer_feibi_dao_juga_feindeiru_jian",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Dummyschmeizer",
+      "type": "rangeditem",
+      "sortid": 121,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dummyschmeizer"
+    },
+    {
+      "name": "Muzzleflash",
+      "type": "particle",
+      "sortid": 122,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "muzzleflash"
+    },
+    {
+      "name": "Levitationfire",
+      "type": "procedure",
+      "sortid": 123,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "levitationfire",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Levitationfirepotion",
+      "type": "potioneffect",
+      "sortid": 124,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "levitationfirepotion"
+    },
+    {
+      "name": "CoolTime",
+      "type": "potioneffect",
+      "sortid": 125,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cool_time"
+    },
+    {
+      "name": "FujiRenSouzou",
+      "type": "procedure",
+      "sortid": 126,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fuji_ren_souzou",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TimeStopposiyonnoXiaoGuogaKaiShiShiYongsaretatoki",
+      "type": "procedure",
+      "sortid": 127,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "time_stopposiyonno_xiao_guoga_kai_shi_shi_yongsaretatoki",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TimeStop",
+      "type": "potioneffect",
+      "sortid": 127,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "time_stop"
+    },
+    {
+      "name": "FujiRenSouzouPotionEffect",
+      "type": "potioneffect",
+      "sortid": 128,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fuji_ren_souzou_potion_effect"
+    },
+    {
+      "name": "FujiRenSouzouPotionEffectehuekutogaYouXiaoShinoteituku",
+      "type": "procedure",
+      "sortid": 128,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fuji_ren_souzou_potion_effectehuekutoga_you_xiao_shinoteituku",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Slashsweepleft",
+      "type": "particle",
+      "sortid": 128,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "slashsweepleft"
+    },
+    {
+      "name": "Straightslash",
+      "type": "particle",
+      "sortid": 132,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "straightslash"
+    },
+    {
+      "name": "Beykatsudouparticleleft",
+      "type": "particle",
+      "sortid": 125,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beykatsudouparticleleft"
+    },
+    {
+      "name": "Beykatsudouparticleright",
+      "type": "particle",
+      "sortid": 126,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beykatsudouparticleright"
+    },
+    {
+      "name": "Beykatsudoufront",
+      "type": "particle",
+      "sortid": 127,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beykatsudoufront"
+    },
+    {
+      "name": "Fireparticleright",
+      "type": "particle",
+      "sortid": 130,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fireparticleright"
+    },
+    {
+      "name": "Fireparticleleft",
+      "type": "particle",
+      "sortid": 129,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fireparticleleft"
+    },
+    {
+      "name": "Fireballparticle",
+      "type": "particle",
+      "sortid": 131,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fireballparticle"
+    },
+    {
+      "name": "RosenkavalierSchwarzwaldehuekutogaYouXiaoShinoteituku",
+      "type": "procedure",
+      "sortid": 133,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rosenkavalier_schwarzwaldehuekutoga_you_xiao_shinoteituku",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RosenkavalierSchwarzwald",
+      "type": "potioneffect",
+      "sortid": 133,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rosenkavalier_schwarzwald"
+    },
+    {
+      "name": "Renkeiseiparticle",
+      "type": "particle",
+      "sortid": 134,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "renkeiseiparticle"
     }
   ],
   "variable_elements": [
@@ -1938,6 +2370,24 @@
     },
     {
       "name": "DerfreischeSamiel",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "combo2",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "combo1",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "Death",
       "type": "logic",
       "scope": "player_persistent",
       "value": "false"
@@ -2167,6 +2617,14 @@
       ],
       "category": "neutral",
       "subtitle": ""
+    },
+    {
+      "name": "machinegunfire",
+      "files": [
+        "machinegunfire"
+      ],
+      "category": "neutral",
+      "subtitle": ""
     }
   ],
   "language_map": {
@@ -2179,7 +2637,8 @@
       "subtitles.kaensmall": "",
       "key.diesiraebleach.kougeki": "Kougeki",
       "item.diesiraebleach.schmeizer_item": "Schmeizer Item",
-      "item.diesiraebleach.dora_cannon": "Dora Cannon",
+      "item.diesiraebleach.dora_cannon": "聖遺物【極大火砲・狩猟の魔王】",
+      "item.diesiraebleach.dummyschmeizer": "Dummyschmeizer",
       "subtitles.dageki": "",
       "subtitles.speed2": "",
       "subtitles.speed3": "",
@@ -2189,6 +2648,7 @@
       "advancements.keisei.title": "形成位階",
       "subtitles.kaen": "",
       "key.diesiraebleach.rwazasentaku": "Rwazasentaku",
+      "effect.fuji_ren_souzou_potion_effect": "美麗刹那・序曲",
       "item.diesiraebleach.marglitto_guillottin": "聖遺物【罪姫・正義の柱】",
       "advancements.katsudouj.descr": "聖遺物と契約を結び、聖遺物が活動を始めた。",
       "key.diesiraebleach.oowaza": "Oowaza",
@@ -2196,6 +2656,7 @@
       "item.diesiraebleach.firekibaku_spawn_egg": "Firekibaku Spawn Egg",
       "effect.seiibutsubei": "聖遺物・闇の賜物",
       "subtitles.kyusei": "",
+      "effect.time_stop": "時間停止",
       "item.diesiraebleach.test_4": "Test 4",
       "item.diesiraebleach.bei_keiseihana": "Bei Keiseihana",
       "subtitles.beikeisei": "",
@@ -2210,6 +2671,7 @@
       "subtitles.bakuhatsu": "",
       "subtitles.terror": "",
       "advancements.katsudouj.title": "活動位階",
+      "subtitles.machinegunfire": "",
       "item.diesiraebleach.seiibutsuhihiirokane_item": "聖遺物【緋々色金】",
       "subtitles.hellfire": "",
       "subtitles.ewigkeite": "",
@@ -2219,16 +2681,19 @@
       "effect.seiibutsu_hihiirokane": "聖遺物・緋々色金",
       "subtitles.punchsuburi": "",
       "item.diesiraebleach.panzer_faust_item": "Panzer Faust Item",
+      "effect.cool_time": "クールタイム",
       "item.diesiraebleach.qliphoth_bacikal_2": "聖遺物【闇の賜物】",
       "subtitles.panzer": "",
       "entity.diesiraebleach.ibara": "Ibara",
       "item.diesiraebleach.test": "Test",
       "subtitles.beikeisei2": "",
+      "effect.rosenkavalier_schwarzwald": "創造 ― 死森の薔薇騎士",
       "advancements.souzou.descr": "聖遺物と一体となり、己が渇望を具現化した世界を創り出す。",
       "item.diesiraebleach.makina_glove": "Makina Glove",
       "item.diesiraebleach.kui": "Kui",
       "subtitles.speed4": "",
       "item.diesiraebleach.schmeizer_mahoujin_spawn_egg": "Schmeizer Mahoujin Spawn Egg",
+      "effect.levitationfirepotion": "火炎浮揚",
       "subtitles.timestop": "",
       "entity.diesiraebleach.panzer_mahoujin": "Panzer Mahoujin",
       "item.diesiraebleach.hihiirokane": "緋々色金",

@@ -68,5 +68,6 @@ public class ResetYoukuritukusitatokiProcedure {
 				capability.syncPlayerVariables(entity);
 			});
 		}
+		entity.setNoGravity((false));
 	}
 }

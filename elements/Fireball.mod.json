@@ -23,7 +23,7 @@
     "animation": "bow",
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
-    "bulletPower": 1.0,
+    "bulletPower": 2.0,
     "bulletDamage": 5.0,
     "bulletKnockback": 5,
     "bulletParticles": false,
@@ -34,13 +34,13 @@
     "bulletModel": "ModelFireballsmall",
     "customBulletModelTexture": "fireballsmall.png",
     "onBulletHitsBlock": {
-      "name": "Bakuha"
+      "name": "Bakuhasmall"
     },
     "onBulletHitsPlayer": {
-      "name": "Bakuha"
+      "name": "Bakuhasmall"
     },
     "onBulletHitsEntity": {
-      "name": "Bakuha"
+      "name": "Bakuhasmall"
     },
     "onBulletFlyingTick": {
       "name": "Fireballpart"

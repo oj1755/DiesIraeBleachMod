@@ -20,7 +20,7 @@ import net.minecraft.client.Minecraft;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class SlashsweepParticle {
-	public static final BasicParticleType particle = new BasicParticleType(false);
+	public static final BasicParticleType particle = new BasicParticleType(true);
 
 	@SubscribeEvent
 	public static void registerParticleType(RegistryEvent.Register<ParticleType<?>> event) {
@@ -41,7 +41,7 @@ public class SlashsweepParticle {
 			super(world, x, y, z);
 			this.spriteSet = spriteSet;
 			this.setSize((float) 0.2, (float) 0.2);
-			this.particleScale *= (float) 3;
+			this.particleScale *= (float) 7;
 			this.maxAge = 4;
 			this.particleGravity = (float) 0;
 			this.canCollide = true;
@@ -65,7 +65,7 @@ public class SlashsweepParticle {
 		public void tick() {
 			super.tick();
 			if (!this.isExpired) {
-				this.setSprite(this.spriteSet.get((this.age / 1) % 8 + 1, 8));
+				this.setSprite(this.spriteSet.get((this.age / 1) % 5 + 1, 5));
 			}
 		}
 	}

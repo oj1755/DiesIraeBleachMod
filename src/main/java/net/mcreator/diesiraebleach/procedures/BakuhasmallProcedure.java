@@ -8,12 +8,11 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
+import net.minecraft.world.Explosion;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.DamageSource;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
 import net.mcreator.diesiraebleach.particle.SamielExplosionParticle;
@@ -48,16 +47,10 @@ public class BakuhasmallProcedure {
 				DiesiraebleachMod.LOGGER.warn("Failed to load dependency z for procedure Bakuhasmall!");
 			return;
 		}
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				DiesiraebleachMod.LOGGER.warn("Failed to load dependency entity for procedure Bakuhasmall!");
-			return;
-		}
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		Entity entity = (Entity) dependencies.get("entity");
 		new Object() {
 			private int ticks = 0;
 			private float waitTicks;
@@ -79,8 +72,6 @@ public class BakuhasmallProcedure {
 			}
 
 			private void run() {
-				if (entity instanceof LivingEntity)
-					((LivingEntity) entity).setHealth((float) 0);
 				if (world instanceof ServerWorld) {
 					((ServerWorld) world).spawnParticle(SamielExplosionParticle.particle, x, y, z, (int) 1, 0.1, 0.1, 0.1, 0);
 				}
@@ -93,6 +84,9 @@ public class BakuhasmallProcedure {
 							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:bakuhatsu")),
 							SoundCategory.NEUTRAL, (float) 0.2, (float) 1, false);
 				}
+				if (world instanceof World && !((World) world).isRemote) {
+					((World) world).createExplosion(null, (int) x, (int) y, (int) z, (float) 3, Explosion.Mode.NONE);
+				}
 				{
 					List<Entity> _entfound = world
 							.getEntitiesWithinAABB(Entity.class,
@@ -103,7 +97,6 @@ public class BakuhasmallProcedure {
 								}
 							}.compareDistOf(x, y, z)).collect(Collectors.toList());
 					for (Entity entityiterator : _entfound) {
-						entityiterator.attackEntityFrom(DamageSource.LAVA, (float) 5);
 						entityiterator.setFire((int) 10);
 					}
 				}
