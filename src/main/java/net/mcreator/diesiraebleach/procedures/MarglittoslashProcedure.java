@@ -59,14 +59,14 @@ public class MarglittoslashProcedure {
 		double r = 0;
 		{
 			List<Entity> _entfound = world.getEntitiesWithinAABB(Entity.class,
-					new AxisAlignedBB((x + r * Math.sin(Math.toRadians(deg))) - (4 / 2d), y - (4 / 2d),
-							(z + r * Math.cos(Math.toRadians(deg))) - (4 / 2d), (x + r * Math.sin(Math.toRadians(deg))) + (4 / 2d), y + (4 / 2d),
-							(z + r * Math.cos(Math.toRadians(deg))) + (4 / 2d)),
+					new AxisAlignedBB((x + r * Math.cos(Math.toRadians(deg))) - (4 / 2d), y - (4 / 2d),
+							(z + r * Math.sin(Math.toRadians(deg))) - (4 / 2d), (x + r * Math.cos(Math.toRadians(deg))) + (4 / 2d), y + (4 / 2d),
+							(z + r * Math.sin(Math.toRadians(deg))) + (4 / 2d)),
 					null).stream().sorted(new Object() {
 						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 						}
-					}.compareDistOf((x + r * Math.sin(Math.toRadians(deg))), y, (z + r * Math.cos(Math.toRadians(deg)))))
+					}.compareDistOf((x + r * Math.cos(Math.toRadians(deg))), y, (z + r * Math.sin(Math.toRadians(deg)))))
 					.collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
 				if (!(entity == entityiterator)) {
@@ -97,8 +97,8 @@ public class MarglittoslashProcedure {
 					SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 		}
 		if (world instanceof ServerWorld) {
-			((ServerWorld) world).spawnParticle(SlashsweepParticle.particle, (x + r * Math.sin(Math.toRadians(deg))), (y + 1),
-					(z + r * Math.cos(Math.toRadians(deg))), (int) 5, 0.1, 0.1, 0.1, 0);
+			((ServerWorld) world).spawnParticle(SlashsweepParticle.particle, (x + r * Math.cos(Math.toRadians(deg))), (y + 1),
+					(z + r * Math.sin(Math.toRadians(deg))), (int) 5, 0.1, 0.1, 0.1, 0);
 		}
 	}
 }

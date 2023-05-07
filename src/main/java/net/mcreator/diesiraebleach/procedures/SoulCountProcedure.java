@@ -92,25 +92,15 @@ public class SoulCountProcedure {
 					}.compareDistOf(x, y, z)).collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
 				if (!entityiterator.isAlive()) {
+					DeadEntity = entityiterator;
 					{
-						boolean _setval = (true);
-						entityiterator.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-							capability.Death = _setval;
-							capability.syncPlayerVariables(entityiterator);
+						double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul
+								+ ((DeadEntity instanceof LivingEntity) ? ((LivingEntity) DeadEntity).getMaxHealth() : -1) / 150);
+						entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+							capability.Killsoul = _setval;
+							capability.syncPlayerVariables(entity);
 						});
-					}
-					if ((entityiterator.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new DiesiraebleachModVariables.PlayerVariables())).Death == true) {
-						DeadEntity = entityiterator;
-						{
-							double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-									.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul
-									+ ((DeadEntity instanceof LivingEntity) ? ((LivingEntity) DeadEntity).getMaxHealth() : -1) / 20);
-							entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-								capability.Killsoul = _setval;
-								capability.syncPlayerVariables(entity);
-							});
-						}
 					}
 				}
 			}
