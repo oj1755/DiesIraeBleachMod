@@ -77,7 +77,7 @@ public class MarglittoslashProcedure {
 			}
 		}
 		deg = (entity.rotationYaw + 90);
-		r = 1;
+		r = 2;
 		if (world instanceof World && !world.isRemote()) {
 			((World) world).playSound(null, new BlockPos(x, y, z),
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:speed1")),
