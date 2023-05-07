@@ -2325,6 +2325,12 @@
       "type": "logic",
       "scope": "player_persistent",
       "value": "false"
+    },
+    {
+      "name": "Death",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
     }
   ],
   "sound_elements": [
@@ -2582,7 +2588,7 @@
       "advancements.keisei.title": "形成位階",
       "subtitles.kaen": "",
       "key.diesiraebleach.rwazasentaku": "Rwazasentaku",
-      "effect.fuji_ren_souzou_potion_effect": "藤井連：創造状態",
+      "effect.fuji_ren_souzou_potion_effect": "美麗刹那・序曲",
       "item.diesiraebleach.marglitto_guillottin": "聖遺物【罪姫・正義の柱】",
       "advancements.katsudouj.descr": "聖遺物と契約を結び、聖遺物が活動を始めた。",
       "key.diesiraebleach.oowaza": "Oowaza",

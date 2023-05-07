@@ -2,13 +2,13 @@
   "_fv": 33,
   "_type": "potioneffect",
   "definition": {
-    "effectName": "藤井連：創造状態",
+    "effectName": "美麗刹那・序曲",
     "icon": "mahoujinposyo.png",
     "color": {
       "value": -1,
       "falpha": 0.0
     },
-    "isInstant": false,
+    "isInstant": true,
     "isBad": false,
     "isBenefitical": false,
     "renderStatusInInventory": true,
