@@ -2242,7 +2242,12 @@
   },
   "foldersRoot": {
     "name": "~",
-    "children": []
+    "children": [
+      {
+        "name": "Particle",
+        "children": []
+      }
+    ]
   },
   "workspaceSettings": {
     "modid": "diesiraebleach",
