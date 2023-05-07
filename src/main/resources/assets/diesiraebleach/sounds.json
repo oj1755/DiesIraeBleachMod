@@ -250,14 +250,5 @@
         "stream": false
       }
     ]
-  },
-  "machinegunfire": {
-    "category": "neutral",
-    "sounds": [
-      {
-        "name": "diesiraebleach:machinegunfire",
-        "stream": false
-      }
-    ]
   }
 }
