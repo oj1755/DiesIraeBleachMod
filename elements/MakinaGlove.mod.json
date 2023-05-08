@@ -5,7 +5,7 @@
     "renderType": 1,
     "texture": "kobusi",
     "customModelName": "machinaglovel:default",
-    "name": "Makina Glove",
+    "name": "人世界・終焉変生",
     "specialInfo": [],
     "creativeTab": {
       "value": "COMBAT"
@@ -13,7 +13,7 @@
     "toolType": "Special",
     "harvestLevel": 0,
     "efficiency": 99999.0,
-    "attackSpeed": 100.0,
+    "attackSpeed": 5.0,
     "enchantability": 0,
     "damageVsEntity": 99999.0,
     "usageCount": 99999,
@@ -2371,11 +2371,14 @@
         "value": "Blocks.LODESTONE"
       }
     ],
-    "hasGlow": false,
+    "hasGlow": true,
     "repairItems": [],
     "immuneToFire": true,
     "stayInGridWhenCrafting": false,
     "damageOnCrafting": false,
+    "onEntityHitWith": {
+      "name": "MakinaGlovemobugaturudeGongJisaretatoki"
+    },
     "onEntitySwing": {
       "name": "MakinaGloveenteiteigaaitemuwoZhentutaShi"
     }

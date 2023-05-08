@@ -2,6 +2,8 @@
 package net.mcreator.diesiraebleach.item;
 
 import net.minecraftforge.registries.ObjectHolder;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.World;
 import net.minecraft.util.math.BlockPos;
@@ -16,6 +18,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.BlockState;
 
+import net.mcreator.diesiraebleach.procedures.MakinaGlovemobugaturudeGongJisaretatokiProcedure;
 import net.mcreator.diesiraebleach.procedures.MakinaGloveenteiteigaaitemuwoZhentutaShiProcedure;
 import net.mcreator.diesiraebleach.DiesiraebleachModElements;
 
@@ -40,6 +43,19 @@ public class MakinaGloveItem extends DiesiraebleachModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemToolCustom() {
 			@Override
+			public boolean hitEntity(ItemStack itemstack, LivingEntity entity, LivingEntity sourceentity) {
+				boolean retval = super.hitEntity(itemstack, entity, sourceentity);
+				double x = entity.getPosX();
+				double y = entity.getPosY();
+				double z = entity.getPosZ();
+				World world = entity.world;
+
+				MakinaGlovemobugaturudeGongJisaretatokiProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+				return retval;
+			}
+
+			@Override
 			public boolean onEntitySwing(ItemStack itemstack, LivingEntity entity) {
 				boolean retval = super.onEntitySwing(itemstack, entity);
 				double x = entity.getPosX();
@@ -53,6 +69,12 @@ public class MakinaGloveItem extends DiesiraebleachModElements.ModElement {
 								new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				return retval;
+			}
+
+			@Override
+			@OnlyIn(Dist.CLIENT)
+			public boolean hasEffect(ItemStack itemstack) {
+				return true;
 			}
 		}.setRegistryName("makina_glove"));
 	}
@@ -1660,7 +1682,7 @@ public class MakinaGloveItem extends DiesiraebleachModElements.ModElement {
 				builder.put(Attributes.ATTACK_DAMAGE,
 						new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", 99997f, AttributeModifier.Operation.ADDITION));
 				builder.put(Attributes.ATTACK_SPEED,
-						new AttributeModifier(ATTACK_SPEED_MODIFIER, "Tool modifier", 96, AttributeModifier.Operation.ADDITION));
+						new AttributeModifier(ATTACK_SPEED_MODIFIER, "Tool modifier", 1, AttributeModifier.Operation.ADDITION));
 				return builder.build();
 			}
 			return super.getAttributeModifiers(equipmentSlot);

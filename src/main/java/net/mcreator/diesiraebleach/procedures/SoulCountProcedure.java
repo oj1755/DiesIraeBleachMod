@@ -1,6 +1,5 @@
 package net.mcreator.diesiraebleach.procedures;
 
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.TickEvent;
@@ -9,7 +8,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.FoodStats;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -106,15 +104,13 @@ public class SoulCountProcedure {
 						});
 					}
 					if (entity.isAlive()) {
-						if (entity instanceof PlayerEntity) {
-							ObfuscationReflectionHelper.setPrivateValue(FoodStats.class, ((PlayerEntity) entity).getFoodStats(),
-									(float) (((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).getFoodStats().getSaturationLevel() : 0)
-											+ ((DeadEntity instanceof LivingEntity) ? ((LivingEntity) DeadEntity).getMaxHealth() : -1) / 200),
-									"field_75125_b");
-						}
 						if (entity instanceof LivingEntity)
 							((LivingEntity) entity).setHealth((float) (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHealth() : -1)
 									+ ((DeadEntity instanceof LivingEntity) ? ((LivingEntity) DeadEntity).getMaxHealth() : -1) / 200));
+						if (entity instanceof PlayerEntity)
+							((PlayerEntity) entity).getFoodStats().setFoodLevel(
+									(int) (((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).getFoodStats().getFoodLevel() : 0)
+											+ ((DeadEntity instanceof LivingEntity) ? ((LivingEntity) DeadEntity).getMaxHealth() : -1) / 200));
 					}
 				}
 			}

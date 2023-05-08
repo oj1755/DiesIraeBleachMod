@@ -5,12 +5,14 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.Explosion;
 import net.minecraft.potion.Effects;
 import net.minecraft.potion.EffectInstance;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
 import java.util.Map;
+import java.util.Collections;
 
 public class MakinaGloveenteiteigaaitemuwoZhentutaShiProcedure {
 
@@ -49,6 +51,13 @@ public class MakinaGloveenteiteigaaitemuwoZhentutaShiProcedure {
 			((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.RESISTANCE, (int) 60, (int) 99999));
 		if (world instanceof World && !((World) world).isRemote) {
 			((World) world).createExplosion(null, (int) x, (int) y, (int) z, (float) 10, Explosion.Mode.BREAK);
+		}
+		{
+			Entity _ent = entity;
+			_ent.setPositionAndUpdate(x, y, z);
+			if (_ent instanceof ServerPlayerEntity) {
+				((ServerPlayerEntity) _ent).connection.setPlayerLocation(x, y, z, _ent.rotationYaw, _ent.rotationPitch, Collections.emptySet());
+			}
 		}
 	}
 }
