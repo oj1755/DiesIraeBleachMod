@@ -224,60 +224,6 @@ public class OowazakigaYasaretatokiProcedure {
 				}
 			}
 		}
-		if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Keisei == false
-				&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Hihiirokane == true
-				&& (((entity instanceof ServerPlayerEntity) && (entity.world instanceof ServerWorld))
-						? ((ServerPlayerEntity) entity).getAdvancements()
-								.getProgress(((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
-										.getAdvancement(new ResourceLocation("diesiraebleach:keisei")))
-								.isDone()
-						: false)) {
-			{
-				double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 20);
-				entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-					capability.Killsoul = _setval;
-					capability.syncPlayerVariables(entity);
-				});
-			}
-			{
-				boolean _setval = (true);
-				entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-					capability.Keisei = _setval;
-					capability.syncPlayerVariables(entity);
-				});
-			}
-			if (world instanceof World && !world.isRemote()) {
-				((World) world).playSound(null, new BlockPos(x, y, z),
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:ewigkeite")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1);
-			} else {
-				((World) world).playSound(x, y, z,
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:ewigkeite")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-			}
-			if (world instanceof World && !world.isRemote()) {
-				((World) world).playSound(null, new BlockPos(x, y, z),
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:kenzangeki")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1);
-			} else {
-				((World) world).playSound(x, y, z,
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:kenzangeki")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-			}
-			if (entity instanceof LivingEntity) {
-				ItemStack _setstack = new ItemStack(HihiirokaneItem.block);
-				_setstack.setCount((int) 1);
-				((LivingEntity) entity).setHeldItem(Hand.MAIN_HAND, _setstack);
-				if (entity instanceof ServerPlayerEntity)
-					((ServerPlayerEntity) entity).inventory.markDirty();
-			}
-			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A7c\u5F62\u6210 \u2015 \u7DCB\u3005\u8272\u91D1"), (true));
-			}
-		}
 		if ((((entity instanceof ServerPlayerEntity) && (entity.world instanceof ServerWorld))
 				? ((ServerPlayerEntity) entity).getAdvancements()
 						.getProgress(((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
@@ -343,6 +289,60 @@ public class OowazakigaYasaretatokiProcedure {
 								(true));
 					}
 				}
+			}
+		}
+		if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new DiesiraebleachModVariables.PlayerVariables())).Keisei == false
+				&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Hihiirokane == true
+				&& (((entity instanceof ServerPlayerEntity) && (entity.world instanceof ServerWorld))
+						? ((ServerPlayerEntity) entity).getAdvancements()
+								.getProgress(((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
+										.getAdvancement(new ResourceLocation("diesiraebleach:keisei")))
+								.isDone()
+						: false)) {
+			{
+				double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 20);
+				entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.Killsoul = _setval;
+					capability.syncPlayerVariables(entity);
+				});
+			}
+			{
+				boolean _setval = (true);
+				entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.Keisei = _setval;
+					capability.syncPlayerVariables(entity);
+				});
+			}
+			if (world instanceof World && !world.isRemote()) {
+				((World) world).playSound(null, new BlockPos(x, y, z),
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:ewigkeite")),
+						SoundCategory.NEUTRAL, (float) 1, (float) 1);
+			} else {
+				((World) world).playSound(x, y, z,
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:ewigkeite")),
+						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+			}
+			if (world instanceof World && !world.isRemote()) {
+				((World) world).playSound(null, new BlockPos(x, y, z),
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:kenzangeki")),
+						SoundCategory.NEUTRAL, (float) 1, (float) 1);
+			} else {
+				((World) world).playSound(x, y, z,
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:kenzangeki")),
+						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+			}
+			if (entity instanceof LivingEntity) {
+				ItemStack _setstack = new ItemStack(HihiirokaneItem.block);
+				_setstack.setCount((int) 1);
+				((LivingEntity) entity).setHeldItem(Hand.MAIN_HAND, _setstack);
+				if (entity instanceof ServerPlayerEntity)
+					((ServerPlayerEntity) entity).inventory.markDirty();
+			}
+			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A7c\u5F62\u6210 \u2015 \u7DCB\u3005\u8272\u91D1"), (true));
 			}
 		}
 	}
