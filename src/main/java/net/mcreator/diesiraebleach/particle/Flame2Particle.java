@@ -41,7 +41,7 @@ public class Flame2Particle {
 			super(world, x, y, z);
 			this.spriteSet = spriteSet;
 			this.setSize((float) 0.2, (float) 0.2);
-			this.particleScale *= (float) 1.5;
+			this.particleScale *= (float) 1;
 			this.maxAge = 12;
 			this.particleGravity = (float) 0;
 			this.canCollide = true;

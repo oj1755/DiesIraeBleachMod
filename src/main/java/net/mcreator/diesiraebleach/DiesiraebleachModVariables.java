@@ -227,6 +227,8 @@ public class DiesiraebleachModVariables {
 			nbt.putBoolean("combo2", instance.combo2);
 			nbt.putBoolean("combo1", instance.combo1);
 			nbt.putBoolean("Death", instance.Death);
+			nbt.putDouble("SamielR", instance.SamielR);
+			nbt.putDouble("SamielAngle", instance.SamielAngle);
 			return nbt;
 		}
 
@@ -245,6 +247,8 @@ public class DiesiraebleachModVariables {
 			instance.combo2 = nbt.getBoolean("combo2");
 			instance.combo1 = nbt.getBoolean("combo1");
 			instance.Death = nbt.getBoolean("Death");
+			instance.SamielR = nbt.getDouble("SamielR");
+			instance.SamielAngle = nbt.getDouble("SamielAngle");
 		}
 	}
 
@@ -261,6 +265,8 @@ public class DiesiraebleachModVariables {
 		public boolean combo2 = false;
 		public boolean combo1 = false;
 		public boolean Death = false;
+		public double SamielR = 0;
+		public double SamielAngle = 0;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
@@ -307,6 +313,8 @@ public class DiesiraebleachModVariables {
 		clone.combo2 = original.combo2;
 		clone.combo1 = original.combo1;
 		clone.Death = original.Death;
+		clone.SamielR = original.SamielR;
+		clone.SamielAngle = original.SamielAngle;
 		if (!event.isWasDeath()) {
 		}
 	}
@@ -345,6 +353,8 @@ public class DiesiraebleachModVariables {
 					variables.combo2 = message.data.combo2;
 					variables.combo1 = message.data.combo1;
 					variables.Death = message.data.Death;
+					variables.SamielR = message.data.SamielR;
+					variables.SamielAngle = message.data.SamielAngle;
 				}
 			});
 			context.setPacketHandled(true);

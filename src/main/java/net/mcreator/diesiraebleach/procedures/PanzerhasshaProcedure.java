@@ -63,38 +63,37 @@ public class PanzerhasshaProcedure {
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:finger")),
 					SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 		}
-		for (int index0 = 0; index0 < (int) (10); index0++) {
-			new Object() {
-				private int ticks = 0;
-				private float waitTicks;
-				private IWorld world;
+		new Object() {
+			private int ticks = 0;
+			private float waitTicks;
+			private IWorld world;
 
-				public void start(IWorld world, int waitTicks) {
-					this.waitTicks = waitTicks;
-					MinecraftForge.EVENT_BUS.register(this);
-					this.world = world;
+			public void start(IWorld world, int waitTicks) {
+				this.waitTicks = waitTicks;
+				MinecraftForge.EVENT_BUS.register(this);
+				this.world = world;
+			}
+
+			@SubscribeEvent
+			public void tick(TickEvent.ServerTickEvent event) {
+				if (event.phase == TickEvent.Phase.END) {
+					this.ticks += 1;
+					if (this.ticks >= this.waitTicks)
+						run();
 				}
+			}
 
-				@SubscribeEvent
-				public void tick(TickEvent.ServerTickEvent event) {
-					if (event.phase == TickEvent.Phase.END) {
-						this.ticks += 1;
-						if (this.ticks >= this.waitTicks)
-							run();
-					}
-				}
-
-				private void run() {
-
+			private void run() {
+				for (int index0 = 0; index0 < (int) (10); index0++) {
 					PanzerProcedure.executeProcedure(Stream
 							.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity),
 									new AbstractMap.SimpleEntry<>("x", (x + MathHelper.nextDouble(new Random(), -5, 5))),
 									new AbstractMap.SimpleEntry<>("y", (y + MathHelper.nextDouble(new Random(), 3, 5))),
 									new AbstractMap.SimpleEntry<>("z", (z + MathHelper.nextDouble(new Random(), -5, 5))))
 							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
-					MinecraftForge.EVENT_BUS.unregister(this);
 				}
-			}.start(world, (int) 5);
-		}
+				MinecraftForge.EVENT_BUS.unregister(this);
+			}
+		}.start(world, (int) 5);
 	}
 }

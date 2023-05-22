@@ -139,10 +139,10 @@ public class KuibakuhaProcedure {
 
 											return entityToSpawn;
 										}
-									}.getArrow(projectileLevel, entity, 3, 0, (byte) 2);
-									_entityToSpawn.setPosition((entityiterator.getPosX()), (entityiterator.getPosY() - 0.1),
+									}.getArrow(projectileLevel, entity, 5, 0, (byte) 2);
+									_entityToSpawn.setPosition((entityiterator.getPosX()), (entityiterator.getPosY() + 10),
 											(entityiterator.getPosZ()));
-									_entityToSpawn.shoot(0.1, 0.1, 0.1, 2, 0);
+									_entityToSpawn.shoot(0.1, 0.1, 0.1, 3, 30);
 									world.addEntity(_entityToSpawn);
 								}
 							}

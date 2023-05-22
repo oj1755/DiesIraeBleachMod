@@ -94,11 +94,11 @@
     },
     "spawnParticles": true,
     "particleToSpawn": {
-      "value": "FLAME"
+      "value": "CUSTOM:Hinoko"
     },
     "particleSpawningShape": "Spread",
     "particleSpawningRadious": 0.1,
-    "particleAmount": 5,
+    "particleAmount": 10,
     "onStruckByLightning": {
       "name": "Bakuhasmall"
     },

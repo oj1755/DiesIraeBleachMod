@@ -18,7 +18,7 @@ import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.Entity;
 
-import net.mcreator.diesiraebleach.particle.FlameParticle;
+import net.mcreator.diesiraebleach.particle.HinokoParticle;
 import net.mcreator.diesiraebleach.entity.FirekibakuEntity;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
@@ -62,8 +62,8 @@ public class KibakuProcedure {
 					SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 		}
 		if (world instanceof ServerWorld) {
-			((ServerWorld) world).spawnParticle(FlameParticle.particle, (x + MathHelper.nextDouble(new Random(), -10, 10)), (y + 3),
-					(z + MathHelper.nextDouble(new Random(), -10, 10)), (int) 5, 0.1, 0.1, 0.1, 2);
+			((ServerWorld) world).spawnParticle(HinokoParticle.particle, (x + MathHelper.nextDouble(new Random(), -10, 10)), (y + 3),
+					(z + MathHelper.nextDouble(new Random(), -10, 10)), (int) 50, 0.1, 0.1, 0.1, 2);
 		}
 		new Object() {
 			private int ticks = 0;

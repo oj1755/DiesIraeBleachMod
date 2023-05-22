@@ -64,11 +64,11 @@ public class FujiRenSouzouPotionEffectehuekutogaYouXiaoShinoteitukuProcedure {
 		if (world instanceof World && !world.isRemote()) {
 			((World) world).playSound(null, new BlockPos(x, y, z),
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:timestop")),
-					SoundCategory.NEUTRAL, (float) 0.2, (float) 2);
+					SoundCategory.NEUTRAL, (float) 0.1, (float) 10);
 		} else {
 			((World) world).playSound(x, y, z,
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("diesiraebleach:timestop")),
-					SoundCategory.NEUTRAL, (float) 0.2, (float) 2, false);
+					SoundCategory.NEUTRAL, (float) 0.1, (float) 10, false);
 		}
 		{
 			List<Entity> _entfound = world
@@ -87,7 +87,7 @@ public class FujiRenSouzouPotionEffectehuekutogaYouXiaoShinoteitukuProcedure {
 				}
 			}
 		}
-		r = 2;
+		r = 1.2;
 		a = (Math.random() * 12);
 		b = 90;
 		for (int index0 = 0; index0 < (int) (30); index0++) {

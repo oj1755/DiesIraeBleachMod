@@ -1,0 +1,7 @@
+{
+  "parent": "diesiraebleach:custom/hihiirokanesouzou",
+  "textures": {
+    "0": "diesiraebleach:blocks/hihiirokanesouzou",
+    "particle": "diesiraebleach:items/hihiirokanesouzousword"
+  }
+}

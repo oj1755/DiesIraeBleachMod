@@ -2,12 +2,10 @@ package net.mcreator.diesiraebleach.procedures;
 
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.IWorld;
-import net.minecraft.potion.Effects;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
 
-import net.mcreator.diesiraebleach.particle.FlameParticle;
+import net.mcreator.diesiraebleach.particle.HinokoParticle;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
 import java.util.Map;
@@ -45,10 +43,12 @@ public class LevitationfireProcedure {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
-		if (entity instanceof LivingEntity)
-			((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SLOW_FALLING, (int) 20, (int) 1));
+		if (entity instanceof PlayerEntity) {
+			((PlayerEntity) entity).abilities.isFlying = (true);
+			((PlayerEntity) entity).sendPlayerAbilities();
+		}
 		if (world instanceof ServerWorld) {
-			((ServerWorld) world).spawnParticle(FlameParticle.particle, x, y, z, (int) 10, 0.1, 0.1, 0.1, 0.1);
+			((ServerWorld) world).spawnParticle(HinokoParticle.particle, x, y, z, (int) 20, 0.1, 1, 0.1, 0.05);
 		}
 	}
 }

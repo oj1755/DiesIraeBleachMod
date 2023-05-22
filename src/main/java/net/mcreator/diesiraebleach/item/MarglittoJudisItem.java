@@ -59,7 +59,7 @@ public class MarglittoJudisItem extends DiesiraebleachModElements.ModElement {
 			public Ingredient getRepairMaterial() {
 				return Ingredient.EMPTY;
 			}
-		}, 3, 96f, new Item.Properties().group(ItemGroup.COMBAT).isImmuneToFire()) {
+		}, 3, 6f, new Item.Properties().group(ItemGroup.COMBAT).isImmuneToFire()) {
 			@Override
 			public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity entity, Hand hand) {
 				ActionResult<ItemStack> retval = super.onItemRightClick(world, entity, hand);

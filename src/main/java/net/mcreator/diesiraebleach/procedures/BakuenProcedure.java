@@ -20,6 +20,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
 import net.mcreator.diesiraebleach.particle.SamielExplosionParticle;
+import net.mcreator.diesiraebleach.DiesiraebleachModVariables;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
 import java.util.stream.Collectors;
@@ -162,7 +163,9 @@ public class BakuenProcedure {
 								}
 
 								private void run() {
-									entityiterator.attackEntityFrom(DamageSource.LAVA, (float) 10);
+									entityiterator.attackEntityFrom(DamageSource.LAVA,
+											(float) (10 + (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+													.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 500));
 									MinecraftForge.EVENT_BUS.unregister(this);
 								}
 							}.start(world, (int) t);

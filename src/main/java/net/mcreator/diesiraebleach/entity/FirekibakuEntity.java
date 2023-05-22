@@ -16,7 +16,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.pathfinding.FlyingPathNavigator;
-import net.minecraft.particles.ParticleTypes;
 import net.minecraft.network.IPacket;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ItemGroup;
@@ -39,6 +38,7 @@ import net.minecraft.block.BlockState;
 
 import net.mcreator.diesiraebleach.procedures.FirekibakupureiyagakonoenteiteitoChongTusitatokiProcedure;
 import net.mcreator.diesiraebleach.procedures.BakuhasmallProcedure;
+import net.mcreator.diesiraebleach.particle.HinokoParticle;
 import net.mcreator.diesiraebleach.entity.renderer.FirekibakuRenderer;
 import net.mcreator.diesiraebleach.DiesiraebleachModElements;
 
@@ -155,7 +155,7 @@ public class FirekibakuEntity extends DiesiraebleachModElements.ModElement {
 
 			BakuhasmallProcedure.executeProcedure(Stream
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
-							new AbstractMap.SimpleEntry<>("z", z))
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
@@ -175,7 +175,7 @@ public class FirekibakuEntity extends DiesiraebleachModElements.ModElement {
 
 			BakuhasmallProcedure.executeProcedure(Stream
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
-							new AbstractMap.SimpleEntry<>("z", z))
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
@@ -209,7 +209,7 @@ public class FirekibakuEntity extends DiesiraebleachModElements.ModElement {
 			Random random = this.rand;
 			Entity entity = this;
 			if (true)
-				for (int l = 0; l < 5; ++l) {
+				for (int l = 0; l < 10; ++l) {
 					double d0 = (x + random.nextFloat());
 					double d1 = (y + random.nextFloat());
 					double d2 = (z + random.nextFloat());
@@ -217,7 +217,7 @@ public class FirekibakuEntity extends DiesiraebleachModElements.ModElement {
 					double d3 = (random.nextFloat() - 0.5D) * 0.1D;
 					double d4 = (random.nextFloat() - 0.5D) * 0.1D;
 					double d5 = (random.nextFloat() - 0.5D) * 0.1D;
-					world.addParticle(ParticleTypes.FLAME, d0, d1, d2, d3, d4, d5);
+					world.addParticle(HinokoParticle.particle, d0, d1, d2, d3, d4, d5);
 				}
 		}
 	}

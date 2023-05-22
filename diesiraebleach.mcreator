@@ -381,30 +381,6 @@
       }
     },
     {
-      "name": "KatsudoukigaYasaretatoki",
-      "type": "procedure",
-      "sortid": 33,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "katsudoukiga_yasaretatoki",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      }
-    },
-    {
-      "name": "Katsudou",
-      "type": "keybind",
-      "sortid": 33,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "katsudou"
-    },
-    {
       "name": "DoraCannonYoukuritukusitatoki",
       "type": "procedure",
       "sortid": 34,
@@ -1514,6 +1490,10 @@
       "metadata": {
         "dependencies": [
           {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
             "name": "x",
             "type": "number"
           },
@@ -1729,10 +1709,6 @@
       "registry_name": "baranoyoru",
       "metadata": {
         "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
           {
             "name": "x",
             "type": "number"
@@ -2327,6 +2303,134 @@
           }
         ]
       }
+    },
+    {
+      "name": "BeiKeiseihanaaitemuwoShoudeChituteiruJiannoteituku",
+      "type": "procedure",
+      "sortid": 136,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bei_keiseihanaaitemuwo_shoude_chituteiru_jiannoteituku",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Hinoko",
+      "type": "particle",
+      "sortid": 137,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hinoko"
+    },
+    {
+      "name": "FireAura",
+      "type": "particle",
+      "sortid": 138,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fire_aura"
+    },
+    {
+      "name": "Hihiirokanesouzou",
+      "type": "procedure",
+      "sortid": 139,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hihiirokanesouzou",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Hihiirokanesouzoup",
+      "type": "potioneffect",
+      "sortid": 140,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hihiirokanesouzoup"
+    },
+    {
+      "name": "FireAuralight",
+      "type": "particle",
+      "sortid": 141,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fire_auralight"
+    },
+    {
+      "name": "Hihiirokanesouzousword",
+      "type": "tool",
+      "sortid": 142,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hihiirokanesouzousword"
+    },
+    {
+      "name": "DerFreishutuzSamiel",
+      "type": "procedure",
+      "sortid": 143,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "der_freishutuz_samiel",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Largefireball",
+      "type": "livingentity",
+      "sortid": 144,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "largefireball"
     }
   ],
   "variable_elements": [
@@ -2407,6 +2511,18 @@
       "type": "logic",
       "scope": "player_persistent",
       "value": "false"
+    },
+    {
+      "name": "SamielR",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "SamielAngle",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
     }
   ],
   "sound_elements": [
@@ -2646,11 +2762,11 @@
   "language_map": {
     "en_us": {
       "subtitles.gunfire": "",
-      "key.diesiraebleach.katsudou": "Katsudou",
       "subtitles.bakuhatsu2": "",
       "item.diesiraebleach.beienkyoriitem": "Beienkyoriitem",
       "effect.kyusei_p": "吸精",
       "subtitles.kaensmall": "",
+      "item.diesiraebleach.largefireball_spawn_egg": "Largefireball Spawn Egg",
       "key.diesiraebleach.kougeki": "Kougeki",
       "item.diesiraebleach.schmeizer_item": "Schmeizer Item",
       "item.diesiraebleach.dora_cannon": "聖遺物【極大火砲・狩猟の魔王】",
@@ -2684,6 +2800,7 @@
       "subtitles.finger": "",
       "item.diesiraebleach.getsugaenkyori": "Getsugaenkyori",
       "item.diesiraebleach.panzer_mahoujin_spawn_egg": "Panzer Mahoujin Spawn Egg",
+      "item.diesiraebleach.hihiirokanesouzousword": "Hihiirokanesouzousword",
       "subtitles.bakuhatsu": "",
       "subtitles.terror": "",
       "advancements.katsudouj.title": "活動位階",
@@ -2706,9 +2823,11 @@
       "effect.rosenkavalier_schwarzwald": "創造 ― 死森の薔薇騎士",
       "advancements.souzou.descr": "聖遺物と一体となり、己が渇望を具現化した世界を創り出す。",
       "item.diesiraebleach.makina_glove": "人世界・終焉変生",
+      "effect.hihiirokanesouzoup": "創造 ― 爾天神之命以布斗麻邇爾ト相而詔之",
       "item.diesiraebleach.kui": "Kui",
       "subtitles.speed4": "",
       "item.diesiraebleach.schmeizer_mahoujin_spawn_egg": "Schmeizer Mahoujin Spawn Egg",
+      "entity.diesiraebleach.largefireball": "Largefireball",
       "effect.levitationfirepotion": "火炎浮揚",
       "subtitles.timestop": "",
       "entity.diesiraebleach.panzer_mahoujin": "Panzer Mahoujin",

@@ -21,6 +21,7 @@ import net.minecraft.entity.Entity;
 import net.mcreator.diesiraebleach.particle.SamielMahoujin1Particle;
 import net.mcreator.diesiraebleach.particle.MuzzleflashParticle;
 import net.mcreator.diesiraebleach.item.DummyschmeizerItem;
+import net.mcreator.diesiraebleach.DiesiraebleachModVariables;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
 import java.util.stream.Collectors;
@@ -168,43 +169,47 @@ public class Schmeizer2Procedure {
 									.collect(Collectors.toList());
 							for (Entity entityiterator : _entfound) {
 								if (!(entity == entityiterator)) {
-									entityiterator.attackEntityFrom(DamageSource.GENERIC, (float) 20);
+									entityiterator.attackEntityFrom(DamageSource.GENERIC,
+											(float) (20 + (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+													.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 100));
 								}
 							}
 						}
-						new Object() {
-							private int ticks = 0;
-							private float waitTicks;
-							private IWorld world;
+						for (int index2 = 0; index2 < (int) (3); index2++) {
+							new Object() {
+								private int ticks = 0;
+								private float waitTicks;
+								private IWorld world;
 
-							public void start(IWorld world, int waitTicks) {
-								this.waitTicks = waitTicks;
-								MinecraftForge.EVENT_BUS.register(this);
-								this.world = world;
-							}
-
-							@SubscribeEvent
-							public void tick(TickEvent.ServerTickEvent event) {
-								if (event.phase == TickEvent.Phase.END) {
-									this.ticks += 1;
-									if (this.ticks >= this.waitTicks)
-										run();
+								public void start(IWorld world, int waitTicks) {
+									this.waitTicks = waitTicks;
+									MinecraftForge.EVENT_BUS.register(this);
+									this.world = world;
 								}
-							}
 
-							private void run() {
-								if (world instanceof ServerWorld) {
-									((ServerWorld) world).spawnParticle(MuzzleflashParticle.particle,
-											(x + MathHelper.nextDouble(new Random(), 5, 20)
-													* Math.cos(Math.toRadians(entity.rotationYaw + MathHelper.nextDouble(new Random(), 0, 180)))),
-											(y + MathHelper.nextDouble(new Random(), 0, 3)),
-											(z + MathHelper.nextDouble(new Random(), 5, 20)
-													* Math.sin(Math.toRadians(entity.rotationYaw + MathHelper.nextDouble(new Random(), 36, 180)))),
-											(int) 2, 0.1, 0.1, 0.1, 0);
+								@SubscribeEvent
+								public void tick(TickEvent.ServerTickEvent event) {
+									if (event.phase == TickEvent.Phase.END) {
+										this.ticks += 1;
+										if (this.ticks >= this.waitTicks)
+											run();
+									}
 								}
-								MinecraftForge.EVENT_BUS.unregister(this);
-							}
-						}.start(world, (int) 5);
+
+								private void run() {
+									if (world instanceof ServerWorld) {
+										((ServerWorld) world).spawnParticle(MuzzleflashParticle.particle,
+												(x + MathHelper.nextDouble(new Random(), 5, 20)
+														* Math.cos(Math.toRadians(entity.rotationYaw + MathHelper.nextDouble(new Random(), 0, 180)))),
+												(y + MathHelper.nextDouble(new Random(), 0, 3)),
+												(z + MathHelper.nextDouble(new Random(), 5, 20) * Math
+														.sin(Math.toRadians(entity.rotationYaw + MathHelper.nextDouble(new Random(), 36, 180)))),
+												(int) 2, 0.1, 0.1, 0.1, 0);
+									}
+									MinecraftForge.EVENT_BUS.unregister(this);
+								}
+							}.start(world, (int) 5);
+						}
 					}
 					MinecraftForge.EVENT_BUS.unregister(this);
 				}

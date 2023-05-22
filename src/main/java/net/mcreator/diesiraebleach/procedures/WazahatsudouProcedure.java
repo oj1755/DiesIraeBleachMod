@@ -397,7 +397,7 @@ public class WazahatsudouProcedure {
 					if (entity instanceof LivingEntity)
 						((LivingEntity) entity).addPotionEffect(new EffectInstance(LevitationfirepotionPotionEffect.potion, (int) 1e+26, (int) 1));
 					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u7A7A\u4E2D\u6D6E\u904A"), (true));
+						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u706B\u708E\u6D6E\u904A"), (true));
 					}
 				}
 			}

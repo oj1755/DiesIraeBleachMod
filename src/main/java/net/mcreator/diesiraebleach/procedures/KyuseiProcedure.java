@@ -50,6 +50,6 @@ public class KyuseiProcedure {
 		if (world instanceof ServerWorld) {
 			((ServerWorld) world).spawnParticle(SouzouparticleParticle.particle, x, (y + 0), z, (int) 3, 0, 0.1, 0, 0.2);
 		}
-		entity.attackEntityFrom(DamageSource.GENERIC, (float) 0.5);
+		entity.attackEntityFrom(DamageSource.GENERIC, (float) 1);
 	}
 }

@@ -16,6 +16,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.entity.Entity;
 
 import net.mcreator.diesiraebleach.particle.SamielExplosionParticle;
+import net.mcreator.diesiraebleach.particle.HinokoParticle;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
 import java.util.stream.Collectors;
@@ -93,6 +94,9 @@ public class BakuhaProcedure {
 					}
 					if (world instanceof ServerWorld) {
 						((ServerWorld) world).spawnParticle(SamielExplosionParticle.particle, x, y, z, (int) 3, 3, 3, 3, 0);
+					}
+					if (world instanceof ServerWorld) {
+						((ServerWorld) world).spawnParticle(HinokoParticle.particle, x, y, z, (int) 50, 3, 3, 3, 1);
 					}
 					{
 						List<Entity> _entfound = world.getEntitiesWithinAABB(Entity.class,

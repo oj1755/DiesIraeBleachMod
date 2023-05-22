@@ -2,8 +2,6 @@
 package net.mcreator.diesiraebleach.item;
 
 import net.minecraftforge.registries.ObjectHolder;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.World;
 import net.minecraft.util.Hand;
@@ -90,12 +88,6 @@ public class HihiirokaneItem extends DiesiraebleachModElements.ModElement {
 								new AbstractMap.SimpleEntry<>("entity", entity))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				return retval;
-			}
-
-			@Override
-			@OnlyIn(Dist.CLIENT)
-			public boolean hasEffect(ItemStack itemstack) {
-				return true;
 			}
 		}.setRegistryName("hihiirokane"));
 	}

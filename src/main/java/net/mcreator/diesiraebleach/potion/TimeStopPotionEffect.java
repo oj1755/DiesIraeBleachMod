@@ -47,7 +47,7 @@ public class TimeStopPotionEffect {
 
 		@Override
 		public boolean isInstant() {
-			return false;
+			return true;
 		}
 
 		@Override

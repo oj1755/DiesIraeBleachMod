@@ -11,11 +11,11 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.potion.Effects;
 import net.minecraft.potion.EffectInstance;
-import net.minecraft.particles.ParticleTypes;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
+import net.mcreator.diesiraebleach.particle.FlameParticle;
 import net.mcreator.diesiraebleach.DiesiraebleachModVariables;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
@@ -72,7 +72,7 @@ public class HihiirokaneenteiteigaaitemuwoZhentutaShiProcedure {
 			for (Entity entityiterator : _entfound) {
 				if (!(entity == entityiterator)) {
 					entityiterator.attackEntityFrom(DamageSource.IN_FIRE,
-							(float) (2 + (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							(float) (10 + (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 									.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 100));
 					entityiterator.setFire((int) 10);
 				}
@@ -100,7 +100,7 @@ public class HihiirokaneenteiteigaaitemuwoZhentutaShiProcedure {
 		}
 		for (int index0 = 0; index0 < (int) (2); index0++) {
 			for (int index1 = 0; index1 < (int) (11); index1++) {
-				world.addParticle(ParticleTypes.FLAME, (x - r * Math.sin(Math.toRadians(deg))), (y + 1), (z + r * Math.cos(Math.toRadians(deg))),
+				world.addParticle(FlameParticle.particle, (x - r * Math.sin(Math.toRadians(deg))), (y + 1), (z + r * Math.cos(Math.toRadians(deg))),
 						((-0.1) * Math.sin(Math.toRadians(deg))), 0, (0.1 * Math.cos(Math.toRadians(deg))));
 				deg = (deg + 18);
 				if (((Entity) world.getEntitiesWithinAABB(MonsterEntity.class,

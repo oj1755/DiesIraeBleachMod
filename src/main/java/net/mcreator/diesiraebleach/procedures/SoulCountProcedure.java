@@ -109,8 +109,7 @@ public class SoulCountProcedure {
 									+ ((DeadEntity instanceof LivingEntity) ? ((LivingEntity) DeadEntity).getMaxHealth() : -1) / 200));
 						if (entity instanceof PlayerEntity)
 							((PlayerEntity) entity).getFoodStats().setFoodLevel(
-									(int) (((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).getFoodStats().getFoodLevel() : 0)
-											+ ((DeadEntity instanceof LivingEntity) ? ((LivingEntity) DeadEntity).getMaxHealth() : -1) / 200));
+									(int) (((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).getFoodStats().getFoodLevel() : 0) + 0.5));
 					}
 				}
 			}

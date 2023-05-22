@@ -29,8 +29,8 @@
     "guiBoundTo": "<NONE>",
     "inventorySize": 9,
     "inventoryStackSize": 64,
-    "onRightClickedInAir": {
-      "name": "Beikeisei"
+    "onItemInUseTick": {
+      "name": "BeiKeiseihanaaitemuwoShoudeChituteiruJiannoteituku"
     },
     "isFood": false,
     "nutritionalValue": 4,

@@ -24,9 +24,12 @@ import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
+import net.mcreator.diesiraebleach.particle.SlashsweepleftParticle;
 import net.mcreator.diesiraebleach.particle.SlashsweepParticle;
-import net.mcreator.diesiraebleach.particle.Flame2Particle;
+import net.mcreator.diesiraebleach.particle.HinokoParticle;
+import net.mcreator.diesiraebleach.particle.FlameParticle;
 import net.mcreator.diesiraebleach.item.MarglittoJudisItem;
+import net.mcreator.diesiraebleach.item.HihiirokanesouzouswordItem;
 import net.mcreator.diesiraebleach.item.HihiirokaneItem;
 import net.mcreator.diesiraebleach.item.BeienkyoriitemItem;
 import net.mcreator.diesiraebleach.item.BeiKeiseihanaItem;
@@ -75,6 +78,8 @@ public class TosshinProcedure {
 		double X = 0;
 		double Y = 0;
 		double Z = 0;
+		double r = 0;
+		double r2 = 0;
 		X = (entity.world
 				.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
 						entity.getEyePosition(1f).add(entity.getLook(1f).x * 4, entity.getLook(1f).y * 4, entity.getLook(1f).z * 4),
@@ -174,7 +179,11 @@ public class TosshinProcedure {
 				}
 			}
 		}
-		if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem() == HihiirokaneItem.block) {
+		if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem() == HihiirokaneItem.block
+				|| (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).DerfreischeSamiel == true
+				|| ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+						.getItem() == HihiirokanesouzouswordItem.block) {
 			if (entity instanceof LivingEntity) {
 				((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 			}
@@ -189,8 +198,18 @@ public class TosshinProcedure {
 						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.blaze.shoot")),
 						SoundCategory.NEUTRAL, (float) 0.5, (float) 1, false);
 			}
+			r = (entity.rotationYaw);
+			r2 = (entity.rotationPitch);
+			for (int index1 = 0; index1 < (int) (10); index1++) {
+				if (world instanceof ServerWorld) {
+					((ServerWorld) world).spawnParticle(FlameParticle.particle, (x + 5 * Math.toRadians(Math.cos(r2))),
+							(y + 5 * Math.toRadians(Math.sin(r2))), z, (int) 100, X, Y, Z, 0.2);
+				}
+				r = (r + 36);
+				r = (r2 + 36);
+			}
 			if (world instanceof ServerWorld) {
-				((ServerWorld) world).spawnParticle(Flame2Particle.particle, x, y, z, (int) 100, X, Y, Z, 0.2);
+				((ServerWorld) world).spawnParticle(HinokoParticle.particle, x, y, z, (int) 100, X, Y, Z, 0.2);
 			}
 			{
 				List<Entity> _entfound = world
@@ -204,7 +223,7 @@ public class TosshinProcedure {
 				for (Entity entityiterator : _entfound) {
 					if (!(entity == entityiterator)) {
 						entityiterator.attackEntityFrom(DamageSource.ON_FIRE,
-								(float) (2 + (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+								(float) (5 + (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 										.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 100));
 						entityiterator.setFire((int) 10);
 					}
@@ -228,7 +247,10 @@ public class TosshinProcedure {
 						SoundCategory.NEUTRAL, (float) 0.5, (float) 1, false);
 			}
 			if (world instanceof ServerWorld) {
-				((ServerWorld) world).spawnParticle(SlashsweepParticle.particle, x, y, z, (int) 100, X, Y, Z, 0.2);
+				((ServerWorld) world).spawnParticle(SlashsweepParticle.particle, x, y, z, (int) 50, X, Y, Z, 0.2);
+			}
+			if (world instanceof ServerWorld) {
+				((ServerWorld) world).spawnParticle(SlashsweepleftParticle.particle, x, y, z, (int) 50, X, Y, Z, 0.2);
 			}
 			{
 				List<Entity> _entfound = world
@@ -242,7 +264,7 @@ public class TosshinProcedure {
 				for (Entity entityiterator : _entfound) {
 					if (!(entity == entityiterator)) {
 						entityiterator.attackEntityFrom(DamageSource.ON_FIRE,
-								(float) (2 + (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+								(float) (5 + (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 										.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul / 100));
 					}
 				}

@@ -208,7 +208,7 @@ public class WazasentakuProcedure {
 				if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 						.orElse(new DiesiraebleachModVariables.PlayerVariables())).waza == 10) {
 					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u7A7A\u4E2D\u6D6E\u904A"), (true));
+						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A74\u706B\u708E\u6D6E\u904A"), (true));
 					}
 				}
 				if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)

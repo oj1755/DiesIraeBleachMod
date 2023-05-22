@@ -16,6 +16,6 @@ public class FirekibakupureiyagakonoenteiteitoChongTusitatokiProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		entity.attackEntityFrom(DamageSource.GENERIC, (float) 5);
+		entity.attackEntityFrom(DamageSource.GENERIC, (float) 10);
 	}
 }

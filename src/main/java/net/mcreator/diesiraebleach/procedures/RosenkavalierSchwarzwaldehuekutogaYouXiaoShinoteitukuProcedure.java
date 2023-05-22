@@ -78,7 +78,7 @@ public class RosenkavalierSchwarzwaldehuekutogaYouXiaoShinoteitukuProcedure {
 					if (world instanceof ServerWorld) {
 						((ServerWorld) world).spawnParticle(SouzouparticleParticle.particle, (entityiterator.getPosX()), (entityiterator.getPosY()),
 								(entityiterator.getPosZ()), (int) 5, (entity.getPosX() - entityiterator.getPosX()),
-								(entity.getPosY() - entityiterator.getPosY()), (entity.getPosZ() - entityiterator.getPosZ()), 0.3);
+								(entity.getPosY() - entityiterator.getPosY()), (entity.getPosZ() - entityiterator.getPosZ()), 1);
 					}
 					if (entity.isAlive()) {
 						if (((entityiterator instanceof LivingEntity) ? ((LivingEntity) entityiterator).getHealth() : -1) > 0) {

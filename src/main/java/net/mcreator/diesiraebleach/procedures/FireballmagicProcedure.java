@@ -72,7 +72,7 @@ public class FireballmagicProcedure {
 
 						return entityToSpawn;
 					}
-				}.getArrow(projectileLevel, entity, 5, 1);
+				}.getArrow(projectileLevel, entity, 10, 1);
 				_entityToSpawn.setPosition(_shootFrom.getPosX(), _shootFrom.getPosYEye() - 0.1, _shootFrom.getPosZ());
 				_entityToSpawn.shoot(_shootFrom.getLookVec().x, _shootFrom.getLookVec().y, _shootFrom.getLookVec().z, 3, 0);
 				projectileLevel.addEntity(_entityToSpawn);

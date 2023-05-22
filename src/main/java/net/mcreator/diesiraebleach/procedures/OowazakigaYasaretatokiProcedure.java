@@ -20,9 +20,11 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.block.Blocks;
 
+import net.mcreator.diesiraebleach.potion.HihiirokanesouzoupPotionEffect;
 import net.mcreator.diesiraebleach.potion.FujiRenSouzouPotionEffectPotionEffect;
 import net.mcreator.diesiraebleach.particle.RenkeiseiparticleParticle;
 import net.mcreator.diesiraebleach.item.MarglittoJudisItem;
+import net.mcreator.diesiraebleach.item.HihiirokanesouzouswordItem;
 import net.mcreator.diesiraebleach.item.HihiirokaneItem;
 import net.mcreator.diesiraebleach.DiesiraebleachModVariables;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
@@ -274,6 +276,73 @@ public class OowazakigaYasaretatokiProcedure {
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("\u00A7c\u5F62\u6210 \u2015 \u7DCB\u3005\u8272\u91D1"), (true));
+			}
+		}
+		if ((((entity instanceof ServerPlayerEntity) && (entity.world instanceof ServerWorld))
+				? ((ServerPlayerEntity) entity).getAdvancements()
+						.getProgress(((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
+								.getAdvancement(new ResourceLocation("diesiraebleach:souzou")))
+						.isDone()
+				: false)
+				&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Keisei == true
+				&& (entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new DiesiraebleachModVariables.PlayerVariables())).Hihiirokane == true) {
+			if ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+					.orElse(new DiesiraebleachModVariables.PlayerVariables())).Souzou == true) {
+				if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+						.getItem() == HihiirokanesouzouswordItem.block) {
+					if (entity instanceof LivingEntity) {
+						ItemStack _setstack = new ItemStack(HihiirokaneItem.block);
+						_setstack.setCount((int) 1);
+						((LivingEntity) entity).setHeldItem(Hand.MAIN_HAND, _setstack);
+						if (entity instanceof ServerPlayerEntity)
+							((ServerPlayerEntity) entity).inventory.markDirty();
+					}
+					if (entity instanceof LivingEntity) {
+						((LivingEntity) entity).removePotionEffect(HihiirokanesouzoupPotionEffect.potion);
+					}
+					{
+						boolean _setval = (false);
+						entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+							capability.Souzou = _setval;
+							capability.syncPlayerVariables(entity);
+						});
+					}
+				}
+			} else {
+				if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+						.getItem() == HihiirokaneItem.block) {
+					if (entity instanceof LivingEntity) {
+						ItemStack _setstack = new ItemStack(HihiirokanesouzouswordItem.block);
+						_setstack.setCount((int) 1);
+						((LivingEntity) entity).setHeldItem(Hand.MAIN_HAND, _setstack);
+						if (entity instanceof ServerPlayerEntity)
+							((ServerPlayerEntity) entity).inventory.markDirty();
+					}
+					{
+						double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul - 30);
+						entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+							capability.Killsoul = _setval;
+							capability.syncPlayerVariables(entity);
+						});
+					}
+					{
+						boolean _setval = (true);
+						entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+							capability.Souzou = _setval;
+							capability.syncPlayerVariables(entity);
+						});
+					}
+					if (entity instanceof LivingEntity)
+						((LivingEntity) entity).addPotionEffect(new EffectInstance(HihiirokanesouzoupPotionEffect.potion, (int) 8000, (int) 0));
+					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(
+								"\u00A7c\u5275\u9020 \u2015 \u723E\u5929\u795E\u4E4B\u547D\u4EE5\u5E03\u6597\u9EBB\u9087\u723E\u30C8\u76F8\u800C\u8A54\u4E4B"),
+								(true));
+					}
+				}
 			}
 		}
 	}
