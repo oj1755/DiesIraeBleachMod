@@ -2431,6 +2431,58 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "largefireball"
+    },
+    {
+      "name": "Schereiberparticle1",
+      "type": "particle",
+      "sortid": 145,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "schereiberparticle_1"
+    },
+    {
+      "name": "Schreiberparticle2",
+      "type": "particle",
+      "sortid": 146,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "schreiberparticle_2"
+    },
+    {
+      "name": "SchreibereffectehuekutogaYouXiaoShinoteituku",
+      "type": "procedure",
+      "sortid": 147,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "schreibereffectehuekutoga_you_xiao_shinoteituku",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Schreibereffect",
+      "type": "potioneffect",
+      "sortid": 147,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "schreibereffect"
     }
   ],
   "variable_elements": [
@@ -2835,6 +2887,7 @@
       "subtitles.guncharge": "",
       "subtitles.kensuburi": "",
       "subtitles.fire": "",
+      "effect.schreibereffect": "神速",
       "entity.diesiraebleach.firekibaku": "Firekibaku",
       "subtitles.panzersummon": "",
       "item.diesiraebleach.ibara_spawn_egg": "Ibara Spawn Egg"

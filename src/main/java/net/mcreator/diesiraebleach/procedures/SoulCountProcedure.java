@@ -85,7 +85,7 @@ public class SoulCountProcedure {
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,
-							new AxisAlignedBB(x - (20 / 2d), y - (20 / 2d), z - (20 / 2d), x + (20 / 2d), y + (20 / 2d), z + (20 / 2d)), null)
+							new AxisAlignedBB(x - (50 / 2d), y - (50 / 2d), z - (50 / 2d), x + (50 / 2d), y + (50 / 2d), z + (50 / 2d)), null)
 					.stream().sorted(new Object() {
 						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
@@ -93,23 +93,26 @@ public class SoulCountProcedure {
 					}.compareDistOf(x, y, z)).collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
 				if (!entityiterator.isAlive()) {
-					DeadEntity = entityiterator;
-					{
-						double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-								.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul
-								+ ((DeadEntity instanceof LivingEntity) ? ((LivingEntity) DeadEntity).getMaxHealth() : -1) / 100);
-						entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-							capability.Killsoul = _setval;
-							capability.syncPlayerVariables(entity);
-						});
-					}
-					if (entity.isAlive()) {
-						if (entity instanceof LivingEntity)
-							((LivingEntity) entity).setHealth((float) (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHealth() : -1)
-									+ ((DeadEntity instanceof LivingEntity) ? ((LivingEntity) DeadEntity).getMaxHealth() : -1) / 200));
-						if (entity instanceof PlayerEntity)
-							((PlayerEntity) entity).getFoodStats().setFoodLevel(
-									(int) (((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).getFoodStats().getFoodLevel() : 0) + 0.5));
+					if (entityiterator instanceof LivingEntity) {
+						DeadEntity = entityiterator;
+						{
+							double _setval = ((entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+									.orElse(new DiesiraebleachModVariables.PlayerVariables())).Killsoul
+									+ ((DeadEntity instanceof LivingEntity) ? ((LivingEntity) DeadEntity).getMaxHealth() : -1) / 100);
+							entity.getCapability(DiesiraebleachModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.Killsoul = _setval;
+								capability.syncPlayerVariables(entity);
+							});
+						}
+						if (entity.isAlive()) {
+							if (entity instanceof LivingEntity)
+								((LivingEntity) entity)
+										.setHealth((float) (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHealth() : -1)
+												+ ((DeadEntity instanceof LivingEntity) ? ((LivingEntity) DeadEntity).getMaxHealth() : -1) / 200));
+							if (entity instanceof PlayerEntity)
+								((PlayerEntity) entity).getFoodStats().setFoodLevel(
+										(int) (((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).getFoodStats().getFoodLevel() : 0) + 0.5));
+						}
 					}
 				}
 			}

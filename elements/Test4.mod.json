@@ -30,7 +30,7 @@
     "inventorySize": 9,
     "inventoryStackSize": 64,
     "onRightClickedInAir": {
-      "name": "DerFreishutuzSamiel"
+      "name": "Schreiber"
     },
     "isFood": false,
     "nutritionalValue": 4,

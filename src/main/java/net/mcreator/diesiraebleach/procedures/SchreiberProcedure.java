@@ -14,6 +14,7 @@ import net.minecraft.potion.EffectInstance;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
+import net.mcreator.diesiraebleach.potion.SchreibereffectPotionEffect;
 import net.mcreator.diesiraebleach.DiesiraebleachMod;
 
 import java.util.Map;
@@ -56,7 +57,7 @@ public class SchreiberProcedure {
 		double Z = 0;
 		X = (entity.world
 				.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-						entity.getEyePosition(1f).add(entity.getLook(1f).x * 8, entity.getLook(1f).y * 8, entity.getLook(1f).z * 8),
+						entity.getEyePosition(1f).add(entity.getLook(1f).x * 20, entity.getLook(1f).y * 20, entity.getLook(1f).z * 20),
 						RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, entity))
 				.getPos().getX()
 				- entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
@@ -64,7 +65,7 @@ public class SchreiberProcedure {
 						RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, entity)).getPos().getX());
 		Y = (entity.world
 				.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-						entity.getEyePosition(1f).add(entity.getLook(1f).x * 8, entity.getLook(1f).y * 8, entity.getLook(1f).z * 8),
+						entity.getEyePosition(1f).add(entity.getLook(1f).x * 20, entity.getLook(1f).y * 20, entity.getLook(1f).z * 20),
 						RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, entity))
 				.getPos().getY()
 				- entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
@@ -72,7 +73,7 @@ public class SchreiberProcedure {
 						RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, entity)).getPos().getY());
 		Z = (entity.world
 				.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
-						entity.getEyePosition(1f).add(entity.getLook(1f).x * 8, entity.getLook(1f).y * 8, entity.getLook(1f).z * 8),
+						entity.getEyePosition(1f).add(entity.getLook(1f).x * 20, entity.getLook(1f).y * 20, entity.getLook(1f).z * 20),
 						RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, entity))
 				.getPos().getZ()
 				- entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
@@ -90,6 +91,8 @@ public class SchreiberProcedure {
 		}
 		if (entity instanceof LivingEntity)
 			((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.INVISIBILITY, (int) 6, (int) 1));
+		if (entity instanceof LivingEntity)
+			((LivingEntity) entity).addPotionEffect(new EffectInstance(SchreibereffectPotionEffect.potion, (int) 20, (int) 1));
 		if (world instanceof World && !((World) world).isRemote) {
 			((World) world).createExplosion(null,
 					(int) (entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
